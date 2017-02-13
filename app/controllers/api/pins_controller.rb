@@ -2,16 +2,32 @@ class Api::PinsController < ApplicationController
   helper_method :current_user
 
   def index
-    pins = Pin.where.not(user_id: current_user.id.to_s).shuffle
-    if (pins.length > 40)
-      @pins = pins[0..39]
-    else
-      @pins = pins
-    end
-      @pin_user_info = []
-      @pins.each do |pin|
-        @pin_user_info << [pin.user.username, pin.user.profile_picture]
+    pins = Pin.all.shuffle
+    all_pins_count = pins.length
+    pin_sets = (pins.length / 20)
+    hash = {}
+    i = 0
+    not_complete = true
+    while not_complete
+      if ((i*19 + 2) + 19) > all_pins_count
+        pin_set = pins[i*19...all_pins_count - 1]
+        not_complete = false
+      else
+        pin_set = pins[(i*19 + 2)...(i*19 + 19)]
       end
+      pin_set_hash = pin_set.as_json
+      j = 0
+      while j < pin_set.length
+        pin_set_hash[j]["username"] = pin_set[j].user.username
+        pin_set_hash[j]["profile_picture"] = pin_set[j].user.profile_picture
+        j += 1
+      end
+      hash[i] = pin_set_hash
+      i += 1
+    end
+    hash[i + 1] = []
+    @pins = hash
+    @pin_set_count = hash.keys.length - 1
     render :index
   end
 

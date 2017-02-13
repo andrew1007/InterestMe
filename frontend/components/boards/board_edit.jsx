@@ -7,7 +7,8 @@ export default class BoardEdit extends React.Component {
     this.state = {
       editBoxOpen: true,
       deleteConfirmBox: false,
-      name: ''
+      name: '',
+      cancelState: false
     };
     this.editButton = this.editButton.bind(this);
     this.editForm = this.editForm.bind(this);
@@ -21,7 +22,8 @@ export default class BoardEdit extends React.Component {
   }
 
   handleCancelButton() {
-    this.setState({deleteConfirmBox: false, editBoxOpen: false})
+    this.setState({deleteConfirmBox: false, editBoxOpen: false, cancelState:true})
+    debugger
     this.props.handleSelfClose()
   }
 
@@ -59,12 +61,16 @@ export default class BoardEdit extends React.Component {
   }
 
   handleUpdateSubmit(e) {
+    if (this.state.cancelState) {
+      return
+    }
     e.preventDefault();
     this.setState({deleteConfirmBox: false, editBoxOpen: false});
     if (this.state.name.split(" ").join("")){
       this.props.editBoard({name: this.state.name,
         id: this.props.board.boards.id});
     }
+    debugger
     this.props.handleSelfClose();
   }
 
@@ -88,9 +94,9 @@ export default class BoardEdit extends React.Component {
                 <button type="Submit" value="Submit">
                   Update
                 </button>
-                <button onClick={this.handleCancelButton}>
-                  Cancel
-                </button>
+                  <button onClick={this.handleCancelButton}>
+                    Cancel
+                  </button>
                 <button onClick={this.handleDeleteButton}>
                   Delete board
                 </button>

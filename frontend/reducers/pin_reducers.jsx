@@ -12,11 +12,12 @@ const PinReducer = (state = defaultState, action) => {
     case RECEIVE_PINS:
       console.log("received pins");
       const pins = action.pins.pins;
+      const pinSetCount = action.pins.pinSetCount
       if (action.pins.pin_user_info){
         const pinUserInfo = action.pins.pin_user_info
         return {pins: pins, pinUserInfo: pinUserInfo}
       } else {
-        return {pins: pins}
+        return {pins: pins, pinSetCount: pinSetCount}
       }
     case DESTROY_PIN:
       console.log("delete pin");

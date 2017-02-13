@@ -50,8 +50,12 @@ class Api::BoardsController < ApplicationController
 
   def destroy
     @board = Board.find(params[:id])
+    board_pins = @board.pins
     if @board
       @board.destroy
+      board_pins.each do |pins|
+        pins.destroy
+      end
       render :show
     else
       render json: @board.errors.full_messages, status: 422

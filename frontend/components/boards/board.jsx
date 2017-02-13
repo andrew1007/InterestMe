@@ -40,7 +40,6 @@ export default class Board extends React.Component {
   }
 
   componentDidMount(){
-    debugger
     this.findImageHeight()
   }
 
@@ -58,7 +57,6 @@ export default class Board extends React.Component {
   }
 
   componentWillMount() {
-    debugger
     this.props.getPins(this.props.boardId)
     .then( () => this.props.getBoard(this.props.boardId))
     .then( () => this.setState({finishedLoading: true,

@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import PinContainer from '../pins/pins_container';
 import ReactHeight from 'react-height';
 import {hashHistory} from 'react-router';
+import InfiniteScroll from 'react-infinite-scroller';
 
 export default class Homepage extends React.Component{
   constructor(props){
@@ -12,9 +13,15 @@ export default class Homepage extends React.Component{
       pinsReceieved: false,
       modalIsOpen: false,
       focusedPinId: null,
-      finishedLoading: false
+      finishedLoading: false,
+      pinSet: [],
+      pinsToRender: [],
+      pinBatchCounter: 0,
+      pinSetCount: 0,
+      hasMorePins: true
     }
     document.body.style.overflow = "auto";
+    this.loadMorePins = this.loadMorePins.bind(this);
     this.handleTileClick = this.handleTileClick.bind(this);
     this.pinTileRender = this.pinTileRender.bind(this);
     this.masonryLayout = this.masonryLayout.bind(this);
@@ -36,7 +43,15 @@ export default class Homepage extends React.Component{
   componentWillMount(){
     this.props.getHome()
     .then( () => this.findImageHeight())
-    .then( () => this.setState({finishedLoading: true}))
+    .then( () => this.setState({
+      pinsToRender: this.props.pins.pins[this.state.pinBatchCounter]
+    }))
+    .then( () => {
+      this.setState({
+        finishedLoading: true,
+        pinSetCount: this.props.pins.pinSetCount
+      })
+    })
   }
 
   handleTileClick(e) {
@@ -52,24 +67,26 @@ export default class Homepage extends React.Component{
   }
 
   pinTileRender(){
-    console.log(this.props);
+    var pinTileContainerClassName = "pin-tile-container";
+    var boardTilePicClassName = "board-tile-pic";
+    var pinImageClassName = "pin-image";
     return(
-      this.props.pins.pins.map( (tile, idx) => {
+      this.state.pinsToRender.map( (tile, idx) => {
         return(
-          <div key={idx} className="pin-tile-container-hide">
-            <button className="board-tile-pic-hide" name={tile.id} onClick={(e) => this.handleTileClick(e)}>
-              <img className="pin-image-hide" src={tile.image_url}/>
+          <div key={idx} className={pinTileContainerClassName}>
+            <button className={boardTilePicClassName} name={tile.id} onClick={this.handleTileClick}>
+              <img name={tile.id} onClick={this.handleTileClick}  className={pinImageClassName} src={tile.image_url}/>
             </button>
-            <div className="pin-tile-content">
+            <div name={tile.id} onClick={this.handleTileClick} className="pin-tile-content">
               <div className="pin-tile-author-container">
                 <div className="pin-tile-author-profile-picture-container">
                   <img value={tile.user_id} onClick={this.redirectToAuthorProfile}
                     className="pin-tile-author-profile-picture"
-                    src={this.props.pins.pinUserInfo[idx][1]}/>
+                    src={tile.profile_picture}/>
                 </div>
                 <div className="pin-tile-author-name">
                   <button className="board-pin-author-button" value={tile.user_id} onClick={this.redirectToAuthorProfile}>
-                    {this.props.pins.pinUserInfo[idx][0]}
+                    {tile.username}
                   </button>
                 </div>
               </div>
@@ -162,8 +179,28 @@ export default class Homepage extends React.Component{
     )
   }
 
+  loadMorePins(){
+    console.log(this.state.pinBatchCounter);
+    console.log(this.state.pinSetCount);
+    console.log(this.state.pinBatchCounter + 1 >= this.state.pinSetCount);
+    console.log(this.props);
+    setTimeout( () => {
+      if (this.state.pinBatchCounter == this.state.pinSetCount){
+        this.setState({
+          hasMorePins: false
+        })
+      } else {
+        this.setState({pinSet: this.props.pins.pins[this.state.pinBatchCounter + 1],
+          pinsToRender: this.state.pinsToRender.concat(this.state.pinSet),
+          pinBatchCounter: this.state.pinBatchCounter + 1})
+        }
+        return
+    }, 250)
+  }
 
   render(){
+
+
     return(
       <div>
         <div className="homepage-welcome">
@@ -175,7 +212,20 @@ export default class Homepage extends React.Component{
             </a>
           </div>
         </div>
-        {this.state.finishedLoading ? this.masonryLayout() : null}
+        {this.state.finishedLoading ?
+          <InfiniteScroll
+            pageStart={0}
+            loadMore={this.loadMorePins}
+            hasMore={this.state.hasMorePins}
+            loader={<div className="loader">Loading ...</div>}
+            threshold={10}
+            className='homepage-board'
+          >
+            {this.masonryLayout()}
+          </InfiniteScroll>
+          : null
+        }
+
         {this.state.finishedLoading ? this.pinShow() : null}
       </div>
     )

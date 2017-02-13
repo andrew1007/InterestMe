@@ -141,7 +141,6 @@ title = [
 body = [
   "And that's why I believe that Sebastian has at least some sort of feeling of love towards ceil because after all the pain he's gone through he's still kinder then alois or alot of other people.",
   "",
-  "Ciel phantomhive sebastian michaelis kuroshitsuji ",
   "More proof that girls make the cosplayers",
   "",
   "Cieling... I AM DOING THIS TO THE ART ROOM ABSOLUTELY NO CHOICE I WILL HAVE MY CIELING ",
@@ -211,7 +210,6 @@ end
 g = Board.create!({user_id: 1, name: "Star Wars"})
 image = [
   "http://res.cloudinary.com/andoo/image/upload/v1486830722/101f4e42b041c22ae8eccf45f4b2e31d_p17zes.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486830820/5f1ec2c8fe7c1bbb430dc9ae9e2b51a8_rsxbqi.jpg",
   "http://res.cloudinary.com/andoo/image/upload/v1484918490/guillem-h-pongiluppi-501-st-legion-vader-s-fist-vs-space-cockroaches-7-guillemhp_vtrqcn.jpg",
   "http://res.cloudinary.com/andoo/image/upload/v1484918488/ed3313d88e3d66499f1703108b55c469_or1uug.jpg",
   "http://res.cloudinary.com/andoo/image/upload/v1484918488/c74176b662dbce095f19dbeb56c19d69_i0il3k.jpg",
@@ -226,7 +224,6 @@ image = [
   ]
 title = [
   "Star Wars Force of Darkness Art Print",
-  "Darth Vader",
   "Great pic",
   "Fan art!",
   "More vader :)",
@@ -241,7 +238,6 @@ title = [
 ]
 body = [
   "Iconic characters from the Star Wars universe who have been lured to the Dark Side unleash their evil on the Star Wars Force of Darkness Art… ",
-  "Darth Vader... Lord of the Sith More Mehr ",
   "",
   "",
   "",
@@ -523,23 +519,17 @@ Board.create!({user_id: 7,name:"Delish"})
 #board 9
 Board.create!({user_id: 4, name:"Men's Fashion"})
 title = [
-  "ZeusFactor",
   "What to Wear On A New Year's Eve?",
   "The dress shirt fit",
-  "That jean jacket",
 
 ]
 body = [
-  "More fashion inspirations for men, menswear and lifestyle @ www.zeusfactor.com",
   "",
   "",
-  ""
 ]
 image = [
-  "http://res.cloudinary.com/andoo/image/upload/v1486920091/4893a5ea735a3750aaf36fd66c0206f4_t2gfd9.jpg",
   "http://res.cloudinary.com/andoo/image/upload/v1486920144/b05bf6a10a47419d2147f5bb11425dd1_nwf3cn.jpg",
   "http://res.cloudinary.com/andoo/image/upload/v1486920207/1f1ad3706d3fa195e2e2d3672bffd942_zl0h4h.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486920342/902dd97eb383d14b4a08f1c2dcfc78b0_xyyyt2.jpg"
 ]
 image.each_index do |idx|
   Pin.create!({user_id: 4, board_id: 9, title: title[idx], body: body[idx], image_url:image[idx]})
@@ -641,7 +631,6 @@ end
 #board 12
 Board.create({user_id: 6, name:"Pixar"})
 title = [
-  "Way too easy",
   "Gorgeous Wall-E",
   "One of my Favorites",
   "Here to take us to a better place...",
@@ -650,7 +639,6 @@ title = [
   "I love her"
 ]
 body = [
-  "",
   "Wall-E reminds me of one of my bff's he is so funny and does not talk much....wall-E",
   "Buzz & Woody, the leaders, try to save the toys while they overcome obstacles. Exactly what Odysseus did, which was also the leader in The Odyssey.",
   "The Claw by Danny Handke, Available in WonderGround Gallery in Downtown Disney District at the Disneyland Resort",
@@ -660,7 +648,6 @@ body = [
 
 ]
 image = [
-  "http://res.cloudinary.com/andoo/image/upload/v1486922210/cb60039057ce2efe6a9856d0069b4a08_mlcpee.jpg",
   "http://res.cloudinary.com/andoo/image/upload/v1486922267/552134ec3049f3adcd43fc38284cd67e_ou5cnb.jpg",
   "http://res.cloudinary.com/andoo/image/upload/v1486922343/0edec46280f825b6220026e87ec4f535_idz3dh.jpg",
   "http://res.cloudinary.com/andoo/image/upload/v1486922406/b1b1b2121c3d7895e3a880d871cd067b_azgd21.jpg",
@@ -673,14 +660,12 @@ image.each_index do |idx|
 end
 title = [
   "You look a little cold",
-  "Pixar development process"
 ]
 body = [
   "Remember to wrap up warm when outside in the snow.",
 ]
 image = [
   "http://res.cloudinary.com/andoo/image/upload/v1486922739/3fe747f1e1073a3a6d68685a3980319f_h7ibop.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486922843/95f6944d746ab0f53caf8a02ae9852c3_zwngp1.jpg"
 ]
 image.each_index do |idx|
   Pin.create!({user_id: 6, board_id: 12, title: title[idx], body: body[idx], image_url:image[idx]})
@@ -690,8 +675,6 @@ end
 Board.create({user_id: 8, name:"Women's fashion"})
 title = [
   "Trending in Summer 2016",
-  "Casual outfits for Spring",
-  " Fall Outfit Gray Cardigans Coat",
   "Masculine Fashion Ideas For Women",
   "Women's Two Tone Pumps - 2 Colors",
   "Unboring Work Outfit For You",
@@ -705,8 +688,6 @@ title = [
 body = [
   "",
   "",
-  "Have you ever tried? No? then go and make it happen. For inspiration: Classic Masculine Fashion Ideas For Women",
-  "",
   "Unboring Work Outfit For You Here are some hints on how you can make boring work outfits look interesting: Add some color",
   "",
   "",
@@ -717,8 +698,6 @@ body = [
 ]
 image = [
   "http://res.cloudinary.com/andoo/image/upload/v1486930728/8a8e3f82d9ac56f3a18ff0331c84bc47_y2k0hy.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486930805/8f11c36f0a3fc7f2a4f03b978327ee8d_znpddn.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486930923/08030405f8d6a2eb933ebb1433300da7_foainv.jpg",
   "http://res.cloudinary.com/andoo/image/upload/v1486930966/066e5ac27b83f29628b969986532cefd_ymuqld.jpg",
   "http://res.cloudinary.com/andoo/image/upload/v1486931018/bba004f0007962096c0391d2c3d5c616_zygkax.jpg",
   "http://res.cloudinary.com/andoo/image/upload/v1486931089/26663ed6dcb4c55c30d2a9c58b54b901_pkvd8c.jpg",
@@ -774,4 +753,43 @@ image = [
 
 image.each_index do |idx|
   Pin.create!({user_id: 2, board_id: 14, title: title[idx], body: body[idx], image_url:image[idx]})
+end
+
+#board 15
+Board.create({user_id: 4, name:"Movie Posters"})
+title = [
+  "Star Wars Posters From Around the World",
+  "Guardians of the Galaxy Poster by Florey",
+  "Jaws",
+  "Back to the Future (1985)",
+  "An Alternative ‘Alien’ Poster",
+  "Se7en by Christopher Cox More",
+  "Minimalist Skyfall",
+  "Minimalist Star Wars Poster",
+  "The Dark Knight"
+]
+body = [
+  "",
+  "",
+  "",
+  "Marty McFly, a 17-year-old high school student, is accidentally sent 30 years into the past in a time-traveling DeLorean invented by his…",
+  "",
+  "",
+  "",
+  "",
+  ""
+]
+image = [
+  "http://res.cloudinary.com/andoo/image/upload/v1486958686/69cc89ce76e6a4c762730c2024241880_avtup7.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1486958872/056649dcf638e8006a31af8f25a0f725_pqbq6h.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1486958897/43308731958b3b64b4dc743484892881_bsb2fv.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1486958961/63bbe130a2fbf9c2240c7c9c44f13c3a_rw9e4u.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1486959017/1440a6f863758811ea8b954d5a555397_ythami.jpg",
+  'http://res.cloudinary.com/andoo/image/upload/v1486959078/1bf9bdde8f8ecd5d6a77694723bf02bb_1_xqhcv3.jpg',
+  "http://res.cloudinary.com/andoo/image/upload/v1486959210/80f8f9dd74d76f3ebc6b1caf1e9989e5_jlypfx.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1486959150/864802d9fae547f8b72a1c88af852162_mtnymk.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1486959121/da3bbe3597cdc8b787b8a2577ecfc3cf_leipq8.jpg"
+]
+image.each_index do |idx|
+  Pin.create!({user_id: 4, board_id: 15, title: title[idx], body: body[idx], image_url:image[idx]})
 end
