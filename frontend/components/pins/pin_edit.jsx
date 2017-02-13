@@ -71,7 +71,8 @@ export default class PinEdit extends React.Component {
   }
 
   handleDeleteSubmit(){
-    this.props.deletePin(this.props.pinId);
+    this.props.deletePin(this.props.id);
+    debugger
     this.setState({deleteConfirmBox: false})
     this.props.handleChildCancelButton()
   }

@@ -66,7 +66,7 @@ export default class Pin extends React.Component {
         onAfterOpen={this.afterOpenModal}
         onRequestClose={this.closeModal}
         contentLabel="Modal"
-        className="ReactModal__Content__Pin"
+        className="edit-pin-modal"
       >
         <PinEditContainer
           handleChildCancelButton={this.childHandler}

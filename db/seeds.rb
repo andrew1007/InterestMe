@@ -678,7 +678,6 @@ title = [
   "Masculine Fashion Ideas For Women",
   "Women's Two Tone Pumps - 2 Colors",
   "Unboring Work Outfit For You",
-  "dashingly different",
   "Florals and Stripes",
   "Oversized Scarf + Leather Moto Jacket ",
   "Ruched Design Destroy Washed Moto Jeans",

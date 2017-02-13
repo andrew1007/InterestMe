@@ -48,6 +48,11 @@ export default class PinNewForm extends React.Component {
   handleSubmit(e) {
     // log(this.getPath())
     e.preventDefault();
+    hashHistory.push({
+      pathname: `/boards/${this.state.boardId}`,
+      state: {newPinMade: true}
+    })
+
     this.props.newPin({
       title: this.state.title,
       body: this.state.body,
@@ -55,8 +60,6 @@ export default class PinNewForm extends React.Component {
       image_url: this.state.imageUrl})
     this.setState( {imageUrl: false})
     this.props.handleChildCancelButton()
-    hashHistory.push(`/`)
-    hashHistory.push(`/boards/${this.state.boardId}`)
   }
 
   update(text) {

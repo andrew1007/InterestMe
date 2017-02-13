@@ -44,21 +44,42 @@ export default class Board extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.boardId !== nextProps.boardId){
+    if (this.props.boardId !== nextProps.boardId || !this.state.owner){
       this.setState({finishedLoading: false})
       this.props.getBoard(nextProps.boardId)
       .then ( () => this.setState({finishedLoading: true,
-        name: this.props.board.name
+        name: this.props.board.name,
+        owner:  this.props.board.owner
       }))
       .then( () => {
         this.findImageHeight()
       })
     }
+    if (this.props.location.state){
+      if (this.props.location.state.newPinMade){
+        hashHistory.push({
+          pathname: `/boards/${this.props.boardId}`,
+          state: {
+            newPinMade: false
+          }
+        })
+        this.setState({finishedLoading: false})
+        this.props.getBoard(nextProps.boardId)
+        .then ( () => this.setState({finishedLoading: true,
+          name: this.props.board.name,
+          owner:  this.props.board.owner
+        }))
+        .then( () => {
+          this.findImageHeight()
+          debugger
+          this.props.location.state
+        })
+      }
+    }
   }
 
   componentWillMount() {
-    this.props.getPins(this.props.boardId)
-    .then( () => this.props.getBoard(this.props.boardId))
+    this.props.getBoard(this.props.boardId)
     .then( () => this.setState({finishedLoading: true,
       name: this.props.board.name
     }))
