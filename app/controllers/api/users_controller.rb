@@ -15,7 +15,15 @@ helper_method :current_user
 
   def show
     @user = User.find(params[:id])
-    @user_pins = @user.pins
+    user_pins = @user.pins
+    user_pin_hash = user_pins.as_json
+    i = 0
+    while i < user_pin_hash.length
+      user_pin_hash[i]["username"] = @user.username
+      user_pin_hash[i]["profile_picture"] = @user.profile_picture
+      i += 1
+    end
+    @user_pins = user_pin_hash
     @user_boards = @user.boards
     @followed_by = @user.followed_by
     @following = @user.following

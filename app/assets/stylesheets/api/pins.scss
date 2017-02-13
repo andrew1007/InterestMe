@@ -19,17 +19,17 @@
   border-radius: 10px;
 }
 
-.pin-image:hover {
-  border-radius: 10px;
-  transition: 0.25s;
-  filter: brightness(75%);
-}
+// .pin-image:hover {
+//   border-radius: 10px;
+//   transition: 0.25s;
+//   filter: brightness(75%);
+// }
 
 .board-tile-pic {
   padding: 0px;
   margin: 0px;
-  min-width: 260px;
-  max-width: 260px;
+  min-width: 300px;
+  max-width: 300px;
   min-height: 160px;
   height: auto;
   display: block;
@@ -40,21 +40,36 @@
   z-index: 1;
 }
 
+  .board-tile-pic:hover {
+   border-radius: 10px;
+    transition: 0.25s;
+    filter: brightness(75%);
+  }
+
 .pin-image {
-  min-width: 260px;
-  max-width: 260px;
+  min-width: 300px;
+  max-width: 300px;
 }
 
 .board-tile-pic-hide{
-  min-width: 260px;
-  max-width: 260px;
+  padding: 0px;
+  margin: 0px;
+  min-width: 300px;
+  max-width: 300px;
   min-height: 160px;
   height: auto;
+  display: block;
+  position: relative;
+  float: none;
   color: transparent;
   background-color: transparent;
+  z-index: 1;
+  opacity: 0;
 }
 
 .pin-image-hide {
+  min-width: 300px;
+  max-width: 300px;
   opacity: 0.0;
 }
 

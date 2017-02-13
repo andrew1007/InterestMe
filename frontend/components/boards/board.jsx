@@ -44,7 +44,8 @@ export default class Board extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.boardId !== nextProps.boardId || !this.state.owner){
+    debugger
+    if (this.props.boardId !== nextProps.boardId){
       this.setState({finishedLoading: false})
       this.props.getBoard(nextProps.boardId)
       .then ( () => this.setState({finishedLoading: true,
@@ -80,6 +81,7 @@ export default class Board extends React.Component {
 
   componentWillMount() {
     this.props.getBoard(this.props.boardId)
+    .then( () => this.findImageHeight())
     .then( () => this.setState({finishedLoading: true,
       name: this.props.board.name
     }))
@@ -93,23 +95,25 @@ export default class Board extends React.Component {
   }
 
   pinTileRender(){
-    console.log(this.props);
+    var pinTileContainerClassName = "pin-tile-container-hide";
+    var boardTilePicClassName = "board-tile-pic-hide";
+    var pinImageClassName = "pin-image-hide";
     return(
       this.props.board.pins.map( (tile, idx) => {
         return(
-          <div key={idx} className="pin-tile-container-hide">
-            <button className="board-tile-pic-hide" name={tile.id} onClick={(e) => this.handleTileClick(e)}>
-              <img className="pin-image-hide" src={tile.image_url}/>
+          <div key={idx} className={pinTileContainerClassName}>
+            <button className={boardTilePicClassName} name={tile.id} onClick={this.handleTileClick}>
+              <img className={pinImageClassName} src={tile.image_url}/>
             </button>
             <div className="pin-tile-content">
               <div className="pin-tile-author-container">
                 <div className="pin-tile-author-profile-picture-container">
-                  <img onClick={this.redirectToAuthorProfile}
+                  <img value={tile.user_id} onClick={this.redirectToAuthorProfile}
                     className="pin-tile-author-profile-picture"
                     src={tile.profile_picture}/>
                 </div>
                 <div className="pin-tile-author-name">
-                  <button className="board-pin-author-button" onClick={this.redirectToAuthorProfile}>
+                  <button className="board-pin-author-button" value={tile.user_id} onClick={this.redirectToAuthorProfile}>
                     {tile.username}
                   </button>
                 </div>
@@ -274,7 +278,6 @@ export default class Board extends React.Component {
           "pin-tile-container-hide"
         ].forEach( (className) => {
           let classes = document.getElementsByClassName(`${className}`);
-          console.log("asdfasdfsad");
           while (classes.length){
             classes[0].className = classes[0].className.replace("-hide","")
           }
@@ -283,7 +286,7 @@ export default class Board extends React.Component {
         })
         counter += 1
       }
-    }, 800)
+    }, 500)
   }
 
 

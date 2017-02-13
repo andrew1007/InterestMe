@@ -25,9 +25,10 @@ export default class PinEdit extends React.Component {
   }
 
   handleSubmit() {
+    debugger
     this.props.editPin({title: this.state.title,
       body: this.state.body,
-      id: this.props.pinId,
+      id: this.props.id,
       board_id: this.props.boardId})
       this.props.handleChildCancelButton()
   }
@@ -78,6 +79,7 @@ export default class PinEdit extends React.Component {
   }
 
   handleDeleteConfirmCancel(){
+    debugger
     this.setState({deleteConfirmBox: false})
   }
 

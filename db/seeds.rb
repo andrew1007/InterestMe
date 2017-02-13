@@ -567,7 +567,7 @@ title = [
   "Navi... sooooo annoying",
   "So true LOL",
   "Cucco Fury",
-  "Drop dead gorgous forest temple",
+  "Forest temple",
   "Twilight Princess",
   "SONG OF TIME T-Shirt"
 ]
@@ -791,4 +791,37 @@ image = [
 ]
 image.each_index do |idx|
   Pin.create!({user_id: 4, board_id: 15, title: title[idx], body: body[idx], image_url:image[idx]})
+end
+
+
+title = [
+  "Come join us for a Paint Nite Party!",
+  "Starry night with silhouette mountains",
+  "art and painting image",
+  "NLIT BRANCHES BY LITTLESPARROWGALLERY",
+  "Abstract Landscape",
+  ""
+]
+
+body = [
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+
+]
+
+image = [
+  "http://res.cloudinary.com/andoo/image/upload/v1487013846/a4b1602e05d757c02c661bdb2d2e1326_p7npsm.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487013943/01d3ecb704f32b2776c00daaa8c32531_qbljgt.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487013995/d204f4340446f7dcb98c476df5a509a4_hynxao.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487014059/23ac4f99b593a92a38903bbc55cdcb65_ofg4a2.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487014110/7e0bdbe1a55784cd8761d0bfa2eb4ee9_nlh3u4.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487014219/48dbc3452bdb636e017924fb2038a607_1_da2owj.jpg"
+]
+
+image.each_index do |idx|
+  Pin.create!({user_id: 2, board_id: 14, title: title[idx], body: body[idx], image_url:image[idx]})
 end

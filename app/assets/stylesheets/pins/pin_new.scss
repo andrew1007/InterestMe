@@ -6,7 +6,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 200;
-  overflow: hidden !important;
+  overflow-y: scroll !important;
   padding: 1px;
   width: auto;
   max-width: 60%;
@@ -14,9 +14,26 @@
   min-width: 500px;
   padding: 30px 40px 30px 40px !important;
   background-color: white;
-  border-radius: 15px;
+  border-radius: 6px;
   border: solid 2px;
   border-color: #d7432d;
+}
+
+
+.newPinModal::-webkit-scrollbar {
+    top: 10px;
+    width: 4px;
+    border-radius: 30px;
+}
+
+.newPinModal::-webkit-scrollbar-track {
+  // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 15px;
+}
+
+.newPinModal::-webkit-scrollbar-thumb {
+  background-color: rgba($color-light, 0.7);
+  border-radius: 30px;
 }
 
 .pin-new-content-in-box {
@@ -51,10 +68,16 @@
   padding-top: 30px !important;
 }
 
+.new-pin-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .new-pin-form {
   display: block;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .new-pin-textarea {
@@ -154,13 +177,21 @@
   outline: none;
 }
 
+.new-pin-form-button-container {
+  display: flex;
+  margin-top: 20px;
+  flex-direction: row;
+  width: 40%;
+  justify-content: space-between;
+}
+
 .pin-new-add-board-container {
   background-color: transparent;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 125px;
+  height: 50px;
 }
 
 .pin-new-add-board-button {

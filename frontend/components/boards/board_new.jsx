@@ -37,6 +37,7 @@ export default class Board extends React.Component {
           </span>
           <br/>
           <input
+            className="board-new-input"
             autoFocus type='text' onChange={this.update('name')}
             />
           <br/>

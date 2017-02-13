@@ -112,28 +112,25 @@ export default class PinNewForm extends React.Component {
 
   inputForm(){
     return (
-      <div>
+      <div className="new-pin-form-container">
         <form onSubmit={this.handleSubmit}>
           <div className="new-pin-form">
             <div className="new-pin-form-titles">
               Title
             </div>
-            <br/
-              ><input
+            <input
               onChange={this.update('title')}
               defaultValue={this.state.title}
-              /><br/>
+              />
             <div className="new-pin-form-titles">
               Description
             </div>
-            <br/>
             <textarea className="new-pin-textarea"
               type="textarea"
               onChange={this.update('body')}
               >
               {this.state.body}
             </textarea>
-            <br/>
             <select className="new-pin-board-select-dropdown" onChange={this.update("boardId")}>
               <option selected disabled>--Select a board--</option>
               {
@@ -142,11 +139,15 @@ export default class PinNewForm extends React.Component {
                 )
               }
             </select>
-            <br/>
-            <button type="Submit" value="Submit">Post</button>
-            <button onClick={this.handleNewPinCancelButton}>
-              Cancel
-            </button>
+            <div className="new-pin-form-button-container">
+              <button type="Submit" value="Submit">
+                Post
+              </button>
+              <button onClick={this.handleNewPinCancelButton}>
+                Cancel
+              </button>
+
+            </div>
           </div>
         </form>
         <div className="pin-new-add-board-container">
@@ -186,6 +187,7 @@ export default class PinNewForm extends React.Component {
           </span>
           <br/>
           <input
+            className="board-new-input"
             autoFocus type='text' onChange={this.update('name')}
             />
           <br/>

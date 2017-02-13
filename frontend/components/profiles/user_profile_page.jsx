@@ -47,6 +47,7 @@ export default class UserProfile extends React.Component{
     this.isProfileOwner = this.isProfileOwner.bind(this);
     this.handleNewBoardClick = this.handleNewBoardClick.bind(this);
     this.resetTabs = this.resetTabs.bind(this);
+    this.redirectToAuthorProfile = this.redirectToAuthorProfile.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
@@ -86,6 +87,7 @@ export default class UserProfile extends React.Component{
 
   componentWillMount(){
     this.props.getProfilePage(this.props.userId)
+    .then( () => this.findImageHeight())
     .then( () => {
       this.setState({doneLoading: true, isFollowing: this.props.user.isFollowing})
     })
@@ -240,6 +242,7 @@ export default class UserProfile extends React.Component{
 
 
   showPins(){
+    console.log(this.props);
     return(
       this.props.user.pins.map( (pin, idx) => {
         return(
@@ -251,15 +254,42 @@ export default class UserProfile extends React.Component{
     )
   }
 
+  redirectToAuthorProfile(e) {
+    e.preventDefault()
+    hashHistory.push(`/user/${e.currentTarget.getAttribute("value")}`)
+  }
+
   pinTileRender(){
+    var pinTileContainerClassName = "pin-tile-container-hide";
+    var boardTilePicClassName = "board-tile-pic-hide";
+    var pinImageClassName = "pin-image-hide";
     return(
       this.props.user.pins.map( (tile, idx) => {
         return(
-          <li key={idx} className="pin-tile-hide">
-            <button className="board-tile-pic-hide" name={tile.id} onClick={(e) => this.handleTileClick(e)}>
-              <img className="pin-image-hide" src={tile.image_url}/>
+          <div key={idx} className={pinTileContainerClassName}>
+            <button className={boardTilePicClassName} name={tile.id} onClick={this.handleTileClick}>
+              <img className={pinImageClassName} src={tile.image_url}/>
             </button>
-          </li>
+            <div className="pin-tile-content">
+              <div className="pin-tile-author-container">
+                <div className="pin-tile-author-profile-picture-container">
+                  <img value={tile.user_id} onClick={this.redirectToAuthorProfile}
+                    className="pin-tile-author-profile-picture"
+                    src={tile.profile_picture}/>
+                </div>
+                <div className="pin-tile-author-name">
+                  <button className="board-pin-author-button" value={tile.user_id} onClick={this.redirectToAuthorProfile}>
+                    {tile.username}
+                  </button>
+                </div>
+              </div>
+              <div className="pin-tile-information-container">
+                <div className="pin-tile-title">
+                  {tile.title}
+                </div>
+              </div>
+            </div>
+          </div>
         )
       })
     )
@@ -300,7 +330,8 @@ export default class UserProfile extends React.Component{
         [
           "pin-tile-hide",
           "board-tile-pic-hide",
-          "pin-image-hide"
+          "pin-image-hide",
+          "pin-tile-container-hide"
         ].forEach( (className) => {
           let classes = document.getElementsByClassName(`${className}`);
           while (classes.length){
@@ -313,6 +344,7 @@ export default class UserProfile extends React.Component{
       }
     }, 500)
   }
+
 
   showBoards(){
     return(

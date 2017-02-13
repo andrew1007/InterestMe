@@ -4,6 +4,10 @@
   font-size: 25px;
 }
 
+.board-new-input {
+  width: 90%
+}
+
 .board-new-modal {
   padding: 40px 60px 40px 60px !important;
   border-radius: 15px;
@@ -11,6 +15,7 @@
 }
 
 .board-new-form-container {
+  margin-left: 45px;
   height: 200px;
   display: flex;
   align-items: center;

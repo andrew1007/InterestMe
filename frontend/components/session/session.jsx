@@ -113,6 +113,7 @@ export default class Session extends React.Component {
   closeModal() {
     this.setState({modalIsOpen: false, newPinFormOpen: false});
     this.props.clearErrors();
+    document.body.style.overflow = "auto";
   }
 
   modalText() {
@@ -124,7 +125,9 @@ export default class Session extends React.Component {
   }
 
   handleChildCancelButton(){
+    debugger
     this.setState({newPinFormOpen: false})
+    document.body.style.overflow="auto";
   }
 
   newPinForm(){
@@ -143,6 +146,7 @@ export default class Session extends React.Component {
 
   handleNewBoardClick(){
     this.setState({newPinFormOpen: true})
+    document.body.style.overflow = "hidden";
   }
 
   handleProfileClick(e){

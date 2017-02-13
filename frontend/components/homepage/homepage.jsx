@@ -67,17 +67,24 @@ export default class Homepage extends React.Component{
   }
 
   pinTileRender(){
-    var pinTileContainerClassName = "pin-tile-container";
-    var boardTilePicClassName = "board-tile-pic";
-    var pinImageClassName = "pin-image";
+    console.log(this.state.pinBatchCounter);
+    if (this.state.pinBatchCounter === 0){
+      var pinTileContainerClassName = "pin-tile-container-hide";
+      var boardTilePicClassName = "board-tile-pic-hide";
+      var pinImageClassName = "pin-image-hide";
+    } else {
+      var pinTileContainerClassName = "pin-tile-container";
+      var boardTilePicClassName = "board-tile-pic";
+      var pinImageClassName = "pin-image";
+    }
     return(
       this.state.pinsToRender.map( (tile, idx) => {
         return(
           <div key={idx} className={pinTileContainerClassName}>
             <button className={boardTilePicClassName} name={tile.id} onClick={this.handleTileClick}>
-              <img name={tile.id} onClick={this.handleTileClick}  className={pinImageClassName} src={tile.image_url}/>
+              <img className={pinImageClassName} src={tile.image_url}/>
             </button>
-            <div name={tile.id} onClick={this.handleTileClick} className="pin-tile-content">
+            <div className="pin-tile-content">
               <div className="pin-tile-author-container">
                 <div className="pin-tile-author-profile-picture-container">
                   <img value={tile.user_id} onClick={this.redirectToAuthorProfile}
@@ -149,7 +156,7 @@ export default class Homepage extends React.Component{
         })
         counter += 1
       }
-    }, 800)
+    }, 500)
   }
 
   closeModal() {
@@ -195,12 +202,14 @@ export default class Homepage extends React.Component{
           pinBatchCounter: this.state.pinBatchCounter + 1})
         }
         return
-    }, 250)
+    }, 20)
+  }
+
+  windowHeight(){
+
   }
 
   render(){
-
-
     return(
       <div>
         <div className="homepage-welcome">
@@ -218,7 +227,7 @@ export default class Homepage extends React.Component{
             loadMore={this.loadMorePins}
             hasMore={this.state.hasMorePins}
             loader={<div className="loader">Loading ...</div>}
-            threshold={10}
+            threshold={1000}
             className='homepage-board'
           >
             {this.masonryLayout()}
