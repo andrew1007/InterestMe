@@ -8,7 +8,8 @@ export default class PinEdit extends React.Component {
       title: '',
       body: '',
       deleteConfirmBox: false,
-      modalIsOpen: false
+      modalIsOpen: false,
+      wasDeleteCancel: false
     };
     this.editForm = this.editForm.bind(this);
     this.update = this.update.bind(this);
@@ -25,7 +26,10 @@ export default class PinEdit extends React.Component {
   }
 
   handleSubmit() {
-    debugger
+    if (this.state.wasDeleteCancel){
+      this.setState({wasDeleteCancel: false})
+      return
+    }
     this.props.editPin({title: this.state.title,
       body: this.state.body,
       id: this.props.id,
@@ -80,7 +84,8 @@ export default class PinEdit extends React.Component {
 
   handleDeleteConfirmCancel(){
     debugger
-    this.setState({deleteConfirmBox: false})
+    this.setState({deleteConfirmBox: false,
+    wasDeleteCancel: true})
   }
 
   deleteConfirm() {

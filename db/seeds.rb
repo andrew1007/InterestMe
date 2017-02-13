@@ -13,8 +13,8 @@ User.create!({username: "mona-chan", password:"password", profile_picture: monac
 User.create!({username: "bamflame97", password:"password", profile_picture: bamflame97})
 User.create!({username: "andrew1007", password:"password", profile_picture: andrew1007})
 User.create!({username: "pikachu", password:"password", profile_picture: pikachu})
-User.create!({username: "DjJason", password:"password", profile_picture: djjason})
 User.create!({username: "peralta", password:"password", profile_picture: peralta})
+User.create!({username: "DjJason", password:"password", profile_picture: djjason})
 User.create!({username: "andoo1007", password:"password", profile_picture: profile_picture})
 User.create!({username: "Kasey", password:"password", profile_picture: profile_picture})
 User.create!({username: "spadesofaces", password:"password", profile_picture: profile_picture})
@@ -562,14 +562,15 @@ end
 #board 10
 Board.create!({user_id: 5, name:"Zelda"})
 title = [
-  "Dark link in the water temple",
+  "Dark link fight in the water temple",
   "Young Link and Navi",
   "Navi... sooooo annoying",
   "So true LOL",
   "Cucco Fury",
   "Forest temple",
   "Twilight Princess",
-  "SONG OF TIME T-Shirt"
+  "SONG OF TIME T-Shirt",
+  "Ganon's Castle"
 ]
 body = [
   "One of my favorite fights",
@@ -579,7 +580,9 @@ body = [
   "Everybody learns their lesson at least once",
   "Illustrator/Legend of Zelda fan Jessica Smith, to celebrate Zelda Wii U coming out this year, painted this magnificent picture of what the…",
   "The Legend of Zelda: Twilight Princess watching this game is like watching a movie! (A GOOD movie :))",
-  "SONG OF TIME T-Shirt"
+  "SONG OF TIME T-Shirt",
+  ""
+
 ]
 image = [
   "http://res.cloudinary.com/andoo/image/upload/v1486920993/3eac92deada76c095d8f6596665d1859_uipyms.jpg",
@@ -589,7 +592,8 @@ image = [
   "http://res.cloudinary.com/andoo/image/upload/v1486921303/c88986c49226db4ffee2eb4da005079c_gpr0cy.jpg",
   "http://res.cloudinary.com/andoo/image/upload/v1486921409/f5e0e7e644d817c048d5c1e7a4b7d0f2_bjqlld.jpg",
   "http://res.cloudinary.com/andoo/image/upload/v1486921455/25ca0beb814b6c125444828e70a01f33_hxciyv.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486921519/f179a7b39588cf0b22a63d66d2171c01_eyxpx9.jpg"
+  "http://res.cloudinary.com/andoo/image/upload/v1486921519/f179a7b39588cf0b22a63d66d2171c01_eyxpx9.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487029822/345e8c38f7cde417816fad5c8fe7b472_hzb48v.jpg"
 ]
 image.each_index do |idx|
   Pin.create!({user_id: 5, board_id: 10, title: title[idx], body: body[idx], image_url:image[idx]})
@@ -672,7 +676,7 @@ image.each_index do |idx|
 end
 
 #board 13
-Board.create({user_id: 8, name:"Women's fashion"})
+Board.create({user_id: 7, name:"Women's fashion"})
 title = [
   "Trending in Summer 2016",
   "Masculine Fashion Ideas For Women",
@@ -707,7 +711,7 @@ image = [
   "http://res.cloudinary.com/andoo/image/upload/v1486931392/88fadd683e03ddd64b1844b31f14985f_s2oji8.jpg"
 ]
 image.each_index do |idx|
-  Pin.create!({user_id: 8, board_id: 13, title: title[idx], body: body[idx], image_url:image[idx]})
+  Pin.create!({user_id: 7, board_id: 13, title: title[idx], body: body[idx], image_url:image[idx]})
 end
 
 #board 14
@@ -824,4 +828,94 @@ image = [
 
 image.each_index do |idx|
   Pin.create!({user_id: 2, board_id: 14, title: title[idx], body: body[idx], image_url:image[idx]})
+end
+
+
+
+title = [
+  "Watercolor Tree Painting",
+  "Makes me want to paint!",
+  "Oil painting",
+  "Realistic flower",
+  "By Denis Mayer Jr.",
+  "Dynamic Cityscape",
+  "Van Gogh"
+]
+
+body = [
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+]
+
+image = [
+  "http://res.cloudinary.com/andoo/image/upload/v1487027835/d311c3ca0cbd867d21a03e63cf8bf21f_lisoha.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487027887/1b06a2abe5efbf6f82da06140e8f59c2_n7o54l.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487027961/d7ac98006f180cc2eb34fa68d4c41614_hyxkli.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487028019/46dcdc7fe72c3090d28ba0a15979efce_b2tfbd.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487028073/0226fe8d91473a89241e99e5e42b2adb_iqbktq.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487028123/57a062462bc7769370a9619638c4835d_g8djnf.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487028172/a3ad823ae8e6232ff6f0e8e929b4cd80_h5p6ji.jpg"
+]
+
+image.each_index do |idx|
+  Pin.create!({user_id: 2, board_id: 14, title: title[idx], body: body[idx], image_url:image[idx]})
+end
+
+#board 16
+Board.create({user_id: 6, name:"Pokemon"})
+
+title = [
+  "The possibilities - Eeveelution rainbow",
+  "My Inner Self",
+  "Recharging",
+  "",
+  "What.",
+  "Dragon in the pond",
+  "Way too cute"
+]
+
+body = [
+  "By WalkingMelonsAAA.... on @DeviantArt",
+  "Created by Ramy Badie",
+  "",
+  "Commission for 1MrGray by eldrige.deviantar... on @DeviantArt",
+  "",
+  "Dratini No.147",
+  ""
+
+]
+
+image = [
+  "http://res.cloudinary.com/andoo/image/upload/v1487028960/a2eb29ed5a417e32bd0336a223b2b171_vswxlx.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487029186/38b2d7350bde5cb6efce3d5cb3092c42_iyxafr.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487029246/download_xlljvf.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487029341/d4af2cad838609e6afe29dfb8c33703a_1_bxw5r5.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487029378/41466becd6024d848fd30a56f838ff97_maxg4k.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487029444/0365026eaf823062a3b706e73c82b53d_k1z5ff.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487029666/f136c077c83571bbedc1b04b4917b809_sjlgh8.jpg"
+]
+
+image.each_index do |idx|
+  Pin.create!({user_id: 6, board_id: 16, title: title[idx], body: body[idx], image_url:image[idx]})
+end
+
+#board 17
+Board.create({user_id: 5, name:"Outer Space"})
+title = [
+]
+
+body = [
+
+]
+
+image = [
+]
+
+image.each_index do |idx|
+  Pin.create!({user_id: 5, board_id: 17, title: title[idx], body: body[idx], image_url:image[idx]})
 end

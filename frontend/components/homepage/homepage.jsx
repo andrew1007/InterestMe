@@ -42,10 +42,10 @@ export default class Homepage extends React.Component{
 
   componentWillMount(){
     this.props.getHome()
-    .then( () => this.findImageHeight())
     .then( () => this.setState({
       pinsToRender: this.props.pins.pins[this.state.pinBatchCounter]
     }))
+    .then( () => this.findImageHeight())
     .then( () => {
       this.setState({
         finishedLoading: true,
@@ -187,10 +187,6 @@ export default class Homepage extends React.Component{
   }
 
   loadMorePins(){
-    console.log(this.state.pinBatchCounter);
-    console.log(this.state.pinSetCount);
-    console.log(this.state.pinBatchCounter + 1 >= this.state.pinSetCount);
-    console.log(this.props);
     setTimeout( () => {
       if (this.state.pinBatchCounter == this.state.pinSetCount){
         this.setState({
@@ -205,9 +201,6 @@ export default class Homepage extends React.Component{
     }, 20)
   }
 
-  windowHeight(){
-
-  }
 
   render(){
     return(
@@ -227,7 +220,7 @@ export default class Homepage extends React.Component{
             loadMore={this.loadMorePins}
             hasMore={this.state.hasMorePins}
             loader={<div className="loader">Loading ...</div>}
-            threshold={1000}
+            threshold={300}
             className='homepage-board'
           >
             {this.masonryLayout()}
