@@ -54,11 +54,9 @@ export default class PinNewForm extends React.Component {
       board_id: parseInt(this.state.boardId),
       image_url: this.state.imageUrl})
     this.setState( {imageUrl: false})
-    .then( () => {
-      this.props.handleChildCancelButton()
-      hashHistory.push(`/`)
-      hashHistory.push(`/boards/${this.state.boardId}`)
-    })
+    this.props.handleChildCancelButton()
+    hashHistory.push(`/`)
+    hashHistory.push(`/boards/${this.state.boardId}`)
   }
 
   update(text) {
@@ -114,13 +112,17 @@ export default class PinNewForm extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <div className="new-pin-form">
-            <a>Title</a>
+            <div className="new-pin-form-titles">
+              Title
+            </div>
             <br/
               ><input
               onChange={this.update('title')}
               defaultValue={this.state.title}
               /><br/>
-            <a>Body</a>
+            <div className="new-pin-form-titles">
+              Description
+            </div>
             <br/>
             <textarea className="new-pin-textarea"
               type="textarea"

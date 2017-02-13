@@ -155,8 +155,7 @@ export default class Board extends React.Component {
   }
 
   handleSelfClose(){
-    this.props.getPins(this.props.board.id)
-    .then( () => this.props.getBoard(this.props.boardId))
+    this.props.getBoard(this.props.boardId)
     .then( () => {
         this.setState({modalIsOpen: false, newPinFormOpen: false, name: this.props.board.name, editFormOpen: false})
     })

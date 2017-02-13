@@ -705,7 +705,6 @@ title = [
 body = [
   "",
   "",
-  "",
   "Have you ever tried? No? then go and make it happen. For inspiration: Classic Masculine Fashion Ideas For Women",
   "",
   "Unboring Work Outfit For You Here are some hints on how you can make boring work outfits look interesting: Add some color",
@@ -719,7 +718,6 @@ body = [
 image = [
   "http://res.cloudinary.com/andoo/image/upload/v1486930728/8a8e3f82d9ac56f3a18ff0331c84bc47_y2k0hy.jpg",
   "http://res.cloudinary.com/andoo/image/upload/v1486930805/8f11c36f0a3fc7f2a4f03b978327ee8d_znpddn.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486930872/fda2363cd0e1ab95950debb5f9ae8005_o08wsl.jpg",
   "http://res.cloudinary.com/andoo/image/upload/v1486930923/08030405f8d6a2eb933ebb1433300da7_foainv.jpg",
   "http://res.cloudinary.com/andoo/image/upload/v1486930966/066e5ac27b83f29628b969986532cefd_ymuqld.jpg",
   "http://res.cloudinary.com/andoo/image/upload/v1486931018/bba004f0007962096c0391d2c3d5c616_zygkax.jpg",
@@ -732,4 +730,48 @@ image = [
 ]
 image.each_index do |idx|
   Pin.create!({user_id: 8, board_id: 13, title: title[idx], body: body[idx], image_url:image[idx]})
+end
+
+#board 14
+Board.create({user_id: 2, name:"Paintings"})
+title = [
+  "Impressionistic Iris Illustrations",
+  "Charles White Secluded Gazebo",
+  "Jeremy Miranda",
+  "",
+  "What Element Are You?",
+  "Mind-Twisting Optical Illusion Paintings By Rob Gonsalves",
+  "Can You Name All 55 Colors?",
+  "Book Art Is Awesome: Drawn Edition",
+  "The Artwork of Leonid Afremov",
+  "Painting Black Cat Kitten schwarze Katze Chat noir Art by AiA"
+]
+body = [
+  "Pavel Guzenko - The eyes are what most people gravitate towards when looking at any sort of portrait",
+  "A secluded gazebo is barely visible behind the luxurious flowering bushes in another beautiful floral garden print by award winning artist Charles White.",
+  "As I was perusing Emily Henderson’s blog today I came across a post where she was talking about several artists that she really liked.",
+  "",
+  "Go on an adventure with this test to see which of the 7 elements of life you represent with your mind, heart and spirit",
+  "",
+  "How good is your color knowledge?",
+  "I am so sorry.The pieces in the previous book art posts were largely unattainable. We were talking large-scale sculptures or art gallery…",
+  "Belarusian painter Leonid Afremov is one of the most colorful painters you’ve never heard of. His skill with a palette knife and oil paint…",
+  "I used to have 2 black cats; however, one of them passed away, so I only have one. His name is Lovey ♥ I miss his most of all while I'm in college!"
+
+]
+image = [
+  "http://res.cloudinary.com/andoo/image/upload/v1486957751/5176304319bf8225a7ab693013642777_xwxguk.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1486957838/431643e9264500d906a562d4ea3387e3_gjh88f.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1486957888/b88477463943485478c90fdd13243681_zbkuto.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1486957923/48374e1d6b0628e3659b55c7d8bf99dd_oivdkx.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1486957987/153c381fbb537893047153bad1819568_flpsed.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1486958074/14ba8148eaeeb20b65c8c04f03cf624e_azdrz8.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1486958034/7c0f28dcb5291057b8a258c6b5c7ae00_eycsa7.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1486958139/eb809f22b17f4df489472e3cf9770e30_yidgwn.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1486958255/ca9a00412d96260ae7685ed5f75d514c_bksspd.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1486958213/v_np4p16.jpg"
+]
+
+image.each_index do |idx|
+  Pin.create!({user_id: 2, board_id: 14, title: title[idx], body: body[idx], image_url:image[idx]})
 end

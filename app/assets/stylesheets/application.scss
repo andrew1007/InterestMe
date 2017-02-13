@@ -83,7 +83,7 @@ button {
   font-weight: normal;
   z-index: 100;
   flex-wrap: wrap;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 button:hover {
@@ -133,9 +133,10 @@ input {
   border-right-style: hidden;
   border-bottom-color: $color-primary;
   outline: none;
-  margin-left: 10px;
+  margin-left: 5px;
   margin-bottom: 10px;
   font-size: 20px;
+  width: 80%;
   color: black;
   padding-left: 10px;
   padding-bottom: 4px;
