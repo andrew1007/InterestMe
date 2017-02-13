@@ -56,9 +56,9 @@
 
 .edit-user-button {
   padding: 8px 6px 8px 6px;
-  font-size: 18px;
+  font-size: 22px;
   border-radius: 30px;
-  font-weight: bold;
+  font-weight: normal;
   z-index: 0;
   color: $color-primary;
   background-color: transparent;
@@ -169,9 +169,9 @@
 
 .profile-tab-button-active {
   padding: 12px 10px 12px 10px;
-  font-size: 15px;
+  font-size: 20px;
   border-radius: 30px;
-  font-weight: bold;
+  font-weight: normal;
   z-index: 0;
   background-color: $color-lightest;
   color: black;
@@ -179,9 +179,8 @@
 
 .profile-tab-button-active:hover {
   padding: 12px 10px 12px 10px;
-  font-size: 15px;
   border-radius: 30px;
-  font-weight: bold;
+  font-weight: normal;
   z-index: 0;
   background-color: $color-lightest;
   color: black;
@@ -189,9 +188,9 @@
 
 .profile-tab-button-inactive {
   padding: 12px 10px 12px 10px;
-  font-size: 15px;
+  font-size: 20px;
   border-radius: 30px;
-  font-weight: bold;
+  font-weight: normal;
   z-index: 0;
   background-color: transparent;
   color: black;
@@ -200,23 +199,30 @@
 
 .profile-tab-button-inactive:hover {
   padding: 12px 10px 12px 10px;
-  font-size: 15px;
   border-radius: 30px;
-  font-weight: bold;
+  font-weight: normal;
   z-index: 0;
   background-color: $color-lightest;
   color: black;
 }
 
 .profile-follow-button {
-  padding: 8px 6px 8px 6px;
-  font-size: 15px;
+  padding: 8px 6px 8px 0px;
+  margin-right: 20px;
+  font-size: 28px;
   border-radius: 30px;
-  font-weight: bold;
+  font-weight: normal;
   z-index: 0;
   background-color: transparent;
   color: $color-primary;
   margin: 0px;
+  width: 100px;
+}
+
+.profile-follow-button:hover {
+
+  background-color: transparent;
+
 }
 
 .user-profile-pins {
@@ -242,8 +248,8 @@
 
 .user-profile-board-button {
   display: flex;
-  width: 250px;
-  height: 250px;
+  width: 260px;
+  height: 260px;
   background-color: white;
   font-size: 30px;
   flex-direction: column;
@@ -257,8 +263,8 @@
 
 .user-profile-board-button:hover {
   display: flex;
-  width: 250px;
-  height: 250px;
+  width: 260px;
+  height: 260px;
   background-color: white;
   font-size: 30px;
   flex-direction: column;
@@ -341,7 +347,7 @@
 
 .board-title {
   font-size: 20px;
-  font-weight: bold;
+  font-weight: normal;
   color: $color-primary
 }
 .board-title:hover {

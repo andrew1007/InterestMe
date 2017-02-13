@@ -20,6 +20,7 @@
 }
 
 .pin-image:hover {
+  border-radius: 10px;
   transition: 0.25s;
   filter: brightness(75%);
 }
@@ -27,8 +28,8 @@
 .board-tile-pic {
   padding: 0px;
   margin: 0px;
-  min-width: 294px;
-  max-width: 294px;
+  min-width: 260px;
+  max-width: 260px;
   min-height: 160px;
   height: auto;
   display: block;
@@ -40,13 +41,13 @@
 }
 
 .pin-image {
-  min-width: 294px;
-  max-width: 294px;
+  min-width: 260px;
+  max-width: 260px;
 }
 
 .board-tile-pic-hide{
-  min-width: 294px;
-  max-width: 294px;
+  min-width: 260px;
+  max-width: 260px;
   min-height: 160px;
   height: auto;
   color: transparent;

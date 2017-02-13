@@ -97,7 +97,12 @@ export default class UserProfileForm extends React.Component {
               {this.props.user.user.description}
             </textarea>
             <div className = "user-profile-edit-submit-button">
-              <button type="Submit" value="Submit">Update</button>
+              <button type="Submit" value="Submit">
+                Update
+              </button>
+              <button onClick={() => this.props.handleSelfClose()}>
+                Cancel
+              </button>
             </div>
           </form>
         </div>

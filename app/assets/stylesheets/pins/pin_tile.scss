@@ -8,8 +8,8 @@
   margin: 36px 6px 15px 6px;
   border: 3px solid transparent;
   opacity: 0.0;
-  max-width: 294px;
-  min-width: 294px;
+  max-width: 260px;
+  min-width: 260px;
 }
 
 .pin-tile-container {
@@ -20,8 +20,8 @@
   margin: 15px;
   border: 3px solid $color-light-black;
   border-radius: 15px;
-  max-width: 294px;
-  min-width: 294px;
+  max-width: 260px;
+  min-width: 260px;
 }
 
 .pin-tile-content {
@@ -63,7 +63,7 @@
   background-color: transparent;
   margin: 0px;
   padding: 0px;
-  font-size: 13px;
+  font-size: 18px;
 }
 
 .board-pin-author-button:hover {
@@ -82,7 +82,8 @@
 .pin-tile-title {
   margin-top: 15px;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: normal;
+  margin-right: 10px;
 }
 
 .pin-tile-body {

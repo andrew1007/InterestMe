@@ -115,13 +115,19 @@ export default class PinNewForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div className="new-pin-form">
             <a>Title</a>
-            <br/><input onChange={this.update('title')}/><br/>
+            <br/
+              ><input
+              onChange={this.update('title')}
+              defaultValue={this.state.title}
+              /><br/>
             <a>Body</a>
             <br/>
             <textarea className="new-pin-textarea"
               type="textarea"
               onChange={this.update('body')}
-              />
+              >
+              {this.state.body}
+            </textarea>
             <br/>
             <select className="new-pin-board-select-dropdown" onChange={this.update("boardId")}>
               <option selected disabled>--Select a board--</option>

@@ -45,8 +45,8 @@ export default class Session extends React.Component {
     }
     else {
       this.props.processSignUp(user)
-      .then( ()=> this.setState({modalIsOpen: false}))
-      .then( () => {hashHistory.push('/home')})
+      this.setState({modalIsOpen: false})
+      hashHistory.push('/home')
   }
 }
 
@@ -195,7 +195,7 @@ export default class Session extends React.Component {
         >
         <div className="session-modal-container">
           <form className="session-login-form" onSubmit={this.handleSubmit}>
-            <b id="session-form-title">{this.state.loginModal ? "Log In" : "Sign Up"}</b>
+            <div id="session-form-title">{this.state.loginModal ? "Log In" : "Sign Up"}</div>
             { this.props.errors ? this.renderErrors() : null}
             <br/>
             <label className="session-input-label">

@@ -48,7 +48,6 @@ export default class Board extends React.Component {
     if (this.props.boardId !== nextProps.boardId){
       this.setState({finishedLoading: false})
       this.props.getBoard(nextProps.boardId)
-      .then ( () => this.props.getPins(nextProps.boardId))
       .then ( () => this.setState({finishedLoading: true,
         name: this.props.board.name
       }))
@@ -140,7 +139,6 @@ export default class Board extends React.Component {
 
   redirectToAuthorProfile(e){
     e.preventDefault()
-    debugger
     hashHistory.push(`/user/${this.props.board.owner_id}`)
   }
 
@@ -149,9 +147,7 @@ export default class Board extends React.Component {
   }
 
   closeModal() {
-    debugger
-    this.props.getPins(this.props.board.id)
-    .then( () => this.props.getBoard(this.props.boardId))
+    this.props.getBoard(this.props.boardId)
     .then( () => {
       this.setState({modalIsOpen: false, newPinFormOpen: false, editFormOpen: false, name: this.props.board.name})
     })

@@ -460,9 +460,6 @@ export default class UserProfile extends React.Component{
             :
             null
           }
-          {this.isProfileOwner() ?
-            null :
-            this.followButton()}
         </div>
       </div>
     )
@@ -504,6 +501,10 @@ export default class UserProfile extends React.Component{
         <div className="user-profile-body">
           {this.state.doneLoading ? this.userInfo() :null}
           <div className="user-profile-description-container">
+            {this.state.doneLoading ?
+              this.isProfileOwner() ? null : this.followButton()
+              :
+              null}
             <div className="user-profile-username">
               {this.state.doneLoading ? this.props.user.user.username : null}
             </div>

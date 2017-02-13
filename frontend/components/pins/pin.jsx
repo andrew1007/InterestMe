@@ -92,7 +92,7 @@ export default class Pin extends React.Component {
           <div className="pin-show-header-container">
             <div className="pin-show-title-board-name-container">
               <div className="pin-show-title-container">
-                <b id="pin-title">{this.props.pin.pins.pins.title}</b>
+                <div id="pin-title">{this.props.pin.pins.pins.title}</div>
               </div>
               <div className="pin-show-pin-info-save-button-container">
                 <div className="pin-show-board-name-edit-button-container">
