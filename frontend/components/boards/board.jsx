@@ -77,7 +77,7 @@ export default class Board extends React.Component {
   pinTileRender(){
     console.log(this.props);
     return(
-      this.props.pins.pins.map( (tile, idx) => {
+      this.props.board.pins.map( (tile, idx) => {
         return(
           <div key={idx} className="pin-tile-container-hide">
             <button className="board-tile-pic-hide" name={tile.id} onClick={(e) => this.handleTileClick(e)}>
@@ -88,11 +88,11 @@ export default class Board extends React.Component {
                 <div className="pin-tile-author-profile-picture-container">
                   <img onClick={this.redirectToAuthorProfile}
                     className="pin-tile-author-profile-picture"
-                    src={this.props.board.pinAuthorInfo[idx][1]}/>
+                    src={tile.profile_picture}/>
                 </div>
                 <div className="pin-tile-author-name">
                   <button className="board-pin-author-button" onClick={this.redirectToAuthorProfile}>
-                    {this.props.board.pinAuthorInfo[idx][0]}
+                    {tile.username}
                   </button>
                 </div>
               </div>

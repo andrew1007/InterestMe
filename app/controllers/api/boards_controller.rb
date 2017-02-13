@@ -15,11 +15,6 @@ class Api::BoardsController < ApplicationController
     if @board.save
       @current_user = current_user
       @board_pins = @board.pins.reverse
-      board_json = @board_pins.to_json
-      i = 0
-      while i < board_json.length
-        i += 1
-      end
       render :show
     else
       render json: @board.errors.full_messages, status: 422
@@ -42,11 +37,14 @@ class Api::BoardsController < ApplicationController
     @board = Board.find(params[:id])
     @current_user = current_user
     @board_pins = @board.pins.order(:updated_at)
-    @board_pin_user_info = []
-    @board_pins.each_with_index do |pin, idx|
-      pin_owner = pin.user
-      @board_pin_user_info << [pin_owner.username, pin_owner.profile_picture]
+    board_json = @board_pins.as_json
+    i = 0
+    while i < board_json.length
+      board_json[i]["username"] = @board_pins[i].user.username
+      board_json[i]["profile_picture"] = @board_pins[i].user.profile_picture
+      i += 1
     end
+    @board_pins = board_json
     render :show
   end
 

@@ -335,9 +335,6 @@ export default class UserProfile extends React.Component{
               </div>
             </div>
             </button>
-            <div name={board.id} onClick={this.handleBoardClick} className="board-title-invisible">
-              showBoards
-            </div>
             <div name={board.id} className="board-title" onClick={this.handleBoardClick}>
               {board.name}
             </div>
