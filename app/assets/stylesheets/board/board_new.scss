@@ -1,0 +1,32 @@
+@import '../application.scss';
+
+.board-new-text {
+  font-size: 25px;
+}
+
+.board-new-modal {
+  padding: 40px 60px 40px 60px !important;
+  border-radius: 15px;
+  width: 500px;
+}
+
+.board-new-form-container {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.board-new-form {
+  padding: 30px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+
+
+.board-new-form-buttons-container {
+  display: flex;
+  flex-direction: row;
+}

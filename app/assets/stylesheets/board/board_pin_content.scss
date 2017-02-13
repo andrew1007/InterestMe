@@ -1,0 +1,53 @@
+.board {
+  position: absolute;
+  top: 0px;
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+.homepage-board{
+  position: relative;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.board-pin-show {
+  position: fixed;
+  top: 100px;
+  left: 80px;
+}
+
+.pin-tile button{
+  display: block;
+  position: relative;
+  float: left;
+  top: 20px;
+  padding: 3px;
+  color: transparent;
+  background-color: transparent;
+  margin: 10px;
+  z-index: 1;
+}
+
+.pin-tile button:hover {
+  transition: 0.25s;
+  color: black;
+  background-color: #d7432d
+}
+
+.backdrop{
+    position:fixed;
+    padding-right:0px;
+    margin:0px;
+
+    top:0;
+    left:0;
+
+    width: 100%;
+    height: 100%;
+    background:rgba(255,255,255,0.85);
+    z-index: 100;
+}

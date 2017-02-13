@@ -1,0 +1,91 @@
+@import '../application.scss';
+
+.pin-tile-container-hide {
+  display: flex;
+  float: left;
+  flex-direction: column;
+  border-radius: 10px;
+  margin: 36px 6px 15px 6px;
+  border: 3px solid transparent;
+  opacity: 0.0;
+  max-width: 294px;
+  min-width: 294px;
+}
+
+.pin-tile-container {
+  display: flex;
+  float: left;
+  flex-direction: column;
+  border-radius: 10px;
+  margin: 15px;
+  border: 3px solid $color-light-black;
+  border-radius: 15px;
+  max-width: 294px;
+  min-width: 294px;
+}
+
+.pin-tile-content {
+  height: 90px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  min-height: 90px
+}
+
+.pin-tile-author-container {
+  padding: 10px 20px 0px 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  // width: 20%;
+  overflow-x: visible;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.pin-tile-author-profile-picture {
+  height: 50px;
+}
+
+.pin-tile-author-profile-picture:hover {
+  cursor: pointer
+}
+
+.pin-tile-author-name {
+  color: $color-primary;
+  font-size: 18px;
+  display: inline-block;
+}
+
+.board-pin-author-button {
+  color: $color-primary;
+  background-color: transparent;
+  margin: 0px;
+  padding: 0px;
+  font-size: 13px;
+}
+
+.board-pin-author-button:hover {
+  background-color: transparent;
+}
+
+.pin-tile-information-container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 30px;
+  padding-right: 8px;
+}
+
+.pin-tile-title {
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.pin-tile-body {
+  margin-top: 10px;
+  font-size: 15px;
+}

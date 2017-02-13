@@ -1,0 +1,58 @@
+.splash-container{
+  width: 100vw;
+  height: 100vh;
+  margin: 15px 0px -6px -8px;
+}
+// .splashscreen {
+//   height: auto;
+//   width: 110vw;
+//   margin: 0px auto;
+//   overflow: hidden !important;
+//   background-position: -80px 8px;
+// }
+
+.splashscreen {
+  opacity: .8;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: url(http://res.cloudinary.com/andoo/image/upload/v1486501137/yzjiakmyzojtxauzqkvj.jpg) no-repeat center;
+  background-size: cover;
+  text-align: center;
+  z-index: 0;
+}
+
+.session-container {
+  display:flex;
+  width: 100%;
+  height: 100%;
+}
+
+.session-button-container {
+  display:flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-grow: 2;
+  margin-right: 10px;
+  margin-top: 3px;
+  min-width: 500px;
+}
+
+.splashtext {
+  color: white;
+  z-index: 10;
+  position: absolute;
+  top: 300px;
+  left:100px;
+  width: 900px;
+  font-size: 50px;
+}
+
+.session-container {
+
+}
+.session-image-box {
+  display: flex
+
+}

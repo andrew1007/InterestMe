@@ -1,0 +1,97 @@
+@import '../application.scss';
+// Place all the styles related to the boards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.board-overhead-bar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 110px;
+  width: 80vw;
+  background-color: transparent;
+  color: $color-primary;
+  margin-left: -10px;
+  margin-top: 40px;
+  padding: 0px 12px 10px 6px;
+  border-bottom: 2px solid black;
+}
+
+.board-overhead-bar-container{
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+#board-name {
+  background-color: transparent;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 55px;
+  margin-top: 7px;
+}
+
+.author-edit-flexbox{
+  height: 65px;
+  background-color: transparent;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+}
+
+.owner-edit-buttons {
+  margin-left: 10px;
+  display: flex-box;
+  flex-direction: row;
+}
+
+.owner-edit-buttons button {
+  padding: 1px;
+}
+
+.owner-edit-buttons:hover {
+  // padding: 1px;
+}
+
+.board-edit-button {
+  background-color: transparent;
+  color: black;
+}
+
+.board-edit-button:hover {
+  background-color: transparent;
+  color: white;
+}
+
+#board-author {
+  background-color: transparent;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  padding: 0px 0px 10px 10px;
+}
+
+#edit-icon {
+  background-color: transparent;
+  margin: 7px 0px 0px 5px;
+  padding: 7px;
+}
+
+#edit-icon button:hover {
+  background-color: transparent;
+}
+
+.board-name-author-link {
+  font-size: 18px;
+  background-color: transparent;
+  color: $color-primary;
+  font-weight: bold;
+  padding: 0px;
+}
+
+.board-name-author-link:hover {
+  background-color: transparent;
+  color: black;
+}

@@ -1,0 +1,43 @@
+@import "../application.scss";
+
+.navigation-bar {
+  position: fixed;
+  display:flex;
+  flex-direction: row;
+  top: 5px;
+  height: 80px;
+  width: 100%;
+  margin: -8px;
+  background-color: $color-primary;
+  z-index: 10;
+  // padding-left:5px;
+  flex-grow: 1
+}
+
+// .fa-events-icons-ready {
+//   max-width: 99vw;
+//   // max-height: 0px;
+// }
+
+.logo-container {
+  position: fixed;
+  top: 10px;
+  left: 5px;
+}
+
+.interest-me-logo {
+  margin: 12px 0px 0px 20px;
+  min-width: 160px;
+}
+
+.interest-me-logo:hover {
+  cursor: pointer;
+}
+
+.authentication {
+  display: block;
+  float: right;
+  padding-right: 20px;
+  margin-top: -27px;
+  min-width: 250px;
+}

@@ -1,0 +1,94 @@
+// Place all the styles related to the api/pins controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pin-tile button{
+  display: block;
+  position: relative;
+  float: none;
+  filter: 70%;
+  top: 20px;
+  padding: 3px;
+  color: transparent;
+  background-color: transparent;
+  margin: 10px;
+  z-index: 1;
+}
+
+.pin-image {
+  border-radius: 10px;
+}
+
+.pin-image:hover {
+  transition: 0.25s;
+  filter: brightness(75%);
+}
+
+.board-tile-pic {
+  padding: 0px;
+  margin: 0px;
+  min-width: 294px;
+  max-width: 294px;
+  min-height: 160px;
+  height: auto;
+  display: block;
+  position: relative;
+  float: none;
+  color: transparent;
+  background-color: transparent;
+  z-index: 1;
+}
+
+.pin-image {
+  min-width: 294px;
+  max-width: 294px;
+}
+
+.board-tile-pic-hide{
+  min-width: 294px;
+  max-width: 294px;
+  min-height: 160px;
+  height: auto;
+  color: transparent;
+  background-color: transparent;
+}
+
+.pin-image-hide {
+  opacity: 0.0;
+}
+
+.pin-tile button:hover {
+  transition: 0.25s;
+  color: black;
+  background-color: transparent !important;
+}
+
+.pin-tile-hide button {
+  display: block;
+  position: relative;
+  float: none;
+  top: 20px;
+  padding: 3px;
+  color: transparent;
+  background-color: transparent;
+  margin: 10px;
+  z-index: 1;
+}
+
+.pin-tile-hide button:hover {
+  display: block;
+  position: relative;
+  float: none;
+  top: 20px;
+  padding: 3px;
+  color: transparent;
+  background-color: transparent;
+  margin: 10px;
+  z-index: 1;
+}
+// .tile-title-container{
+//   box-sizing: border-box;
+//   color:white;
+//   word-wrap: break-word;
+//   font-size: 20px;
+// }

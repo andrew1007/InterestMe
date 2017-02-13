@@ -1,0 +1,106 @@
+@import "../application.scss";
+
+.session-modal {
+  font-family: Arial, Helvetica, sans-serif !important;
+  padding-left: 0px;
+  height: 30px;
+}
+
+
+.ReactModal__Content{
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  background-color: $color-light-white !important;
+  margin: 10px !important;
+  padding: 150px 50px 150px 50px;
+  border: 1px solid $color-light !important;
+  outline: none !important;
+  z-index: 100;
+}
+
+.session-modal-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.textbox-login {
+  width: 350px;
+  font-size: 25px;
+}
+
+.session-input-label {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.session-button {
+  color: white;
+  background-color: transparent !important;
+}
+
+.session-button:hidden {
+  background-color: transparent !important;
+}
+
+.session-button-list{
+  display: flex;
+  flex-direction: row;
+  padding-left: 500px;
+}
+
+.submission-session-buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.session-login-label {
+  color: #d7432d;
+  font-size: 20px;
+  margin-bottom: 90px;
+}
+
+.session-login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#session-form-title {
+  color: $color-primary;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif !important;
+  margin-bottom: 20px;
+}
+
+#submit-button {
+  padding: 10px;
+  border: solid 1px;
+  border-color: $color-light;
+  border-radius: 5px;
+  margin-right: 40px;
+  margin-top: 0px;
+  font-size: 20px;
+}
+
+#submit-button:hover{
+  background-color: $color-light;
+  color: white;
+}
+
+#cancel-button {
+  background-color: $white;
+  padding: 10px;
+  border: solid 1px;
+  border-color: solid $color-light;
+  border-radius: 5px;
+  margin-right: 20px;
+  margin-top: 0px;
+  color: $color-light;
+  font-size: 12px;
+}

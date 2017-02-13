@@ -1,0 +1,51 @@
+.pin-edit-form {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: 350px;
+  font-size: 25px;
+
+}
+
+.pin-edit-form form {
+  padding-top: 10px;
+  margin-top: 10px;
+  display: block;
+}
+
+.pin-edit-form textarea {
+  margin-top: 8px;
+  width: 300px;
+  height: 100px;
+}
+
+#pin-edit-title {
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+
+.ReactModal__Content__Pin {
+  padding:50px !important;
+}
+
+.pin-edit-form-container {
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+
+}
+
+.pin-edit-input {
+  width: 350px;
+  z-index: 1;
+  margin: 0px 0px 30px 0px;
+
+}
+
+.pin-edit-form-textarea {
+  min-width: 360px;
+  min-height: 140px;
+  max-width: 360px;
+  max-height: 140px;
+  margin-bottom: 20px;
+}

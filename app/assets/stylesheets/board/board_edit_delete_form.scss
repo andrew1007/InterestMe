@@ -1,0 +1,98 @@
+.board-edit-modal {
+  display:flex;
+  padding: 50px 40px 40px 40px !important;
+  // max-width: 700px;
+  // width: 20vw;
+  // min-width: 400px;
+  // height: 25vh;
+  // max-height: 700px;
+  // padding: 50px !important;
+  border-radius: 10px;
+}
+
+// .board-edit-form {
+//   position: absolute;
+//   display: flex;
+//   justify-content: center;
+//   top:110px;
+//   left:0px;
+//   height:20;
+//   width:100%;
+//   background-color: #d7432d;
+//   font-family: Arial, Helvetica, sans-serif;
+//   color: white;
+//   font-size: 20px;
+//   z-index: 15;
+// }
+
+
+
+.edit-board-text {
+  font-size: 25px;
+  margin-bottom: 27px;
+}
+
+.board-edit-form {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+
+}
+
+.board-edit-form-buttons {
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+  margin-top: 20px;
+}
+
+.board-edit-form input {
+  color: black;
+  margin-right: 15px;
+}
+
+.board-edit-delete-confirm-text {
+  margin-top: 15px;
+  font-size: 20px;
+  opacity: 1;
+}
+
+.board-edit-delete-confirm-text-hidden {
+  opacity: 0;
+  margin-top: 15px;
+  font-size: 20px;
+}
+
+.board-edit-delete-confirm-text-hidden:hover {
+  cursor: default;
+  opacity: 0;
+  margin-top: 15px;
+  font-size: 20px;
+}
+
+.delete-confirm-form {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top:110px;
+  left:0px;
+  height:35;
+  width:100%;
+  background-color: #d7432d;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 20px;
+  vertical-align: middle;
+    z-index: 15;
+}
+
+#delete-confirm {
+  line-height: 40px;
+  text-align:center;
+  vertical-align: middle;
+  margin-right: 30px;
+}
+
+.confirm-delete-button {
+  padding: 0px 6px 0px 6px;
+}
