@@ -116,7 +116,7 @@ export default class UserProfile extends React.Component{
 
 
   handleEditForm(){
-    console.log("edit form open");
+    //console.log("edit form open");
     this.setState({editFormOpen: true})
   }
 
@@ -242,7 +242,7 @@ export default class UserProfile extends React.Component{
 
 
   showPins(){
-    console.log(this.props);
+    //console.log(this.props);
     return(
       this.props.user.pins.map( (pin, idx) => {
         return(
@@ -527,7 +527,7 @@ export default class UserProfile extends React.Component{
 
 
   render(){
-    console.log(this.props);
+    //console.log(this.props);
     return(
       <div className="user-profile">
         <div className="user-profile-body">

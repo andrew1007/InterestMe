@@ -44,7 +44,6 @@ export default class Board extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger
     if (this.props.boardId !== nextProps.boardId){
       this.setState({finishedLoading: false})
       this.props.getBoard(nextProps.boardId)
@@ -72,7 +71,6 @@ export default class Board extends React.Component {
         }))
         .then( () => {
           this.findImageHeight()
-          debugger
           this.props.location.state
         })
       }
@@ -190,7 +188,7 @@ export default class Board extends React.Component {
   }
 
   boardTitle(){
-    console.log(this.state);
+    //console.log(this.state);
     return(
       <div className="board-overhead-bar-container">
         <div className="board-overhead-bar">

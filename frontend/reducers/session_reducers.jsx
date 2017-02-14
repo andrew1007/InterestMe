@@ -12,7 +12,7 @@ const SessionReducer = (state = defaultState, action) => {
   switch(action.type){
     case RECEIVE_CURRENT_USER:
 
-      console.log("received user");
+      //console.log("received user");
       if (action.currentUser.current_user){
         const userId = action.currentUser.user_id
         const username = action.currentUser.current_user
@@ -23,17 +23,17 @@ const SessionReducer = (state = defaultState, action) => {
         return merge({}, state, {currentUserId: userId, currentUser: username})
       }
     case LOG_OUT_USER:
-      console.log("logging out user");
+      //console.log("logging out user");
       return merge({}, state, defaultState);
     case CLEAR_ERRORS:
-      console.log("cleared errors");
+      //console.log("cleared errors");
       return merge({}, state, {errors: null});
     case RECEIVE_ERRORS:
-      console.log("got session errors");
+      //console.log("got session errors");
       const errors = action.errors;
       return merge({}, state, {errors});
   default:
-    console.log("No session actions hit. Defaulted");
+    //console.log("No session actions hit. Defaulted");
     return state
   }
 };

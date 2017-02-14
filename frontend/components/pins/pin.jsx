@@ -78,7 +78,7 @@ export default class Pin extends React.Component {
 
   handleBoardNameClick(e){
     this.props.handleSelfClose()
-    debugger
+    
     e.preventDefault()
     hashHistory.push(`/boards/${this.props.pin.pins.pins.board_id}`)
     document.body.style.overflow = "auto"
@@ -168,7 +168,7 @@ export default class Pin extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+    //console.log(this.props);
     return(
       <div>
         {this.state.receivedPin ? this.pinModal() : null}

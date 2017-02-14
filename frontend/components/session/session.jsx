@@ -127,7 +127,7 @@ export default class Session extends React.Component {
   }
 
   handleChildCancelButton(){
-    debugger
+
     this.setState({newPinFormOpen: false})
     document.body.style.overflow="auto";
   }
