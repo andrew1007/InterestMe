@@ -220,7 +220,7 @@ export default class Homepage extends React.Component{
             loadMore={this.loadMorePins}
             hasMore={this.state.hasMorePins}
             loader={<div className="loader">Loading ...</div>}
-            threshold={700}
+            threshold={800}
             className='homepage-board'
           >
             {this.masonryLayout()}

@@ -12,7 +12,7 @@ export default class UserProfile extends React.Component{
     this.state={
       doneLoading: false,
       selectPinTab: false,
-      selectBoardTab: false,
+      selectBoardTab: true,
       modalIsOpen: false,
       focusedPinId: null,
       editFormOpen: false,
@@ -20,7 +20,7 @@ export default class UserProfile extends React.Component{
       followedOpen: false,
       isFollowing: false,
       pinButtonFocus: false,
-      boardButtonFocus: false,
+      boardButtonFocus: true,
       followerButtonFocus: false,
       followedButtonFocus: false,
       followStateChanged: false,

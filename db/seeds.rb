@@ -7,27 +7,23 @@ pikachu = "http://res.cloudinary.com/andoo/image/upload/v1487039386/idt67nek7ifl
 artemis = "http://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_180/v1486927000/Screenshot_from_2017-02-12_11-16-28_va2uox.png"
 peralta = "http://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_180/v1486927257/Screenshot_from_2017-02-12_11-20-32_thyhxm.png"
 jupiterhero = "http://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_180/v1487038532/Screenshot_from_2017-02-13_18-15-10_cin2ev.png"
-User.create!({username: "Pusheen", password:"password", profile_picture: pusheen})
-User.create!({username: "Artemis", password:"password", profile_picture: artemis})
-User.create!({username: "mona-chan", password:"password", profile_picture: monachan})
+
+pusheen_description = "As usual, I was sitting on top of my owner's laptop for more attention. But in the process, accidentally made a Pinterest clone. It was pretty cool and I'd love to accidentally make more websites. So am I web developer, or an adorable cat? Why not both?"
+artemis_description = "I like art, as you may have figured out"
+monachan_description = "Anime is life"
+pikachu_description = "pika pika"
+User.create!({username: "Pusheen", password:"password", profile_picture: pusheen,
+  description: pusheen_description})
+User.create!({username: "Artemis", password:"password", profile_picture: artemis,
+  description: artemis_description})
+User.create!({username: "mona-chan", password:"password", profile_picture: monachan,
+  description: monachan_description})
 User.create!({username: "bamflame97", password:"password", profile_picture: bamflame97})
 User.create!({username: "andrew1007", password:"password", profile_picture: andrew1007})
-User.create!({username: "pikachu", password:"password", profile_picture: pikachu})
+User.create!({username: "pikachu", password:"password", profile_picture: pikachu,
+  description: pikachu_description})
 User.create!({username: "peralta", password:"password", profile_picture: peralta})
 User.create!({username: "JupiterHero", password:"password", profile_picture: jupiterhero})
-User.create!({username: "guc-chi", password:"password", profile_picture: profile_picture})
-User.create!({username: "andoo1007", password:"password", profile_picture: profile_picture})
-User.create!({username: "Kasey", password:"password", profile_picture: profile_picture})
-User.create!({username: "spadesofaces", password:"password", profile_picture: profile_picture})
-User.create!({username: "GonazaAmX", password:"password", profile_picture: profile_picture})
-User.create!({username: "admired32", password:"password", profile_picture: profile_picture})
-User.create!({username: "Mordecai65", password:"password", profile_picture: profile_picture})
-User.create!({username: "OutNerdMe", password:"password", profile_picture: profile_picture})
-User.create!({username: "Violeta", password:"password", profile_picture: profile_picture})
-User.create!({username: "allisonkao", password:"password", profile_picture: profile_picture})
-User.create!({username: "saitama", password:"password", profile_picture: profile_picture})
-User.create!({username: "KaliSymn", password:"password", profile_picture: profile_picture})
-User.create!({username: "Don352", password:"password", profile_picture: profile_picture})
 
 user_count = (1..8).to_a
 

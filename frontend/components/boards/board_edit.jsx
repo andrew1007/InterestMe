@@ -121,7 +121,7 @@ export default class BoardEdit extends React.Component {
     return(
       <div>
         <div>Are you sure you want to delete this board?</div>
-        <button onClick={this.handleDeleteConfirm}>Yes</button>
+        <button onClick={this.handleDeleteConfirm}>Delete</button>
         <button onClick={this.handleCancelButton}>Cancel</button>
       </div>
     )
