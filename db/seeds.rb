@@ -14,17 +14,17 @@ User.create!({username: "bamflame97", password:"password", profile_picture: bamf
 User.create!({username: "andrew1007", password:"password", profile_picture: andrew1007})
 User.create!({username: "pikachu", password:"password", profile_picture: pikachu})
 User.create!({username: "peralta", password:"password", profile_picture: peralta})
-User.create!({username: "DjJason", password:"password", profile_picture: djjason})
+User.create!({username: "JupiterHero", password:"password", profile_picture: profile_picture})
+User.create!({username: "guc-chi", password:"password", profile_picture: profile_picture})
 User.create!({username: "andoo1007", password:"password", profile_picture: profile_picture})
 User.create!({username: "Kasey", password:"password", profile_picture: profile_picture})
 User.create!({username: "spadesofaces", password:"password", profile_picture: profile_picture})
-User.create!({username: "JupiterHero", password:"password", profile_picture: profile_picture})
+User.create!({username: "DjJason", password:"password", profile_picture: djjason})
 User.create!({username: "GonazaAmX", password:"password", profile_picture: profile_picture})
 User.create!({username: "admired32", password:"password", profile_picture: profile_picture})
 User.create!({username: "Mordecai65", password:"password", profile_picture: profile_picture})
 User.create!({username: "OutNerdMe", password:"password", profile_picture: profile_picture})
 User.create!({username: "Violeta", password:"password", profile_picture: profile_picture})
-User.create!({username: "guc-chi", password:"password", profile_picture: profile_picture})
 User.create!({username: "allisonkao", password:"password", profile_picture: profile_picture})
 User.create!({username: "saitama", password:"password", profile_picture: profile_picture})
 User.create!({username: "KaliSymn", password:"password", profile_picture: profile_picture})
@@ -935,4 +935,73 @@ image = [
 
 image.each_index do |idx|
   Pin.create!({user_id: 5, board_id: 17, title: title[idx], body: body[idx], image_url:image[idx]})
+end
+
+
+title = [
+  "Earth horizon",
+  "",
+  "",
+  "",
+  "Hubble Space Telescope has revealed the universe to us"
+]
+
+body = [
+  "Moon rising in front of the milky way. Beautiful picture of outer space",
+  "",
+  "",
+  "",
+  ""
+]
+
+image = [
+  "http://res.cloudinary.com/andoo/image/upload/v1487037474/d771a8d2347820dbdec7b06de8cbbf51_xso5ya.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487037504/tumblr_ohc8ukLHf91uc0ho8o1_1280_hvklc8.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487037474/d771a8d2347820dbdec7b06de8cbbf51_xso5ya.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487037514/af07617056c54c06c4dc318701ecfb95_v8hisr.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487037542/b519eb935f13c9ba11326289d492c394_uck88d.jpg"
+]
+
+image.each_index do |idx|
+  Pin.create!({user_id: 5, board_id: 17, title: title[idx], body: body[idx], image_url:image[idx]})
+end
+
+#board 18
+Board.create({user_id: 8, name:"The Outdoors"})
+
+title = [
+  "",
+  "Spirit Island",
+  "Boundary Waters Canoe Area",
+  "The Boundary Water Canoe Area (BWCA) is a pristine place on earth that can be fully enjoyed by young and old. ",
+  "",
+  "",
+  "Desvre",
+  ""
+]
+
+body = [
+  "",
+  "Spirit Island, is a tiny island in Maligne Lake in Jasper National Park. In British Columbia, Canada.",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+]
+
+image = [
+  "http://res.cloudinary.com/andoo/image/upload/v1487037957/c4f4ef5e157868565ff38b4c76de455f_wprs3v.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487038025/3e1b05fe0a5cbdc8e044d6043af7e766_szhhbs.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487038075/97a68fff4bad68830241d6928118c88d_ueu5tn.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487038113/6751c3d814fdda7db7e4844c3007db7c_a4pbpo.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487038177/74d351126335bb0d568a54845e7458ab_q1knd9.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487038219/a6c66bf85913c7bfc0cc8588c217db50_ilfrel.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487038251/5d5839590b51a828dcf9ee004152c170_lpn2rm.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487038279/97f39de35862e3706b7a446df7a93bcb_isnr1g.jpg"
+]
+
+image.each_index do |idx|
+  Pin.create!({user_id: 8, board_id: 18, title: title[idx], body: body[idx], image_url:image[idx]})
 end
