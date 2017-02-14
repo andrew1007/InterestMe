@@ -907,13 +907,30 @@ end
 #board 17
 Board.create({user_id: 5, name:"Outer Space"})
 title = [
+  "Expansion of the Mind",
+  "Nebula",
+  "Earth and moon shot",
+  "The constellation Orion",
+  "Hubble site-X-ray-helix nebula",
+  "Which Galaxy Will You Reincarnate Inside?"
 ]
 
 body = [
-
+  "",
+  "A nebula (from Latin: 'cloud') is an interstellar cloud of dust, hydrogen, helium and other ionized gases.",
+  "",
+  "",
+  "",
+  ""
 ]
 
 image = [
+  "http://res.cloudinary.com/andoo/image/upload/v1487030164/f598b995df872477e918991f4e45be7d_hsesng.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487030224/50d0720e44ff33b3e355cdeced8dd6ef_dcci0n.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487030272/3516a21e68224800cc6ed2b06070c40b_skkbjs.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487030348/a8b6b1111aba5a0ed8a755d4d8cbc990_c2cz9q.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487030395/b93fa4a76dd5435d2df38f075917b524_jvruyn.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487030436/12778cc02d4df53fa64c10505ca9b35d_v8jnfc.jpg"
 ]
 
 image.each_index do |idx|
