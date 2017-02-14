@@ -9,11 +9,11 @@ class Api::PinsController < ApplicationController
     i = 0
     not_complete = true
     while not_complete
-      if ((i*20 + 1) + 20) > all_pins_count
-        pin_set = pins[i*20...all_pins_count - 1]
+      if ((i*19 + 1) + 19) > all_pins_count
+        pin_set = pins[i*19 + 1..-1]
         not_complete = false
       else
-        pin_set = pins[(i*20 + 1)...(i*20 + 20)]
+        pin_set = pins[(i*19 + 1)...(i*19 + 20)]
       end
       pin_set_hash = pin_set.as_json
       j = 0

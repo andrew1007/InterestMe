@@ -130,7 +130,8 @@ export default class Board extends React.Component {
 
   masonryLayout(){
     var masonryOptions = {
-      fitWidth: true
+      fitWidth: true,
+      transitionDuration: 0
     };
     return (
       <div>

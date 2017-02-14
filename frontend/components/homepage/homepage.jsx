@@ -111,7 +111,8 @@ export default class Homepage extends React.Component{
 
   masonryLayout(){
     var masonryOptions = {
-      fitWidth: true
+      fitWidth: true,
+      transitionDuration: 0
     };
     return (
       <div>
@@ -138,7 +139,9 @@ export default class Homepage extends React.Component{
         case 0:
         let allImages = document.images
         for (let i=0; i < allImages.length; i++){
-          allImages[i].setAttribute("style", `height:${allImages[i].naturalHeight}`)
+          let scale = 300 / allImages[i].naturalWidth
+          let scaledHeight = allImages[i].naturalHeight * scale + 90
+          allImages[i].setAttribute("style", `height:${scaledHeight}`)
         }
         case 1:
         [
@@ -156,7 +159,7 @@ export default class Homepage extends React.Component{
         })
         counter += 1
       }
-    }, 800)
+    }, 550)
   }
 
   closeModal() {
@@ -220,7 +223,7 @@ export default class Homepage extends React.Component{
             loadMore={this.loadMorePins}
             hasMore={this.state.hasMorePins}
             loader={<div className="loader">Loading ...</div>}
-            threshold={800}
+            threshold={1100}
             className='homepage-board'
           >
             {this.masonryLayout()}

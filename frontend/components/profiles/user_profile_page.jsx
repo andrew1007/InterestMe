@@ -297,7 +297,8 @@ export default class UserProfile extends React.Component{
 
   masonryLayout(){
     var masonryOptions = {
-      fitWidth: true
+      fitWidth: true,
+      transitionDuration: 0
     };
     return (
       <div className='user-profile-board-pins'>
@@ -383,7 +384,8 @@ export default class UserProfile extends React.Component{
 
   boardMasonryLayout(){
     var masonryOptions = {
-      fitWidth: true
+      fitWidth: true,
+      transitionDuration: 0
     };
     return (
       <div className='user-profile-board-pins'>
