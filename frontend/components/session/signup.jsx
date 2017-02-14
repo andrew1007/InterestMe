@@ -13,7 +13,7 @@ export default class Signup extends React.Component {
       <div className="splash-container">
         <img className="splashscreen"/>
         <div className="splashtext-container">
-            <img className="logo-text" src="http://res.cloudinary.com/andoo/image/upload/v1487087485/Logomakr_1ffThT_guaa9u.png"/>
+            <img className="logo-text" src="https://res.cloudinary.com/andoo/image/upload/v1487087485/Logomakr_1ffThT_guaa9u.png"/>
         </div>
       </div>
     )

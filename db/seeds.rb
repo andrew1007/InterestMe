@@ -1,12 +1,12 @@
-pusheen = "http://res.cloudinary.com/andoo/image/upload/c_crop,h_175,r_100,w_173,x_74,y_0/v1484764852/vonrulf1kpsuhqlxobir.png"
-profile_picture = "http://res.cloudinary.com/andoo/image/upload/c_crop,h_175,r_100,w_173,x_74,y_0/v1484764852/vonrulf1kpsuhqlxobir.png"
-monachan = "http://res.cloudinary.com/dukcet22g/image/upload/v1487079390/kkuomujshaltfu9d52xf.png"
-andrew1007 = "http://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_180/v1486926486/Screenshot_from_2017-02-12_11-07-50_ecwlbm.png"
-bamflame97 = "http://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_180/v1486926676/Screenshot_from_2017-02-12_11-11-02_uduvu8.png"
-pikachu = "http://res.cloudinary.com/andoo/image/upload/v1487039386/idt67nek7iflvengmmxa.png"
-artemis = "http://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_180/v1486927000/Screenshot_from_2017-02-12_11-16-28_va2uox.png"
-peralta = "http://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_180/v1486927257/Screenshot_from_2017-02-12_11-20-32_thyhxm.png"
-jupiterhero = "http://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_180/v1487038532/Screenshot_from_2017-02-13_18-15-10_cin2ev.png"
+pusheen = "https://res.cloudinary.com/andoo/image/upload/c_crop,h_175,r_100,w_173,x_74,y_0/v1484764852/vonrulf1kpsuhqlxobir.png"
+profile_picture = "https://res.cloudinary.com/andoo/image/upload/c_crop,h_175,r_100,w_173,x_74,y_0/v1484764852/vonrulf1kpsuhqlxobir.png"
+monachan = "https://res.cloudinary.com/dukcet22g/image/upload/v1487079390/kkuomujshaltfu9d52xf.png"
+andrew1007 = "https://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_180/v1486926486/Screenshot_from_2017-02-12_11-07-50_ecwlbm.png"
+bamflame97 = "https://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_180/v1486926676/Screenshot_from_2017-02-12_11-11-02_uduvu8.png"
+pikachu = "https://res.cloudinary.com/andoo/image/upload/v1487039386/idt67nek7iflvengmmxa.png"
+artemis = "https://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_180/v1486927000/Screenshot_from_2017-02-12_11-16-28_va2uox.png"
+peralta = "https://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_180/v1486927257/Screenshot_from_2017-02-12_11-20-32_thyhxm.png"
+jupiterhero = "https://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_180/v1487038532/Screenshot_from_2017-02-13_18-15-10_cin2ev.png"
 
 pusheen_description = "As usual, I was sitting on top of my owner's laptop for more attention. But in the process, accidentally made a Pinterest clone. It was pretty cool and I'd love to accidentally make more websites. So am I web developer, or an adorable cat? Why not both?"
 artemis_description = "I like art, as you may have figured out"
@@ -44,15 +44,15 @@ end
 
 g = Board.create!({user_id: 1, name:"Fellow Felines"})
 pin_images = [
-  "http://res.cloudinary.com/andoo/image/upload/v1486826048/e66ddbe6925551552200514fe8d114bc_fxuyn8.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486826194/7670360c4c619b9214bb719fb49e0076_pxtkey.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486826295/ea5e99e70a6682016fc8ed05c9a4705f_kxx3wb.png",
-  "http://res.cloudinary.com/andoo/image/upload/v1486826436/c30e9bbaef3532e9b5b8964024f25a71_rwuih1.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486826518/1938759c9c5c889a59fe60b1a48b43fd_ycunct.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486826635/enhanced-buzz-1931-1374789664-0_ojgecm.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486826717/a54497574fc65243dc57b0a0b97b6582_oc7lz3.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486826817/image_ocxdso.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486826938/7c979fcfa51d2eccf1eaabd0d15884fb_babus1.jpg"
+  "https://res.cloudinary.com/andoo/image/upload/v1486826048/e66ddbe6925551552200514fe8d114bc_fxuyn8.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486826194/7670360c4c619b9214bb719fb49e0076_pxtkey.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486826295/ea5e99e70a6682016fc8ed05c9a4705f_kxx3wb.png",
+  "https://res.cloudinary.com/andoo/image/upload/v1486826436/c30e9bbaef3532e9b5b8964024f25a71_rwuih1.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486826518/1938759c9c5c889a59fe60b1a48b43fd_ycunct.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486826635/enhanced-buzz-1931-1374789664-0_ojgecm.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486826717/a54497574fc65243dc57b0a0b97b6582_oc7lz3.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486826817/image_ocxdso.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486826938/7c979fcfa51d2eccf1eaabd0d15884fb_babus1.jpg"
 ]
 pin_title = [
   "A Bengal Cat",
@@ -84,11 +84,11 @@ end
 #2
 g = Board.create!({user_id: 3, name: "Free!"})
 pins = [
-  "http://res.cloudinary.com/andoo/image/upload/v1486827398/c2f99629bbcbf1e2765f6c89dbf2c7e1_cnxkyu.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486827479/5e05846cc8b34cd1759dfa11ed1b41fd_qkgtrr.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486827690/04bf9ee4d854169ec7ed1a0fc77f6312_dhdsz7.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486827906/e30f9c94bf2746c1fbd6057f39efff48_bq6e2t.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486827975/9ac230696dfe6e930e5c2bc4c3eff4a7_zkyuty.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486827398/c2f99629bbcbf1e2765f6c89dbf2c7e1_cnxkyu.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486827479/5e05846cc8b34cd1759dfa11ed1b41fd_qkgtrr.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486827690/04bf9ee4d854169ec7ed1a0fc77f6312_dhdsz7.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486827906/e30f9c94bf2746c1fbd6057f39efff48_bq6e2t.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486827975/9ac230696dfe6e930e5c2bc4c3eff4a7_zkyuty.jpg",
 
 ]
 titles = [
@@ -112,14 +112,14 @@ end
 #3
 g = Board.create!({user_id: 3, name: "Black Butler"})
 image = [
-  "http://res.cloudinary.com/andoo/image/upload/v1486828301/6309af01a0817328b8fc580b0719db6c_knrb2c.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486828379/082a1983a0d9881c1ab31575e5b73c77_qvbour.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486828570/7600eb15ae9538d2ca6933c9e6428ca2_knyfdi.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486828652/8a3fff5c8e8076863b1d0e62ed0b0721_tcyprw.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486828787/4f53032f621b15bce5543e4aca266533_gvitrn.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486828855/6d308f612b23e22a92e187ddfdb05212_h6mmq7.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486828916/e0a6c9b29d8d86ce178777f81a6372f4_ifkmn8.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486829078/7f0a40d65430d29e1dbb0075c2855603_gcmyn5.jpg"
+  "https://res.cloudinary.com/andoo/image/upload/v1486828301/6309af01a0817328b8fc580b0719db6c_knrb2c.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486828379/082a1983a0d9881c1ab31575e5b73c77_qvbour.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486828570/7600eb15ae9538d2ca6933c9e6428ca2_knyfdi.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486828652/8a3fff5c8e8076863b1d0e62ed0b0721_tcyprw.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486828787/4f53032f621b15bce5543e4aca266533_gvitrn.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486828855/6d308f612b23e22a92e187ddfdb05212_h6mmq7.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486828916/e0a6c9b29d8d86ce178777f81a6372f4_ifkmn8.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486829078/7f0a40d65430d29e1dbb0075c2855603_gcmyn5.jpg"
 ]
 title = [
   "I came here for Sebastian, not feels",
@@ -148,12 +148,12 @@ end
 #4
 g = Board.create!({user_id: 3, name: "Hitman Reborn"})
 image = [
-  "http://res.cloudinary.com/andoo/image/upload/v1486829391/4c7c0a013f8688c1a74e8a7d7a8ba49f_xnss8q.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486829487/77b15f6344adae617e50e8ecb3cf6783_krgbbr.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486829532/86bc99649b56f9f71530f0de29c234e8_r47mku.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486829663/7d945f11d02e4bbe14602435c41992dc_pfpdml.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486829705/903174c3aaa3c6a259b7035c54b5d9b5_ezsh6j.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486829803/c22220fbb0624d5a82c98162e62aec51_pjjbxu.jpg"
+  "https://res.cloudinary.com/andoo/image/upload/v1486829391/4c7c0a013f8688c1a74e8a7d7a8ba49f_xnss8q.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486829487/77b15f6344adae617e50e8ecb3cf6783_krgbbr.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486829532/86bc99649b56f9f71530f0de29c234e8_r47mku.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486829663/7d945f11d02e4bbe14602435c41992dc_pfpdml.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486829705/903174c3aaa3c6a259b7035c54b5d9b5_ezsh6j.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486829803/c22220fbb0624d5a82c98162e62aec51_pjjbxu.jpg"
 ]
 title = [
   "Katekyo",
@@ -178,10 +178,10 @@ end
 #5
 g = Board.create!({user_id: 3, name: "Tokyo Ghoul"})
 image = [
-  "http://res.cloudinary.com/andoo/image/upload/v1486830287/301fa63c666d6b66e80e86600af1c846_yh7llo.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486830342/de4634681ca318d17ac0f706201d1767_fly1sn.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486830420/8d28ffe859509bcf7abc5a7dbe1e9003_b1ndjl.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486830478/fe88b7cc892ab3140285da73d82a4815_zkgdds.jpg"
+  "https://res.cloudinary.com/andoo/image/upload/v1486830287/301fa63c666d6b66e80e86600af1c846_yh7llo.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486830342/de4634681ca318d17ac0f706201d1767_fly1sn.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486830420/8d28ffe859509bcf7abc5a7dbe1e9003_b1ndjl.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486830478/fe88b7cc892ab3140285da73d82a4815_zkgdds.jpg"
 ]
 title = [
   "Kaneki Ken",
@@ -202,18 +202,18 @@ end
 #6
 g = Board.create!({user_id: 1, name: "Star Wars"})
 image = [
-  "http://res.cloudinary.com/andoo/image/upload/v1486830722/101f4e42b041c22ae8eccf45f4b2e31d_p17zes.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1484918490/guillem-h-pongiluppi-501-st-legion-vader-s-fist-vs-space-cockroaches-7-guillemhp_vtrqcn.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1484918488/ed3313d88e3d66499f1703108b55c469_or1uug.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1484918488/c74176b662dbce095f19dbeb56c19d69_i0il3k.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1484918489/2578005d06193c9411c4b88941acfd05_xtmeri.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1484918488/614668cb4a1279a746de621ef0fa881f_tw4bjf.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1484918488/303726a9fbff20073a3115c7d6ccc2b2_peaxmz.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1484918487/030c4a5300bfc448ffd3bdb06cfd012f_jjvyuq.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1484918487/35f051be4e5f9ace286398d40f2b705d_houxfe.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1484918488/624ae36b528c24bcf93c89de7ca8ed5e_dwcxs0.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1484918487/02e3ebf534ee41ccf6a9b2639512bef7_mw7abj.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486831020/2ee9a1ec53b6429ab595294a49e2112d_eiwbyc.jpg"
+  "https://res.cloudinary.com/andoo/image/upload/v1486830722/101f4e42b041c22ae8eccf45f4b2e31d_p17zes.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1484918490/guillem-h-pongiluppi-501-st-legion-vader-s-fist-vs-space-cockroaches-7-guillemhp_vtrqcn.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1484918488/ed3313d88e3d66499f1703108b55c469_or1uug.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1484918488/c74176b662dbce095f19dbeb56c19d69_i0il3k.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1484918489/2578005d06193c9411c4b88941acfd05_xtmeri.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1484918488/614668cb4a1279a746de621ef0fa881f_tw4bjf.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1484918488/303726a9fbff20073a3115c7d6ccc2b2_peaxmz.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1484918487/030c4a5300bfc448ffd3bdb06cfd012f_jjvyuq.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1484918487/35f051be4e5f9ace286398d40f2b705d_houxfe.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1484918488/624ae36b528c24bcf93c89de7ca8ed5e_dwcxs0.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1484918487/02e3ebf534ee41ccf6a9b2639512bef7_mw7abj.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486831020/2ee9a1ec53b6429ab595294a49e2112d_eiwbyc.jpg"
   ]
 title = [
   "Star Wars Force of Darkness Art Print",
@@ -250,16 +250,16 @@ end
 #7
 g = Board.create!({user_id: 1, name: "Funny"})
   image = [
-  "http://res.cloudinary.com/andoo/image/upload/v1486831270/225edde5ce454be6d79b65657f9d7fe9_u05onp.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486831353/fe693fdd25004815677dd6d5304a746d_anl0d0.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486831393/8bab46e118515257dcafb665c0f753f8_d70qog.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486831447/7696d8440bc9b47b6beb755832c0b967_uxhboh.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486831506/07f63a6b66f18387d409cdd0342f55b8_v51oaz.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486831592/807afadbf3a1bc619828c9a15f6a32ab_nztows.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486831721/62e4703e2e395a42d91d993a11da1ab6_gz8ahf.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486831804/d0ec0e1dd46013b3017b497c88416a67_jcwwtq.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486831895/249d0d8060020bdffc3680072c790a4a_exalxn.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486831945/02d546fe72c5d1b9feb2490d39652a05_xyk4yr.jpg"
+  "https://res.cloudinary.com/andoo/image/upload/v1486831270/225edde5ce454be6d79b65657f9d7fe9_u05onp.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486831353/fe693fdd25004815677dd6d5304a746d_anl0d0.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486831393/8bab46e118515257dcafb665c0f753f8_d70qog.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486831447/7696d8440bc9b47b6beb755832c0b967_uxhboh.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486831506/07f63a6b66f18387d409cdd0342f55b8_v51oaz.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486831592/807afadbf3a1bc619828c9a15f6a32ab_nztows.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486831721/62e4703e2e395a42d91d993a11da1ab6_gz8ahf.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486831804/d0ec0e1dd46013b3017b497c88416a67_jcwwtq.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486831895/249d0d8060020bdffc3680072c790a4a_exalxn.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486831945/02d546fe72c5d1b9feb2490d39652a05_xyk4yr.jpg"
 ]
 title = [
 "Make your day better",
@@ -375,9 +375,9 @@ Board.create!({user_id: 7,name:"Delish"})
     1/4 cup Parmigiano cheese, grated"
   ]
   image = [
-    "http://res.cloudinary.com/andoo/image/upload/v1486917898/3dea7ba6b6b8c23dfd97d88c28aa4737_qtcoug.jpg",
-    "http://res.cloudinary.com/andoo/image/upload/v1486917991/7f5ff0396db05cdab9344315c44ab2c9_bcdbuk.jpg",
-    "http://res.cloudinary.com/andoo/image/upload/v1486918087/39acfedbf4e07d268375121a86bd4478_u0acbx.jpg"
+    "https://res.cloudinary.com/andoo/image/upload/v1486917898/3dea7ba6b6b8c23dfd97d88c28aa4737_qtcoug.jpg",
+    "https://res.cloudinary.com/andoo/image/upload/v1486917991/7f5ff0396db05cdab9344315c44ab2c9_bcdbuk.jpg",
+    "https://res.cloudinary.com/andoo/image/upload/v1486918087/39acfedbf4e07d268375121a86bd4478_u0acbx.jpg"
   ]
   image.each_index do |idx|
     Pin.create!({user_id: 4, board_id: 8, title: title[idx], body: body[idx], image_url:image[idx]})
@@ -431,10 +431,10 @@ Board.create!({user_id: 7,name:"Delish"})
       ½ cup V8 Spicy Hot Tomato Vegetable Juice"
   ]
   image = [
-    "http://res.cloudinary.com/andoo/image/upload/v1486918542/23337f62163b7b224eeab59adf32444d_omp2hk.jpg",
-    "http://res.cloudinary.com/andoo/image/upload/v1486918713/0daa82daa34a2d6e6bf3cf7235e7b734_imfe8i.jpg",
-    "http://res.cloudinary.com/andoo/image/upload/v1486918818/a79407825fd87a8926d6dd5f79d20d4f_okyhxo.jpg",
-    "http://res.cloudinary.com/andoo/image/upload/v1486918920/94a81e6bfb937288fcd028c7abf3ecab_vufmvi.jpg"
+    "https://res.cloudinary.com/andoo/image/upload/v1486918542/23337f62163b7b224eeab59adf32444d_omp2hk.jpg",
+    "https://res.cloudinary.com/andoo/image/upload/v1486918713/0daa82daa34a2d6e6bf3cf7235e7b734_imfe8i.jpg",
+    "https://res.cloudinary.com/andoo/image/upload/v1486918818/a79407825fd87a8926d6dd5f79d20d4f_okyhxo.jpg",
+    "https://res.cloudinary.com/andoo/image/upload/v1486918920/94a81e6bfb937288fcd028c7abf3ecab_vufmvi.jpg"
   ]
   image.each_index do |idx|
     Pin.create!({user_id: 4, board_id: 8, title: title[idx], body: body[idx], image_url:image[idx]})
@@ -498,10 +498,10 @@ Board.create!({user_id: 7,name:"Delish"})
     "Oreo Chocolate Chip Cheesecake Cookie Bars"
   ]
   image = [
-    "http://res.cloudinary.com/andoo/image/upload/v1486919035/3d9d81970685f08246dfc4850bc66e08_lvyjap.jpg",
-    "http://res.cloudinary.com/andoo/image/upload/v1486919143/abe8ec56ba00b43ce692fa6d4b383d47_vvigpg.jpg",
-    "http://res.cloudinary.com/andoo/image/upload/v1486919288/25ddb0dc68b4a42355a89d8efcaea622_qisll1.jpg",
-    "http://res.cloudinary.com/andoo/image/upload/v1486919362/288c70e5c54b3e12815dd1664b43a749_q4r9nl.jpg"
+    "https://res.cloudinary.com/andoo/image/upload/v1486919035/3d9d81970685f08246dfc4850bc66e08_lvyjap.jpg",
+    "https://res.cloudinary.com/andoo/image/upload/v1486919143/abe8ec56ba00b43ce692fa6d4b383d47_vvigpg.jpg",
+    "https://res.cloudinary.com/andoo/image/upload/v1486919288/25ddb0dc68b4a42355a89d8efcaea622_qisll1.jpg",
+    "https://res.cloudinary.com/andoo/image/upload/v1486919362/288c70e5c54b3e12815dd1664b43a749_q4r9nl.jpg"
   ]
   image.each_index do |idx|
     Pin.create!({user_id: 4, board_id: 8, title: title[idx], body: body[idx], image_url:image[idx]})
@@ -521,8 +521,8 @@ body = [
   "",
 ]
 image = [
-  "http://res.cloudinary.com/andoo/image/upload/v1486920144/b05bf6a10a47419d2147f5bb11425dd1_nwf3cn.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486920207/1f1ad3706d3fa195e2e2d3672bffd942_zl0h4h.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486920144/b05bf6a10a47419d2147f5bb11425dd1_nwf3cn.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486920207/1f1ad3706d3fa195e2e2d3672bffd942_zl0h4h.jpg",
 ]
 image.each_index do |idx|
   Pin.create!({user_id: 4, board_id: 9, title: title[idx], body: body[idx], image_url:image[idx]})
@@ -542,11 +542,11 @@ body = [
   "Your groom will look sooooooo sharp! Get the S by Sebastian Dinner Jacket and you won't go wrong. Be Bold. "
 ]
 image = [
-  "http://res.cloudinary.com/andoo/image/upload/v1486920618/ebe0cadbc16ce71c2308f9b6c030d490_aq2ltj.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486920675/2b43c506998eb4fa7297c2ea264f3989_vlsyhu.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486920729/9fa029841c6dd5ce5243dcf01005f461_tuztwb.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486920781/a6e92268f91e84abb541e19e8f162b59_u4flp1.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486920894/45fca59db4b5bd920a8a6ae1e5732feb_epyfqs.jpg"
+  "https://res.cloudinary.com/andoo/image/upload/v1486920618/ebe0cadbc16ce71c2308f9b6c030d490_aq2ltj.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486920675/2b43c506998eb4fa7297c2ea264f3989_vlsyhu.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486920729/9fa029841c6dd5ce5243dcf01005f461_tuztwb.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486920781/a6e92268f91e84abb541e19e8f162b59_u4flp1.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486920894/45fca59db4b5bd920a8a6ae1e5732feb_epyfqs.jpg"
 ]
 image.each_index do |idx|
   Pin.create!({user_id: 4, board_id: 9, title: title[idx], body: body[idx], image_url:image[idx]})
@@ -578,15 +578,15 @@ body = [
 
 ]
 image = [
-  "http://res.cloudinary.com/andoo/image/upload/v1486920993/3eac92deada76c095d8f6596665d1859_uipyms.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486921104/ee14168cce175bb26fef3e7ebd18d66e_hpwy5x.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486921164/57a60b7992c9befbf87bc0afddb5f18e_ck6ozf.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486921245/cb16f47afd5826297c6cf70900449f65_pv8r60.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486921303/c88986c49226db4ffee2eb4da005079c_gpr0cy.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486921409/f5e0e7e644d817c048d5c1e7a4b7d0f2_bjqlld.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486921455/25ca0beb814b6c125444828e70a01f33_hxciyv.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486921519/f179a7b39588cf0b22a63d66d2171c01_eyxpx9.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487029822/345e8c38f7cde417816fad5c8fe7b472_hzb48v.jpg"
+  "https://res.cloudinary.com/andoo/image/upload/v1486920993/3eac92deada76c095d8f6596665d1859_uipyms.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486921104/ee14168cce175bb26fef3e7ebd18d66e_hpwy5x.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486921164/57a60b7992c9befbf87bc0afddb5f18e_ck6ozf.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486921245/cb16f47afd5826297c6cf70900449f65_pv8r60.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486921303/c88986c49226db4ffee2eb4da005079c_gpr0cy.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486921409/f5e0e7e644d817c048d5c1e7a4b7d0f2_bjqlld.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486921455/25ca0beb814b6c125444828e70a01f33_hxciyv.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486921519/f179a7b39588cf0b22a63d66d2171c01_eyxpx9.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487029822/345e8c38f7cde417816fad5c8fe7b472_hzb48v.jpg"
 ]
 image.each_index do |idx|
   Pin.create!({user_id: 5, board_id: 10, title: title[idx], body: body[idx], image_url:image[idx]})
@@ -600,8 +600,8 @@ body = [
   "Sheik (Princess Zelda's alter ego) ~ The Legend of Zelda: Ocarina of Time ~ Legend of Zelda Fan Art"
 ]
 image = [
-  "http://res.cloudinary.com/andoo/image/upload/v1486921672/86b90495f58fc13714e5b8ccbebbdb70_lkrdd2.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486921785/067a765c276f3e51b91c82daabe3da27_aatpni.jpg"
+  "https://res.cloudinary.com/andoo/image/upload/v1486921672/86b90495f58fc13714e5b8ccbebbdb70_lkrdd2.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486921785/067a765c276f3e51b91c82daabe3da27_aatpni.jpg"
 ]
 image.each_index do |idx|
   Pin.create!({user_id: 5, board_id: 10, title: title[idx], body: body[idx], image_url:image[idx]})
@@ -618,8 +618,8 @@ body = [
   "It is really fun to use game characters in RPG as NPCs... And really, really, REALLY fun to use them as villains... (Corvo from Dishonored by AJ Hateley)"
 ]
 image = [
-  "http://res.cloudinary.com/andoo/image/upload/v1486921991/668cc69e5d32097ea84f92072f0c3561_hos5tj.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486922049/65156b35789f72e84182a8c7113f8c56_pz3e4h.jpg"
+  "https://res.cloudinary.com/andoo/image/upload/v1486921991/668cc69e5d32097ea84f92072f0c3561_hos5tj.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486922049/65156b35789f72e84182a8c7113f8c56_pz3e4h.jpg"
 ]
 image.each_index do |idx|
   Pin.create!({user_id: 5, board_id: 11, title: title[idx], body: body[idx], image_url:image[idx]})
@@ -645,12 +645,12 @@ body = [
 
 ]
 image = [
-  "http://res.cloudinary.com/andoo/image/upload/v1486922267/552134ec3049f3adcd43fc38284cd67e_ou5cnb.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486922343/0edec46280f825b6220026e87ec4f535_idz3dh.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486922406/b1b1b2121c3d7895e3a880d871cd067b_azgd21.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486922493/013be79bb1461d4440a39156d65515f1_mz6msn.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486922557/8b3c44575d5303e713f098f0cb0c6bb1_u8lkbg.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486922672/7524fa88a48afe2c4fb287e103166b20_hhy8f0.jpg"
+  "https://res.cloudinary.com/andoo/image/upload/v1486922267/552134ec3049f3adcd43fc38284cd67e_ou5cnb.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486922343/0edec46280f825b6220026e87ec4f535_idz3dh.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486922406/b1b1b2121c3d7895e3a880d871cd067b_azgd21.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486922493/013be79bb1461d4440a39156d65515f1_mz6msn.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486922557/8b3c44575d5303e713f098f0cb0c6bb1_u8lkbg.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486922672/7524fa88a48afe2c4fb287e103166b20_hhy8f0.jpg"
 ]
 image.each_index do |idx|
   Pin.create!({user_id: 6, board_id: 12, title: title[idx], body: body[idx], image_url:image[idx]})
@@ -662,7 +662,7 @@ body = [
   "Remember to wrap up warm when outside in the snow.",
 ]
 image = [
-  "http://res.cloudinary.com/andoo/image/upload/v1486922739/3fe747f1e1073a3a6d68685a3980319f_h7ibop.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486922739/3fe747f1e1073a3a6d68685a3980319f_h7ibop.jpg",
 ]
 image.each_index do |idx|
   Pin.create!({user_id: 6, board_id: 12, title: title[idx], body: body[idx], image_url:image[idx]})
@@ -693,15 +693,15 @@ body = [
   ""
 ]
 image = [
-  "http://res.cloudinary.com/andoo/image/upload/v1486930728/8a8e3f82d9ac56f3a18ff0331c84bc47_y2k0hy.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486930966/066e5ac27b83f29628b969986532cefd_ymuqld.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486931018/bba004f0007962096c0391d2c3d5c616_zygkax.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486931089/26663ed6dcb4c55c30d2a9c58b54b901_pkvd8c.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486931145/6d3540628cbf87e19c483facee8ebac2_y8ugvr.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486931169/63ba7672dfd48f387d12717499051eb2_qd5rjl.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486931222/8a1e4a4fe799fb460665f00ada81e9a3_i03s4j.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486931312/a5c8c64c3da1e2067f9602ecd1743ff3_shb5gx.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486931392/88fadd683e03ddd64b1844b31f14985f_s2oji8.jpg"
+  "https://res.cloudinary.com/andoo/image/upload/v1486930728/8a8e3f82d9ac56f3a18ff0331c84bc47_y2k0hy.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486930966/066e5ac27b83f29628b969986532cefd_ymuqld.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486931018/bba004f0007962096c0391d2c3d5c616_zygkax.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486931089/26663ed6dcb4c55c30d2a9c58b54b901_pkvd8c.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486931145/6d3540628cbf87e19c483facee8ebac2_y8ugvr.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486931169/63ba7672dfd48f387d12717499051eb2_qd5rjl.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486931222/8a1e4a4fe799fb460665f00ada81e9a3_i03s4j.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486931312/a5c8c64c3da1e2067f9602ecd1743ff3_shb5gx.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486931392/88fadd683e03ddd64b1844b31f14985f_s2oji8.jpg"
 ]
 image.each_index do |idx|
   Pin.create!({user_id: 7, board_id: 13, title: title[idx], body: body[idx], image_url:image[idx]})
@@ -735,16 +735,16 @@ body = [
 
 ]
 image = [
-  "http://res.cloudinary.com/andoo/image/upload/v1486957751/5176304319bf8225a7ab693013642777_xwxguk.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486957838/431643e9264500d906a562d4ea3387e3_gjh88f.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486957888/b88477463943485478c90fdd13243681_zbkuto.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486957923/48374e1d6b0628e3659b55c7d8bf99dd_oivdkx.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486957987/153c381fbb537893047153bad1819568_flpsed.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486958074/14ba8148eaeeb20b65c8c04f03cf624e_azdrz8.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486958034/7c0f28dcb5291057b8a258c6b5c7ae00_eycsa7.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486958139/eb809f22b17f4df489472e3cf9770e30_yidgwn.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486958255/ca9a00412d96260ae7685ed5f75d514c_bksspd.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486958213/v_np4p16.jpg"
+  "https://res.cloudinary.com/andoo/image/upload/v1486957751/5176304319bf8225a7ab693013642777_xwxguk.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486957838/431643e9264500d906a562d4ea3387e3_gjh88f.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486957888/b88477463943485478c90fdd13243681_zbkuto.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486957923/48374e1d6b0628e3659b55c7d8bf99dd_oivdkx.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486957987/153c381fbb537893047153bad1819568_flpsed.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486958074/14ba8148eaeeb20b65c8c04f03cf624e_azdrz8.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486958034/7c0f28dcb5291057b8a258c6b5c7ae00_eycsa7.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486958139/eb809f22b17f4df489472e3cf9770e30_yidgwn.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486958255/ca9a00412d96260ae7685ed5f75d514c_bksspd.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486958213/v_np4p16.jpg"
 ]
 
 image.each_index do |idx|
@@ -776,15 +776,15 @@ body = [
   ""
 ]
 image = [
-  "http://res.cloudinary.com/andoo/image/upload/v1486958686/69cc89ce76e6a4c762730c2024241880_avtup7.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486958872/056649dcf638e8006a31af8f25a0f725_pqbq6h.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486958897/43308731958b3b64b4dc743484892881_bsb2fv.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486958961/63bbe130a2fbf9c2240c7c9c44f13c3a_rw9e4u.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486959017/1440a6f863758811ea8b954d5a555397_ythami.jpg",
-  'http://res.cloudinary.com/andoo/image/upload/v1486959078/1bf9bdde8f8ecd5d6a77694723bf02bb_1_xqhcv3.jpg',
-  "http://res.cloudinary.com/andoo/image/upload/v1486959210/80f8f9dd74d76f3ebc6b1caf1e9989e5_jlypfx.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486959150/864802d9fae547f8b72a1c88af852162_mtnymk.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1486959121/da3bbe3597cdc8b787b8a2577ecfc3cf_leipq8.jpg"
+  "https://res.cloudinary.com/andoo/image/upload/v1486958686/69cc89ce76e6a4c762730c2024241880_avtup7.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486958872/056649dcf638e8006a31af8f25a0f725_pqbq6h.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486958897/43308731958b3b64b4dc743484892881_bsb2fv.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486958961/63bbe130a2fbf9c2240c7c9c44f13c3a_rw9e4u.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486959017/1440a6f863758811ea8b954d5a555397_ythami.jpg",
+  'https://res.cloudinary.com/andoo/image/upload/v1486959078/1bf9bdde8f8ecd5d6a77694723bf02bb_1_xqhcv3.jpg',
+  "https://res.cloudinary.com/andoo/image/upload/v1486959210/80f8f9dd74d76f3ebc6b1caf1e9989e5_jlypfx.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486959150/864802d9fae547f8b72a1c88af852162_mtnymk.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1486959121/da3bbe3597cdc8b787b8a2577ecfc3cf_leipq8.jpg"
 ]
 image.each_index do |idx|
   Pin.create!({user_id: 4, board_id: 15, title: title[idx], body: body[idx], image_url:image[idx]})
@@ -811,12 +811,12 @@ body = [
 ]
 
 image = [
-  "http://res.cloudinary.com/andoo/image/upload/v1487013846/a4b1602e05d757c02c661bdb2d2e1326_p7npsm.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487013943/01d3ecb704f32b2776c00daaa8c32531_qbljgt.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487013995/d204f4340446f7dcb98c476df5a509a4_hynxao.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487014059/23ac4f99b593a92a38903bbc55cdcb65_ofg4a2.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487014110/7e0bdbe1a55784cd8761d0bfa2eb4ee9_nlh3u4.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487014219/48dbc3452bdb636e017924fb2038a607_1_da2owj.jpg"
+  "https://res.cloudinary.com/andoo/image/upload/v1487013846/a4b1602e05d757c02c661bdb2d2e1326_p7npsm.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487013943/01d3ecb704f32b2776c00daaa8c32531_qbljgt.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487013995/d204f4340446f7dcb98c476df5a509a4_hynxao.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487014059/23ac4f99b593a92a38903bbc55cdcb65_ofg4a2.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487014110/7e0bdbe1a55784cd8761d0bfa2eb4ee9_nlh3u4.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487014219/48dbc3452bdb636e017924fb2038a607_1_da2owj.jpg"
 ]
 
 image.each_index do |idx|
@@ -846,13 +846,13 @@ body = [
 ]
 
 image = [
-  "http://res.cloudinary.com/andoo/image/upload/v1487027835/d311c3ca0cbd867d21a03e63cf8bf21f_lisoha.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487027887/1b06a2abe5efbf6f82da06140e8f59c2_n7o54l.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487027961/d7ac98006f180cc2eb34fa68d4c41614_hyxkli.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487028019/46dcdc7fe72c3090d28ba0a15979efce_b2tfbd.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487028073/0226fe8d91473a89241e99e5e42b2adb_iqbktq.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487028123/57a062462bc7769370a9619638c4835d_g8djnf.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487028172/a3ad823ae8e6232ff6f0e8e929b4cd80_h5p6ji.jpg"
+  "https://res.cloudinary.com/andoo/image/upload/v1487027835/d311c3ca0cbd867d21a03e63cf8bf21f_lisoha.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487027887/1b06a2abe5efbf6f82da06140e8f59c2_n7o54l.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487027961/d7ac98006f180cc2eb34fa68d4c41614_hyxkli.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487028019/46dcdc7fe72c3090d28ba0a15979efce_b2tfbd.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487028073/0226fe8d91473a89241e99e5e42b2adb_iqbktq.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487028123/57a062462bc7769370a9619638c4835d_g8djnf.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487028172/a3ad823ae8e6232ff6f0e8e929b4cd80_h5p6ji.jpg"
 ]
 
 image.each_index do |idx|
@@ -884,13 +884,13 @@ body = [
 ]
 
 image = [
-  "http://res.cloudinary.com/andoo/image/upload/v1487028960/a2eb29ed5a417e32bd0336a223b2b171_vswxlx.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487029186/38b2d7350bde5cb6efce3d5cb3092c42_iyxafr.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487029246/download_xlljvf.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487029341/d4af2cad838609e6afe29dfb8c33703a_1_bxw5r5.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487029378/41466becd6024d848fd30a56f838ff97_maxg4k.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487029444/0365026eaf823062a3b706e73c82b53d_k1z5ff.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487029666/f136c077c83571bbedc1b04b4917b809_sjlgh8.jpg"
+  "https://res.cloudinary.com/andoo/image/upload/v1487028960/a2eb29ed5a417e32bd0336a223b2b171_vswxlx.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487029186/38b2d7350bde5cb6efce3d5cb3092c42_iyxafr.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487029246/download_xlljvf.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487029341/d4af2cad838609e6afe29dfb8c33703a_1_bxw5r5.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487029378/41466becd6024d848fd30a56f838ff97_maxg4k.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487029444/0365026eaf823062a3b706e73c82b53d_k1z5ff.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487029666/f136c077c83571bbedc1b04b4917b809_sjlgh8.jpg"
 ]
 
 image.each_index do |idx|
@@ -918,12 +918,12 @@ body = [
 ]
 
 image = [
-  "http://res.cloudinary.com/andoo/image/upload/v1487030164/f598b995df872477e918991f4e45be7d_hsesng.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487030224/50d0720e44ff33b3e355cdeced8dd6ef_dcci0n.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487030272/3516a21e68224800cc6ed2b06070c40b_skkbjs.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487030348/a8b6b1111aba5a0ed8a755d4d8cbc990_c2cz9q.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487030395/b93fa4a76dd5435d2df38f075917b524_jvruyn.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487030436/12778cc02d4df53fa64c10505ca9b35d_v8jnfc.jpg"
+  "https://res.cloudinary.com/andoo/image/upload/v1487030164/f598b995df872477e918991f4e45be7d_hsesng.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487030224/50d0720e44ff33b3e355cdeced8dd6ef_dcci0n.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487030272/3516a21e68224800cc6ed2b06070c40b_skkbjs.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487030348/a8b6b1111aba5a0ed8a755d4d8cbc990_c2cz9q.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487030395/b93fa4a76dd5435d2df38f075917b524_jvruyn.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487030436/12778cc02d4df53fa64c10505ca9b35d_v8jnfc.jpg"
 ]
 
 image.each_index do |idx|
@@ -948,11 +948,11 @@ body = [
 ]
 
 image = [
-  "http://res.cloudinary.com/andoo/image/upload/v1487037474/d771a8d2347820dbdec7b06de8cbbf51_xso5ya.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487037504/tumblr_ohc8ukLHf91uc0ho8o1_1280_hvklc8.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487037474/d771a8d2347820dbdec7b06de8cbbf51_xso5ya.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487037514/af07617056c54c06c4dc318701ecfb95_v8hisr.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487037542/b519eb935f13c9ba11326289d492c394_uck88d.jpg"
+  "https://res.cloudinary.com/andoo/image/upload/v1487037474/d771a8d2347820dbdec7b06de8cbbf51_xso5ya.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487037504/tumblr_ohc8ukLHf91uc0ho8o1_1280_hvklc8.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487037474/d771a8d2347820dbdec7b06de8cbbf51_xso5ya.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487037514/af07617056c54c06c4dc318701ecfb95_v8hisr.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487037542/b519eb935f13c9ba11326289d492c394_uck88d.jpg"
 ]
 
 image.each_index do |idx|
@@ -985,14 +985,14 @@ body = [
 ]
 
 image = [
-  "http://res.cloudinary.com/andoo/image/upload/v1487037957/c4f4ef5e157868565ff38b4c76de455f_wprs3v.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487038025/3e1b05fe0a5cbdc8e044d6043af7e766_szhhbs.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487038075/97a68fff4bad68830241d6928118c88d_ueu5tn.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487038113/6751c3d814fdda7db7e4844c3007db7c_a4pbpo.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487038177/74d351126335bb0d568a54845e7458ab_q1knd9.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487038219/a6c66bf85913c7bfc0cc8588c217db50_ilfrel.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487038251/5d5839590b51a828dcf9ee004152c170_lpn2rm.jpg",
-  "http://res.cloudinary.com/andoo/image/upload/v1487038279/97f39de35862e3706b7a446df7a93bcb_isnr1g.jpg"
+  "https://res.cloudinary.com/andoo/image/upload/v1487037957/c4f4ef5e157868565ff38b4c76de455f_wprs3v.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487038025/3e1b05fe0a5cbdc8e044d6043af7e766_szhhbs.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487038075/97a68fff4bad68830241d6928118c88d_ueu5tn.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487038113/6751c3d814fdda7db7e4844c3007db7c_a4pbpo.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487038177/74d351126335bb0d568a54845e7458ab_q1knd9.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487038219/a6c66bf85913c7bfc0cc8588c217db50_ilfrel.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487038251/5d5839590b51a828dcf9ee004152c170_lpn2rm.jpg",
+  "https://res.cloudinary.com/andoo/image/upload/v1487038279/97f39de35862e3706b7a446df7a93bcb_isnr1g.jpg"
 ]
 
 image.each_index do |idx|

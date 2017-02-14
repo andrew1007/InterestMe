@@ -17,6 +17,7 @@ export default class Session extends React.Component {
       error: false,
       newPinFormOpen: false
     };
+    document.body.style.overflow = "hidden"
     this.closeModal = this.closeModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.openLogin = this.openLogin.bind(this);
@@ -113,7 +114,7 @@ export default class Session extends React.Component {
   }
 
   closeModal() {
-    this.setState({modalIsOpen: false, newPinFormOpen: false});
+    this.setState({modalIsOpen: false, newPinFormOpen: false, username: "", password: ""});
     this.props.clearErrors();
     document.body.style.overflow = "auto";
   }
@@ -250,7 +251,7 @@ export default class Session extends React.Component {
           <div className="logo-container">
             <img className="interest-me-logo"
               onClick={this.handleLogoImageClick}
-              src="http://res.cloudinary.com/andoo/image/upload/v1487088792/Logomakr_8HgPFi_j5afkw.png"
+              src="https://res.cloudinary.com/andoo/image/upload/v1487088792/Logomakr_8HgPFi_j5afkw.png"
               alt="Interest Me!">
             </img>
           </div>

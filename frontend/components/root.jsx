@@ -19,7 +19,7 @@ const Root = ({ store }) => {
   }
   
   setInterval(function() {
-        http.get("https://interest-me.herokuapp.com");
+        https.get("https://interest-me.herokuapp.com");
   }, 300000);
 
   const _redirectIfLoggedOut = (nextState, replace) => {

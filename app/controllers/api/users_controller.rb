@@ -3,7 +3,7 @@ helper_method :current_user
 
   def create
     @user = User.new(user_params)
-    @user.profile_picture = "http://res.cloudinary.com/andoo/image/upload/c_crop,h_175,r_100,w_173,x_74,y_0/v1484764852/vonrulf1kpsuhqlxobir.png"
+    @user.profile_picture = "https://res.cloudinary.com/andoo/image/upload/c_crop,h_175,r_100,w_173,x_74,y_0/v1484764852/vonrulf1kpsuhqlxobir.png"
     @user.description = ""
     if @user.save
       sign_in(@user)
