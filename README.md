@@ -15,14 +15,13 @@ InterestMe is a web application for users to share pictures. Inspired by Pintere
 
 ## Infinite Scrolling
 
-To create zero delay infinite scrolling, JSON pin responses were pulled in as batches of pins. A JSON output consisting of an array with multiple sets of pins. Each set of pins were rendered as an on-needed basis. This greatly lowers backend querying. It also reduces the bandwidth speed requirements, when compared to rendering a large number of pins simultaneously. Below is a simplified version of its implementation.
+To create zero delay infinite scrolling, JSON pin responses were pulled in as batches of pins. Each set of pins were rendered on an on-needed basis. This greatly lowers backend querying. It also reduces the bandwidth speed requirements, when compared to rendering a large number of pins simultaneously. Below is a simplified version of its implementation.
 
 ###Infinite Scrolling Backend
 ```ruby
 def index
   pins = Pin.where.not(user_id: current_user.id).shuffle
-  all_pins_count = pins.length
-  pin_sets = (pins.length / 20)
+  pin_sets = pins.length / 20
   @pin_batches = {}
   (0...pin_sets).each do |set|
     pin_set = pins[(set*20)...(set*20 + 20)]
@@ -42,6 +41,17 @@ loadMorePins(){
     currentlyRenderedPins: this.state.currentlyRenderedPins.concat(newPinSet),
     pinBatchCounter: this.state.pinBatchCounter + 1
   })
+
+pinTileRender(){
+  return(
+    this.state.currentlyRenderedPins.map( (tile, idx) => {
+      return(
+        <div key={idx}>
+          {tile}
+        </div>
+      )
+    })
+  )
 }
 ```
 
