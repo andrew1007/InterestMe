@@ -250,7 +250,7 @@ export default class Session extends React.Component {
           <div className="logo-container">
             <img className="interest-me-logo"
               onClick={this.handleLogoImageClick}
-              src="http://res.cloudinary.com/andoo/image/upload/v1484187051/Logomakr_2W78HQ_k95ah7.png"
+              src="http://res.cloudinary.com/andoo/image/upload/v1487088792/Logomakr_8HgPFi_j5afkw.png"
               alt="Interest Me!">
             </img>
           </div>

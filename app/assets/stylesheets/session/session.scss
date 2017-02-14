@@ -39,14 +39,25 @@
   min-width: 500px;
 }
 
-.splashtext {
-  color: white;
+.splashtext-container {
+  background-color: transparent;
   z-index: 10;
   position: absolute;
-  top: 300px;
-  left:100px;
-  width: 900px;
-  font-size: 50px;
+  height: 60vh;
+  width: 75vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-text {
+  min-width: 1000px;
+}
+
+.splashtext {
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, -49%);
 }
 
 .splashtext-sub {

@@ -21,7 +21,8 @@ export default class PinNewForm extends React.Component {
       name: "",
       newBoardForm: false,
       renderEmptyBoardError: false,
-      renderEmptyPinError: false
+      renderEmptyPinError: false,
+      renderEmptyNameError: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
@@ -85,6 +86,14 @@ export default class PinNewForm extends React.Component {
     return(
       <div className="new-pin-error-text">
         Select a board to submit
+      </div>
+    )
+  }
+
+  boardErrorText(){
+    return(
+      <div className="edit-board-error-text">
+        Board name can't be blank
       </div>
     )
   }
@@ -207,9 +216,13 @@ export default class PinNewForm extends React.Component {
   }
 
   handleBoardSubmit(){
-    this.props.createBoard({name: this.state.name})
-    .then((action) => hashHistory.push(`/boards/${action.board.id}`))
-    this.props.handleChildCancelButton()
+    if (!this.state.name) {
+      this.setState({renderEmptyNameError: true})
+    } else {
+      this.props.createBoard({name: this.state.name})
+      .then((action) => hashHistory.push(`/boards/${action.board.id}`))
+      this.props.handleChildCancelButton()
+    }
   }
 
   newBoardForm() {
@@ -225,6 +238,7 @@ export default class PinNewForm extends React.Component {
             autoFocus type='text' onChange={this.update('name')}
             />
           <br/>
+          {this.state.renderEmptyNameError ? this.boardErrorText() : null}
           <div className="board-new-form-buttons-container">
             <button type="Submit" value="Submit">
               Create

@@ -7,8 +7,9 @@ export default class BoardEdit extends React.Component {
     this.state = {
       editBoxOpen: true,
       deleteConfirmBox: false,
-      name: '',
-      cancelState: false
+      name: this.props.board.boards.name,
+      cancelState: false,
+      renderEmptyNameError: false
     };
     this.editButton = this.editButton.bind(this);
     this.editForm = this.editForm.bind(this);
@@ -64,14 +65,25 @@ export default class BoardEdit extends React.Component {
     if (this.state.cancelState) {
       return
     }
-    e.preventDefault();
-    this.setState({deleteConfirmBox: false, editBoxOpen: false});
-    if (this.state.name.split(" ").join("")){
-      this.props.editBoard({name: this.state.name,
-        id: this.props.board.boards.id});
+    if (!this.state.name) {
+      this.setState({renderEmptyNameError: true})
+    } else {
+      e.preventDefault();
+      this.setState({deleteConfirmBox: false, editBoxOpen: false});
+      if (this.state.name.split(" ").join("")){
+        this.props.editBoard({name: this.state.name,
+          id: this.props.board.boards.id});
+        }
+        this.props.handleSelfClose();
     }
-    debugger
-    this.props.handleSelfClose();
+  }
+
+  boardErrorText(){
+    return(
+      <div className="edit-board-error-text">
+        Board name can't be blank
+      </div>
+    )
   }
 
   editForm() {
@@ -91,6 +103,7 @@ export default class BoardEdit extends React.Component {
               null
               :
               <div>
+                {this.state.renderEmptyNameError ? this.boardErrorText() : null}
                 <button type="Submit" value="Submit">
                   Update
                 </button>
@@ -105,7 +118,7 @@ export default class BoardEdit extends React.Component {
             {
               this.state.deleteConfirmBox ?
               <div>
-                <button onClick={this.handleDeleteConfirm}>Yes</button>
+                <button onClick={this.handleDeleteConfirm}>Delete</button>
                 <button onClick={this.handleDeleteCancelButton}>Cancel</button>
               </div>
               :
