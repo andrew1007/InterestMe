@@ -140,7 +140,7 @@ export default class Homepage extends React.Component{
         let allImages = document.images
         for (let i=0; i < allImages.length; i++){
           let scale = 300 / allImages[i].naturalWidth
-          let scaledHeight = allImages[i].naturalHeight * scale + 90
+          let scaledHeight = allImages[i].naturalHeight * scale
           allImages[i].setAttribute("style", `height:${scaledHeight}`)
         }
         case 1:
@@ -159,7 +159,7 @@ export default class Homepage extends React.Component{
         })
         counter += 1
       }
-    }, 550)
+    }, 600)
   }
 
   closeModal() {
