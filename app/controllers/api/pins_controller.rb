@@ -4,16 +4,16 @@ class Api::PinsController < ApplicationController
   def index
     pins = Pin.where.not(user_id: current_user.id).shuffle
     all_pins_count = pins.length
-    pin_sets = (pins.length / 20)
+    pin_sets = (pins.length / 15)
     hash = {}
     i = 0
     not_complete = true
     while not_complete
-      if ((i*19 + 1) + 19) > all_pins_count
-        pin_set = pins[i*19 + 1..-1]
+      if ((i*14 + 1) + 14) > all_pins_count
+        pin_set = pins[i*14 + 1..-1]
         not_complete = false
       else
-        pin_set = pins[(i*19 + 1)...(i*19 + 20)]
+        pin_set = pins[(i*14 + 1)...(i*14 + 15)]
       end
       pin_set_hash = pin_set.as_json
       j = 0
