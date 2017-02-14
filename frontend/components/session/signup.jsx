@@ -14,6 +14,9 @@ export default class Signup extends React.Component {
         <img className="splashscreen"/>
         <div className="splashtext">
           Everything you're looking for in one place
+          <div className="splashtext-sub">
+            Share and find what you love
+          </div>
         </div>
       </div>
     )

@@ -202,7 +202,7 @@ export default class Board extends React.Component {
             <div className="owner-edit-buttons">
               {this.props.board.owner?
                 <button className="board-edit-button edit-modal-cog" onClick={this.handleEditButtonOpen}>
-                  <i className="fa fa-cog fa-2x" aria-hidden="true"></i>
+                  <i className="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                 </button>
                  : null }
             </div>
@@ -286,7 +286,7 @@ export default class Board extends React.Component {
         })
         counter += 1
       }
-    }, 500)
+    }, 800)
   }
 
 

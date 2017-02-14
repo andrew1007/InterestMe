@@ -104,7 +104,7 @@ export default class Pin extends React.Component {
                   <div className="pin-show-edit-button-container">
                     {this.props.pin.pins.pins.owner ?
                       <i
-                        className="fa fa-cog fa-2x edit-modal-cog"
+                        className="fa fa-pencil-square-o fa-2x edit-modal-cog"
                         aria-hidden="true"
                         onClick={this.handleEditButton}>
                       </i>

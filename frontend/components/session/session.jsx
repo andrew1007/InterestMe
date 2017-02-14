@@ -44,9 +44,11 @@ export default class Session extends React.Component {
       })
     }
     else {
-      this.props.processSignUp(user)
-      this.setState({modalIsOpen: false})
-      hashHistory.push('/home')
+      this.props.processSignUp(user).then( ()=> {
+        this.setState({modalIsOpen: false})
+      }).then(() => {
+        hashHistory.push('/home')
+      })
   }
 }
 

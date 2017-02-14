@@ -156,7 +156,7 @@ export default class Homepage extends React.Component{
         })
         counter += 1
       }
-    }, 500)
+    }, 800)
   }
 
   closeModal() {

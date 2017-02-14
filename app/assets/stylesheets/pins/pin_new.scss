@@ -111,6 +111,16 @@
   align-items: center;
 }
 
+.pin-new-add-board-text {
+  margin-left: 15px;
+}
+
+.new-pin-error-text {
+  color: red;
+  margin: 5px 0px 5px 0px;
+  font-size: 20px;
+}
+
 .pin-new-image-preview {
   height: auto;
   overflow: hidden;
@@ -148,8 +158,8 @@
 }
 
 .image-preview img {
-  height: auto !important;
-  width: auto !important;
+  height: 180px !important;
+  width: 180px !important;
   max-height: 400px !important;
   max-width: 400px !important;
   margin: 0 auto;

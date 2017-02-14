@@ -6,7 +6,7 @@ import BoardNewContainer from '../boards/board_new_container';
 import Dropdown from 'react-dropdown'
 
 const CLOUDINARY_PRESET = 'punlriir'
-const CLOUDINARY_UPLOAD ='http://api.cloudinary.com/v1_1/andoo/upload'
+const CLOUDINARY_UPLOAD ='https://api.cloudinary.com/v1_1/andoo/upload'
 
 export default class PinNewForm extends React.Component {
   constructor(){
@@ -19,7 +19,9 @@ export default class PinNewForm extends React.Component {
       doneLoading: false,
       boardId: "",
       name: "",
-      newBoardForm: false
+      newBoardForm: false,
+      renderEmptyBoardError: false,
+      renderEmptyPinError: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
@@ -46,26 +48,53 @@ export default class PinNewForm extends React.Component {
   }
 
   handleSubmit(e) {
-    // log(this.getPath())
-    e.preventDefault();
-    hashHistory.push({
-      pathname: `/boards/${this.state.boardId}`,
-      state: {newPinMade: true}
-    })
+    if (!this.state.boardId && !this.state.imageUrl){
+      this.setState({renderEmptyPinError: true})
+      this.setState({renderEmptyBoardError: true})
+    }
+    else if (!this.state.boardId) {
+      this.setState({renderEmptyBoardError: true})
+      this.setState({renderEmptyPinError: false})
+    } else if (!this.state.imageUrl){
+      this.setState({renderEmptyPinError: true})
+      this.setState({renderEmptyBoardError: false})
+    } else {
+      e.preventDefault();
+      hashHistory.push({
+        pathname: `/boards/${this.state.boardId}`,
+        state: {newPinMade: true}
+      })
 
-    this.props.newPin({
-      title: this.state.title,
-      body: this.state.body,
-      board_id: parseInt(this.state.boardId),
-      image_url: this.state.imageUrl})
-    this.setState( {imageUrl: false})
-    this.props.handleChildCancelButton()
+      this.props.newPin({
+        title: this.state.title,
+        body: this.state.body,
+        board_id: parseInt(this.state.boardId),
+        image_url: this.state.imageUrl})
+        this.setState( {imageUrl: false})
+        this.props.handleChildCancelButton()
+    }
   }
 
   update(text) {
     return e => this.setState({
       [text]: e.currentTarget.value
     });
+  }
+
+  emptyBoardError(){
+    return(
+      <div className="new-pin-error-text">
+        Select a board to submit
+      </div>
+    )
+  }
+
+  emptyPinError(){
+    return(
+      <div className="new-pin-error-text">
+        Upload a pin
+      </div>
+    )
   }
 
   previewImage() {
@@ -111,8 +140,17 @@ export default class PinNewForm extends React.Component {
   }
 
   inputForm(){
+    debugger
     return (
       <div className="new-pin-form-container">
+        <div className="pin-new-add-board-container">
+          <button className="pin-new-add-board-button" onClick={this.handleNewBoardButton}>
+            <i className="fa fa-plus fa-1x" aria-hidden="true"></i>
+            <div className="pin-new-add-board-text">
+              {"Create a new Board"}
+            </div>
+          </button>
+        </div>
         <form onSubmit={this.handleSubmit}>
           <div className="new-pin-form">
             <div className="new-pin-form-titles">
@@ -139,6 +177,8 @@ export default class PinNewForm extends React.Component {
                 )
               }
             </select>
+            {this.state.renderEmptyBoardError ? this.emptyBoardError() : null}
+            {this.state.renderEmptyPinError ? this.emptyPinError() : null}
             <div className="new-pin-form-button-container">
               <button type="Submit" value="Submit">
                 Post
@@ -150,12 +190,6 @@ export default class PinNewForm extends React.Component {
             </div>
           </div>
         </form>
-        <div className="pin-new-add-board-container">
-          <button className="pin-new-add-board-button" onClick={this.handleNewBoardButton}>
-            <i className="fa fa-plus fa-1x" aria-hidden="true"></i>
-            Create a new Board
-          </button>
-        </div>
       </div>
     )
   }

@@ -3,8 +3,8 @@ import Modal from 'react-modal';
 import {hashHistory} from 'react-router';
 import Dropzone from 'react-dropzone'
 import request from 'superagent';
-const CLOUDINARY_PRESET = 'hzwjhd4e'
-const CLOUDINARY_UPLOAD ='https://api.cloudinary.com/v1_1/andoo/upload'
+const CLOUDINARY_PRESET = 'tknultlh'
+const CLOUDINARY_UPLOAD ='https://api.cloudinary.com/v1_1/dukcet22g/upload'
 
 export default class UserProfileForm extends React.Component {
   constructor(props) {
@@ -58,7 +58,7 @@ export default class UserProfileForm extends React.Component {
 
   previewImage() {
     return (
-      <div className="original-filename">
+      <div>
         {this.state.imageUrl ? null :
           <div className="upload-mini-text">
             Image preview

@@ -1,12 +1,12 @@
 pusheen = "http://res.cloudinary.com/andoo/image/upload/c_crop,h_175,r_100,w_173,x_74,y_0/v1484764852/vonrulf1kpsuhqlxobir.png"
 profile_picture = "http://res.cloudinary.com/andoo/image/upload/c_crop,h_175,r_100,w_173,x_74,y_0/v1484764852/vonrulf1kpsuhqlxobir.png"
-monachan = "http://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_180/v1486925093/Screenshot_from_2017-02-12_10-44-34_c0tvuz.png"
+monachan = "http://res.cloudinary.com/dukcet22g/image/upload/v1487079390/kkuomujshaltfu9d52xf.png"
 andrew1007 = "http://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_180/v1486926486/Screenshot_from_2017-02-12_11-07-50_ecwlbm.png"
 bamflame97 = "http://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_180/v1486926676/Screenshot_from_2017-02-12_11-11-02_uduvu8.png"
-pikachu = "http://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_180/v1486926870/Screenshot_from_2017-02-12_11-14-14_fnhnas.png"
-djjason = "http://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_180/v1486927081/Screenshot_from_2017-02-12_11-17-41_zekvkr.png"
+pikachu = "http://res.cloudinary.com/andoo/image/upload/v1487039386/idt67nek7iflvengmmxa.png"
 artemis = "http://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_180/v1486927000/Screenshot_from_2017-02-12_11-16-28_va2uox.png"
 peralta = "http://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_180/v1486927257/Screenshot_from_2017-02-12_11-20-32_thyhxm.png"
+jupiterhero = "http://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_180/v1487038532/Screenshot_from_2017-02-13_18-15-10_cin2ev.png"
 User.create!({username: "Pusheen", password:"password", profile_picture: pusheen})
 User.create!({username: "Artemis", password:"password", profile_picture: artemis})
 User.create!({username: "mona-chan", password:"password", profile_picture: monachan})
@@ -14,12 +14,11 @@ User.create!({username: "bamflame97", password:"password", profile_picture: bamf
 User.create!({username: "andrew1007", password:"password", profile_picture: andrew1007})
 User.create!({username: "pikachu", password:"password", profile_picture: pikachu})
 User.create!({username: "peralta", password:"password", profile_picture: peralta})
-User.create!({username: "JupiterHero", password:"password", profile_picture: profile_picture})
+User.create!({username: "JupiterHero", password:"password", profile_picture: jupiterhero})
 User.create!({username: "guc-chi", password:"password", profile_picture: profile_picture})
 User.create!({username: "andoo1007", password:"password", profile_picture: profile_picture})
 User.create!({username: "Kasey", password:"password", profile_picture: profile_picture})
 User.create!({username: "spadesofaces", password:"password", profile_picture: profile_picture})
-User.create!({username: "DjJason", password:"password", profile_picture: djjason})
 User.create!({username: "GonazaAmX", password:"password", profile_picture: profile_picture})
 User.create!({username: "admired32", password:"password", profile_picture: profile_picture})
 User.create!({username: "Mordecai65", password:"password", profile_picture: profile_picture})
@@ -29,13 +28,11 @@ User.create!({username: "allisonkao", password:"password", profile_picture: prof
 User.create!({username: "saitama", password:"password", profile_picture: profile_picture})
 User.create!({username: "KaliSymn", password:"password", profile_picture: profile_picture})
 User.create!({username: "Don352", password:"password", profile_picture: profile_picture})
-# you used a super hacky way of letting you create stuff. fix it later
-#1
-#follows
-user_count = (1..7).to_a
+
+user_count = (1..8).to_a
 
 user_count.each do |user_id|
-  follow_count = rand((3..user_count.length))
+  follow_count = rand((4..user_count.length))
   followed = []
   i = 1
   while i < follow_count
@@ -600,7 +597,7 @@ image.each_index do |idx|
 end
 title = [
   "Now that you think about it...",
-  "Gorgeous Shiek Fanart"
+  "Sheik Fanart"
 ]
 body = [
   "wut.",
@@ -973,7 +970,7 @@ title = [
   "",
   "Spirit Island",
   "Boundary Waters Canoe Area",
-  "The Boundary Water Canoe Area (BWCA) is a pristine place on earth that can be fully enjoyed by young and old. ",
+  "The Boundary Water Canoe Area (BWCA) is a pristine place",
   "",
   "",
   "Desvre",
