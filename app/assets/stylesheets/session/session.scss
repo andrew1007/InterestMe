@@ -42,19 +42,42 @@
   min-width: 500px;
 }
 
-.splashtext-container {
+.splashtext-catchphrase-container {
   background-color: transparent;
   z-index: 10;
   position: absolute;
-  height: 60vh;
-  width: 75vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.splashscreen-main-catchphrase {
+  font-size: 50px;
+  color: white;
+}
+
+.splashtext-container {
+  height: 50vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.logo-text {
-  min-width: 1000px;
+.splashscreen-sub-catchphrase {
+  font-size: 40px;
+  color: white;
+  margin-top: 5px;
+}
+
+.splashtext-sub {
+  font-size: 35px;
+}
+
+.splashtext-catchphrase-subtext-container{
+  margin: 50px 500px 0px 0px;
+  min-width: 800px;
 }
 
 .splashtext {
@@ -63,9 +86,6 @@
   transform: translate(-50%, -49%);
 }
 
-.splashtext-sub {
-  font-size: 30px;
-}
 
 .session-container {
 

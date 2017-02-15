@@ -229,9 +229,6 @@ export default class PinNewForm extends React.Component {
     return(
       <div className='board-new-form-container'>
         <form className="board-new-form" onSubmit={this.handleBoardSubmit}>
-          <span className="board-new-text">
-            New board
-          </span>
           <br/>
           <input
             className="board-new-input"
@@ -270,7 +267,7 @@ export default class PinNewForm extends React.Component {
     return (
       <div>
         <div className="pin-new-add-a-new-pin-text-container">
-          New Pin
+          {this.state.doneLoading && !this.state.newBoardForm ? "New Pin" : "New Board"}
         </div>
         <div className="pin-new-content-in-box">
           {

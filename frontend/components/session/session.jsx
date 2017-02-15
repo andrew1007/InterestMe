@@ -180,14 +180,9 @@ export default class Session extends React.Component {
             >
           </i>
         </button>
-        {
-          this.state.showHomeButton ?
-          <button className="session-button" onClick={this.handleLogoImageClick}>
-            <i className="fa fa-home fa-3x" aria-hidden="true"></i>
-          </button>
-            :
-          null
-        }
+        <button className="session-button" onClick={this.handleLogoImageClick}>
+          <i className="fa fa-home fa-3x" aria-hidden="true"></i>
+        </button>
         <button className="session-button" onClick={this.handleProfileClick}>
           <i className="fa fa-user fa-3x" aria-hidden="true"></i>
         </button>
