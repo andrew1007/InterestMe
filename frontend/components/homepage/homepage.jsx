@@ -47,10 +47,10 @@ export default class Homepage extends React.Component{
     }))
     .then( () => this.findImageHeight())
     .then( () => {
-      this.setState({
-        finishedLoading: true,
-        pinSetCount: this.props.pins.pinSetCount
-      })
+        this.setState({
+          finishedLoading: true,
+          pinSetCount: this.props.pins.pinSetCount
+        })
     })
   }
 
@@ -140,7 +140,7 @@ export default class Homepage extends React.Component{
         let allImages = document.images
         for (let i=0; i < allImages.length; i++){
           let scale = 300 / allImages[i].naturalWidth
-          let scaledHeight = allImages[i].naturalHeight * scale
+          let scaledHeight = Math.floor(allImages[i].naturalHeight * scale)
           allImages[i].setAttribute("style", `height:${scaledHeight}`)
         }
         case 1:

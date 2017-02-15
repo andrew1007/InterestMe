@@ -25,7 +25,11 @@ export default class UserProfile extends React.Component{
       followedButtonFocus: false,
       followStateChanged: false,
       showNewBoardForm: false,
-      newBoardModalIsOpen: false
+      newBoardModalIsOpen: false,
+      boardCount: 0,
+      pinCount: 0,
+      followersCount: 0,
+      followedCount: 0
     }
     document.body.style.overflow = "auto";
     this.newBoardModal= this.newBoardModal.bind(this);
@@ -88,6 +92,12 @@ export default class UserProfile extends React.Component{
   componentWillMount(){
     this.props.getProfilePage(this.props.userId)
     .then( () => this.findImageHeight())
+    .then( () => this.setState({
+      boardCount: this.props.user.boards.length,
+      pinCount: this.props.user.pins.length,
+      followersCount: this.props.user.followed.length,
+      followedCount: this.props.user.following.length
+    }))
     .then( () => {
       this.setState({doneLoading: true, isFollowing: this.props.user.isFollowing})
     })
@@ -248,6 +258,7 @@ export default class UserProfile extends React.Component{
         return(
           <button key={idx} name={pin.id} onClick={(e) => this.handleTileClick(e)} className="user-profile-pins" key={idx}>
             <img className="user-profile-pin-img" key={idx} src={pin.image_url}/>
+            {this.props.user.pins.length}
           </button>
         )
       })
@@ -529,7 +540,7 @@ export default class UserProfile extends React.Component{
 
 
   render(){
-    //console.log(this.props);
+    console.log(this.props);
     return(
       <div className="user-profile">
         <div className="user-profile-body">
@@ -550,16 +561,44 @@ export default class UserProfile extends React.Component{
         <div className="user-profile-buttons-bar-container">
           <div className="user-profile-buttons-bar">
             <button className={this.state.boardButtonFocus ? "profile-tab-button-active" :"profile-tab-button-inactive"} onClick={this.handleBoardTabClick}>
-              Boards
+              <div className="profile-button-text-container">
+                <div>
+                  Boards
+                </div>
+                <div>
+                  {this.props.user.boards.length}
+                </div>
+              </div>
             </button>
             <button className={this.state.pinButtonFocus ? "profile-tab-button-active" :"profile-tab-button-inactive"} onClick={this.handlePinTabClick}>
-              Pins
+              <div className="profile-button-text-container">
+                <div>
+                  Pins
+                </div>
+                <div>
+                  {this.props.user.pins.length}
+                </div>
+              </div>
             </button>
             <button className={this.state.followerButtonFocus ? "profile-tab-button-active" :"profile-tab-button-inactive"} onClick={this.handleFollowerClick}>
-              Followers
+              <div className="profile-button-text-container">
+                <div>
+                  Followers
+                </div>
+                <div>
+                  {this.props.user.followed.length}
+                </div>
+              </div>
             </button>
             <button className={this.state.followedButtonFocus ? "profile-tab-button-active" :"profile-tab-button-inactive"} onClick={this.handleFollowedClick}>
-              Followed
+              <div className="profile-button-text-container">
+                <div>
+                  Followed
+                </div>
+                <div>
+                  {this.props.user.following.length}
+                </div>
+              </div>
             </button>
           </div>
         </div>

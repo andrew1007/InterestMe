@@ -258,11 +258,13 @@ export default class Session extends React.Component {
           :
           null
         }
-        <ul className="session-buttons">
-          {this.props.currentUser.currentUser ? this.signedInButtons() : this.loginButtons()}
-        </ul>
-        {this.state.newPinFormOpen ? this.newPinForm() : null}
-        {this.loginForms()}
+        <div>
+          <ul className="session-buttons">
+            {this.props.currentUser.currentUser ? this.signedInButtons() : this.loginButtons()}
+          </ul>
+          {this.state.newPinFormOpen ? this.newPinForm() : null}
+          {this.loginForms()}
+        </div>
       </div>
     );
   }

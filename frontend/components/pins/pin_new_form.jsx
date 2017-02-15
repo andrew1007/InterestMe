@@ -268,17 +268,22 @@ export default class PinNewForm extends React.Component {
   render() {
     // {this.state.doneLoading ? this.selectBoardForNewPin() : null}
     return (
-      <div className="pin-new-content-in-box">
+      <div>
+        <div className="pin-new-add-a-new-pin-text-container">
+          New Pin
+        </div>
+        <div className="pin-new-content-in-box">
           {
             this.state.doneLoading && !this.state.newBoardForm ?
             <div className="pin-new-image-drop">
               {this.dropZoneDropBox()}
             </div>
-             : null
-           }
-        <div className="pin-board-new-user-input">
-           {this.state.doneLoading && !this.state.newBoardForm ? this.inputForm() : null}
-           {this.state.doneLoading && this.state.newBoardForm ? this.newBoardForm() : null}
+            : null
+          }
+          <div className="pin-board-new-user-input">
+            {this.state.doneLoading && !this.state.newBoardForm ? this.inputForm() : null}
+            {this.state.doneLoading && this.state.newBoardForm ? this.newBoardForm() : null}
+          </div>
         </div>
       </div>
     )

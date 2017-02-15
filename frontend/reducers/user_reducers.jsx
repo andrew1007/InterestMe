@@ -5,7 +5,7 @@ const defaultState = Object.freeze({
   pins: [],
   boards:[],
   errors: [],
-  followers: [],
+  following: [],
   followed: []
 });
 

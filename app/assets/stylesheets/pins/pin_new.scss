@@ -19,6 +19,13 @@
   border-color: #d7432d;
 }
 
+.pin-new-add-a-new-pin-text-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  color: $color-light
+}
 
 .newPinModal::-webkit-scrollbar {
     top: 10px;

@@ -11,6 +11,10 @@
   // background-color: transparent;
   // z-index: -2;
 }
+.profile-button-text-container {
+  display: flex;
+  flex-direction: column;
+}
 
 .user-profile-body {
   display: flex;
@@ -259,6 +263,7 @@
   border-radius: 10px;
   border: 3px solid transparent;
   margin-right: 0px;
+  align-items: center;
 }
 
 .user-profile-board-button:hover {
