@@ -15,7 +15,8 @@ export default class Session extends React.Component {
       signupModal: false,
       showDropdown: false,
       error: false,
-      newPinFormOpen: false
+      newPinFormOpen: false,
+      showHomeButton: false
     };
     document.body.style.overflow = "hidden"
     this.closeModal = this.closeModal.bind(this);
@@ -33,6 +34,7 @@ export default class Session extends React.Component {
     this.loginForms = this.loginForms.bind(this);
     this.handleLogoImageClick = this.handleLogoImageClick.bind(this);
   }
+
 
   handleSubmit(e){
     e.preventDefault();
@@ -178,9 +180,14 @@ export default class Session extends React.Component {
             >
           </i>
         </button>
-        <button className="session-button" onClick={this.handleLogoImageClick}>
-          <i className="fa fa-home fa-3x" aria-hidden="true"></i>
-        </button>
+        {
+          this.state.showHomeButton ?
+          <button className="session-button" onClick={this.handleLogoImageClick}>
+            <i className="fa fa-home fa-3x" aria-hidden="true"></i>
+          </button>
+            :
+          null
+        }
         <button className="session-button" onClick={this.handleProfileClick}>
           <i className="fa fa-user fa-3x" aria-hidden="true"></i>
         </button>

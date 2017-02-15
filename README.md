@@ -15,7 +15,7 @@
 
 ## Infinite Scrolling
 
-To create highly responsive infinite scrolling, JSON pin responses were pulled in as batches of pins. Each set of pins were rendered on an on-needed basis. This greatly lowers backend querying. It also reduces the bandwidth speed requirements, when compared to rendering a large number of pins simultaneously. Below is a greatly simplified version of its implementation.
+To create highly responsive infinite scrolling, JSON pin responses were pulled in as batches of pins. Each set of pins were rendered on an as-needed basis. This lowers backend querying. It also reduces the bandwidth speed requirements, when compared to rendering a large number of pins simultaneously. Below is a simplified version of its implementation.
 
 ###Infinite Scrolling Backend
 ```ruby
