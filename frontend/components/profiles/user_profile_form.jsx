@@ -11,7 +11,7 @@ export default class UserProfileForm extends React.Component {
     super(props);
     this.state= {
       imageUrl: "",
-      description: ""
+      description: this.props.user.user.description
     }
     //
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -94,7 +94,7 @@ export default class UserProfileForm extends React.Component {
                 placeholder="Tell us about yourself"
                 onChange={this.update('description')}
               >
-              {this.props.user.user.description}
+              {this.state.description}
             </textarea>
             <div className = "user-profile-edit-submit-button">
               <button type="Submit" value="Submit">

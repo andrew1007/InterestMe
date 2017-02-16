@@ -24,6 +24,7 @@
   background-color: transparent;
   width: 100%;
   margin-top: 110px;
+  min-height: 350px;
 }
 
 .user-profile-buttons-bar-container{
@@ -162,6 +163,7 @@
     position: relative;
     background-color: transparent;
     width: 100vw;
+    z-index: 1;
 }
 
 .tab-block{
