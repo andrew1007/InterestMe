@@ -155,9 +155,9 @@ export default class PinNewForm extends React.Component {
         <div className="pin-new-add-board-container">
           <button className="pin-new-add-board-button" onClick={this.handleNewBoardButton}>
             <i className="fa fa-plus fa-1x" aria-hidden="true"></i>
-            <div className="pin-new-add-board-text">
+            <span className="pin-new-add-board-text">
               {"Create a new Board"}
-            </div>
+            </span>
           </button>
         </div>
         <form onSubmit={this.handleSubmit}>

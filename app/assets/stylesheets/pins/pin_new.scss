@@ -185,7 +185,6 @@
 }
 
 .new-pin-board-select-dropdown {
-  display: flex;
   width: 100%;
   background: transparent;
   border: 0px solid transparent;
@@ -209,7 +208,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 50px;
+  height: 75px;
 }
 
 .pin-new-add-board-button {
