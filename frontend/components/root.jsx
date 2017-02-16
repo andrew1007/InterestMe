@@ -1,6 +1,7 @@
 import React from 'react';
 import { Router, Route, IndexRoute, hashHistory, withRouter, IndexRedirect } from 'react-router';
 import App from './app';
+import http from "http";
 import BoardContainer from './boards/boards_container';
 import {Provider} from 'react-redux';
 import { getBoard } from '../actions/board_actions';
@@ -19,8 +20,8 @@ const Root = ({ store }) => {
   }
 
   setInterval(function() {
-        https.get("https://interest-me.herokuapp.com");
-  }, 100000);
+        http.get("https://interest-me.herokuapp.com");
+  }, 300000);
 
   const _redirectIfLoggedOut = (nextState, replace) => {
     let currentUser = window.store.getState().session.currentUser
