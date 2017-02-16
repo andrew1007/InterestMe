@@ -15,7 +15,7 @@ helper_method :current_user
 
   def show
     @user = User.find(params[:id])
-    user_pins = @user.pins
+    user_pins = @user.pins.order(:updated_at).reverse
     user_pin_hash = user_pins.as_json
     i = 0
     while i < user_pin_hash.length
