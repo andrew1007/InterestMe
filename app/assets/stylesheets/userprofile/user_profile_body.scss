@@ -199,7 +199,7 @@
   font-weight: normal;
   z-index: 0;
   background-color: transparent;
-  color: black;
+  color: rgba(black, 0.5);
 }
 
 
@@ -383,6 +383,7 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 100px;
+  margin-top:30px;
 }
 // user-profile-board-pins
 .add-new-board-container {

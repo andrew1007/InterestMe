@@ -78,7 +78,7 @@ export default class Pin extends React.Component {
 
   handleBoardNameClick(e){
     this.props.handleSelfClose()
-    
+
     e.preventDefault()
     hashHistory.push(`/boards/${this.props.pin.pins.pins.board_id}`)
     document.body.style.overflow = "auto"
@@ -92,7 +92,20 @@ export default class Pin extends React.Component {
           <div className="pin-show-header-container">
             <div className="pin-show-title-board-name-container">
               <div className="pin-show-title-container">
-                <div id="pin-title">{this.props.pin.pins.pins.title}</div>
+                <div id="pin-title">
+                  {this.props.pin.pins.pins.title}
+                  <span className="pin-show-edit-button-container">
+                    {this.props.pin.pins.pins.owner ?
+                      <i
+                        className="fa fa-pencil-square-o fa-1x edit-modal-cog"
+                        aria-hidden="true"
+                        onClick={this.handleEditButton}>
+                      </i>
+                      :
+                      null
+                    }
+                  </span>
+                </div>
               </div>
               <div className="pin-show-pin-info-save-button-container">
                 <div className="pin-show-board-name-edit-button-container">
@@ -100,17 +113,6 @@ export default class Pin extends React.Component {
                     <button className="pin-show-board-name" onClick={this.handleBoardNameClick}>
                       {this.props.pin.pins.pins.board_name}
                     </button>
-                  </div>
-                  <div className="pin-show-edit-button-container">
-                    {this.props.pin.pins.pins.owner ?
-                      <i
-                        className="fa fa-pencil-square-o fa-2x edit-modal-cog"
-                        aria-hidden="true"
-                        onClick={this.handleEditButton}>
-                      </i>
-                      :
-                      null
-                    }
                   </div>
                 </div>
                 <div className="pin-show-save-button-container">

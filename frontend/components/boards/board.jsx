@@ -193,18 +193,20 @@ export default class Board extends React.Component {
     return(
       <div className="board-overhead-bar-container">
         <div className="board-overhead-bar">
-          <a id="board-name">
-            {this.state.name}
-          </a>
-          <div className="author-edit-flexbox">
-            <a id="board-author">a board by {this.props.board ? this.boardAuthor() : null} </a>
+          <div className="board-name-container">
+            <div id="board-name">
+              {this.state.name}
+            </div>
             <div className="owner-edit-buttons">
               {this.props.board.owner?
                 <button className="board-edit-button edit-modal-cog" onClick={this.handleEditButtonOpen}>
                   <i className="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                 </button>
-                 : null }
-            </div>
+                : null }
+              </div>
+          </div>
+          <div className="author-edit-flexbox">
+            <a id="board-author">a board by {this.props.board ? this.boardAuthor() : null} </a>
           </div>
         </div>
       </div>

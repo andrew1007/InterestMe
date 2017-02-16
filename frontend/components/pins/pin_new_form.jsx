@@ -152,14 +152,6 @@ export default class PinNewForm extends React.Component {
 
     return (
       <div className="new-pin-form-container">
-        <div className="pin-new-add-board-container">
-          <button className="pin-new-add-board-button" onClick={this.handleNewBoardButton}>
-            <i className="fa fa-plus fa-1x" aria-hidden="true"></i>
-            <span className="pin-new-add-board-text">
-              {"Create a new Board"}
-            </span>
-          </button>
-        </div>
         <form onSubmit={this.handleSubmit}>
           <div className="new-pin-form">
             <div className="new-pin-form-titles">
@@ -195,7 +187,14 @@ export default class PinNewForm extends React.Component {
               <button onClick={this.handleNewPinCancelButton}>
                 Cancel
               </button>
-
+            </div>
+            <div className="pin-new-add-board-container">
+              <button className="pin-new-add-board-button" onClick={this.handleNewBoardButton}>
+                <i className="fa fa-plus fa-1x" aria-hidden="true"></i>
+                <span className="pin-new-add-board-text">
+                  {"Create a new Board"}
+                </span>
+              </button>
             </div>
           </div>
         </form>

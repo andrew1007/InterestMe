@@ -215,6 +215,9 @@ export default class Homepage extends React.Component{
             <a id="board-name">
               Discover
             </a>
+            <div className="author-edit-flexbox-hidden">
+              invisible filler
+            </div>
           </div>
         </div>
         {this.state.finishedLoading ?

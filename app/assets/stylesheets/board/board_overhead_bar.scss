@@ -6,16 +6,23 @@
 .board-overhead-bar {
   position: relative;
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
   height: 110px;
   width: 80vw;
   background-color: transparent;
   color: $color-primary;
   margin-left: -10px;
-  margin-top: 40px;
+  margin-top: 90px;
   padding: 0px 12px 10px 6px;
   border-bottom: 2px solid black;
+}
+
+.board-name-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .board-overhead-bar-container{
@@ -69,7 +76,7 @@
   background-color: transparent;
   color: black;
   font-family: 'GlacialIndifferenceRegular';
-  font-size: 18px;
+  font-size: 22px;
   padding: 0px 0px 10px 10px;
 }
 
@@ -84,7 +91,7 @@
 }
 
 .board-name-author-link {
-  font-size: 18px;
+  font-size: 22px;
   background-color: transparent;
   color: $color-primary;
   font-weight: normal;

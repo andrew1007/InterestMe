@@ -52,12 +52,13 @@ export default class UserProfile extends React.Component{
     this.handleNewBoardClick = this.handleNewBoardClick.bind(this);
     this.resetTabs = this.resetTabs.bind(this);
     this.redirectToAuthorProfile = this.redirectToAuthorProfile.bind(this);
+    debugger
   }
 
   componentWillReceiveProps(nextProps){
     if (this.props.userId !== nextProps.userId) {
       this.props.getProfilePage(nextProps.userId)
-      this.resetTabs()
+      this.handleBoardTabClick()
     }
     if (this.state.followStateChanged){
       this.props.getProfilePage(nextProps.userId).then( () => {
@@ -135,6 +136,7 @@ export default class UserProfile extends React.Component{
     this.closeModal()
     const userId = e.currentTarget.name
     hashHistory.push(`/user/${userId}`)
+    // debugger
   }
 
 

@@ -10,3 +10,12 @@
   height: 50px;
   margin: 0 auto;
 }
+
+.author-edit-flexbox-hidden {
+  font-size: 22px;
+  opacity: 0;
+}
+
+.author-edit-flexbox-hidden:hover {
+  cursor: default;
+}

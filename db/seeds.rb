@@ -8,7 +8,7 @@ artemis = "https://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_1
 peralta = "https://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_180/v1486927257/Screenshot_from_2017-02-12_11-20-32_thyhxm.png"
 jupiterhero = "https://res.cloudinary.com/andoo/image/upload/c_scale,h_180,r_max,w_180/v1487038532/Screenshot_from_2017-02-13_18-15-10_cin2ev.png"
 
-pusheen_description = "As usual, I was sitting on top of my owner's laptop for more attention. But in the process, accidentally made a Pinterest clone. It was pretty cool and I'd love to accidentally make more websites. So am I web developer, or an adorable cat? Why not both?"
+pusheen_description = "While stepping on my owner's laptop, I accidentally made a Pinterest clone. It was pretty cool and I'd love to accidentally make more websites. So am I web developer, or an adorable cat? Why not both?"
 artemis_description = "I like art, as you may have figured out"
 monachan_description = "Anime is life"
 pikachu_description = "pika pika"
