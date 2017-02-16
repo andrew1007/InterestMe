@@ -19,9 +19,7 @@ export default class NavBar extends React.Component {
         <div className="navigation-bar">
           <div className="flex-searchbar">
           </div>
-          <div className="session-button-container">
-            <SessionContainer/>
-          </div>
+          <SessionContainer/>
         </div>
       </div>
     )

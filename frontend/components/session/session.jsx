@@ -247,7 +247,7 @@ export default class Session extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="session-button-container">
         {
           this.props.currentUser.currentUser ?
           <div className="logo-container">
@@ -260,13 +260,11 @@ export default class Session extends React.Component {
           :
           null
         }
-        <div>
           <ul className="session-buttons">
             {this.props.currentUser.currentUser ? this.signedInButtons() : this.loginButtons()}
           </ul>
           {this.state.newPinFormOpen ? this.newPinForm() : null}
           {this.loginForms()}
-        </div>
       </div>
     );
   }

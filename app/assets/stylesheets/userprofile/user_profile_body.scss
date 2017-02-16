@@ -405,7 +405,6 @@
 
 
 .follow-button-image {
-  margin-top: -6px;
   min-width: 100px;
   min-height: 100px;
   margin-bottom: 10px;
@@ -416,12 +415,6 @@
 }
 
 .user-profile-image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.follow-user-button {
   display: flex;
   justify-content: center;
   align-items: center;
