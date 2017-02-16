@@ -134,7 +134,7 @@ title = [
 body = [
   "And that's why I believe that Sebastian has at least some sort of feeling of love towards ceil because after all the pain he's gone through he's still kinder then alois or alot of other people.",
   "",
-  "More proof that girls make the cosplayers",
+  "More proof that girls make the best cosplayers",
   "",
   "Cieling... I AM DOING THIS TO THE ART ROOM ABSOLUTELY NO CHOICE I WILL HAVE MY CIELING ",
   "",
@@ -997,4 +997,39 @@ image = [
 
 image.each_index do |idx|
   Pin.create!({user_id: 8, board_id: 18, title: title[idx], body: body[idx], image_url:image[idx]})
+end
+
+
+title = [
+  "The Amazing Digital Art of a Disillusioned Idealist ",
+  "",
+  "Fragmented Soothing Cityscapes ",
+  "Bohemian art",
+  "",
+  "",
+  "Dimitra Milan Paints Her Wildest Dreams"
+]
+
+body = [
+  " Yuumei's purely amazing artworks focus on smart and deeply engaging topics such as cyber activism and environmentalism.",
+  "",
+  "",
+  "",
+  "",
+  "",
+  ""
+]
+
+image = [
+  "http://res.cloudinary.com/andoo/image/upload/v1487213812/9446a4452751b7d912097012856bfab9_lfkc3m.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487213991/ace9adad6f699702017bbe42e6ee29f3_qwnrmg.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487214088/70681059a52c68708e7bfca40aae2bf5_cxdwan.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487214139/a068ab9bfed0bf4b0d93df6455623ed8_tci8ve.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487214179/e05975120663caf2008ff7ae0c9ede46_yvvuzh.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487214232/07045a16f41d770844ef4d0951a7f0ca_rwmnrp.jpg",
+  "http://res.cloudinary.com/andoo/image/upload/v1487214294/b0547294c60594f282f548b73ddfda4e_h9hidl.jpg"
+]
+
+image.each_index do |idx|
+  Pin.create!({user_id: 2, board_id: 14, title: title[idx], body: body[idx], image_url:image[idx]})
 end
