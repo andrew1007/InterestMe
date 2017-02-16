@@ -44,12 +44,13 @@
 
 .splashtext-catchphrase-container {
   background-color: transparent;
-  z-index: 10;
+  z-index: 1;
   position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 75px;
 }
 
 .splashscreen-main-catchphrase {
@@ -76,8 +77,8 @@
 }
 
 .splashtext-catchphrase-subtext-container{
-  margin: 50px 500px 0px 0px;
-  min-width: 800px;
+  margin: 50px 25vw 0px 0px;
+  min-width: 600px;
 }
 
 .splashtext {
