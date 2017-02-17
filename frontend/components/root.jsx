@@ -19,7 +19,7 @@ const Root = ({ store }) => {
     }
   }
 
-  setInterval(function() {
+  setInterval( () => {
       http.get("https://interest-me.herokuapp.com");
   }, 300000);
 
