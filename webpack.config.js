@@ -1,4 +1,4 @@
-module.exports = {
+module.exports= {
   entry: './frontend/interest_me.jsx',
   output: {
     path: 'app/assets/javascripts',
