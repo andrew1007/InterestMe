@@ -201,7 +201,7 @@ export default class Homepage extends React.Component{
           pinBatchCounter: this.state.pinBatchCounter + 1})
         }
         return
-    }, 20)
+    }, 50)
   }
 
 
