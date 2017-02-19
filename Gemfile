@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'figaro'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'turbolinks'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
@@ -38,6 +39,7 @@ end
 group :development do
   # Access an IRB //console on exception pages or by using <%= //console %> in views
   gem 'web-console', '~> 2.0'
+  gem 'google-analytics-rails'
   gem 'newrelic_rpm'
   gem 'rails_12factor' # error feedback
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
@@ -46,5 +48,5 @@ end
 
 group :production do
   gem 'pg'
-  gem 'newrelic_rpm'  
+  gem 'newrelic_rpm'
 end
