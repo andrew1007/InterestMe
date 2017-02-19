@@ -39,7 +39,6 @@ end
 group :development do
   # Access an IRB //console on exception pages or by using <%= //console %> in views
   gem 'web-console', '~> 2.0'
-  gem 'google-analytics-rails'
   gem 'newrelic_rpm'
   gem 'rails_12factor' # error feedback
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
@@ -47,6 +46,7 @@ group :development do
 end
 
 group :production do
+  gem 'google-analytics-rails'
   gem 'pg'
   gem 'newrelic_rpm'
 end
