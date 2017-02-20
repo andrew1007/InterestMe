@@ -25,6 +25,7 @@ class Api::PinsController < ApplicationController
       hash[i] = pin_set_hash
       i += 1
     end
+    
     hash[i + 1] = []
     @pins = hash
     @pin_set_count = hash.keys.length - 1
