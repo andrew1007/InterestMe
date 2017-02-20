@@ -52,7 +52,6 @@ export default class UserProfile extends React.Component{
     this.handleNewBoardClick = this.handleNewBoardClick.bind(this);
     this.resetTabs = this.resetTabs.bind(this);
     this.redirectToAuthorProfile = this.redirectToAuthorProfile.bind(this);
-    debugger
   }
 
   componentWillReceiveProps(nextProps){
