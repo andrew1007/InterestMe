@@ -30,14 +30,14 @@ $color-test: rgba(black, 0.05);
 
 #root{
   width: 100vw;
-  height: 100vh;
+  height: 99vh;
   position: absolute;
 }
 
 body {
   background-color: $background;
   width: 100vw;
-  height: 100vw;
+  height: 100%;
   font-family: 'GlacialIndifferenceRegular';
   overflow-x: hidden !important;
 }
