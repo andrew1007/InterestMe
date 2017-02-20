@@ -31,11 +31,12 @@ $color-test: rgba(black, 0.05);
 #root .total-container {
   width: 100vw;
   height: 100vh;
+  position: absolute;
 }
 
 body {
   background-color: $background;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   font-family: 'GlacialIndifferenceRegular';
   overflow-x: hidden !important;
