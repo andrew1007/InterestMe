@@ -20,3 +20,4 @@ npm-debug.log
 .gitignore
 # Ignore application configuration
 /config/application.yml
+.gitignore

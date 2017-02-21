@@ -1,7 +1,6 @@
 import React from 'react';
 import { Router, Route, IndexRoute, hashHistory, withRouter, IndexRedirect } from 'react-router';
 import App from './app';
-import http from "http";
 import BoardContainer from './boards/boards_container';
 import {Provider} from 'react-redux';
 import { getBoard } from '../actions/board_actions';
