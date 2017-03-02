@@ -13,7 +13,8 @@ export default class LoginForm extends Component {
       error: false,
       modalIsOpen: true
     };
-    this.update = this.update.bind(this)
+    this.update = this.update.bind(this);
+    this.dispatchSession = this.dispatchSession.bind(this);
   }
 
   update(text) {
@@ -30,29 +31,26 @@ export default class LoginForm extends Component {
     Modal.setAppElement('body');
   }
 
-  handleSubmit(e){
-    e.preventDefault();
-    console.log(this.state);
+  dispatchSession(){
     const login = {
       username: this.state.username,
       password: this.state.password
     }
     if (this.props.isLogin){
-      this.props.processLogin(login).then( ()=> {
-        this.setState({modalIsOpen: false})
-      }).then(() => {
-        this.props.closeModal()
-        hashHistory.push('/home')
-      })
+      return this.props.processLogin(login)
+    } else {
+      console.log("signup");
+      return this.props.processSignUp(login)
     }
-    else {
-      this.props.processSignUp(login).then( ()=> {
-        this.setState({modalIsOpen: false})
-      }).then(() => {
-        this.props.closeModal()
-        hashHistory.push('/home')
-      })
-    }
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+    this.dispatchSession()
+    .then( () => {
+      this.props.closeModal()
+      hashHistory.push('/home')
+    })
   }
 
   renderErrors(){

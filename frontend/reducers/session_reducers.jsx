@@ -13,9 +13,8 @@ const SessionReducer = (state = defaultState, action) => {
     case RECEIVE_CURRENT_USER:
       console.log(action);
       debugger
-      const currentUser = action.currentUser.currentUser
-      const currentUserId = action.currentUser.currentUserId
-      return merge({}, state, {currentUser: currentUser, currentUserId: currentUserId})
+      const currentUser = action.currentUser
+      return merge({}, state, {currentUser: currentUser})
     case LOG_OUT_USER:
       //console.log("logging out user");
       return merge({}, state, defaultState);

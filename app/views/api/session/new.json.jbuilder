@@ -1,2 +1,1 @@
-json.currentUserId @user.id
-json.currentUser @user.username
+json.partial! "api/session/session", user: @user

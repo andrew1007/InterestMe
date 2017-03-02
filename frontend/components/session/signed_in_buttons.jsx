@@ -10,15 +10,15 @@ export default class SignedInButtons extends Component {
   }
 
   _handleLogoutClick(e){
-    e.preventDefault()
+    e.preventDefault();
     this.props.processLogout().then( ()=> {
-      hashHistory.push('/session')
+      hashHistory.push('/session');
     })
   }
 
   _handleHomeImageClick(e){
     e.preventDefault();
-    hashHistory.push(`/home`)
+    hashHistory.push(`/home`);
   }
 
   _handleNewPinClick(e){
@@ -26,7 +26,8 @@ export default class SignedInButtons extends Component {
   }
 
   _handleProfileClick(){
-    this.props.current
+    const userUrl = `/user/${this.props.currentUserId}`
+    hashHistory.push(userUrl);
   }
 
   closeModal(){

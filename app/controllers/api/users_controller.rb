@@ -7,7 +7,7 @@ helper_method :current_user
     @user.description = ""
     if @user.save
       sign_in(@user)
-      render "api/pins/index"
+      render "api/session/new"
     else
       render json: @user.errors.full_messages, status: 422
     end

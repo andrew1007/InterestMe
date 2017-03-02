@@ -78,8 +78,14 @@ export default class Session extends React.Component {
   }
 
   signedInButtons(){
+    console.log("singinbuttons");
+    console.log(this.props);
+    console.log(this.state);
+    console.log("signedInButtons");
     return (
-      <SignedInButtonsContainer />
+      <SignedInButtonsContainer
+        currentUserId={this.props.currentUser.id}
+        />
     )
   }
 
@@ -98,7 +104,7 @@ export default class Session extends React.Component {
     return (
       <div className="session-button-container">
         {
-          this.props.currentUser.currentUser ?
+          this.props.currentUser ?
           <div className="logo-container">
             <img className="interest-me-logo"
               onClick={this.handleLogoImageClick.bind(this)}
@@ -110,7 +116,7 @@ export default class Session extends React.Component {
           null
         }
           <ul className="session-buttons">
-            {this.props.currentUser.currentUser ? this.signedInButtons() : this.loginButtons()}
+            {this.props.currentUser ? this.signedInButtons() : this.loginButtons()}
           </ul>
           {this.state.loginModal || this.state.signupModal ? this.loginForm() : null}
       </div>
