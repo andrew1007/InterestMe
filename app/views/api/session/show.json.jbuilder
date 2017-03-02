@@ -1,2 +1,2 @@
-json.current_user @user.username
-json.user_id @user.id
+json.currentUser @user.username
+json.currentUserId @user.id

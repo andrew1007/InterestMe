@@ -14,13 +14,20 @@ const UserReducer = (state = defaultState, action) => {
   switch(action.type){
     case RECEIVE_USER_DATA:
       //console.log("received user data")
-      return merge({}, state, {boards: action.userData.boards, pins: action.userData.pins, user: action.userData.user, followed: action.userData.followed, followers: action.userData.followers})
+      return merge({}, state,
+        {
+          boards: action.userData.boards,
+          pins: action.userData.pins,
+          user: action.userData.user,
+          followed: action.userData.followed,
+          followers: action.userData.followers
+        })
     case EDIT_USER_DATA:
       //console.log("received updated user data")
       return merge({}, state, {user: action.userData.user})
     case GET_PROFILE:
       //console.log("got profile info");
-      return action.userData
+      return merge({}, state, {user: action.userData})
     default:
     //console.log("defaulted user data");
     return state;

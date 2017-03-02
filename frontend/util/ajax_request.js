@@ -6,7 +6,6 @@ export const unfollow = user => (
   })
 )
 
-
 export const follow = user => (
   $.ajax({
     method: 'POST',

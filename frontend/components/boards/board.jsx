@@ -140,7 +140,7 @@ export default class Board extends React.Component {
             <Masonry
               elementType={'div'}
               disableImagesLoaded={false}
-              className='board'
+              className='homepage-board'
               options={masonryOptions}
               >
               {this.pinTileRender()}
@@ -295,7 +295,9 @@ export default class Board extends React.Component {
     return (
       <div>
         {this.state.finishedLoading ? this.boardTitle() : null}
-        {this.state.finishedLoading ? this.masonryLayout() : null}
+        <div className="homepage-board">
+          {this.state.finishedLoading ? this.masonryLayout() : null}
+        </div>
         {this.state.finishedLoading ? this.pinShow() : null}
         { this.state.newPinFormOpen ?
           this.openNewPinForm()

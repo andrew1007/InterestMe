@@ -262,7 +262,6 @@ export default class PinNewForm extends React.Component {
   }
 
   render() {
-    // {this.state.doneLoading ? this.selectBoardForNewPin() : null}
     return (
       <div>
         <div className="pin-new-add-a-new-pin-text-container">

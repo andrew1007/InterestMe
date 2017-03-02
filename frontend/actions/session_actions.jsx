@@ -19,8 +19,8 @@ export const logout = () => dispatch => (
   ajax_request.logout().then( () => dispatch(logOutUser(null)))
 )
 
-export const getCurrentUser = () => dispatch => (
-  ajax_request.getCurrentUser().then(() => dispatch(receiveCurrentUser()))
+export const getCurrentUser = (user) => dispatch => (
+  ajax_request.getCurrentUser(user).then((user) => dispatch(receiveCurrentUser(user)))
 );
 
 export const receiveCurrentUser = currentUser => ({

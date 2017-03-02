@@ -9,6 +9,7 @@ import PinNewFormContainer from './pins/pin_new_container'
 import HomepageContainer from './homepage/homepage_container'
 import UserProfileContainer from './profiles/user_profile_page_container'
 import Signup from './session/signup'
+
 const Root = ({ store }) => {
 
   const _redirectIfLoggedIn = (nextState, replace) => {

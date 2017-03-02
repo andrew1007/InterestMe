@@ -11,17 +11,11 @@ const SessionReducer = (state = defaultState, action) => {
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_CURRENT_USER:
-
-      //console.log("received user");
-      if (action.currentUser.current_user){
-        const userId = action.currentUser.user_id
-        const username = action.currentUser.current_user
-        return merge({}, state, {currentUserId: userId, currentUser: username});
-      } else {
-        const userId = action.currentUser.user.id
-        const username = action.currentUser.user.username
-        return merge({}, state, {currentUserId: userId, currentUser: username})
-      }
+      console.log(action);
+      debugger
+      const currentUser = action.currentUser.currentUser
+      const currentUserId = action.currentUser.currentUserId
+      return merge({}, state, {currentUser: currentUser, currentUserId: currentUserId})
     case LOG_OUT_USER:
       //console.log("logging out user");
       return merge({}, state, defaultState);
