@@ -3,13 +3,13 @@ import { getProfilePage } from '../../actions/user_actions'
 import { createFollow, deleteFollow } from '../../actions/follow_actions'
 import UserProfile from './user_profile_page'
 import { getCurrentUser } from '../../actions/session_actions'
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = ({session, userContent, user}, ownProps) => {
+  console.log(user);
   return {
-  boards: state.boards,
-  pins: state.pins,
-  user: state.user,
-  userId: ownProps.params.userId,
-  session: state.session
+    userId: ownProps.params.userId,
+    user: user.user,
+    userContent: user.userContent,
+    currentUser: session.currentUser
 }};
 
 const mapDispatchToProps = (dispatch) => ({

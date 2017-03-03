@@ -1,6 +1,5 @@
 import * as ajax_request from '../util/ajax_request.js';
 
-export const RECEIVE_USER_DATA = "RECEIVE_USER_DATA";
 export const EDIT_USER_DATA = 'EDIT_USER_DATA';
 export const GET_PROFILE = 'GET_PROFILE';
 
@@ -16,11 +15,6 @@ export const editProfilePage = (user) => dispatch => (
 export const getProfilePage = (id) => dispatch => (
   ajax_request.getProfilePage(id).then( (id) => dispatch(getProfile(id)))
 )
-
-export const receieveUserData = userData => ({
-  type: RECEIVE_USER_DATA,
-  userData
-});
 
 export const editUserData = userData =>({
   type: EDIT_USER_DATA,

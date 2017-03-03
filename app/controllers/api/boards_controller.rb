@@ -36,12 +36,13 @@ class Api::BoardsController < ApplicationController
   def show
     @board = Board.find(params[:id])
     @current_user = current_user
-    @board_pins = @board.pins.order(:updated_at).reverse
+    @board_pins = @board.pins.includes(:user).order(:updated_at).reverse
     board_json = @board_pins.as_json
     i = 0
     while i < board_json.length
       board_json[i]["username"] = @board_pins[i].user.username
       board_json[i]["profile_picture"] = @board_pins[i].user.profile_picture
+      board_json[i]["board_name"] = @board_pins[i].board.name
       i += 1
     end
     @board_pins = board_json

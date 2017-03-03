@@ -26,6 +26,7 @@ export default class SignedInButtons extends Component {
   }
 
   _handleProfileClick(){
+    console.log(this.props);
     const userUrl = `/user/${this.props.currentUserId}`
     hashHistory.push(userUrl);
   }
@@ -45,7 +46,6 @@ export default class SignedInButtons extends Component {
       //   >
       //     <PinNewFormContainer {...this.props} handleChildCancelButton={this.handleChildCancelButton}/>
       // </Modal>
-
   }
 
   sessionButtons(){

@@ -90,17 +90,23 @@ export default class UserProfile extends React.Component{
   }
 
   componentWillMount(){
+    debugger
+    console.log(this.props);
     this.props.getProfilePage(this.props.userId)
-    .then( () => this.findImageHeight())
-    .then( () => this.setState({
-      boardCount: this.props.user.boards.length,
-      pinCount: this.props.user.pins.length,
-      followersCount: this.props.user.followed.length,
-      followedCount: this.props.user.following.length
-    }))
+    // .then( () => this.findImageHeight())
+    // .then( () => this.setState({
+    //   boardCount: this.props.user.userContent.boards.length,
+    //   pinCount: this.props.user.userContent.pins.length,
+    //   followersCount: this.props.user.userContent.followed.length,
+    //   followedCount: this.props.user.userContent.following.length
+    // }))
     .then( () => {
       this.setState({doneLoading: true, isFollowing: this.props.user.isFollowing})
+      console.log("loaded");
+      console.log(this.state);
+      console.log(this.props);
     })
+
   }
 
   handleSelfClose(){
@@ -138,6 +144,34 @@ export default class UserProfile extends React.Component{
     // debugger
   }
 
+  _handleTabClick(name){
+    this.resetTabs();
+    switch (name) {
+      case "pinTab":
+        this.setState({
+          pinButtonFocus: true,
+          selectPinTab: true
+        });
+        break;
+      case "boardTab":
+        this.setState({
+          selectBoardTab: false,
+          boardButtonFocus: false
+        });
+      case "followersTab":
+        this.setState({
+          followerOpen: false,
+          followerButtonFocus: false
+        });
+      case "followedTab":
+        this.setState({
+          followedOpen: false,
+          followedButtonFocus: false
+        })
+      default:
+
+    }
+  }
 
   handleBoardTabClick(){
     if (this.state.selectBoardTab){
@@ -240,7 +274,7 @@ export default class UserProfile extends React.Component{
   }
 
   isProfileOwner(){
-    return this.props.user.user.id === this.props.user.currentUserId
+    return this.props.user.id === this.props.user.currentUserId
   }
 
   followButton(){
@@ -457,7 +491,7 @@ export default class UserProfile extends React.Component{
 
   followers(){
     return (
-      this.props.user.followed.map( (user, idx) => {
+      this.props.userContent.followed.map( (user, idx) => {
         return (
         <div key={idx} className="followers-modal">
           <div className="user-profile-image-container">
@@ -476,7 +510,7 @@ export default class UserProfile extends React.Component{
 
   followed(){
     return (
-      this.props.user.following.map( (user, idx) => {
+      this.props.userContent.following.map( (user, idx) => {
         return (
         <div key={idx} className="followers-modal">
           <div className="user-profile-image-container">
@@ -497,8 +531,8 @@ export default class UserProfile extends React.Component{
     return(
       <div className="user-info">
         <div className="username-image">
-          <img className="profile-picture" src={this.props.user.user.profile_picture}/>
-          <a className="profile-email">{this.props.user.user.email}</a>
+          <img className="profile-picture" src={this.props.user.profile_picture}/>
+          <a className="profile-email">{this.props.user.email}</a>
           {this.isProfileOwner() ?
             <button className="edit-user-button" onClick={this.handleEditForm}>
               edit user
@@ -541,6 +575,7 @@ export default class UserProfile extends React.Component{
 
 
   render(){
+    debugger
     //console.log(this.props);
     return(
       <div className="user-profile">
@@ -552,10 +587,10 @@ export default class UserProfile extends React.Component{
               :
               null}
             <div className="user-profile-username">
-              {this.state.doneLoading ? this.props.user.user.username : null}
+              {this.state.doneLoading ? this.props.user.username : null}
             </div>
             <div className="user-profile-description">
-              {this.state.doneLoading ? this.props.user.user.description : null}
+              {this.state.doneLoading ? this.props.user.description : null}
             </div>
           </div>
         </div>
@@ -567,7 +602,7 @@ export default class UserProfile extends React.Component{
                   Boards
                 </div>
                 <div>
-                  {this.props.user.boards.length}
+                  {this.props.userContent.boards.length}
                 </div>
               </div>
             </button>
@@ -577,7 +612,7 @@ export default class UserProfile extends React.Component{
                   Pins
                 </div>
                 <div>
-                  {this.props.user.pins.length}
+                  {this.props.userContent.pins.length}
                 </div>
               </div>
             </button>
@@ -587,7 +622,7 @@ export default class UserProfile extends React.Component{
                   Followers
                 </div>
                 <div>
-                  {this.props.user.followed.length}
+                  {this.props.userContent.followed.length}
                 </div>
               </div>
             </button>
@@ -597,7 +632,7 @@ export default class UserProfile extends React.Component{
                   Followed
                 </div>
                 <div>
-                  {this.props.user.following.length}
+                  {this.props.userContent.following.length}
                 </div>
               </div>
             </button>

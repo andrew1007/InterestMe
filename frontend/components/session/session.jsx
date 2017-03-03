@@ -78,10 +78,6 @@ export default class Session extends React.Component {
   }
 
   signedInButtons(){
-    console.log("singinbuttons");
-    console.log(this.props);
-    console.log(this.state);
-    console.log("signedInButtons");
     return (
       <SignedInButtonsContainer
         currentUserId={this.props.currentUser.id}

@@ -2,7 +2,7 @@ class Api::PinsController < ApplicationController
   helper_method :current_user
 
   def index
-    pins = Pin.where.not(user_id: current_user.id).shuffle
+    pins = Pin.where.not(user_id: current_user.id).includes(:user).shuffle
     all_pins_count = pins.length
     pin_sets = (pins.length / 15)
     hash = {}
@@ -25,7 +25,7 @@ class Api::PinsController < ApplicationController
       hash[i] = pin_set_hash
       i += 1
     end
-    
+
     hash[i + 1] = []
     @pins = hash
     @pin_set_count = hash.keys.length - 1

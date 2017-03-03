@@ -6,7 +6,7 @@ import PinContainer from '../pins/pins_container'
 import PinNewContainer from '../pins/pin_new_container'
 import Dropzone from 'react-dropzone'
 import {hashHistory} from 'react-router'
-
+import BoardMasonry from './board_masonry'
 export default class Board extends React.Component {
 
   constructor(props) {
@@ -129,25 +129,10 @@ export default class Board extends React.Component {
   }
 
   masonryLayout(){
-    var masonryOptions = {
-      fitWidth: true,
-      transitionDuration: 0
-    };
     return (
-      <div>
-        <div>
-          <div>
-            <Masonry
-              elementType={'div'}
-              disableImagesLoaded={false}
-              className='homepage-board'
-              options={masonryOptions}
-              >
-              {this.pinTileRender()}
-            </Masonry>
-        </div>
-      </div>
-    </div>
+      <BoardMasonry
+        pins={this.props.board.pins}
+        />
     )
   }
 
