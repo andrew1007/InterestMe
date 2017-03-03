@@ -2,7 +2,6 @@ import React from 'react';
 import Masonry from 'react-masonry-component'
 import Modal from 'react-modal';
 import BoardEditContainer from './board_edit_container'
-import PinContainer from '../pins/pins_container'
 import PinNewContainer from '../pins/pin_new_container'
 import Dropzone from 'react-dropzone'
 import {hashHistory} from 'react-router'
@@ -26,7 +25,6 @@ export default class Board extends React.Component {
     this.editSelfClose = this.editSelfClose.bind(this);
     this.handleEditButtonOpen = this.handleEditButtonOpen.bind(this);
     this.handleTileClick = this.handleTileClick.bind(this);
-    this.pinTileRender = this.pinTileRender.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleSelfClose = this.handleSelfClose.bind(this);
     this.handleBoardEditSubmit = this.handleBoardEditSubmit.bind(this);
@@ -39,10 +37,6 @@ export default class Board extends React.Component {
     this.closeModal()
   }
 
-  componentDidMount(){
-    this.findImageHeight()
-  }
-
   componentWillReceiveProps(nextProps) {
     if (this.props.boardId !== nextProps.boardId){
       this.setState({finishedLoading: false})
@@ -51,35 +45,25 @@ export default class Board extends React.Component {
         name: this.props.board.name,
         owner:  this.props.board.owner
       }))
-      .then( () => {
-        this.findImageHeight()
-      })
     }
-    if (this.props.location.state){
-      if (this.props.location.state.newPinMade){
-        hashHistory.push({
-          pathname: `/boards/${this.props.boardId}`,
-          state: {
-            newPinMade: false
-          }
-        })
-        this.setState({finishedLoading: false})
-        this.props.getBoard(nextProps.boardId)
-        .then ( () => this.setState({finishedLoading: true,
-          name: this.props.board.name,
-          owner:  this.props.board.owner
-        }))
-        .then( () => {
-          this.findImageHeight()
-          this.props.location.state
-        })
-      }
+    if (this.props.location.state && this.props.location.state.newPinMade){
+      hashHistory.push({
+        pathname: `/boards/${this.props.boardId}`,
+        state: {
+          newPinMade: false
+        }
+      })
+      this.setState({finishedLoading: false})
+      this.props.getBoard(nextProps.boardId)
+      .then ( () => this.setState({finishedLoading: true,
+        name: this.props.board.name,
+        owner:  this.props.board.owner
+      }))
     }
   }
 
   componentWillMount() {
     this.props.getBoard(this.props.boardId)
-    .then( () => this.findImageHeight())
     .then( () => this.setState({finishedLoading: true,
       name: this.props.board.name
     }))
@@ -92,46 +76,11 @@ export default class Board extends React.Component {
     document.body.style.overflow = "hidden";
   }
 
-  pinTileRender(){
-    var pinTileContainerClassName = "pin-tile-container-hide";
-    var boardTilePicClassName = "board-tile-pic-hide";
-    var pinImageClassName = "pin-image-hide";
-    return(
-      this.props.board.pins.map( (tile, idx) => {
-        return(
-          <div key={idx} className={pinTileContainerClassName}>
-            <button className={boardTilePicClassName} name={tile.id} onClick={this.handleTileClick}>
-              <img className={pinImageClassName} src={tile.image_url}/>
-            </button>
-            <div className="pin-tile-content">
-              <div className="pin-tile-author-container">
-                <div className="pin-tile-author-profile-picture-container">
-                  <img value={tile.user_id} onClick={this.redirectToAuthorProfile}
-                    className="pin-tile-author-profile-picture"
-                    src={tile.profile_picture}/>
-                </div>
-                <div className="pin-tile-author-name">
-                  <button className="board-pin-author-button" value={tile.user_id} onClick={this.redirectToAuthorProfile}>
-                    {tile.username}
-                  </button>
-                </div>
-              </div>
-              <div className="pin-tile-information-container">
-                <div className="pin-tile-title">
-                  {tile.title}
-                </div>
-              </div>
-            </div>
-          </div>
-        )
-      })
-    )
-  }
-
   masonryLayout(){
     return (
       <BoardMasonry
         pins={this.props.board.pins}
+        owner={this.props.board.owner}
         />
     )
   }
@@ -198,20 +147,6 @@ export default class Board extends React.Component {
     )
   }
 
-  pinShow(){
-    return(
-      <Modal
-        isOpen={this.state.modalIsOpen}
-        onAfterOpen={this.afterOpenModal}
-        onRequestClose={this.closeModal}
-        contentLabel="Modal"
-        className="ReactModal__Content"
-      >
-        <PinContainer pinId={this.state.focusedPinId} handleSelfClose={this.handleSelfClose}/>
-      </Modal>
-    )
-  }
-
   openNewPinForm(){
     return(
       <Modal
@@ -247,43 +182,15 @@ export default class Board extends React.Component {
     )
   }
 
-  findImageHeight(){
-    let counter = 0;
-    this.imageHeight = setTimeout( () => {
-      switch(counter){
-        case 0:
-        let allImages = document.images
-        for (let i=0; i < allImages.length; i++){
-          allImages[i].setAttribute("style", `height:${allImages[i].naturalHeight}`)
-        }
-        case 1:
-        [
-          "pin-tile-hide",
-          "board-tile-pic-hide",
-          "pin-image-hide",
-          "pin-tile-container-hide"
-        ].forEach( (className) => {
-          let classes = document.getElementsByClassName(`${className}`);
-          while (classes.length){
-            classes[0].className = classes[0].className.replace("-hide","")
-          }
-          clearInterval(this.imageHeight)
-          return
-        })
-        counter += 1
-      }
-    }, 800)
-  }
-
-
   render() {
+    console.log("board");
+    console.log(this.props);
     return (
       <div>
         {this.state.finishedLoading ? this.boardTitle() : null}
         <div className="homepage-board">
           {this.state.finishedLoading ? this.masonryLayout() : null}
         </div>
-        {this.state.finishedLoading ? this.pinShow() : null}
         { this.state.newPinFormOpen ?
           this.openNewPinForm()
         : null }

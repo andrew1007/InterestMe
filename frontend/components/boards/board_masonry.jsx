@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Masonry from 'react-masonry-component';
-import Pin from '../pins/pin'
+import Pin from '../pins/pin';
+import {hashHistory} from 'react-router';
+
 export default class BoardMasonry extends Component {
   constructor(props){
     super(props);
@@ -10,9 +12,14 @@ export default class BoardMasonry extends Component {
     }
   }
 
-  handleTileClick(e) {
-    e.preventDefault();
-    const idx = e.currentTarget.name
+  redirectToAuthorProfile(e){
+    e.preventDefault()
+    const userId = e.target.getAttribute("value")
+    hashHistory.push(`/user/${parseInt(userId)}`)
+  }
+
+  componentDidMount(){
+    this.findImageHeight();
   }
 
   pinTileRender(){
@@ -109,7 +116,7 @@ export default class BoardMasonry extends Component {
 
   closeModal(){
     this.setState({modalIsOpen: false})
-    // document.body.style.overflow = "auto";
+    document.body.style.overflow = "auto";
   }
 
   pinShow(){
@@ -124,6 +131,7 @@ export default class BoardMasonry extends Component {
         closeModal={this.closeModal.bind(this)}
         id={this.state.focusedPinId}
         open={true}
+        owner={this.props.owner}
         />
     )
   }

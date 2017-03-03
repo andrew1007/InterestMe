@@ -17,7 +17,7 @@ export default class Pin extends React.Component {
     this.closeModal = this.closeModal.bind(this);
     this.editButton = this.editButton.bind(this);
     this.childHandler = this.childHandler.bind(this);
-    this.handleBoardNameClick = this.handleBoardNameClick.bind(this);
+    this._handleBoardNameClick = this._handleBoardNameClick.bind(this);
     this.redirectToProfile = this.redirectToProfile.bind(this);
     this.pinAuthor = this.pinAuthor.bind(this);
   }
@@ -38,42 +38,33 @@ export default class Pin extends React.Component {
 
   editButton(){
     return (
-        <button id="pin-edit-icon" onClick={this.handleEditButton}>
-          edit
-        </button>
+      <button id="pin-edit-icon" onClick={this.handleEditButton}>
+        edit
+      </button>
     )
   }
 
-  closeModal() {
-    this.setState({
-      editFormOpen: false});
+  cancelEditCloseModal() {
+    this.setState({editFormOpen: false});
   }
 
-  childHandler() {
+  deleteCloseModal() {
     this.closeModal();
     this.props.handleSelfClose()
   }
 
   editPinModal() {
     return(
-      <Modal
-        isOpen={this.state.editFormOpen}
-        onAfterOpen={this.afterOpenModal}
-        onRequestClose={this.closeModal}
-        contentLabel="Modal"
-        className="edit-pin-modal"
-      >
         <PinEditContainer
-          handleChildCancelButton={this.childHandler}
+          cancelEditCloseModal={this.cancelEditCloseModal}
+          deleteCloseModal={this.deleteCloseModal}
           {...this.props.pin}
         />
-      </Modal>
     )
   }
 
-  handleBoardNameClick(e){
-    this.props.handleSelfClose()
-
+  _handleBoardNameClick(e){
+    this.props.closeModal()
     e.preventDefault()
     hashHistory.push(`/boards/${this.props.pin.board_id}`)
     document.body.style.overflow = "auto"
@@ -91,7 +82,7 @@ export default class Pin extends React.Component {
                 <div id="pin-title">
                   {this.props.pin.title}
                   <span className="pin-show-edit-button-container">
-                    {this.props.pin.owner ?
+                    {this.props.owner ?
                       <i
                         className="fa fa-pencil-square-o fa-1x edit-modal-cog"
                         aria-hidden="true"
@@ -106,7 +97,7 @@ export default class Pin extends React.Component {
               <div className="pin-show-pin-info-save-button-container">
                 <div className="pin-show-board-name-edit-button-container">
                   <div className="important-text">
-                    <button className="pin-show-board-name" onClick={this.handleBoardNameClick}>
+                    <button className="pin-show-board-name" onClick={this._handleBoardNameClick}>
                       {this.props.pin.board_name}
                     </button>
                   </div>
@@ -124,13 +115,13 @@ export default class Pin extends React.Component {
             <div className="pin-show-user-name-picture-container">
               <div className="pin-show-profile-picture-container">
                 <img className="pin-show-profile-picture"
-                  src={this.props.pin.authorProfilePicture}
+                  src={this.props.pin.profile_picture}
                   onClick={this.redirectToProfile}
                   />
               </div>
               <div className="pin-show-author-name-container">
                 <button className="pin-author-button" onClick={this.redirectToProfile}>
-                  {this.props.pin.owner ? "you" : this.props.pin.author }
+                  {this.props.pin.owner ? "you" : this.props.pin.username }
                 </button>
               </div>
             </div>
@@ -138,7 +129,6 @@ export default class Pin extends React.Component {
               {this.props.pin.body}
             </div>
             <div>
-              {this.state.editFormOpen ? this.editPinModal() : null}
             </div>
           </div>
         </div>
@@ -148,8 +138,8 @@ export default class Pin extends React.Component {
 
   redirectToProfile(e){
     e.preventDefault()
-    this.props.handleSelfClose()
-    hashHistory.push(`/user/${this.props.pin.author_id}`)
+    this.props.closeModal()
+    hashHistory.push(`/user/${this.props.pin.user_id}`)
   }
 
   pinAuthor(){
@@ -166,7 +156,6 @@ export default class Pin extends React.Component {
   }
 
   render() {
-
     return(
       <div>
         <Modal
@@ -178,6 +167,7 @@ export default class Pin extends React.Component {
         >
         {this.pinModal()}
         </Modal>
+        {this.state.editFormOpen ? this.editPinModal() : null}
       </div>
     )
   }
