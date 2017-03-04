@@ -1,5 +1,6 @@
 class Api::FollowsController < ApplicationController
 
+
   def create
     @follow = Follow.create!(follow_params)
     render 'api/users/show'
