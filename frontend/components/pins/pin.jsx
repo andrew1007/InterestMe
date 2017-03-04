@@ -9,7 +9,11 @@ export default class Pin extends React.Component {
     this.state = {
       editFormOpen: false,
       receivedPin: false,
-      hasBeenDeleted: false
+      hasBeenDeleted: false,
+      title: "",
+      body:"",
+      edited: false,
+      deleted: false
     };
     this.pinModal = this.pinModal.bind(this);
     this._handleEditButton = this._handleEditButton.bind(this);
@@ -20,18 +24,20 @@ export default class Pin extends React.Component {
     this.pinAuthor = this.pinAuthor.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.props.getPin(this.props.pinId).then(() => {
-  //     this.setState({receivedPin: true})
-  //   })
-  // }
-
   _handleEditButton() {
     if (this.state.editFormOpen){
       this.setState({editFormOpen: false})
     } else {
       this.setState({editFormOpen: true})
     }
+  }
+
+  componentDidMount(){
+    this.setState({
+      title: this.props.pin.title,
+      body: this.props.pin.body,
+      pinId: this.props.pin.id
+    })
   }
 
   editButton(){
@@ -42,22 +48,44 @@ export default class Pin extends React.Component {
     )
   }
 
-  cancelEditCloseModal() {
-    this.setState({editFormOpen: false});
+  cancelEditCloseModal(pinEditState) {
+    this.setState({
+      editFormOpen: false,
+      edited: false,
+      deleted: false
+    });
   }
 
-  deleteCloseModal() {
-    this.setState({editFormOpen: false});
-    this.props.closeModal();
+  updateCloseModal(pinEditState) {
+    this.setState({
+      editFormOpen: false,
+      title: pinEditState.title,
+      body: pinEditState.body,
+      edited: true,
+      deleted: false
+    });
+  }
+
+  closeDeleteModal() {
+    this.setState({
+      editFormOpen: false,
+      edited: false,
+      deleted: true
+    })
+    setTimeout( () => {
+      this.props.closeModal(this.state)
+      return
+    }, 100)
   }
 
   editPinModal() {
     return(
         <PinEditContainer
-          closeEditModal={this.cancelEditCloseModal.bind(this)}
-          closeDeleteModal={this.deleteCloseModal.bind(this)}
-          title={this.props.pin.title}
-          body={this.props.pin.body}
+          updateCloseModal={this.updateCloseModal.bind(this)}
+          cancelEditModal={this.cancelEditCloseModal.bind(this)}
+          closeDeleteModal={this.closeDeleteModal.bind(this)}
+          title={this.state.title}
+          body={this.state.body}
           id={this.props.pin.id}
           boardId={this.props.pin.board_id}
         />
@@ -65,13 +93,16 @@ export default class Pin extends React.Component {
   }
 
   _handleBoardNameClick(e){
-    this.props.closeModal()
+    this.props.closeModal("boardClick")
     e.preventDefault()
     hashHistory.push(`/boards/${this.props.pin.board_id}`)
     document.body.style.overflow = "auto"
   }
 
   pinModal(){
+    if (this.state.deleted){
+      return
+    }
     //add favorites!?
     console.log(this.props);
     return(
@@ -81,7 +112,7 @@ export default class Pin extends React.Component {
             <div className="pin-show-title-board-name-container">
               <div className="pin-show-title-container">
                 <div id="pin-title">
-                  {this.props.pin.title}
+                  {this.state.title}
                   <span className="pin-show-edit-button-container">
                     {this.props.owner ?
                       <i
@@ -127,7 +158,7 @@ export default class Pin extends React.Component {
               </div>
             </div>
             <div className="pin-show-description-container">
-              {this.props.pin.body}
+              {this.state.body}
             </div>
             <div>
             </div>
@@ -162,7 +193,7 @@ export default class Pin extends React.Component {
         <Modal
           isOpen={true}
           onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.props.closeModal}
+          onRequestClose={() => this.props.closeModal(this.state)}
           contentLabel="Modal"
           className="ReactModal__Content"
         >

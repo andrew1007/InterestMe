@@ -81,6 +81,7 @@ export default class Board extends React.Component {
       <BoardMasonry
         pins={this.props.board.pins}
         owner={this.props.board.owner}
+        deletePin={this.props.deletePin}
         />
     )
   }

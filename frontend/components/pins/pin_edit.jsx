@@ -27,7 +27,6 @@ export default class PinEdit extends React.Component {
   }
 
   componentDidMount(){
-    debugger
     this.setState({
       title: this.props.title,
       body: this.props.body,
@@ -45,7 +44,7 @@ export default class PinEdit extends React.Component {
       body: this.state.body,
       id: this.props.id
     })
-    this.props.closeEditModal()
+    this.props.updateCloseModal(this.state)
   }
 
   update(text) {
@@ -87,8 +86,7 @@ export default class PinEdit extends React.Component {
   }
 
   handleDeleteSubmit(){
-    this.props.deletePin(this.props.id);
-    this.props.deleteCloseModal();
+    this.props.closeDeleteModal();
   }
 
   handleDeleteConfirmCancel(){
@@ -113,7 +111,7 @@ export default class PinEdit extends React.Component {
         <button type="Submit" value="Submit">
         Update
       </button>
-        <button onClick={this.props.cancelEditCloseModal}>
+        <button onClick={this.props.cancelEditModal}>
           Cancel
         </button>
         <button onClick={this.handleDeleteButton}>
@@ -132,7 +130,7 @@ export default class PinEdit extends React.Component {
       <Modal
         isOpen={this.state.editFormOpen}
         onAfterOpen={this.afterOpenModal}
-        onRequestClose={this.closeModal}
+        onRequestClose={this.props.cancelEditModal}
         contentLabel="Modal"
         className="edit-pin-modal"
       >
@@ -142,8 +140,6 @@ export default class PinEdit extends React.Component {
   }
 
   render(){
-    debugger
-    console.log(this.props);
     return(
       <div>
         {this.state.editFormOpen ? this.editModal() : null}

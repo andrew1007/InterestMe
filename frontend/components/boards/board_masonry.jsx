@@ -8,7 +8,8 @@ export default class BoardMasonry extends Component {
     super(props);
     this.state = {
       modalIsOpen: false,
-      focusedPinId: 0
+      focusedPinId: 0,
+      pins: []
     }
   }
 
@@ -22,15 +23,19 @@ export default class BoardMasonry extends Component {
     this.findImageHeight();
   }
 
+  componentWillMount(){
+    this.setState({pins: this.props.pins})
+  }
+
   pinTileRender(){
     var pinTileContainerClassName = "pin-tile-container-hide";
     var boardTilePicClassName = "board-tile-pic-hide";
     var pinImageClassName = "pin-image-hide";
-    return(
-      this.props.pins.map( (tile, idx) => {
+    return (
+      this.state.pins.map( (tile, idx) => {
         return(
           <div key={idx} className={pinTileContainerClassName}>
-            <button className={boardTilePicClassName} name={tile.id} onClick={this.handleTileClick.bind(this)}>
+            <button className={boardTilePicClassName} name={tile.id} onClick={this._handleTileClick.bind(this)}>
               <img className={pinImageClassName} src={tile.image_url}/>
             </button>
             <div className="pin-tile-content">
@@ -107,16 +112,43 @@ export default class BoardMasonry extends Component {
     }, 500)
   }
 
-  handleTileClick(e) {
+  _handleTileClick(e) {
     e.preventDefault();
     const idx = e.currentTarget.name
     this.setState({focusedPinId: idx, modalIsOpen: true})
     document.body.style.overflow = "hidden";
   }
 
-  closeModal(){
-    this.setState({modalIsOpen: false})
+  closeModal(pinState){
     document.body.style.overflow = "auto";
+    if (pinState === "boardClick"){
+      this.setState({modalIsOpen: false})
+      return
+    }
+    let pinCount = this.state.pins.length;
+    let pins = this.state.pins
+    console.log(this.state.pins);
+    for (let i = 0; i < pinCount; i++) {
+      if (pins[i].id === pinState.pinId && (pinState.edited || pinState.deleted)) {
+        if (pinState.edited) {
+          pins[i].title = pinState.title
+          pins[i].body = pinState.body
+          this.state.pins.unshift(pins[i])
+          this.state.pins.splice(i + 1, 1)
+        } else {
+          console.log(i);
+          console.log(this.state.pins);
+          this.state.pins.splice(i, 1)
+          this.props.deletePin(pinState.pinId);
+        }
+        let updatedBoard = this.state.pins
+        this.setState({
+          pins: this.state.pins
+        })
+        this.setState({modalIsOpen: false})
+        return
+      }
+    }
   }
 
   pinShow(){
