@@ -1,10 +1,11 @@
 import React from 'react';
+import Modal from 'react-modal';
 
 export default class PinEdit extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      editFormOpen: true,
+      editFormOpen: false,
       title: '',
       body: '',
       deleteConfirmBox: false,
@@ -25,17 +26,26 @@ export default class PinEdit extends React.Component {
     this.setState({deleteConfirmBox: true})
   }
 
+  componentDidMount(){
+    debugger
+    this.setState({
+      title: this.props.title,
+      body: this.props.body,
+      editFormOpen: true
+    })
+  }
+
   handleSubmit() {
     if (this.state.wasDeleteCancel){
       this.setState({wasDeleteCancel: false})
       return
     }
-    this.props.editPin({title: this.state.title,
+    this.props.editPin({
+      title: this.state.title,
       body: this.state.body,
-      id: this.props.id,
-      board_id: this.props.boardId}
-    )
-      this.props.handleChildCancelButton()
+      id: this.props.id
+    })
+    this.props.closeEditModal()
   }
 
   update(text) {
@@ -53,7 +63,7 @@ export default class PinEdit extends React.Component {
             className="pin-edit-input"
             autoFocus type='text'
             onChange={this.update('title')}
-            defaultValue={this.props.title}
+            defaultValue={this.state.title}
          />
        <div id="pin-edit-title">Description</div>
 
@@ -63,7 +73,7 @@ export default class PinEdit extends React.Component {
             onChange={this.update('body')}
             placeholder="What's this pin about?"
           >
-          {this.props.body}
+          {this.state.body}
           </textarea>
           <div>
             {
@@ -78,13 +88,10 @@ export default class PinEdit extends React.Component {
 
   handleDeleteSubmit(){
     this.props.deletePin(this.props.id);
-
-    this.setState({deleteConfirmBox: false})
-    this.props.handleChildCancelButton()
+    this.props.deleteCloseModal();
   }
 
   handleDeleteConfirmCancel(){
-
     this.setState({deleteConfirmBox: false,
     wasDeleteCancel: true})
   }
@@ -106,7 +113,7 @@ export default class PinEdit extends React.Component {
         <button type="Submit" value="Submit">
         Update
       </button>
-        <button onClick={this.props.handleChildCancelButton}>
+        <button onClick={this.props.cancelEditCloseModal}>
           Cancel
         </button>
         <button onClick={this.handleDeleteButton}>
@@ -114,6 +121,10 @@ export default class PinEdit extends React.Component {
         </button>
       </div>
     )
+  }
+
+  closeModal(){
+    this.setState({editFormOpen: false})
   }
 
   editModal(){
@@ -131,9 +142,11 @@ export default class PinEdit extends React.Component {
   }
 
   render(){
+    debugger
+    console.log(this.props);
     return(
       <div>
-        {this.editForm()}
+        {this.state.editFormOpen ? this.editModal() : null}
       </div>
     )
   }

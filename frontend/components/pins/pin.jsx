@@ -12,11 +12,9 @@ export default class Pin extends React.Component {
       hasBeenDeleted: false
     };
     this.pinModal = this.pinModal.bind(this);
-    this.handleEditButton = this.handleEditButton.bind(this);
+    this._handleEditButton = this._handleEditButton.bind(this);
     this.editPinModal = this.editPinModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
     this.editButton = this.editButton.bind(this);
-    this.childHandler = this.childHandler.bind(this);
     this._handleBoardNameClick = this._handleBoardNameClick.bind(this);
     this.redirectToProfile = this.redirectToProfile.bind(this);
     this.pinAuthor = this.pinAuthor.bind(this);
@@ -28,7 +26,7 @@ export default class Pin extends React.Component {
   //   })
   // }
 
-  handleEditButton() {
+  _handleEditButton() {
     if (this.state.editFormOpen){
       this.setState({editFormOpen: false})
     } else {
@@ -38,7 +36,7 @@ export default class Pin extends React.Component {
 
   editButton(){
     return (
-      <button id="pin-edit-icon" onClick={this.handleEditButton}>
+      <button id="pin-edit-icon" onClick={this._handleEditButton}>
         edit
       </button>
     )
@@ -49,16 +47,19 @@ export default class Pin extends React.Component {
   }
 
   deleteCloseModal() {
-    this.closeModal();
-    this.props.handleSelfClose()
+    this.setState({editFormOpen: false});
+    this.props.closeModal();
   }
 
   editPinModal() {
     return(
         <PinEditContainer
-          cancelEditCloseModal={this.cancelEditCloseModal}
-          deleteCloseModal={this.deleteCloseModal}
-          {...this.props.pin}
+          closeEditModal={this.cancelEditCloseModal.bind(this)}
+          closeDeleteModal={this.deleteCloseModal.bind(this)}
+          title={this.props.pin.title}
+          body={this.props.pin.body}
+          id={this.props.pin.id}
+          boardId={this.props.pin.board_id}
         />
     )
   }
@@ -86,7 +87,7 @@ export default class Pin extends React.Component {
                       <i
                         className="fa fa-pencil-square-o fa-1x edit-modal-cog"
                         aria-hidden="true"
-                        onClick={this.handleEditButton}>
+                        onClick={this._handleEditButton}>
                       </i>
                       :
                       null
@@ -148,7 +149,7 @@ export default class Pin extends React.Component {
         <button className="pin-author-button" onClick={this.redirectToProfile}>
           {this.props.pin.owner ? "you" : this.props.pin.author }
         </button>
-        {this.props.pin.owner ? <button id="pin-edit-icon" onClick={this.handleEditButton}>
+        {this.props.pin.owner ? <button id="pin-edit-icon" onClick={this._handleEditButton}>
             edit
           </button> : null }
       </div>

@@ -57,7 +57,7 @@ class Api::PinsController < ApplicationController
   def update
     @pin = Pin.find(params[:id])
     if @pin.update_attributes(pin_params)
-      render "/api/boards/show"
+      render :show
     else
       render json: @pin.errors.full_messages, status: 422
     end
@@ -83,6 +83,6 @@ class Api::PinsController < ApplicationController
   private
 
   def pin_params
-    params.require(:pin).permit(:board_id, :image_url, :title, :body, :title)
+    params.require(:pin).permit(:board_id, :image_url, :title, :body, :title, :id)
   end
 end
