@@ -1,34 +1,37 @@
 class Api::PinsController < ApplicationController
-  helper_method :current_user
+  helper_method :current_user, :pin_sets
 
   def index
     pins = Pin.where.not(user_id: current_user.id).includes(:user).shuffle
-    all_pins_count = pins.length
-    pin_sets = (pins.length / 15)
-    hash = {}
-    i = 0
-    not_complete = true
-    while not_complete
-      if ((i*14) + 14) > all_pins_count
-        pin_set = pins[i*14 + 2..-1]
-        not_complete = false
-      else
-        pin_set = pins[(i*14 + 2)...(i*14 + 14)]
-      end
-      pin_set_hash = pin_set.as_json
-      j = 0
-      while j < pin_set.length
-        pin_set_hash[j]["username"] = pin_set[j].user.username
-        pin_set_hash[j]["profile_picture"] = pin_set[j].user.profile_picture
-        j += 1
-      end
-      hash[i] = pin_set_hash
-      i += 1
-    end
-
-    hash[i + 1] = []
-    @pins = hash
-    @pin_set_count = hash.keys.length - 1
+    pin_batches = pin_sets(pins)
+    @pins = pin_batches[0]
+    @pin_set_count = pin_batches[1]
+    # all_pins_count = pins.length
+    # pin_sets = (pins.length / 15)
+    # hash = {}
+    # i = 0
+    # not_complete = true
+    # while not_complete
+    #   if ((i*14) + 14) > all_pins_count
+    #     pin_set = pins[i*14 + 2..-1]
+    #     not_complete = false
+    #   else
+    #     pin_set = pins[(i*14 + 2)...(i*14 + 14)]
+    #   end
+    #   pin_set_hash = pin_set.as_json
+    #   j = 0
+    #   while j < pin_set.length
+    #     pin_set_hash[j]["username"] = pin_set[j].user.username
+    #     pin_set_hash[j]["profile_picture"] = pin_set[j].user.profile_picture
+    #     j += 1
+    #   end
+    #   hash[i] = pin_set_hash
+    #   i += 1
+    # end
+    #
+    # hash[i + 1] = []
+    # @pins = hash
+    # @pin_set_count = hash.keys.length - 1
     render :index
   end
 

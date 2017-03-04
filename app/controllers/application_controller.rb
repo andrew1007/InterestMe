@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
 
-  helper_method :current_user, :signed_in?
+  helper_method :current_user, :signed_in?, :pin_sets
 
   def current_user
     @current_user ||= User.find_by_session_token(session[:session_token])
@@ -24,5 +24,33 @@ class ApplicationController < ActionController::Base
 
   def require_signed_in
     render json: {base: ['invalid credentials']}, status: 401 if !current_user
+  end
+
+  def pin_sets(pins)
+    all_pins_count = pins.length
+    pin_sets = (pins.length / 15)
+    hash = {}
+    i = 0
+    not_complete = true
+    while not_complete
+      if ((i*14) + 14) > all_pins_count
+        pin_set = pins[i*14 + 2..-1]
+        not_complete = false
+      else
+        pin_set = pins[(i*14 + 2)...(i*14 + 14)]
+      end
+      pin_set_hash = pin_set.as_json
+      j = 0
+      while j < pin_set.length
+        pin_set_hash[j]["username"] = pin_set[j].user.username
+        pin_set_hash[j]["profile_picture"] = pin_set[j].user.profile_picture
+        j += 1
+      end
+      hash[i] = pin_set_hash
+      i += 1
+    end
+
+    hash[i + 1] = []
+    [hash, hash.keys.length - 1]
   end
 end

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Masonry from 'react-masonry-component';
 import Pin from '../pins/pin';
 import {hashHistory} from 'react-router';
+import InfiniteScroll from 'react-infinite-scroller';
 
 export default class BoardMasonry extends Component {
   constructor(props){
@@ -9,7 +10,10 @@ export default class BoardMasonry extends Component {
     this.state = {
       modalIsOpen: false,
       focusedPinId: 0,
-      pins: []
+      pinSet: [],
+      pinsToRender: [],
+      pinBatchCounter: 0,
+      pinSetCount: 0,
     }
   }
 
@@ -24,7 +28,9 @@ export default class BoardMasonry extends Component {
   }
 
   componentWillMount(){
-    this.setState({pins: this.props.pins})
+    this.setState({
+      pinsToRender: this.props.pins[this.state.pinBatchCounter]
+    })
   }
 
   pinTileRender(){
@@ -32,7 +38,7 @@ export default class BoardMasonry extends Component {
     var boardTilePicClassName = "board-tile-pic-hide";
     var pinImageClassName = "pin-image-hide";
     return (
-      this.state.pins.map( (tile, idx) => {
+      this.state.pinsToRender.map( (tile, idx) => {
         return(
           <div key={idx} className={pinTileContainerClassName}>
             <button className={boardTilePicClassName} name={tile.id} onClick={this._handleTileClick.bind(this)}>
@@ -119,31 +125,23 @@ export default class BoardMasonry extends Component {
     document.body.style.overflow = "hidden";
   }
 
-  closeModal(pinState){
-    document.body.style.overflow = "auto";
-    if (pinState === "boardClick"){
-      this.setState({modalIsOpen: false})
-      return
-    }
-    let pinCount = this.state.pins.length;
-    let pins = this.state.pins
-    console.log(this.state.pins);
+  updateBoard(pinState){
+    let pinCount = this.state.pinsToRender.length;
+    let pins = this.state.pinsToRender
     for (let i = 0; i < pinCount; i++) {
-      if (pins[i].id === pinState.pinId && (pinState.edited || pinState.deleted)) {
+      if (pins[i].id === pinState.pinId) {
         if (pinState.edited) {
           pins[i].title = pinState.title
           pins[i].body = pinState.body
-          this.state.pins.unshift(pins[i])
-          this.state.pins.splice(i + 1, 1)
+          this.state.pinsToRender.unshift(pins[i])
+          this.state.pinsToRender.splice(i + 1, 1)
         } else {
-          console.log(i);
-          console.log(this.state.pins);
-          this.state.pins.splice(i, 1)
+          this.state.pinsToRender.splice(i, 1)
           this.props.deletePin(pinState.pinId);
         }
-        let updatedBoard = this.state.pins
+        let updatedBoard = this.state.pinsToRender
         this.setState({
-          pins: this.state.pins
+          pins: this.state.pinsToRender
         })
         this.setState({modalIsOpen: false})
         return
@@ -151,9 +149,17 @@ export default class BoardMasonry extends Component {
     }
   }
 
+  closeModal(pinState){
+    document.body.style.overflow = "auto";
+    if (pinState.edited || pinState.deleted){
+      this.updateBoard(pinState)
+    }
+    this.setState({modalIsOpen: false})
+  }
+
   pinShow(){
     console.log(this.props);
-    const currentPin = this.props.pins.filter( (pin) => {
+    const currentPin = this.state.pinsToRender.filter( (pin) => {
       return pin.id === parseInt(this.state.focusedPinId)
     })
     console.log(currentPin);
@@ -168,10 +174,34 @@ export default class BoardMasonry extends Component {
     )
   }
 
+  loadMorePins(){
+    setTimeout( () => {
+      if (this.state.pinBatchCounter == this.state.pinSetCount){
+        this.setState({
+          hasMorePins: false
+        })
+      } else {
+        this.setState({pinSet: this.props.pins[this.state.pinBatchCounter + 1],
+          pinsToRender: this.state.pinsToRender.concat(this.state.pinSet),
+          pinBatchCounter: this.state.pinBatchCounter + 1})
+        }
+        return
+    }, 50)
+  }
+
   render(){
     return(
       <div className='user-profile-board-pins'>
-        {this.masonryLayout()}
+          <InfiniteScroll
+            pageStart={0}
+            loadMore={this.loadMorePins}
+            hasMore={this.state.hasMorePins}
+            loader={<div className="loader">Loading ...</div>}
+            threshold={1100}
+            className='homepage-board'
+          >
+            {this.masonryLayout()}
+          </InfiniteScroll>
         {this.state.modalIsOpen ? this.pinShow() : null}
       </div>
     )

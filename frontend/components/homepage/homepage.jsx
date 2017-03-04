@@ -2,7 +2,6 @@ import React from 'react';
 import Masonry from 'react-masonry-component';
 import Modal from 'react-modal';
 import PinContainer from '../pins/pins_container';
-import ReactHeight from 'react-height';
 import {hashHistory} from 'react-router';
 import InfiniteScroll from 'react-infinite-scroller';
 

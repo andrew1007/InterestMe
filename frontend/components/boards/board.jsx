@@ -22,11 +22,8 @@ export default class Board extends React.Component {
       name: ""
     }
     document.body.style.overflow = "auto"
-    this.editSelfClose = this.editSelfClose.bind(this);
     this.handleEditButtonOpen = this.handleEditButtonOpen.bind(this);
     this.handleTileClick = this.handleTileClick.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.handleSelfClose = this.handleSelfClose.bind(this);
     this.handleBoardEditSubmit = this.handleBoardEditSubmit.bind(this);
     this.handleEditButtonOpen = this.handleEditButtonOpen.bind(this);
     this.openNewPinForm = this.openNewPinForm.bind(this);
@@ -80,6 +77,7 @@ export default class Board extends React.Component {
     return (
       <BoardMasonry
         pins={this.props.board.pins}
+        pinSetCount={this.props.board.pinSetCount}
         owner={this.props.board.owner}
         deletePin={this.props.deletePin}
         />
@@ -103,24 +101,27 @@ export default class Board extends React.Component {
     this.props.getBoard(this.props.boardId)
   }
 
-  closeModal() {
-    this.props.getBoard(this.props.boardId)
-    .then( () => {
-      this.setState({modalIsOpen: false, newPinFormOpen: false, editFormOpen: false, name: this.props.board.name})
-    })
-    document.body.style.overflow = "auto";
-  }
+  // closeModal() {
+  //   this.props.getBoard(this.props.boardId)
+  //   .then( () => {
+  //     this.setState({modalIsOpen: false, newPinFormOpen: false, editFormOpen: false, name: this.props.board.name})
+  //   })
+  //   document.body.style.overflow = "auto";
+  // }
 
-  handleSelfClose(){
-    this.props.getBoard(this.props.boardId)
-    .then( () => {
-        this.setState({modalIsOpen: false, newPinFormOpen: false, name: this.props.board.name, editFormOpen: false})
-    })
+  closeEditModal(editFormState){
+    // this.props.getBoard(this.props.boardId)
+    // .then( () => {
+        this.setState({
+          editFormOpen: false
+        })
+      if (editFormState.name !== this.state.name){
+        this.setState({
+          name: editFormState.name
+        })
+      }
+    // })
     document.body.style.overflow = "auto";
-  }
-
-  editSelfClose(){
-    this.setState({modalIsOpen: false, newPinFormOpen: false, editFormOpen: false})
   }
 
   boardTitle(){
@@ -178,7 +179,11 @@ export default class Board extends React.Component {
         contentLabel="Session form"
         className="board-edit-modal"
         >
-        <BoardEditContainer handleSelfClose={this.handleSelfClose} {...this.props}/>
+        <BoardEditContainer
+          closeEditModal={this.closeEditModal.bind(this)}
+          name={this.state.name}
+          boardId={this.props.boardId}
+           />
       </Modal>
     )
   }

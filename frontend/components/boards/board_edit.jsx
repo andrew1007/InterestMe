@@ -7,15 +7,12 @@ export default class BoardEdit extends React.Component {
     this.state = {
       editBoxOpen: true,
       deleteConfirmBox: false,
-      name: this.props.board.boards.name,
+      name: "",
       cancelState: false,
       renderEmptyNameError: false
     };
-    this.editButton = this.editButton.bind(this);
-    this.editForm = this.editForm.bind(this);
     this.update = this.update.bind(this);
     this.handleCancelButton = this.handleCancelButton.bind(this);
-    this.confirmDeleteBox = this.confirmDeleteBox.bind(this);
     this.handleDeleteButton = this.handleDeleteButton.bind(this);
     this.handleDeleteConfirm = this.handleDeleteConfirm.bind(this);
     this.handleUpdateSubmit = this.handleUpdateSubmit.bind(this);
@@ -23,8 +20,11 @@ export default class BoardEdit extends React.Component {
   }
 
   handleCancelButton() {
-    this.setState({deleteConfirmBox: false, editBoxOpen: false, cancelState:true})
-    this.props.handleSelfClose()
+    this.setState({
+      deleteConfirmBox: false,
+      editBoxOpen: false,
+      cancelState:true})
+    this.props.closeEditModal(this.state)
   }
 
   handleDeleteCancelButton(){
@@ -33,9 +33,15 @@ export default class BoardEdit extends React.Component {
     hiddenText[0].className = hiddenText[0].className + "-hidden"
   }
 
+  componentWillMount(){
+    this.setState({
+      name: this.props.name
+    })
+  }
+
   editButton(){
     return (
-      <button onClick={this.handleEditButton}>
+      <button onClick={this.handleEditButton.bind(this)}>
         edit
       </button>
     )
@@ -54,9 +60,9 @@ export default class BoardEdit extends React.Component {
   }
 
   handleDeleteConfirm() {
-    this.props.deleteBoard({id: this.props.board.boards.id});
+    this.props.deleteBoard({id: this.props.boardId});
+    document.body.style.overflow = "auto";
     hashHistory.push('/home')
-    this.forceUpdate()
   }
 
   handleUpdateSubmit(e) {
@@ -70,9 +76,9 @@ export default class BoardEdit extends React.Component {
       this.setState({deleteConfirmBox: false, editBoxOpen: false});
       if (this.state.name.split(" ").join("")){
         this.props.editBoard({name: this.state.name,
-          id: this.props.board.boards.id});
+          id: this.props.boardId});
         }
-        this.props.handleSelfClose();
+        this.props.closeEditModal(this.state);
     }
   }
 
@@ -93,7 +99,7 @@ export default class BoardEdit extends React.Component {
           <input
             autoFocus type='text'
             onChange={this.update('name')}
-            defaultValue={this.props.board.boards.name}
+            defaultValue={this.props.name}
           />
           <div className="board-edit-form-buttons">
             {
@@ -139,7 +145,6 @@ export default class BoardEdit extends React.Component {
   }
 
   render() {
-    // {this.state.deleteConfirmBox ? this.confirmDeleteBox() : null}
     return (
       <div className="edit-board-form">
         {this.editForm()}

@@ -74,7 +74,6 @@ export default class Pin extends React.Component {
     })
     setTimeout( () => {
       this.props.closeModal(this.state)
-      return
     }, 100)
   }
 
@@ -93,7 +92,7 @@ export default class Pin extends React.Component {
   }
 
   _handleBoardNameClick(e){
-    this.props.closeModal("boardClick")
+    this.props.closeModal(this.state)
     e.preventDefault()
     hashHistory.push(`/boards/${this.props.pin.board_id}`)
     document.body.style.overflow = "auto"
@@ -170,7 +169,11 @@ export default class Pin extends React.Component {
 
   redirectToProfile(e){
     e.preventDefault()
-    this.props.closeModal()
+    this.setState({
+      edited: true,
+      deleted: false
+    });
+    this.props.closeModal(this.state)
     hashHistory.push(`/user/${this.props.pin.user_id}`)
   }
 

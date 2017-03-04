@@ -31,24 +31,6 @@ export default class Session extends React.Component {
     })
   }
 
-  // handleChildCancelButton(){
-  //   this.setState({newPinFormOpen: false})
-  //   document.body.style.overflow="auto";
-  // }
-  //
-  // handleNewBoardClick(){
-  //   this.setState({newPinFormOpen: true})
-  //   document.body.style.overflow = "hidden";
-  // }
-  //
-  // handleProfileClick(e){
-  //   e.preventDefault()
-  //   let url = this.props.currentUser.currentUser.user_id ||
-  //   this.props.currentUser.currentUser.currentUserId ||
-  //   this.props.currentUser.currentUserId;
-  //   hashHistory.push(`/user/${url}`)
-  // }
-
   loginButtons(){
     return (
       <div>
