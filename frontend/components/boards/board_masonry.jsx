@@ -14,6 +14,8 @@ export default class BoardMasonry extends Component {
       pinsToRender: [],
       pinBatchCounter: 0,
       pinSetCount: 0,
+      doneLoading: false,
+      hasMorePins: true
     }
   }
 
@@ -28,9 +30,13 @@ export default class BoardMasonry extends Component {
   }
 
   componentWillMount(){
-    this.setState({
-      pinsToRender: this.props.pins[this.state.pinBatchCounter]
-    })
+      this.setState({
+      pinsToRender: this.props.pins[this.state.pinBatchCounter],
+      pinSetCount: this.props.pinSetCount
+      })
+      this.setState({
+        doneLoading: true
+      })
   }
 
   pinTileRender(){
@@ -80,7 +86,7 @@ export default class BoardMasonry extends Component {
           <Masonry
             elementType={'div'}
             disableImagesLoaded={false}
-            className='user-profile-boards-container'
+            className='homepage-board'
             options={masonryOptions}
             >
             {this.pinTileRender()}
@@ -158,12 +164,10 @@ export default class BoardMasonry extends Component {
   }
 
   pinShow(){
-    //console.log(this.props);
     const currentPin = this.state.pinsToRender.filter( (pin) => {
       return pin.id === parseInt(this.state.focusedPinId)
     })
-    //console.log(currentPin);
-    return(
+    return (
       <Pin
         pin={currentPin[0]}
         closeModal={this.closeModal.bind(this)}
@@ -175,35 +179,44 @@ export default class BoardMasonry extends Component {
   }
 
   loadMorePins(){
-    console.log("triggered");
     setTimeout( () => {
       if (this.state.pinBatchCounter == this.state.pinSetCount){
         this.setState({
           hasMorePins: false
         })
       } else {
-        this.setState({pinSet: this.props.pins[this.state.pinBatchCounter + 1],
-          pinsToRender: this.state.pinsToRender.concat(this.state.pinSet),
-          pinBatchCounter: this.state.pinBatchCounter + 1})
-        }
+        let newPins = this.props.pins[this.state.pinBatchCounter + 1]
+        let nextBatch = this.state.pinBatchCounter + 1
+        let newPinsToRender = this.state.pinsToRender.concat(newPins)
+        this.setState({
+          pinsToRender: newPinsToRender,
+          pinBatchCounter: nextBatch
+        })
+        this.findImageHeight()
+      }
         return
     }, 50)
   }
 
+
+
   render(){
-    console.log("whaaaaaaaaaaat");
     return(
       <div className='user-profile-board-pins'>
+        { this.state.doneLoading ?
           <InfiniteScroll
             pageStart={0}
-            loadMore={this.loadMorePins}
+            loadMore={this.loadMorePins.bind(this)}
             hasMore={this.state.hasMorePins}
             loader={<div className="loader">Loading ...</div>}
-            threshold={1100}
-            className='homepage-board'
-          >
+            threshold={1000}
+            className='board'
+            >
             {this.masonryLayout()}
           </InfiniteScroll>
+          :
+          null
+        }
         {this.state.modalIsOpen ? this.pinShow() : null}
       </div>
     )
