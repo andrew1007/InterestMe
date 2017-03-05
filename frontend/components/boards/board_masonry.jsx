@@ -158,11 +158,11 @@ export default class BoardMasonry extends Component {
   }
 
   pinShow(){
-    console.log(this.props);
+    //console.log(this.props);
     const currentPin = this.state.pinsToRender.filter( (pin) => {
       return pin.id === parseInt(this.state.focusedPinId)
     })
-    console.log(currentPin);
+    //console.log(currentPin);
     return(
       <Pin
         pin={currentPin[0]}

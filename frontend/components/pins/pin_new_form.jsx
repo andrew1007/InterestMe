@@ -43,7 +43,7 @@ export default class PinNewForm extends React.Component {
       if (errors === null) {
         this.setState({imageUrl: results.body.secure_url})
       } else {
-        //console.log("error uploading!");
+        ////console.log("error uploading!");
       }
     })
   }

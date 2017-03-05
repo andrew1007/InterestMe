@@ -1,11 +1,11 @@
 import React from 'react';
 import Masonry from 'react-masonry-component'
 import Modal from 'react-modal';
-import BoardEditContainer from './board_edit_container'
-import PinNewContainer from '../pins/pin_new_container'
-import Dropzone from 'react-dropzone'
-import {hashHistory} from 'react-router'
-import BoardMasonry from './board_masonry'
+import BoardEdit from './board_edit';
+import PinNewContainer from '../pins/pin_new_container';
+import Dropzone from 'react-dropzone';
+import {hashHistory} from 'react-router';
+import BoardMasonry from './board_masonry';
 export default class Board extends React.Component {
 
   constructor(props) {
@@ -14,7 +14,7 @@ export default class Board extends React.Component {
       modalIsOpen: false,
       focusedPinId: null,
       pin: null,
-      owner:this.props.board.owner,
+      owner: false,
       newPinFormOpen: false,
       finishedLoading: false,
       imageUrl: null,
@@ -23,15 +23,9 @@ export default class Board extends React.Component {
     }
     document.body.style.overflow = "auto"
     this.handleEditButtonOpen = this.handleEditButtonOpen.bind(this);
-    this.handleTileClick = this.handleTileClick.bind(this);
-    this.handleBoardEditSubmit = this.handleBoardEditSubmit.bind(this);
     this.handleEditButtonOpen = this.handleEditButtonOpen.bind(this);
     this.openNewPinForm = this.openNewPinForm.bind(this);
     this.redirectToAuthorProfile = this.redirectToAuthorProfile.bind(this);
-  }
-
-  handleChildCancelButton(){
-    this.closeModal()
   }
 
   componentWillReceiveProps(nextProps) {
@@ -66,13 +60,6 @@ export default class Board extends React.Component {
     }))
   }
 
-  handleTileClick(e) {
-    e.preventDefault();
-    const idx = e.currentTarget.name
-    this.setState({focusedPinId: idx, modalIsOpen: true})
-    document.body.style.overflow = "hidden";
-  }
-
   masonryLayout(){
     return (
       <BoardMasonry
@@ -97,35 +84,21 @@ export default class Board extends React.Component {
     hashHistory.push(`/user/${this.props.board.owner_id}`)
   }
 
-  handleBoardEditSubmit(){
-    this.props.getBoard(this.props.boardId)
-  }
-
-  // closeModal() {
-  //   this.props.getBoard(this.props.boardId)
-  //   .then( () => {
-  //     this.setState({modalIsOpen: false, newPinFormOpen: false, editFormOpen: false, name: this.props.board.name})
-  //   })
-  //   document.body.style.overflow = "auto";
-  // }
-
   closeEditModal(editFormState){
-    // this.props.getBoard(this.props.boardId)
-    // .then( () => {
-        this.setState({
-          editFormOpen: false
-        })
-      if (editFormState.name !== this.state.name){
-        this.setState({
-          name: editFormState.name
-        })
-      }
-    // })
+    this.setState({
+      editFormOpen: false
+    })
+    console.log(editFormState);
+    if (editFormState.name !== this.state.name && editFormState.nameUpdated){
+      this.setState({
+        name: editFormState.name
+      })
+    }
     document.body.style.overflow = "auto";
   }
 
   boardTitle(){
-    //console.log(this.state);
+    ////console.log(this.state);
     return(
       <div className="board-overhead-bar-container">
         <div className="board-overhead-bar">
@@ -172,25 +145,17 @@ export default class Board extends React.Component {
 
   openEditBoardForm(){
     return(
-      <Modal
-        isOpen={this.state.editFormOpen}
-        onAfterOpen={this.afterOpenModal}
-        onRequestClose={this.closeModal}
-        contentLabel="Session form"
-        className="board-edit-modal"
-        >
-        <BoardEditContainer
-          closeEditModal={this.closeEditModal.bind(this)}
-          name={this.state.name}
-          boardId={this.props.boardId}
-           />
-      </Modal>
+      <BoardEdit
+        closeEditModal={this.closeEditModal.bind(this)}
+        name={this.state.name}
+        boardId={this.props.boardId}
+        deleteBoard={this.props.deleteBoard.bind(this)}
+        editBoard={this.props.editBoard.bind(this)}
+         />
     )
   }
 
   render() {
-    console.log("board");
-    console.log(this.props);
     return (
       <div>
         {this.state.finishedLoading ? this.boardTitle() : null}

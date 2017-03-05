@@ -66,7 +66,7 @@ export default class Homepage extends React.Component{
   }
 
   pinTileRender(){
-    //console.log(this.state.pinBatchCounter);
+    ////console.log(this.state.pinBatchCounter);
     if (this.state.pinBatchCounter === 0){
       var pinTileContainerClassName = "pin-tile-container-hide";
       var boardTilePicClassName = "board-tile-pic-hide";

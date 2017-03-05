@@ -29,7 +29,7 @@ export default class UserProfileForm extends React.Component {
       if (errors === null) {
         this.setState({imageUrl: results.body.secure_url})
       } else {
-        //console.log("error uploading!");
+        ////console.log("error uploading!");
       }
     })
   }
@@ -71,7 +71,7 @@ export default class UserProfileForm extends React.Component {
   }
 
     render() {
-      //console.log(this.props);
+      ////console.log(this.props);
       return (
         <div className="user-profile-edit-container">
           <div className="dropzone-image-container">

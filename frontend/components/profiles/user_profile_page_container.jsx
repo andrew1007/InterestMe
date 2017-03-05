@@ -4,7 +4,7 @@ import { createFollow, deleteFollow } from '../../actions/follow_actions'
 import UserProfile from './user_profile_page'
 import { getCurrentUser } from '../../actions/session_actions'
 const mapStateToProps = ({session, userContent, user}, ownProps) => {
-  console.log(user);
+  //console.log(user);
   return {
     userId: ownProps.params.userId,
     user: user.user,

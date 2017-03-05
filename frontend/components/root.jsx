@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Route, IndexRoute, hashHistory, withRouter, IndexRedirect } from 'react-router';
 import App from './app';
-import BoardContainer from './boards/boards_container';
+import BoardContainer from './boards/board_container';
 import {Provider} from 'react-redux';
 import { getBoard } from '../actions/board_actions';
 import PinContainer from './pins/pins_container';

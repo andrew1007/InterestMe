@@ -96,11 +96,12 @@ export default class PinEdit extends React.Component {
 
   deleteConfirm() {
     return(
-      <div className='pin-delete-confirm'>
+      <div>
+        <div>
+          Are you sure you want to delete?
+        </div>
         <button onClick={this.handleDeleteSubmit}>Delete</button>
         <button onClick={this.handleDeleteConfirmCancel}>Cancel</button>
-        <br/>
-        Are you sure you want to delete?
       </div>
     )
   }

@@ -91,7 +91,7 @@ export default class UserProfile extends React.Component{
 
   componentWillMount(){
     debugger
-    console.log(this.props);
+    //console.log(this.props);
     this.props.getProfilePage(this.props.userId)
     // .then( () => this.findImageHeight())
     // .then( () => this.setState({
@@ -102,9 +102,9 @@ export default class UserProfile extends React.Component{
     // }))
     .then( () => {
       this.setState({doneLoading: true, isFollowing: this.props.user.isFollowing})
-      console.log("loaded");
-      console.log(this.state);
-      console.log(this.props);
+      //console.log("loaded");
+      //console.log(this.state);
+      //console.log(this.props);
     })
 
   }
@@ -132,7 +132,7 @@ export default class UserProfile extends React.Component{
 
 
   handleEditForm(){
-    //console.log("edit form open");
+    ////console.log("edit form open");
     this.setState({editFormOpen: true})
   }
 
@@ -287,7 +287,7 @@ export default class UserProfile extends React.Component{
 
 
   showPins(){
-    //console.log(this.props);
+    ////console.log(this.props);
     return(
       this.props.user.pins.map( (pin, idx) => {
         return(
@@ -576,7 +576,7 @@ export default class UserProfile extends React.Component{
 
   render(){
     debugger
-    //console.log(this.props);
+    ////console.log(this.props);
     return(
       <div className="user-profile">
         <div className="user-profile-body">
