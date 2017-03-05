@@ -10,4 +10,5 @@ class_name: :User,
 foreign_key: :user_followed_by_id,
 primary_key: :id
 
+
 end

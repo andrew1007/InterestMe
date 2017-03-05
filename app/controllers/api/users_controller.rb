@@ -16,29 +16,22 @@ helper_method :current_user
   def show
     @user = User.find(params[:id])
     user_pins = @user.pins.order(:updated_at).reverse
-    user_pin_hash = user_pins.as_json
-    i = 0
-    while i < user_pin_hash.length
-      user_pin_hash[i]["username"] = @user.username
-      user_pin_hash[i]["profile_picture"] = @user.profile_picture
-      i += 1
-    end
-    @user_pins = user_pin_hash
-    @user_boards = @user.boards
+    @pins = pin_sets(user_pins)
     @followed_by = @user.followed_by
     @following = @user.following
-    @curr_user = current_user
-    curr_user_record = User.find(current_user.id)
-    follow_ids = curr_user_record.following.map { |follow| follow.id}
-    @isFollowing = follow_ids.include?(@user.id)
-    @sample_pins = []
-    @user_boards.each do |board|
+    @owner = @user.id == current_user.id
+    follow_ids = @user.followed_by.map { |follow| follow.id}
+    @isFollowing = follow_ids.include?(current_user.id)
+    boards = @user.boards
+    board_JSON = boards.as_json
+    boards.each_with_index do |board, idx|
       board_pins = []
       board.pins[0..2].each do |pin|
         board_pins << pin.image_url
       end
-      @sample_pins << board_pins
+      board_JSON[idx]["samplePins"] = board_pins
     end
+    @boards = board_JSON
     render :show
   end
 

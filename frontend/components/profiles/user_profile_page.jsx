@@ -9,49 +9,18 @@ import NewBoardContainer from '../boards/board_new_container'
 export default class UserProfile extends React.Component{
   constructor(props) {
     super(props);
-    this.state={
-      doneLoading: false,
-      selectPinTab: false,
-      selectBoardTab: true,
-      modalIsOpen: false,
-      focusedPinId: null,
-      editFormOpen: false,
-      followerOpen: false,
-      followedOpen: false,
-      isFollowing: false,
-      pinButtonFocus: false,
-      boardButtonFocus: true,
-      followerButtonFocus: false,
-      followedButtonFocus: false,
-      followStateChanged: false,
-      showNewBoardForm: false,
-      newBoardModalIsOpen: false,
+    this.state = {
+      followersArray: [],
+      followedArray: [],
+      boards: [],
       boardCount: 0,
-      pinCount: 0,
       followersCount: 0,
-      followedCount: 0
+      followedCount: 0,
+      pinCount: 0,
+      isFollowing: false,
+      owner: false
     }
     document.body.style.overflow = "auto";
-    this.newBoardModal= this.newBoardModal.bind(this);
-    this.showPins = this.showPins.bind(this);
-    this.showBoards = this.showBoards.bind(this);
-    this.userInfo = this.userInfo.bind(this);
-    this.handleBoardClick = this.handleBoardClick.bind(this);
-    this.handleTileClick = this.handleTileClick.bind(this);
-    this.handlePinTabClick = this.handlePinTabClick.bind(this);
-    this.handleBoardTabClick = this.handleBoardTabClick.bind(this);
-    this.handleEditForm = this.handleEditForm.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.handleFollowerClick = this.handleFollowerClick.bind(this);
-    this.followed = this.followed.bind(this);
-    this.handleFollowedClick = this.handleFollowedClick.bind(this);
-    this.handleProfileRedirect = this.handleProfileRedirect.bind(this);
-    this.handleFollowActionClick = this.handleFollowActionClick.bind(this);
-    this.followButton = this.followButton.bind(this);
-    this.isProfileOwner = this.isProfileOwner.bind(this);
-    this.handleNewBoardClick = this.handleNewBoardClick.bind(this);
-    this.resetTabs = this.resetTabs.bind(this);
-    this.redirectToAuthorProfile = this.redirectToAuthorProfile.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
@@ -75,14 +44,8 @@ export default class UserProfile extends React.Component{
       boardButtonFocus: false,
       pinButtonFocus: false,
       followerButtonFocus: false,
-      followedButtonFocus: false
+      followedButtonFocus: false,
     })
-  }
-
-  closeModal() {
-    this.setState({showNewBoardForm: false, modalIsOpen: false, editFormOpen: false, followerOpen: false, followedOpen: false});
-    this.props.getProfilePage(this.props.userId)
-    document.body.style.overflow = "auto";
   }
 
   componentDidMount(){
@@ -90,58 +53,20 @@ export default class UserProfile extends React.Component{
   }
 
   componentWillMount(){
-    debugger
-    //console.log(this.props);
     this.props.getProfilePage(this.props.userId)
-    // .then( () => this.findImageHeight())
-    // .then( () => this.setState({
-    //   boardCount: this.props.user.userContent.boards.length,
-    //   pinCount: this.props.user.userContent.pins.length,
-    //   followersCount: this.props.user.userContent.followed.length,
-    //   followedCount: this.props.user.userContent.following.length
-    // }))
     .then( () => {
-      this.setState({doneLoading: true, isFollowing: this.props.user.isFollowing})
-      //console.log("loaded");
-      //console.log(this.state);
-      //console.log(this.props);
+      this.setState({
+        followersArray: this.props.userContent.followed_by,
+        followedArray: this.props.followed,
+        boardCount: this.props.userContent.boards.length,
+        pinCount: this.props.userContent.pins.length,
+        followedCount: this.props.userContent.following.length,
+        followersCount: this.props.userContent.followers.length,
+        isFollowing: this.props.user.isFollowing,
+        owner: this.props.user.owner,
+        boards: this.props.userContent.boards
+      })
     })
-
-  }
-
-  handleSelfClose(){
-    this.setState({modalIsOpen: false, newBoardModalIsOpen: false})
-  }
-
-  handleTileClick(e) {
-    e.preventDefault();
-    const idx = e.currentTarget.name
-    this.setState({focusedPinId: idx, modalIsOpen: true})
-    document.body.style.overflow = "hidden";
-  }
-
-  handleBoardClick(e){
-    e.preventDefault()
-    if (e.currentTarget.name){
-      var boardId = e.currentTarget.name
-    } else {
-      var boardId = e.target.getAttribute("name")
-    }
-    hashHistory.push(`/boards/${boardId}`)
-  }
-
-
-  handleEditForm(){
-    ////console.log("edit form open");
-    this.setState({editFormOpen: true})
-  }
-
-  handleProfileRedirect(e){
-    e.preventDefault()
-    this.closeModal()
-    const userId = e.currentTarget.name
-    hashHistory.push(`/user/${userId}`)
-    // debugger
   }
 
   _handleTabClick(name){
@@ -173,103 +98,16 @@ export default class UserProfile extends React.Component{
     }
   }
 
-  handleBoardTabClick(){
-    if (this.state.selectBoardTab){
-      this.setState({
-        selectBoardTab: false,
-        boardButtonFocus: false
-      })
-    } else {
-      this.setState({
-        selectPinTab: false,
-        selectBoardTab: true,
-        followedOpen: false,
-        followerOpen: false,
-        boardButtonFocus: true,
-        pinButtonFocus: false,
-        followerButtonFocus: false,
-        followedButtonFocus: false
-      })
-    }
-  }
-
-  handlePinTabClick(){
-    if (this.state.selectPinTab){
-      this.setState({
-        selectPinTab: false,
-        pinButtonFocus: false
-      })
-    } else {
-      this.setState({selectPinTab: true,
-        selectBoardTab: false,
-        followedOpen: false,
-        followerOpen: false,
-        boardButtonFocus: false,
-        pinButtonFocus: true,
-        followerButtonFocus: false,
-        followedButtonFocus: false
-      })
-      this.findImageHeight()
-      document.body.style.overflow = "auto";
-    }
-  }
-
-  handleFollowedClick(){
-    if (this.state.followedOpen){
-      this.setState({
-        followedOpen: false,
-        followedButtonFocus: false
-      })
-    } else {
-      this.setState({
-        selectPinTab: false,
-        selectBoardTab: false,
-        followedOpen: true,
-        followerOpen: false,
-        boardButtonFocus: false,
-        pinButtonFocus: false,
-        followerButtonFocus: false,
-        followedButtonFocus: true
-      })
-    }
-  }
-
-  handleFollowerClick(){
-    if (this.state.followerOpen){
-      this.setState({
-        followerOpen: false,
-        followerButtonFocus: false
-      })
-    } else {
-      this.setState({
-        selectPinTab: false,
-        selectBoardTab: false,
-        followedOpen: false,
-        followerOpen: true,
-        boardButtonFocus: false,
-        pinButtonFocus: false,
-        followerButtonFocus: true,
-        followedButtonFocus: false
-      })
-    }
-  }
-
   handleFollowActionClick(e){
     e.preventDefault()
     if (this.state.isFollowing){
       this.props.deleteFollow({user_following_id: this.props.user.currentUserId,
       user_followed_by_id: parseInt(this.props.user.user.id)})
-      .then( () => {
-        this.props.getProfilePage(this.props.userId)
-      })
-      this.setState({isFollowing: false, followStateChanged: true})
+      this.setState({isFollowing: false})
     } else {
       this.props.createFollow({user_following_id: this.props.userId,
       user_followed_by_id: this.props.user.currentUserId})
-      .then( () => {
-        this.props.getProfilePage(this.props.userId)
-      })
-      this.setState({isFollowing: true, followStateChanged: true})
+      this.setState({isFollowing: true})
     }
   }
 
@@ -282,210 +120,6 @@ export default class UserProfile extends React.Component{
       <button className="profile-follow-button" onClick={this.handleFollowActionClick}>
         { this.props.user.isFollowing ? "unfollow" : "follow" }
       </button>
-    )
-  }
-
-
-  showPins(){
-    ////console.log(this.props);
-    return(
-      this.props.user.pins.map( (pin, idx) => {
-        return(
-          <button key={idx} name={pin.id} onClick={(e) => this.handleTileClick(e)} className="user-profile-pins" key={idx}>
-            <img className="user-profile-pin-img" key={idx} src={pin.image_url}/>
-            {this.props.user.pins.length}
-          </button>
-        )
-      })
-    )
-  }
-
-  redirectToAuthorProfile(e) {
-    e.preventDefault()
-    hashHistory.push(`/user/${e.currentTarget.getAttribute("value")}`)
-  }
-
-  pinTileRender(){
-    var pinTileContainerClassName = "pin-tile-container-hide";
-    var boardTilePicClassName = "board-tile-pic-hide";
-    var pinImageClassName = "pin-image-hide";
-    return(
-      this.props.user.pins.map( (tile, idx) => {
-        return(
-          <div key={idx} className={pinTileContainerClassName}>
-            <button className={boardTilePicClassName} name={tile.id} onClick={this.handleTileClick}>
-              <img className={pinImageClassName} src={tile.image_url}/>
-            </button>
-            <div className="pin-tile-content">
-              <div className="pin-tile-author-container">
-                <div className="pin-tile-author-profile-picture-container">
-                  <img value={tile.user_id} onClick={this.redirectToAuthorProfile}
-                    className="pin-tile-author-profile-picture"
-                    src={tile.profile_picture}/>
-                </div>
-                <div className="pin-tile-author-name">
-                  <button className="board-pin-author-button" value={tile.user_id} onClick={this.redirectToAuthorProfile}>
-                    {tile.username}
-                  </button>
-                </div>
-              </div>
-              <div className="pin-tile-information-container">
-                <div className="pin-tile-title">
-                  {tile.title}
-                </div>
-              </div>
-            </div>
-          </div>
-        )
-      })
-    )
-  }
-
-  masonryLayout(){
-    var masonryOptions = {
-      fitWidth: true,
-      transitionDuration: 0
-    };
-    return (
-      <div className='user-profile-board-pins'>
-        <div>
-          <div>
-            <Masonry
-              elementType={'div'}
-              disableImagesLoaded={false}
-              className='user-profile-boards-container'
-              options={masonryOptions}
-              >
-              {this.pinTileRender()}
-            </Masonry>
-        </div>
-      </div>
-    </div>
-    )
-  }
-
-  findImageHeight(){
-    let counter = 0;
-    this.imageHeight = setTimeout( () => {
-      switch(counter){
-        case 0:
-        let allImages = document.images
-        for (let i=0; i < allImages.length; i++){
-          allImages[i].setAttribute("style", `height:${allImages[i].naturalHeight}`)
-        }
-        case 1:
-        [
-          "pin-tile-hide",
-          "board-tile-pic-hide",
-          "pin-image-hide",
-          "pin-tile-container-hide"
-        ].forEach( (className) => {
-          let classes = document.getElementsByClassName(`${className}`);
-          while (classes.length){
-            classes[0].className = classes[0].className.replace("-hide","")
-          }
-          clearInterval(this.imageHeight)
-          return
-        })
-        counter += 1
-      }
-    }, 500)
-  }
-
-
-  showBoards(){
-    return(
-      this.props.user.boards.map ((board, idx)=> {
-        return (
-          <li name={board.id} onClick={this.handleBoardClick} key={idx} className="board-button-set">
-            <button name={board.id} onClick={this.handleBoardClick} className="user-profile-board-button" key={idx}>
-              <div name={board.id} onClick={this.handleBoardClick} className="user-profile-board-images">
-                <div name={board.id} onClick={this.handleBoardClick} className="user-profile-first-pic-container">
-                  <img name={board.id} onClick={this.handleBoardClick} src={this.props.user.samplePins[idx][0]}/>
-                </div>
-                <div name={board.id} onClick={this.handleBoardClick} className="user-profile-sub-image-board-pin-container">
-                  <div name={board.id} onClick={this.handleBoardClick} className="sub-image-single-pic-container">
-                    <img name={board.id} onClick={this.handleBoardClick} src={this.props.user.samplePins[idx][1]}/>
-
-                  </div>
-                  <div name={board.id} onClick={this.handleBoardClick} className="sub-image-single-pic-container">
-                    <img name={board.id} onClick={this.handleBoardClick} src={this.props.user.samplePins[idx][2]}/>
-                  </div>
-              </div>
-            </div>
-            </button>
-            <div name={board.id} className="board-title" onClick={this.handleBoardClick}>
-              {board.name}
-            </div>
-          </li>
-        )
-      })
-    )
-  }
-
-  handleNewBoardClick(e){
-    e.preventDefault()
-    this.setState({showNewBoardForm: true, newBoardModalIsOpen: true})
-  }
-
-  boardMasonryLayout(){
-    var masonryOptions = {
-      fitWidth: true,
-      transitionDuration: 0
-    };
-    return (
-      <div className='user-profile-board-pins'>
-        <div>
-          <div>
-            <Masonry
-              elementType={'div'}
-              disableImagesLoaded={false}
-              className='user-profile-boards-container'
-              options={masonryOptions}
-              >
-              {
-                this.isProfileOwner() ?
-                <li className="board-button-set">
-                  <button className="user-profile-board-button" onClick={this.handleNewBoardClick}>
-                    <div className="add-new-board-container">
-                      <i className="fa fa-plus fa-1x" aria-hidden="true"></i>
-                      <div className="create-new-board-text">
-                        Create a new Board
-                      </div>
-                    </div>
-                  </button>
-                  <div className="board-title-invisible">
-                    sdfdsag
-                  </div>
-                </li>
-                :
-                null
-              }
-              {this.showBoards()}
-            </Masonry>
-        </div>
-      </div>
-    </div>
-    )
-  }
-
-  newBoardModal(){
-    return (
-      <div>
-        {
-          this.state.showNewBoardForm ?
-          <Modal
-            isOpen={this.state.newBoardModalIsOpen}
-            onAfterOpen={this.afterOpenModal}
-            onRequestClose={this.closeModal}
-            contentLabel="Modal"
-            className="board-new-modal"
-            >
-            <NewBoardContainer handleSelfClose={this.closeModal}/>
-          </Modal>
-          : null
-        }
-      </div>
     )
   }
 
@@ -575,8 +209,8 @@ export default class UserProfile extends React.Component{
 
 
   render(){
-    debugger
-    ////console.log(this.props);
+    // debugger
+    console.log(this.props);
     return(
       <div className="user-profile">
         <div className="user-profile-body">

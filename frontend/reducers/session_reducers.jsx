@@ -11,22 +11,16 @@ const SessionReducer = (state = defaultState, action) => {
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_CURRENT_USER:
-      //console.log(action);
-      debugger
       const currentUser = action.currentUser
       return merge({}, state, {currentUser: currentUser})
     case LOG_OUT_USER:
-      ////console.log("logging out user");
-      return merge({}, state, defaultState);
+      return defaultState;
     case CLEAR_ERRORS:
-      ////console.log("cleared errors");
       return merge({}, state, {errors: null});
     case RECEIVE_ERRORS:
-      ////console.log("got session errors");
       const errors = action.errors;
       return merge({}, state, {errors});
   default:
-    ////console.log("No session actions hit. Defaulted");
     return state
   }
 };
