@@ -42,8 +42,10 @@ class ApplicationController < ActionController::Base
       pin_set_hash = pin_set.as_json
       j = 0
       while j < pin_set.length
-        pin_set_hash[j]["username"] = pin_set[j].user.username
-        pin_set_hash[j]["profile_picture"] = pin_set[j].user.profile_picture
+        pin_user = pin_set[j].user
+        pin_set_hash[j]["username"] = pin_user.username
+        pin_set_hash[j]["profile_picture"] = pin_user.profile_picture
+        pin_set_hash[j]["board_name"] = pin_set[j].board.name
         j += 1
       end
       hash[i] = pin_set_hash

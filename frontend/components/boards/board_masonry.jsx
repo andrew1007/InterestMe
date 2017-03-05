@@ -175,6 +175,7 @@ export default class BoardMasonry extends Component {
   }
 
   loadMorePins(){
+    console.log("triggered");
     setTimeout( () => {
       if (this.state.pinBatchCounter == this.state.pinSetCount){
         this.setState({
@@ -190,6 +191,7 @@ export default class BoardMasonry extends Component {
   }
 
   render(){
+    console.log("whaaaaaaaaaaat");
     return(
       <div className='user-profile-board-pins'>
           <InfiniteScroll

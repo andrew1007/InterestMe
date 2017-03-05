@@ -3,7 +3,7 @@ import Masonry from 'react-masonry-component';
 import Modal from 'react-modal';
 import PinContainer from '../pins/pins_container';
 import {hashHistory} from 'react-router';
-import InfiniteScroll from 'react-infinite-scroller';
+import BoardMasonry from '../boards/board_masonry';
 
 export default class Homepage extends React.Component{
   constructor(props){
@@ -41,14 +41,12 @@ export default class Homepage extends React.Component{
 
   componentWillMount(){
     this.props.getHome()
-    .then( () => this.setState({
-      pinsToRender: this.props.pins.pins[this.state.pinBatchCounter]
-    }))
-    .then( () => this.findImageHeight())
+    // .then( () => this.setState({
+    //   pinsToRender: this.props.pins.pins[this.state.pinBatchCounter]
+    // }))
     .then( () => {
         this.setState({
-          finishedLoading: true,
-          pinSetCount: this.props.pins.pinSetCount
+          finishedLoading: true
         })
     })
   }
@@ -109,25 +107,13 @@ export default class Homepage extends React.Component{
   }
 
   masonryLayout(){
-    var masonryOptions = {
-      fitWidth: true,
-      transitionDuration: 0
-    };
     return (
-      <div>
-        <div>
-          <div>
-            <Masonry
-              elementType={'div'}
-              disableImagesLoaded={false}
-              className='homepage-board'
-              options={masonryOptions}
-              >
-              {this.pinTileRender()}
-            </Masonry>
-        </div>
-      </div>
-    </div>
+      <BoardMasonry
+        pins={this.props.pins.pins}
+        pinSetCount={this.props.pins.pinSetCount}
+        owner={null}
+        deletePin={null}
+        />
     )
   }
 
@@ -205,6 +191,7 @@ export default class Homepage extends React.Component{
 
 
   render(){
+    console.log(this.props);
     return(
       <div>
         <div className="homepage-welcome">
@@ -219,19 +206,7 @@ export default class Homepage extends React.Component{
             </div>
           </div>
         </div>
-        {this.state.finishedLoading ?
-          <InfiniteScroll
-            pageStart={0}
-            loadMore={this.loadMorePins}
-            hasMore={this.state.hasMorePins}
-            loader={<div className="loader">Loading ...</div>}
-            threshold={1100}
-            className='homepage-board'
-          >
-            {this.masonryLayout()}
-          </InfiniteScroll>
-          : null
-        }
+        {this.state.finishedLoading ? this.masonryLayout() : null }
 
         {this.state.finishedLoading ? this.pinShow() : null}
       </div>
