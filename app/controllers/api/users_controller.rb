@@ -16,7 +16,11 @@ helper_method :current_user
   def show
     @user = User.find(params[:id])
     user_pins = @user.pins.order(:updated_at).reverse
-    @pins = pin_sets(user_pins)
+
+    pin_batches = pin_sets(user_pins)
+    @pins = pin_batches[0]
+    @pin_set_count = pin_batches[1]
+
     @followed_by = @user.followed_by
     @following = @user.following
     @owner = @user.id == current_user.id

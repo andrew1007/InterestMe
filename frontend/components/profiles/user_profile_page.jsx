@@ -3,6 +3,7 @@ import {hashHistory} from 'react-router';
 import Modal from 'react-modal';
 import PinContainer from '../pins/pins_container';
 import UserProfileFormContainer from './user_profile_form_container';
+import BoardMasonry from '../boards/board_masonry';
 import Masonry from 'react-masonry-component'
 
 export default class UserProfile extends React.Component{
@@ -18,14 +19,15 @@ export default class UserProfile extends React.Component{
       pinCount: 0,
       isFollowing: false,
       owner: false,
-      selectPinTab: false,
+      selectPinTab: true,
       selectBoardTab: false,
-      followedOpen: true,
+      followedOpen: false,
       followerOpen: false,
       boardButtonFocus: false,
       pinButtonFocus: false,
       followerButtonFocus: false,
-      followedButtonFocus: true,
+      followedButtonFocus: false,
+      doneLoading: false
     }
     document.body.style.overflow = "auto";
   }
@@ -67,11 +69,12 @@ export default class UserProfile extends React.Component{
         followedArray: this.props.followed,
         boardCount: this.props.userContent.boards.length,
         pinCount: this.props.userContent.pins.length,
-        followedCount: this.props.userContent.following.length,
+        followedCount: this.props.userContent.followed.length,
         followersCount: this.props.userContent.followers.length,
         isFollowing: this.props.user.isFollowing,
         owner: this.props.user.owner,
-        boards: this.props.userContent.boards
+        boards: this.props.userContent.boards,
+        doneLoading: true
       })
     })
   }
@@ -161,6 +164,17 @@ export default class UserProfile extends React.Component{
         </div>
         )
       })
+    )
+  }
+
+  pinShow(){
+    return(
+      <BoardMasonry
+        pins={this.props.userContent.pins}
+        pinSetCount={this.props.userContent.pinSetCount}
+        owner={this.props.user.owner}
+        deletePin={this.props.deletePin}
+        />
     )
   }
 
@@ -261,10 +275,9 @@ export default class UserProfile extends React.Component{
         </div>
         <div>
           <div className="board-pin-underbar">
-              {this.followers()}
+              {this.state.followerOpen ? this.followers() : null}
               {this.state.followedOpen ? this.followed() : null}
-              {this.state.selectBoardTab ? this.boardMasonryLayout() : null }
-              {this.state.selectPinTab ? this.masonryLayout() : null }
+              {this.state.selectPinTab && this.state.doneLoading ? this.pinShow() : null }
             </div>
         </div>
           {this.state.doneLoading ? this.pictureUpdateForm() : null}
@@ -272,3 +285,5 @@ export default class UserProfile extends React.Component{
     )
   }
 }
+
+// {this.state.selectBoardTab ? this.boardMasonryLayout() : null }

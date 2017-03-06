@@ -1,9 +1,11 @@
 import { connect } from 'react-redux';
 import { getProfilePage } from '../../actions/user_actions'
 import { createFollow, deleteFollow } from '../../actions/follow_actions'
-import UserProfile from './user_profile_page'
+import UserProfile from './user_profile_page';
 import { createBoard } from '../../actions/board_actions';
 import { getCurrentUser } from '../../actions/session_actions'
+import { deletePin } from '../../actions/pin_actions';
+
 const mapStateToProps = ({session, userContent, user}, ownProps) => {
   return {
     user: user.user,
@@ -16,7 +18,8 @@ const mapDispatchToProps = (dispatch) => ({
   createFollow: (user) => dispatch(createFollow(user)),
   deleteFollow: (user) => dispatch(deleteFollow(user)),
   getCurrentUser: () => dispatch(getCurrentUser()),
-  createBoard: () => dispatch(createBoard())
+  createBoard: () => dispatch(createBoard()),
+  deletePin: () => dispatch(deletePin())
 });
 
 export default connect(
