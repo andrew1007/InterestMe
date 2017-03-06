@@ -4,7 +4,6 @@ import Modal from 'react-modal';
 import PinContainer from '../pins/pins_container';
 import UserProfileFormContainer from './user_profile_form_container';
 import Masonry from 'react-masonry-component'
-import NewBoardContainer from '../boards/board_new_container'
 
 export default class UserProfile extends React.Component{
   constructor(props) {
@@ -18,7 +17,15 @@ export default class UserProfile extends React.Component{
       followedCount: 0,
       pinCount: 0,
       isFollowing: false,
-      owner: false
+      owner: false,
+      selectPinTab: false,
+      selectBoardTab: false,
+      followedOpen: true,
+      followerOpen: false,
+      boardButtonFocus: false,
+      pinButtonFocus: false,
+      followerButtonFocus: false,
+      followedButtonFocus: true,
     }
     document.body.style.overflow = "auto";
   }
@@ -111,10 +118,6 @@ export default class UserProfile extends React.Component{
     }
   }
 
-  isProfileOwner(){
-    return this.props.user.id === this.props.user.currentUserId
-  }
-
   followButton(){
     return (
       <button className="profile-follow-button" onClick={this.handleFollowActionClick}>
@@ -166,8 +169,7 @@ export default class UserProfile extends React.Component{
       <div className="user-info">
         <div className="username-image">
           <img className="profile-picture" src={this.props.user.profile_picture}/>
-          <a className="profile-email">{this.props.user.email}</a>
-          {this.isProfileOwner() ?
+          {this.props.user.owner ?
             <button className="edit-user-button" onClick={this.handleEditForm}>
               edit user
             </button>
@@ -193,21 +195,6 @@ export default class UserProfile extends React.Component{
     )
   }
 
-  pinShow(){
-    return(
-      <Modal
-        isOpen={this.state.modalIsOpen}
-        onAfterOpen={this.afterOpenModal}
-        onRequestClose={this.closeModal}
-        contentLabel="Modal"
-        className="ReactModal__Content"
-      >
-        {<PinContainer pinId={this.state.focusedPinId} handleSelfClose={this.closeModal}/> }
-      </Modal>
-    )
-  }
-
-
   render(){
     // debugger
     console.log(this.props);
@@ -217,7 +204,7 @@ export default class UserProfile extends React.Component{
           {this.state.doneLoading ? this.userInfo() :null}
           <div className="user-profile-description-container">
             {this.state.doneLoading ?
-              this.isProfileOwner() ? null : this.followButton()
+              this.props.user.owner ? null : this.followButton()
               :
               null}
             <div className="user-profile-username">
@@ -274,15 +261,13 @@ export default class UserProfile extends React.Component{
         </div>
         <div>
           <div className="board-pin-underbar">
-              {this.state.followerOpen && this.state.doneLoading ? this.followers() : null}
-              {this.state.followedOpen && this.state.doneLoading ? this.followed() : null}
-              {this.state.selectBoardTab && this.state.doneLoading ? this.boardMasonryLayout() : null }
-              {this.state.selectPinTab && this.state.doneLoading ? this.masonryLayout() : null }
+              {this.followers()}
+              {this.state.followedOpen ? this.followed() : null}
+              {this.state.selectBoardTab ? this.boardMasonryLayout() : null }
+              {this.state.selectPinTab ? this.masonryLayout() : null }
             </div>
         </div>
-        {this.newBoardModal()}
           {this.state.doneLoading ? this.pictureUpdateForm() : null}
-          {this.state.doneLoading ? this.pinShow() : null }
       </div>
     )
   }

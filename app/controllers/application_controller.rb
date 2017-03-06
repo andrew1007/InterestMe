@@ -34,10 +34,10 @@ class ApplicationController < ActionController::Base
     not_complete = true
     while not_complete
       if ((i*14) + 14) > all_pins_count
-        pin_set = pins[i*14 + 2..-1]
+        pin_set = pins[i*14..-1]
         not_complete = false
       else
-        pin_set = pins[(i*14 + 2)...(i*14 + 14)]
+        pin_set = pins[(i*14)...(i*14 + 14)]
       end
       pin_set_hash = pin_set.as_json
       j = 0
@@ -51,8 +51,6 @@ class ApplicationController < ActionController::Base
       hash[i] = pin_set_hash
       i += 1
     end
-
-    hash[i + 1] = []
     [hash, hash.keys.length - 1]
   end
 end

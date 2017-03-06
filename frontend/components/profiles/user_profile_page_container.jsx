@@ -7,7 +7,8 @@ import { getCurrentUser } from '../../actions/session_actions'
 const mapStateToProps = ({session, userContent, user}, ownProps) => {
   return {
     user: user.user,
-    userContent: user.userContent
+    userContent: user.userContent,
+    userId: ownProps.params.userId
 }};
 
 const mapDispatchToProps = (dispatch) => ({

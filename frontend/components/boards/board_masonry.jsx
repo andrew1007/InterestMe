@@ -31,8 +31,9 @@ export default class BoardMasonry extends Component {
 
   componentWillMount(){
       this.setState({
-      pinsToRender: this.props.pins[this.state.pinBatchCounter],
-      pinSetCount: this.props.pinSetCount
+        pinBatchCounter: 0,
+        pinsToRender: this.props.pins[this.state.pinBatchCounter],
+        pinSetCount: this.props.pinSetCount
       })
       this.setState({
         doneLoading: true
@@ -40,9 +41,11 @@ export default class BoardMasonry extends Component {
   }
 
   pinTileRender(){
+
     var pinTileContainerClassName = "pin-tile-container-hide";
     var boardTilePicClassName = "board-tile-pic-hide";
     var pinImageClassName = "pin-image-hide";
+    console.log(this.state.pinsToRender);
     return (
       this.state.pinsToRender.map( (tile, idx) => {
         return(
@@ -179,6 +182,7 @@ export default class BoardMasonry extends Component {
   }
 
   loadMorePins(){
+    console.log(this.pinBatchCounter);
     setTimeout( () => {
       if (this.state.pinBatchCounter == this.state.pinSetCount){
         this.setState({
@@ -195,7 +199,7 @@ export default class BoardMasonry extends Component {
         this.findImageHeight()
       }
         return
-    }, 50)
+    }, 100)
   }
 
 
@@ -208,7 +212,7 @@ export default class BoardMasonry extends Component {
             pageStart={0}
             loadMore={this.loadMorePins.bind(this)}
             hasMore={this.state.hasMorePins}
-            loader={<div className="loader">Loading ...</div>}
+            loader={<div className="loader"></div>}
             threshold={1000}
             className='board'
             >
