@@ -25,19 +25,18 @@ export default class BoardMasonry extends Component {
     hashHistory.push(`/user/${parseInt(userId)}`)
   }
 
-  componentDidMount(){
-    this.findImageHeight();
-  }
+  // componentDidMount(){
+  //   this.findImageHeight();
+  // }
 
   componentWillMount(){
-      this.setState({
-        pinBatchCounter: 0,
-        pinsToRender: this.props.pins[this.state.pinBatchCounter],
-        pinSetCount: this.props.pinSetCount
-      })
-      this.setState({
-        doneLoading: true
-      })
+    this.setState({
+      pinBatchCounter: 0,
+      pinsToRender: this.props.pins[this.state.pinBatchCounter],
+      pinSetCount: this.props.pinSetCount
+    })
+    this.setState({doneLoading: true})
+    setTimeout( () => this.findImageHeight(), 100)
   }
 
   pinTileRender(){
@@ -101,6 +100,7 @@ export default class BoardMasonry extends Component {
 
   findImageHeight(){
     let counter = 0;
+    console.log("finding image");
     this.imageHeight = setTimeout( () => {
       switch(counter){
         case 0:
@@ -196,13 +196,11 @@ export default class BoardMasonry extends Component {
           pinsToRender: newPinsToRender,
           pinBatchCounter: nextBatch
         })
-        this.findImageHeight()
+        setTimeout( ()=> this.findImageHeight(), 0)
       }
         return
     }, 100)
   }
-
-
 
   render(){
     return(
@@ -213,7 +211,7 @@ export default class BoardMasonry extends Component {
             loadMore={this.loadMorePins.bind(this)}
             hasMore={this.state.hasMorePins}
             loader={<div className="loader"></div>}
-            threshold={1000}
+            threshold={1200}
             className='board'
             >
             {this.masonryLayout()}
