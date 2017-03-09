@@ -36,7 +36,7 @@ export default class BoardMasonry extends Component {
       pinSetCount: this.props.pinSetCount
     })
     this.setState({doneLoading: true})
-    setTimeout( () => this.findImageHeight(), 100)
+    setTimeout( () => this.findImageHeight(), 700)
   }
 
   pinTileRender(){
@@ -79,7 +79,7 @@ export default class BoardMasonry extends Component {
   masonryLayout(){
     var masonryOptions = {
       fitWidth: true,
-      transitionDuration: 0
+      transitionDuration: '0.2s'
     };
     return (
       <div>
@@ -98,32 +98,33 @@ export default class BoardMasonry extends Component {
   }
 
   findImageHeight(){
-    let counter = 0;
-    console.log("finding image");
-    this.imageHeight = setTimeout( () => {
-      switch(counter){
-        case 0:
+    // let counter = 0;
+    // console.log("finding image");
+    // this.imageHeight = setTimeout( () => {
+    //   switch(counter){
+    //     case 0:
         let allImages = document.images
         for (let i=0; i < allImages.length; i++){
-          allImages[i].setAttribute("style", `height:${allImages[i].naturalHeight}`)
+          allImages[i].setAttribute("style", `height:2`)
         }
-        case 1:
-        [
-          "pin-tile-hide",
-          "board-tile-pic-hide",
-          "pin-image-hide",
-          "pin-tile-container-hide"
-        ].forEach( (className) => {
-          let classes = document.getElementsByClassName(`${className}`);
-          while (classes.length){
-            classes[0].className = classes[0].className.replace("-hide","")
-          }
-          clearInterval(this.imageHeight)
-          return
-        })
-        counter += 1
-      }
-    }, 500)
+    setTimeout( () => {
+      [
+        "pin-tile-hide",
+        "board-tile-pic-hide",
+        "pin-image-hide",
+        "pin-tile-container-hide"
+      ].forEach( (className) => {
+        let classes = document.getElementsByClassName(`${className}`);
+        while (classes.length){
+          classes[0].className = classes[0].className.replace("-hide","")
+        }
+        // clearInterval(this.imageHeight)
+        return
+      })
+    }, 100)
+    //     counter += 1
+    //   }
+    // }, 500)
   }
 
   _handleTileClick(e) {
