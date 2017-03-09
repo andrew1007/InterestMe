@@ -3,7 +3,7 @@ class Api::FollowsController < ApplicationController
 
   def create
     @follow = Follow.create!(follow_params)
-    render 'api/users/show'
+    render 'api/blank'
   end
 
   def destroy
@@ -11,7 +11,7 @@ class Api::FollowsController < ApplicationController
     :user_following_id => (params[:user][:user_followed_by_id]).to_i)
     @follow.each {|follow| follow.destroy}
 
-    render 'api/users/show'
+    render 'api/blank'
   end
 
   def follow_params

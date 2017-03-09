@@ -31,9 +31,13 @@ export default class UserProfile extends React.Component{
   componentWillReceiveProps(nextProps){
     if (this.props.userId !== nextProps.userId) {
       this.setState({doneLoading: false})
+      this.resetTabs()
       this.props.getProfilePage(nextProps.userId)
       .then( () => {
-        this.setState({doneLoading: true})
+        this.setState({
+          doneLoading: true,
+          boardTab: true
+        })
       })
     }
     if (this.state.followStateChanged){
@@ -70,7 +74,10 @@ export default class UserProfile extends React.Component{
   componentWillMount(){
     this.props.getProfilePage(this.props.userId)
     .then( () => {
-      this.setState({doneLoading: true})
+      this.setState({
+        doneLoading: true,
+        isFollowing: this.props.user.isFollowing
+      })
     })
   }
 
@@ -110,21 +117,24 @@ export default class UserProfile extends React.Component{
 
   handleFollowActionClick(e){
     e.preventDefault()
-    if (this.props.user.isFollowing){
-      this.props.deleteFollow({user_following_id: this.props.user.currentUserId,
-      user_followed_by_id: parseInt(this.props.user.user.id)})
+    const currentUser = this.props.currentUser.id
+    const user = this.props.user.id
+    if (this.state.isFollowing){
+      this.props.deleteFollow({user_following_id: currentUser,
+      user_followed_by_id: user})
       this.setState({isFollowing: false})
     } else {
-      this.props.createFollow({user_following_id: this.props.userId,
-      user_followed_by_id: this.props.user.currentUserId})
+      this.props.createFollow({user_following_id: user,
+      user_followed_by_id: currentUser})
       this.setState({isFollowing: true})
     }
+    this.props.getProfilePage(user)
   }
 
   followButton(){
     return (
-      <button className="profile-follow-button" onClick={this.handleFollowActionClick}>
-        { this.props.user.isFollowing ? "unfollow" : "follow" }
+      <button className="profile-follow-button" onClick={this.handleFollowActionClick.bind(this)}>
+        { this.state.isFollowing ? "unfollow" : "follow" }
       </button>
     )
   }
@@ -227,6 +237,7 @@ export default class UserProfile extends React.Component{
   }
 
   render(){
+    console.log(this.props);
     return(
       <div className="user-profile">
         <div className="user-profile-body">

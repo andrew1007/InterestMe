@@ -16,14 +16,12 @@ export default class UserBoards extends Component {
   }
 
   componentWillMount(){
-    console.log("willmount");
     this.setState({
       boards: this.props.boards
     })
   }
 
   showBoards(){
-    console.log("showing boards");
     return(
       this.state.boards.map ((board, idx)=> {
         return (
