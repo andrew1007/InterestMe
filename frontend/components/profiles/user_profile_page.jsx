@@ -5,6 +5,7 @@ import PinContainer from '../pins/pins_container';
 import UserProfileFormContainer from './user_profile_form_container';
 import BoardMasonry from '../boards/board_masonry';
 import Masonry from 'react-masonry-component'
+import UserBoards from './user_boards'
 
 export default class UserProfile extends React.Component{
   constructor(props) {
@@ -18,9 +19,8 @@ export default class UserProfile extends React.Component{
       followedCount: 0,
       pinCount: 0,
       isFollowing: false,
-      owner: false,
-      selectPinTab: true,
-      selectBoardTab: false,
+      selectPinTab: false,
+      selectBoardTab: true,
       followedOpen: false,
       followerOpen: false,
       boardButtonFocus: false,
@@ -65,14 +65,13 @@ export default class UserProfile extends React.Component{
     this.props.getProfilePage(this.props.userId)
     .then( () => {
       this.setState({
-        followersArray: this.props.userContent.followed_by,
-        followedArray: this.props.followed,
+        followersArray: this.props.userContent.followers,
+        followedArray: this.props.userContent.following,
         boardCount: this.props.userContent.boards.length,
         pinCount: this.props.userContent.pins.length,
-        followedCount: this.props.userContent.followed.length,
+        followedCount: this.props.userContent.following.length,
         followersCount: this.props.userContent.followers.length,
         isFollowing: this.props.user.isFollowing,
-        owner: this.props.user.owner,
         boards: this.props.userContent.boards,
         doneLoading: true
       })
@@ -103,8 +102,6 @@ export default class UserProfile extends React.Component{
           followedOpen: false,
           followedButtonFocus: false
         })
-      default:
-
     }
   }
 
@@ -124,14 +121,14 @@ export default class UserProfile extends React.Component{
   followButton(){
     return (
       <button className="profile-follow-button" onClick={this.handleFollowActionClick}>
-        { this.props.user.isFollowing ? "unfollow" : "follow" }
+        { this.state.isFollowing ? "unfollow" : "follow" }
       </button>
     )
   }
 
   followers(){
     return (
-      this.props.userContent.followed.map( (user, idx) => {
+      this.state.followersArray.map( (user, idx) => {
         return (
         <div key={idx} className="followers-modal">
           <div className="user-profile-image-container">
@@ -150,7 +147,7 @@ export default class UserProfile extends React.Component{
 
   followed(){
     return (
-      this.props.userContent.following.map( (user, idx) => {
+      this.state.followedArray.map( (user, idx) => {
         return (
         <div key={idx} className="followers-modal">
           <div className="user-profile-image-container">
@@ -175,6 +172,17 @@ export default class UserProfile extends React.Component{
         owner={this.props.user.owner}
         deletePin={this.props.deletePin}
         />
+    )
+  }
+
+  userBoards(){
+    return(
+      <div>
+        <UserBoards
+          boards={this.state.boards}
+          owner={this.props.user.owner}
+          />
+      </div>
     )
   }
 
@@ -237,7 +245,7 @@ export default class UserProfile extends React.Component{
                   Boards
                 </div>
                 <div>
-                  {this.props.userContent.boards.length}
+                  {this.state.boardCount}
                 </div>
               </div>
             </button>
@@ -247,7 +255,7 @@ export default class UserProfile extends React.Component{
                   Pins
                 </div>
                 <div>
-                  {this.props.userContent.pins.length}
+                  {this.state.pinCount}
                 </div>
               </div>
             </button>
@@ -257,7 +265,7 @@ export default class UserProfile extends React.Component{
                   Followers
                 </div>
                 <div>
-                  {this.props.userContent.followed.length}
+                  {this.state.followersCount}
                 </div>
               </div>
             </button>
@@ -267,7 +275,7 @@ export default class UserProfile extends React.Component{
                   Followed
                 </div>
                 <div>
-                  {this.props.userContent.following.length}
+                  {this.state.followedCount}
                 </div>
               </div>
             </button>
@@ -277,6 +285,7 @@ export default class UserProfile extends React.Component{
           <div className="board-pin-underbar">
               {this.state.followerOpen ? this.followers() : null}
               {this.state.followedOpen ? this.followed() : null}
+              {this.state.selectBoardTab && this.state.doneLoading ? this.userBoards() : null}
               {this.state.selectPinTab && this.state.doneLoading ? this.pinShow() : null }
             </div>
         </div>

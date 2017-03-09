@@ -7,7 +7,7 @@ const defaultState = Object.freeze({
     boards:[],
     errors: [],
     following: [],
-    followed: []
+    followers: []
   },
   user: {
     description: "",

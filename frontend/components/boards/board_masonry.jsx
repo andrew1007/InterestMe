@@ -40,7 +40,6 @@ export default class BoardMasonry extends Component {
   }
 
   pinTileRender(){
-
     var pinTileContainerClassName = "pin-tile-container-hide";
     var boardTilePicClassName = "board-tile-pic-hide";
     var pinImageClassName = "pin-image-hide";

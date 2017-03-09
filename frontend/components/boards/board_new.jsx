@@ -4,7 +4,7 @@ import Masonry from 'react-masonry-component'
 import PinContainer from '../pins/pins_container'
 import {hashHistory} from 'react-router';
 
-export default class Board extends React.Component {
+export default class BoardNew extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,7 +12,6 @@ export default class Board extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
-    this.newBoardForm = this.newBoardForm.bind(this);
   }
 
   update(text) {
@@ -23,7 +22,6 @@ export default class Board extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.handleSelfClose()
     this.props.createBoard({name: this.state.name})
     .then((action) => hashHistory.push(`/boards/${action.board.id}`))
   }
@@ -45,7 +43,7 @@ export default class Board extends React.Component {
             <button type="Submit" value="Submit">
               Create
             </button>
-            <button onClick={() => this.props.handleSelfClose()}>
+            <button onClick={this.props.closeModal.bind(this)}>
               Cancel
             </button>
           </div>
@@ -57,7 +55,15 @@ export default class Board extends React.Component {
   render() {
     return (
       <div>
-        {this.newBoardForm()}
+        <Modal
+          isOpen={true}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.props.closeModal}
+          contentLabel="Modal"
+          className="board-new-modal"
+          >
+          {this.newBoardForm()}
+        </Modal>
       </div>)
     }
 }
