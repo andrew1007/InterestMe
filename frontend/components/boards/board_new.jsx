@@ -20,7 +20,7 @@ export default class BoardNew extends React.Component {
     });
   }
 
-  handleSubmit(e){
+  handleSubmit(e) {
     e.preventDefault();
     this.props.createBoard({name: this.state.name})
     .then((action) => hashHistory.push(`/boards/${action.board.id}`))

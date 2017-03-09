@@ -9,13 +9,23 @@ export default class UserBoards extends Component {
     super(props)
     this.state = {
       showNewBoardForm: false,
-      newBoardModalIsOpen: false
+      newBoardModalIsOpen: false,
+      loaded: true,
+      boards: []
     }
   }
 
+  componentWillMount(){
+    console.log("willmount");
+    this.setState({
+      boards: this.props.boards
+    })
+  }
+
   showBoards(){
+    console.log("showing boards");
     return(
-      this.props.boards.map ((board, idx)=> {
+      this.state.boards.map ((board, idx)=> {
         return (
           <li name={board.id} onClick={this._handleBoardClick} key={idx} className="board-button-set">
             <button name={board.id} onClick={this._handleBoardClick} className="user-profile-board-button" key={idx}>
