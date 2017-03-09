@@ -5,9 +5,11 @@ import {getCurrentUser} from '../../actions/session_actions';
 import {getProfilePage} from '../../actions/user_actions';
 import {createBoard} from '../../actions/board_actions';
 
-const mapStateToProps = ({session}) => {
+const mapStateToProps = ({session, user}) => {
+  debugger
   return (
-    {currentUser: session}
+    {currentUser: session},
+    {boards: user.userContent.boards}
   )
 };
 

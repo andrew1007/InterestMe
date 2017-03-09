@@ -4,6 +4,7 @@ import Dropzone from 'react-dropzone'
 import request from 'superagent';
 import BoardNewContainer from '../boards/board_new_container';
 import Dropdown from 'react-dropdown'
+import Modal from 'react-modal'
 
 const CLOUDINARY_PRESET = 'punlriir'
 const CLOUDINARY_UPLOAD ='https://api.cloudinary.com/v1_1/andoo/upload'
@@ -43,7 +44,6 @@ export default class PinNewForm extends React.Component {
       if (errors === null) {
         this.setState({imageUrl: results.body.secure_url})
       } else {
-        ////console.log("error uploading!");
       }
     })
   }
@@ -65,14 +65,13 @@ export default class PinNewForm extends React.Component {
         pathname: `/boards/${this.state.boardId}`,
         state: {newPinMade: true}
       })
-
       this.props.newPin({
         title: this.state.title,
         body: this.state.body,
         board_id: parseInt(this.state.boardId),
         image_url: this.state.imageUrl})
-        this.setState( {imageUrl: false})
-        this.props.handleChildCancelButton()
+      this.setState( {imageUrl: false})
+      this.props.closeModal()
     }
   }
 
@@ -121,15 +120,9 @@ export default class PinNewForm extends React.Component {
   }
 
   componentWillMount(){
-    let id
-    if (this.props.currentUser.currentUser.currentUserId){
-      id = this.props.currentUser.currentUser.currentUserId
-    } else if ( this.props.currentUser.currentUserId){
-      id = this.props.currentUser.currentUserId
-    } else {
-      id = this.props.x.currentUserId
-    }
-    this.props.getProfilePage(parseInt(id))
+    console.log(this.props);
+    let id = this.props.currentUserId
+    this.props.getProfilePage(id)
     .then( () => {
       this.setState({doneLoading: true})
     })
@@ -173,7 +166,7 @@ export default class PinNewForm extends React.Component {
             <select className="new-pin-board-select-dropdown" onChange={this.update("boardId")}>
               <option selected disabled>--Select a board--</option>
               {
-                this.props.x.boards.map(board =>
+                this.props.boards.map(board =>
                   <option value={board.id} key={board.id}>{board.name}</option>
                 )
               }
@@ -203,7 +196,7 @@ export default class PinNewForm extends React.Component {
   }
 
   handleNewPinCancelButton(){
-    this.props.handleChildCancelButton()
+    this.props.closeModal()
   }
 
   handleNewBoardButton(){
@@ -220,7 +213,7 @@ export default class PinNewForm extends React.Component {
     } else {
       this.props.createBoard({name: this.state.name})
       .then((action) => hashHistory.push(`/boards/${action.board.id}`))
-      this.props.handleChildCancelButton()
+      this.props.closeModal()
     }
   }
 
@@ -264,22 +257,30 @@ export default class PinNewForm extends React.Component {
   render() {
     return (
       <div>
-        <div className="pin-new-add-a-new-pin-text-container">
-          {this.state.doneLoading && !this.state.newBoardForm ? "New Pin" : "New Board"}
-        </div>
-        <div className="pin-new-content-in-box">
-          {
-            this.state.doneLoading && !this.state.newBoardForm ?
-            <div className="pin-new-image-drop">
-              {this.dropZoneDropBox()}
-            </div>
-            : null
-          }
-          <div className="pin-board-new-user-input">
-            {this.state.doneLoading && !this.state.newBoardForm ? this.inputForm() : null}
-            {this.state.doneLoading && this.state.newBoardForm ? this.newBoardForm() : null}
+        <Modal
+          isOpen={true}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.props.closeModal}
+          contentLabel="Session form"
+          className="newPinModal"
+          >
+          <div className="pin-new-add-a-new-pin-text-container">
+            {this.state.doneLoading && !this.state.newBoardForm ? "New Pin" : "New Board"}
           </div>
-        </div>
+          <div className="pin-new-content-in-box">
+            {
+              this.state.doneLoading && !this.state.newBoardForm ?
+              <div className="pin-new-image-drop">
+                {this.dropZoneDropBox()}
+              </div>
+              : null
+            }
+            <div className="pin-board-new-user-input">
+              {this.state.doneLoading && !this.state.newBoardForm ? this.inputForm() : null}
+              {this.state.doneLoading && this.state.newBoardForm ? this.newBoardForm() : null}
+            </div>
+          </div>
+        </Modal>
       </div>
     )
   }

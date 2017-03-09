@@ -60,17 +60,6 @@ export default class UserProfile extends React.Component{
     this.props.getProfilePage(this.props.userId)
   }
 
-  loadContent(){
-    this.setState({
-      boardCount: this.props.userContent.boards.length,
-      pinCount: this.countPins(this.props.userContent.pins),
-      followedCount: this.props.userContent.following.length,
-      followersCount: this.props.userContent.followers.length,
-      isFollowing: this.props.user.isFollowing,
-      doneLoading: true
-    })
-  }
-
   componentWillMount(){
     this.props.getProfilePage(this.props.userId)
     .then( () => {

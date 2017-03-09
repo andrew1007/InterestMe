@@ -79,7 +79,7 @@ export default class BoardMasonry extends Component {
   masonryLayout(){
     var masonryOptions = {
       fitWidth: true,
-      transitionDuration: '0.2s'
+      transitionDuration: '0.07s'
     };
     return (
       <div>

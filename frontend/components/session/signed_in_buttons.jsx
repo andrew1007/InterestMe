@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {withRouter, Router, Link, hashHistory } from 'react-router';
+import PinNewFormContainer from '../pins/pin_new_container'
 
 export default class SignedInButtons extends Component {
   constructor(props){
@@ -22,7 +23,10 @@ export default class SignedInButtons extends Component {
   }
 
   _handleNewPinClick(e){
-
+    e.preventDefault()
+    this.setState({
+      newPinFormOpen: true
+    })
   }
 
   _handleProfileClick(){
@@ -32,20 +36,18 @@ export default class SignedInButtons extends Component {
   }
 
   closeModal(){
-
+    this.setState({
+      newPinFormOpen: false
+    })
   }
 
   newPinForm(){
-    return
-      // <Modal
-      //   isOpen={this.state.newPinFormOpen}
-      //   onAfterOpen={this.afterOpenModal}
-      //   onRequestClose={this.closeModal.bind(this)}
-      //   contentLabel="Session form"
-      //   className="newPinModal"
-      //   >
-      //     <PinNewFormContainer {...this.props} handleChildCancelButton={this.handleChildCancelButton}/>
-      // </Modal>
+    return (
+      <PinNewFormContainer
+        closeModal={this.closeModal.bind(this)}
+        currentUserId={this.props.currentUserId}
+        />
+    )
   }
 
   sessionButtons(){
