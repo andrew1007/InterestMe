@@ -103,10 +103,10 @@ export default class BoardMasonry extends Component {
     // this.imageHeight = setTimeout( () => {
     //   switch(counter){
     //     case 0:
-        let allImages = document.images
-        for (let i=0; i < allImages.length; i++){
-          allImages[i].setAttribute("style", `height:2`)
-        }
+    let allImages = document.images
+    for (let i=0; i < allImages.length; i++){
+      allImages[i].setAttribute("style", `height:2`)
+    }
     setTimeout( () => {
       [
         "pin-tile-hide",
@@ -145,6 +145,7 @@ export default class BoardMasonry extends Component {
           this.state.pinsToRender.unshift(pins[i])
           this.state.pinsToRender.splice(i + 1, 1)
         } else {
+          console.log("deleted");
           this.state.pinsToRender.splice(i, 1)
           this.props.deletePin(pinState.pinId);
         }

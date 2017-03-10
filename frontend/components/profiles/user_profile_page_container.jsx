@@ -7,7 +7,6 @@ import { getCurrentUser } from '../../actions/session_actions'
 import { deletePin } from '../../actions/pin_actions';
 
 const mapStateToProps = ({session, userContent, user}, ownProps) => {
-  debugger
   return {
     user: user.user,
     userContent: user.userContent,

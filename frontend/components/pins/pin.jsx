@@ -72,9 +72,7 @@ export default class Pin extends React.Component {
       edited: false,
       deleted: true
     })
-    setTimeout( () => {
-      this.props.closeModal(this.state)
-    }, 100)
+    setTimeout( () => this.props.closeModal(this.state), 0)
   }
 
   editPinModal() {

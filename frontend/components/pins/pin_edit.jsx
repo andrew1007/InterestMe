@@ -35,16 +35,20 @@ export default class PinEdit extends React.Component {
   }
 
   handleSubmit() {
-    if (this.state.wasDeleteCancel){
-      this.setState({wasDeleteCancel: false})
-      return
+    switch(true){
+      case this.state.deleteConfirmBox:
+        return
+      case this.state.wasDeleteCancel:
+        this.setState({wasDeleteCancel: false})
+        break
+      default:
+        this.props.editPin({
+          title: this.state.title,
+          body: this.state.body,
+          id: this.props.id
+        })
+        this.props.updateCloseModal(this.state)
     }
-    this.props.editPin({
-      title: this.state.title,
-      body: this.state.body,
-      id: this.props.id
-    })
-    this.props.updateCloseModal(this.state)
   }
 
   update(text) {
@@ -97,7 +101,7 @@ export default class PinEdit extends React.Component {
   deleteConfirm() {
     return(
       <div>
-        <div>
+        <div className="edit-board-error-text">
           Are you sure you want to delete?
         </div>
         <button onClick={this.handleDeleteSubmit}>Delete</button>
@@ -129,9 +133,8 @@ export default class PinEdit extends React.Component {
   editModal(){
     return(
       <Modal
-        isOpen={this.state.editFormOpen}
-        onAfterOpen={this.afterOpenModal}
-        onRequestClose={this.props.cancelEditModal}
+        isOpen={true}
+        onRequestClose={this.props.cancelEditModal || this.props.closeDeleteModal}
         contentLabel="Modal"
         className="edit-pin-modal"
       >
