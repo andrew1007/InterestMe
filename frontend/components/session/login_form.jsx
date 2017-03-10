@@ -39,7 +39,7 @@ export default class LoginForm extends Component {
     if (this.props.isLogin){
       return this.props.processLogin(login)
     } else {
-      //console.log("signup");
+      ////console.log("signup");
       return this.props.processSignUp(login)
     }
   }

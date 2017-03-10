@@ -120,7 +120,7 @@ export default class PinNewForm extends React.Component {
   }
 
   componentWillMount(){
-    console.log(this.props);
+    //console.log(this.props);
     let id = this.props.currentUserId
     this.props.getProfilePage(id)
     .then( () => {

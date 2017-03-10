@@ -101,7 +101,7 @@ export default class Pin extends React.Component {
       return
     }
     //add favorites!?
-    //console.log(this.props);
+    ////console.log(this.props);
     return(
       <div className="modal-container">
         <div className="pin-show-modal-content-container">

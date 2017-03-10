@@ -226,7 +226,7 @@ export default class UserProfile extends React.Component{
   }
 
   render(){
-    console.log(this.props);
+    //console.log(this.props);
     return(
       <div className="user-profile">
         <div className="user-profile-body">

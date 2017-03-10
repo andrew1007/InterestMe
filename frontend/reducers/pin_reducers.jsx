@@ -10,7 +10,7 @@ const PinReducer = (state = defaultState, action) => {
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_PINS:
-      ////console.log("received pins");
+      //////console.log("received pins");
       const pins = action.pins.pins;
       const pinSetCount = action.pins.pinSetCount
       if (action.pins.pin_user_info){
@@ -20,19 +20,19 @@ const PinReducer = (state = defaultState, action) => {
         return merge({}, state, {pins: pins, pinSetCount: pinSetCount})
       }
     case DESTROY_PIN:
-      ////console.log("delete pin");
+      //////console.log("delete pin");
       const newState = merge({}, state);
       delete newState[action.id];
       return newState;
     case RECEIVE_PIN:
-      ////console.log("received pin");
+      //////console.log("received pin");
       return merge({}, state, {pins: action.pin.pin})
     case RECEIVE_ERRORS:
-      ////console.log("pin errors hit");
+      //////console.log("pin errors hit");
       const errors = action.errors;
       return merge({}, state, {errors})
     default:
-      ////console.log("no pin actions hit. defaulted");
+      //////console.log("no pin actions hit. defaulted");
       return state;
   }
 }

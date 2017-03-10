@@ -88,7 +88,7 @@ export default class Board extends React.Component {
     this.setState({
       editFormOpen: false
     })
-    console.log(editFormState);
+    //console.log(editFormState);
     if (editFormState.name !== this.state.name && editFormState.nameUpdated){
       this.setState({
         name: editFormState.name
@@ -98,7 +98,7 @@ export default class Board extends React.Component {
   }
 
   boardTitle(){
-    ////console.log(this.state);
+    //////console.log(this.state);
     return(
       <div className="board-overhead-bar-container">
         <div className="board-overhead-bar">

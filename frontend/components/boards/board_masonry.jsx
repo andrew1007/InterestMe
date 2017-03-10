@@ -43,7 +43,7 @@ export default class BoardMasonry extends Component {
     var pinTileContainerClassName = "pin-tile-container-hide";
     var boardTilePicClassName = "board-tile-pic-hide";
     var pinImageClassName = "pin-image-hide";
-    console.log(this.state.pinsToRender);
+    //console.log(this.state.pinsToRender);
     return (
       this.state.pinsToRender.map( (tile, idx) => {
         return(
@@ -99,7 +99,7 @@ export default class BoardMasonry extends Component {
 
   findImageHeight(){
     // let counter = 0;
-    // console.log("finding image");
+    // //console.log("finding image");
     // this.imageHeight = setTimeout( () => {
     //   switch(counter){
     //     case 0:
@@ -145,7 +145,7 @@ export default class BoardMasonry extends Component {
           this.state.pinsToRender.unshift(pins[i])
           this.state.pinsToRender.splice(i + 1, 1)
         } else {
-          console.log("deleted");
+          //console.log("deleted");
           this.state.pinsToRender.splice(i, 1)
           this.props.deletePin(pinState.pinId);
         }
@@ -183,7 +183,7 @@ export default class BoardMasonry extends Component {
   }
 
   loadMorePins(){
-    console.log(this.pinBatchCounter);
+    //console.log(this.pinBatchCounter);
     setTimeout( () => {
       if (this.state.pinBatchCounter == this.state.pinSetCount){
         this.setState({

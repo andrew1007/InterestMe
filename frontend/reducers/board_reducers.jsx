@@ -10,23 +10,23 @@ const BoardReducer = (state = defaultState, action) => {
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_BOARD:
-      ////console.log("received board");
+      //////console.log("received board");
       const board = action.board
       return merge({}, state, {board})
     case GET_BOARD:
-      ////console.log("get board");
+      //////console.log("get board");
       return merge({}, action.board)
     case DESTROY_BOARD:
-      ////console.log("delete board");
+      //////console.log("delete board");
       const newState = merge({}, state);
       delete newState[action.board.id]
       return newState;
     case RECEIVE_ERRORS:
-      ////console.log("board errors hit");
+      //////console.log("board errors hit");
       const errors = action.errors;
       return merge({}, state, {errors})
     default:
-      ////console.log("No board actions hit. Defaulted");
+      //////console.log("No board actions hit. Defaulted");
       return state;
   }
 }

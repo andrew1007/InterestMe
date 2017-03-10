@@ -30,7 +30,7 @@ export default class SignedInButtons extends Component {
   }
 
   _handleProfileClick(){
-    //console.log(this.props);
+    ////console.log(this.props);
     const userUrl = `/user/${this.props.currentUserId}`
     hashHistory.push(userUrl);
   }
@@ -51,7 +51,7 @@ export default class SignedInButtons extends Component {
   }
 
   sessionButtons(){
-    //console.log(this.props);
+    ////console.log(this.props);
     return (
       <div className="session-button-list">
         <button className="session-button" onClick={this._handleNewPinClick.bind(this)}>
