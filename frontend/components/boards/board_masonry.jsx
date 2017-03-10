@@ -135,6 +135,7 @@ export default class BoardMasonry extends Component {
   }
 
   updateBoard(pinState){
+    debugger
     let pinCount = this.state.pinsToRender.length;
     let pins = this.state.pinsToRender
     for (let i = 0; i < pinCount; i++) {
@@ -147,7 +148,7 @@ export default class BoardMasonry extends Component {
         } else {
           //console.log("deleted");
           this.state.pinsToRender.splice(i, 1)
-          this.props.deletePin(pinState.pinId);
+          // this.props.deletePin(pinState.pinId);
         }
         let updatedBoard = this.state.pinsToRender
         this.setState({

@@ -23,7 +23,9 @@ export default class UserProfile extends React.Component{
       boardTab: true,
       followedTab: false,
       followedTab: false,
-      doneLoading: false
+      editFormOpen: false,
+      doneLoading: false,
+      owner: false
     }
     document.body.style.overflow = "auto";
   }
@@ -65,7 +67,8 @@ export default class UserProfile extends React.Component{
     .then( () => {
       this.setState({
         doneLoading: true,
-        isFollowing: this.props.user.isFollowing
+        isFollowing: this.props.user.isFollowing,
+        owner: this.props.user.owner
       })
     })
   }
@@ -82,24 +85,16 @@ export default class UserProfile extends React.Component{
     this.resetTabs();
     switch (name) {
       case "pin":
-        this.setState({
-          pinTab: true
-        });
+        this.setState({ pinTab: true });
         break;
       case "board":
-        this.setState({
-          boardTab: true
-        });
+        this.setState({ boardTab: true });
         break;
       case "followers":
-        this.setState({
-          followersTab: true
-        });
+        this.setState({ followersTab: true });
         break;
       case "followed":
-        this.setState({
-          followedTab: true
-        })
+        this.setState({ followedTab: true })
         break;
     }
   }
@@ -177,7 +172,7 @@ export default class UserProfile extends React.Component{
       <BoardMasonry
         pins={this.props.userContent.pins}
         pinSetCount={this.props.userContent.pinSetCount}
-        owner={this.props.user.owner}
+        owner={this.state.owner}
         deletePin={this.props.deletePin}
         />
     )
@@ -188,19 +183,24 @@ export default class UserProfile extends React.Component{
       <div>
         <UserBoards
           boards={this.props.userContent.boards}
-          owner={this.props.user.owner}
+          owner={this.state.owner}
           />
       </div>
     )
   }
 
+  _handleEditForm(){
+    this.setState({editFormOpen: true})
+  }
+
   userInfo(){
+    console.log(this.props);
     return(
       <div className="user-info">
         <div className="username-image">
           <img className="profile-picture" src={this.props.user.profile_picture}/>
-          {this.props.user.owner ?
-            <button className="edit-user-button" onClick={this.handleEditForm}>
+          {this.state.owner ?
+            <button className="edit-user-button" onClick={this._handleEditForm.bind(this)}>
               edit user
             </button>
             :
@@ -211,17 +211,19 @@ export default class UserProfile extends React.Component{
     )
   }
 
-  pictureUpdateForm(){
+  closeModal(){
+    this.props.getProfilePage(this.props.user.id)
+    .then( () => {
+      this.setState({editFormOpen: false})
+    })
+  }
+
+  userUpdateForm(){
     return(
-      <Modal
-        isOpen={this.state.editFormOpen}
-        onAfterOpen={this.afterOpenModal}
-        onRequestClose={this.closeModal}
-        contentLabel="Modal"
-        className="user-profile-update-picture-modal"
-      >
-        {<UserProfileFormContainer {...this.props} handleSelfClose={this.closeModal} userId={this.props.userId}/>}
-      </Modal>
+      <UserProfileFormContainer
+        closeModal={this.closeModal.bind(this)}
+        user={this.props.user}
+        />
     )
   }
 
@@ -233,7 +235,7 @@ export default class UserProfile extends React.Component{
           {this.state.doneLoading ? this.userInfo() :null}
           <div className="user-profile-description-container">
             {this.state.doneLoading ?
-              this.props.user.owner ? null : this.followButton()
+              this.state.owner ? null : this.followButton()
               :
               null}
             <div className="user-profile-username">
@@ -300,7 +302,7 @@ export default class UserProfile extends React.Component{
               {this.state.pinTab && this.state.doneLoading ? this.pinShow() : null }
             </div>
         </div>
-          {this.state.doneLoading ? this.pictureUpdateForm() : null}
+          {this.state.doneLoading && this.state.editFormOpen ? this.userUpdateForm() : null}
       </div>
     )
   }

@@ -66,7 +66,6 @@ export default class Board extends React.Component {
         pins={this.props.board.pins}
         pinSetCount={this.props.board.pinSetCount}
         owner={this.props.board.owner}
-        deletePin={this.props.deletePin}
         />
     )
   }

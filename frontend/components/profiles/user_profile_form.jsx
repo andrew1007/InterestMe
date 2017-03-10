@@ -10,17 +10,19 @@ export default class UserProfileForm extends React.Component {
   constructor(props) {
     super(props);
     this.state= {
-      imageUrl: "",
-      description: this.props.user.user.description
+      imageUrl: this.props.user.profile_picture,
+      description: this.props.user.description,
+      submit: true
     }
     //
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this._handleSubmit = this._handleSubmit.bind(this);
+    this._handleCancel = this._handleCancel.bind(this);
     this.update = this.update.bind(this);
     this.previewImage = this.previewImage.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
   }
 
-  handleDrop(img){
+  handleDrop(img) {
     let imgUploaded = img[0]
     let upload = request.post(CLOUDINARY_UPLOAD)
     .field('upload_preset', CLOUDINARY_PRESET)
@@ -34,20 +36,27 @@ export default class UserProfileForm extends React.Component {
     })
   }
 
-  handleSubmit(e) {
+  componentDidMount(){
+    this.setState({submit: true})
+  }
+
+  _handleSubmit(e) {
     e.preventDefault();
-    if (!this.state.imageUrl){
-      var imagex = this.props.user.user.profile_picture
-    } else {
-      var imagex = this.state.imageUrl
+    debugger
+    if (this.state.submit) {
+      let image = this.state.imageUrl
+      this.props.editProfilePage({
+        profile_picture: image,
+        id: this.props.user.id,
+        description: this.state.description
+      })
     }
-    this.props.editProfilePage({
-      profile_picture: imagex,
-      id: this.props.user.user.id,
-      description: this.state.description
-    })
-    this.props.handleSelfClose()
-    this.setState({imageUrl: null})
+    this.props.closeModal()
+  }
+
+  _handleCancel(){
+    debugger
+    this.setState({submit: false})
   }
 
   update(text) {
@@ -70,42 +79,61 @@ export default class UserProfileForm extends React.Component {
     )
   }
 
-    render() {
-      //////console.log(this.props);
-      return (
-        <div className="user-profile-edit-container">
-          <div className="dropzone-image-container">
-            <Dropzone
-              multiple={false}
-              accept="image/*"
-              onDrop={this.handleDrop}
-              className="user-profile-edit-image-preview"
-              >
-              <div className="user-profile-edit-image-dropzone-text">
-                {this.state.imageUrl ? this.previewImage() : "click or drag to add image"}
-              </div>
-            </Dropzone>
+  dropZone() {
+    return (
+      <div className="dropzone-image-container">
+        <Dropzone
+          multiple={false}
+          accept="image/*"
+          onDrop={this.handleDrop}
+          className="user-profile-edit-image-preview"
+          >
+          <div className="user-profile-edit-image-dropzone-text">
+            { this.state.imageUrl ? this.previewImage()
+              : "click or drag to add image" }
           </div>
+        </Dropzone>
+      </div>
+    )
+  }
 
-          <form className="user-profile-edit-form" onSubmit={this.handleSubmit}>
-              <textarea
-                className="user-profile-description-textarea"
-                type="textarea"
-                placeholder="Tell us about yourself"
-                onChange={this.update('description')}
-              >
-              {this.state.description}
-            </textarea>
-            <div className = "user-profile-edit-submit-button">
-              <button type="Submit" value="Submit">
-                Update
-              </button>
-              <button onClick={() => this.props.handleSelfClose()}>
-                Cancel
-              </button>
-            </div>
-          </form>
+  editForm() {
+    return (
+      <form className="user-profile-edit-form" onSubmit={this._handleSubmit}>
+        <textarea
+          className="user-profile-description-textarea"
+          type="textarea"
+          placeholder="Tell us about yourself"
+          onChange={this.update('description')}
+          defaultValue={this.state.description}
+          />
+        <div className = "user-profile-edit-submit-button">
+          <button type="Submit" value="Submit">
+            Update
+          </button>
+          <button onClick={this._handleCancel}>
+            Cancel
+          </button>
         </div>
-      )
-    }
+      </form>
+    )
+  }
+
+  render() {
+    //////console.log(this.props);
+    return (
+      <Modal
+        isOpen={true}
+        onAfterOpen={this.afterOpenModal}
+        onRequestClose={this.props.closeModal}
+        contentLabel="Modal"
+        className="user-profile-update-picture-modal"
+      >
+        <div className="user-profile-edit-container">
+          {this.dropZone()}
+          {this.editForm()}
+        </div>
+      </Modal>
+    )
+  }
 }

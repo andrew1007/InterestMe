@@ -13,8 +13,8 @@ export const editPin = pin => dispatch => (
   ajax_request.editPin(pin).then((pin) => dispatch(receivePins(pin)))
 );
 
-export const deletePin = pin => dispatch => (
-  ajax_request.deletePin(pin).then((pin) => dispatch(destroyPin(null)))
+export const deletePin = id => dispatch => (
+  ajax_request.deletePin(id).then((id) => dispatch(destroyPin(id)))
 );
 
 export const getPins = id => dispatch => (
