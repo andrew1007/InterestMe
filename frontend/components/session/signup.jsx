@@ -14,7 +14,7 @@ export default class Signup extends React.Component {
         <img className="splashscreen"/>
         <div className="splashtext-container">
             <div className="splashtext-catchphrase-container">
-              <img src="http://res.cloudinary.com/andoo/image/upload/v1487183912/Logomakr_7pMPpx_bxusuq.png"/>
+              <img src="https://res.cloudinary.com/andoo/image/upload/v1487183912/Logomakr_7pMPpx_bxusuq.png"/>
               <div className="splashtext-catchphrase-subtext-container">
                 <div className="splashscreen-main-catchphrase">
                   Everything you're looking for, in one place
