@@ -2,7 +2,7 @@
 
 [InterestMe](https://interest-me.herokuapp.com/#/) is a web application for users to share pictures. Inspired by Pinterest, InterestMe allows users to create boards, share images, and follow users. InterestMe is a personal project by Andrew Yueh
 
-![InterestMe Homepage][homepage]
+![homepage]
 [homepage]: ./docs/images/homepage.png
 
 ## Features
