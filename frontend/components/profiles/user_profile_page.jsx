@@ -194,7 +194,6 @@ export default class UserProfile extends React.Component{
   }
 
   userInfo(){
-    console.log(this.props);
     return(
       <div className="user-info">
         <div className="username-image">
