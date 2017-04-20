@@ -265,7 +265,8 @@ export default class PinNewForm extends React.Component {
           className="newPinModal"
           >
           <div className="pin-new-add-a-new-pin-text-container">
-            {this.state.doneLoading && !this.state.newBoardForm ? "New Pin" : "New Board"}
+            {this.state.doneLoading && !this.state.newBoardForm ? "New Pin" : null}
+            {this.state.doneLoading && this.state.newBoardForm ? "New Board" : null}
           </div>
           <div className="pin-new-content-in-box">
             {
