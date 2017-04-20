@@ -3,7 +3,6 @@
 .pin-tile-container {
   @include flex-column;
   position: relative;
-  float: left;
   border-radius: 10px;
   margin: 15px;
   border: 3px solid $color-light-black;
