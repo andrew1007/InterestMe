@@ -1,23 +1,16 @@
 @import "../application.scss";
 
 .navigation-bar {
+  @include flex-row;
   position: fixed;
-  display:flex;
-  flex-direction: row;
   height: 65px;
   width: 100vw;
   margin: -8px;
   top: 5px;
   background-color: $color-primary;
   z-index: 10;
-  // padding-left:5px;
   flex-grow: 1
 }
-
-// .fa-events-icons-ready {
-//   max-width: 99vw;
-//   // max-height: 0px;
-// }
 
 .fa-3x {
   font-size: 2.3em !important;

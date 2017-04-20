@@ -4,7 +4,7 @@ module.exports= {
   entry: './frontend/interest_me.jsx',
   output: {
     path: 'app/assets/javascripts',
-    filename: 'bundle.js',``
+    filename: 'bundle.js',
   },
   module: {
     loaders: [

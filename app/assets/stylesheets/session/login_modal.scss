@@ -8,11 +8,9 @@
 
 
 .ReactModal__Content {
-  display: flex !important;
+  @include flex-center-justify-align;
   flex-direction: column;
   position: fixed !important;
-  justify-content: center;
-  align-items: center;
   top: 50% !important;
   left: 50% !important;
   transform: translate(-50%, -50%) !important;
@@ -23,23 +21,6 @@
   padding: 35px 40px 50px 40px;
   overflow-y: scroll;
   min-width: 450px;
-}
-
-.session-modal-container {
-  display: flex;
-  align-self: center;
-  align-items: center;
-  justify-content: center;
-  z-index: 200;
-  overflow-y: scroll;
-  width: 30vw;
-  padding: 35px 60px 50px 60px;
-  background-color: $color-light-white;
-  border-radius: 8px;
-  border: solid 2px;
-  border-color: $color-primary;
-  max-height: 80vh;
-  overflow: hidden;
 }
 
 .textbox-login {
@@ -62,14 +43,12 @@
 }
 
 .session-button-list{
-  display: flex;
-  flex-direction: row;
+  @include flex-row;
   padding-left: 450px;
 }
 
 .submission-session-buttons {
-  display: flex;
-  justify-content: center;
+  @include flex-center-justify;
   width: 100%;
 }
 
@@ -80,10 +59,8 @@
 }
 
 .session-login-form {
-  display: flex;
+  @include flex-center-justify-align;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 #session-form-title {

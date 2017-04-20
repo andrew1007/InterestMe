@@ -12,13 +12,11 @@
   // z-index: -2;
 }
 .profile-button-text-container {
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
 }
 
 .user-profile-body {
-  display: flex;
-  align-items: center;
+  @include flex-center-align;
   flex-direction: row;
   height: 38vh;
   background-color: transparent;
@@ -28,16 +26,13 @@
 }
 
 .user-profile-buttons-bar-container{
-  display:flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center-justify-align;
 }
 
 .user-profile-buttons-bar {
-  display: flex;
+  @include flex-center-justify;
   flex-direction: row;
   background-color: transparent;
-  justify-content: center;
   align-items: flex-end;
   width: 90vw;
   height:55px;
@@ -52,11 +47,9 @@
 }
 
 .board-pin-underbar{
-  display: flex;
+  @include flex-center-justify-align;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
 }
 
 .edit-user-button {
@@ -76,9 +69,7 @@
 
 
 .user-info {
-  display:flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center-justify-align;
   height: 65%;
   background-color: transparent;
   width: 45vw;
@@ -86,8 +77,7 @@
 }
 
 .user-profile-description-container {
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
   background-color: transparent;
   font-size: 25px;
   width: 55vw;
@@ -95,8 +85,7 @@
 }
 
 .user-profile-description {
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
   background-color: transparent;
   height: 100%;
   font-size: 25px;
@@ -119,7 +108,7 @@
 }
 
 .username-image {
-  display: flex;
+  @include flex-center-justify-align;
   flex-direction: column;
   height: 300px;
   width: 400px;
@@ -127,8 +116,6 @@
   margin-left: 100px;
   margin-top: 20px;
   background-color: transparent;
-  justify-content: center;
-  align-items: center;
 }
 
 .profile-picture {
@@ -141,24 +128,6 @@
   color: #705858;
 }
 
-.board-pin-underbar::-webkit-scrollbar {
-    width: 5px;
-    border-radius: 4px;
-    z-index: 100;
-}
-
-.board-pin-underbar::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    z-index: 100;
-}
-
-.board-pin-underbar::-webkit-scrollbar-thumb {
-  background-color: #d7432d;
-  outline: 1px solid #d7432d;
-  z-index: 100;
-}
-
-
 .user-profile-board-pins {
     position: relative;
     background-color: transparent;
@@ -167,8 +136,7 @@
 }
 
 .tab-block{
-  display: flex;
-  flex-direction: row;
+  @include flex-row;
   width: 60px;
   margin-left: 20px;
 }
@@ -226,9 +194,7 @@
 }
 
 .profile-follow-button:hover {
-
   background-color: transparent;
-
 }
 
 .user-profile-pins {
@@ -253,30 +219,26 @@
 }
 
 .user-profile-board-button {
-  display: flex;
+  @include flex-center-justify-align;
+  flex-direction: column;
+  align-content: center;
   width: 260px;
   height: 260px;
   background-color: white;
   font-size: 30px;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
   color: #d7432d;
   border-radius: 10px;
   border: 3px solid transparent;
   margin-right: 0px;
-  align-items: center;
 }
 
 .user-profile-board-button:hover {
-  display: flex;
+  @include flex-center-justify-align;
+  flex-direction: column;
   width: 260px;
   height: 260px;
   background-color: white;
   font-size: 30px;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
   color: #d7432d;
   border-radius: 10px;
   border: 3px solid transparent;
@@ -284,23 +246,14 @@
 }
 
 .user-profile-board-images{
+  @include flex-column;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.user-profile-board-images:hover {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
 }
 
 .user-profile-sub-image-board-pin-container {
+  @include flex-row;
   min-width: 96%;
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
   width: 215px;
   height: 100%;
@@ -334,10 +287,8 @@
 }
 
 .board-button-set {
-  display: flex;
+  @include flex-center-justify-align;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   margin-bottom: 30px;
   border: 3px solid rgba(black, 0.08);
   padding: 10px 10px 10px 10px;
@@ -360,15 +311,6 @@
 .board-title:hover {
   cursor: pointer;
 }
-//
-// .user-profile-board-show {
-//   width:100%;
-//   display: flex;
-//   flex-direction: row;
-//   flex-wrap: wrap;
-//   z-index: 1;
-//   margin: 0 auto;
-// }
 
 .board-title-invisible {
   opacity: 0;
@@ -376,23 +318,19 @@
 }
 
 .user-profile-boards-container {
+  @include flex-center-justify-align;
   margin: 0 auto;
   background-color: transparent;
-  display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
   margin-bottom: 100px;
   margin-top:30px;
 }
 // user-profile-board-pins
 .add-new-board-container {
+  @include flex-center-justify-align;
   width: 200px;
   height: 200px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .create-new-board-text {
@@ -418,7 +356,5 @@
 }
 
 .user-profile-image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center-justify-align;
 }

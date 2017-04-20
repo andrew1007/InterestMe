@@ -82,14 +82,6 @@ export default class Session extends React.Component {
     )
   }
 
-  logd() {
-    return (
-      <div>
-        { this.loginForm() }
-      </div>
-    )
-  }
-
   render() {
     return (
       <div className="session-button-container">
@@ -108,7 +100,7 @@ export default class Session extends React.Component {
           <ul className="session-buttons">
             {this.props.currentUser ? this.signedInButtons() : this.loginButtons()}
           </ul>
-          {this.state.loginModal || this.state.signupModal ? this.logd() : null}
+          {this.state.loginModal || this.state.signupModal ? this.loginForm() : null}
       </div>
     );
   }

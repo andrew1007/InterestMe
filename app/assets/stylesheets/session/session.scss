@@ -1,17 +1,9 @@
+@import '../application.scss';
+
 .splash-container{
   width: 100vw;
   height: 100vh;
   margin: 15px 0px -6px -8px;
-}
-// .splashscreen {
-//   height: auto;
-//   width: 110vw;
-//   margin: 0px auto;
-//   overflow: hidden !important;
-//   background-position: -80px 8px;
-// }
-.session-buttons {
-
 }
 
 .splashscreen {
@@ -33,9 +25,8 @@
 }
 
 .session-button-container {
-  display:flex;
+  @include flex-center-align;
   justify-content: flex-end;
-  align-items: center;
   flex-grow: 2;
   margin-right: 10px;
   margin-top: 3px;
@@ -43,12 +34,10 @@
 }
 
 .splashtext-catchphrase-container {
+  @include flex-center-justify-align;
   background-color: transparent;
   z-index: 1;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   margin-top: 75px;
 }
 
@@ -58,11 +47,9 @@
 }
 
 .splashtext-container {
+  @include flex-center-justify-align;
   height: 50vh;
   width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .splashscreen-sub-catchphrase {
@@ -86,10 +73,6 @@
   transform: translate(-50%, -49%);
 }
 
-
-.session-container {
-
-}
 .session-image-box {
   display: flex
 

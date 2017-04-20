@@ -133,7 +133,7 @@ export default class UserProfile extends React.Component{
     return (
       this.props.userContent.followers.map( (user, idx) => {
         return (
-        <div key={idx} className="followers-modal">
+        <div key={idx} className="followers-icon">
           <div className="user-profile-image-container">
             <button name={user.id} onClick={this._handleProfileRedirect} className="follow-user-button">
               <img className="follow-button-image" name={user.id} onClick={this._handleProfileRedirect} src={user.profile_picture}/>
@@ -152,7 +152,7 @@ export default class UserProfile extends React.Component{
     return (
       this.props.userContent.following.map( (user, idx) => {
         return (
-        <div key={idx} className="followers-modal">
+        <div key={idx} className="followers-icon">
           <div className="user-profile-image-container">
             <button name={user.id} onClick={this._handleProfileRedirect} className="follow-user-button">
               <img className="follow-button-image" name={user.id} onClick={this._handleProfileRedirect} src={user.profile_picture}/>
