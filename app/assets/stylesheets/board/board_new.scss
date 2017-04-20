@@ -15,11 +15,9 @@
 }
 
 .board-new-form-container {
+  @include flex-center-justify-align;
   margin-left: 45px;
   height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .board-new-form {
@@ -32,6 +30,5 @@
 
 
 .board-new-form-buttons-container {
-  display: flex;
-  flex-direction: row;
+  @include flex-row;
 }

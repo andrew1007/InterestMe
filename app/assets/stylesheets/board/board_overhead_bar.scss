@@ -26,9 +26,7 @@
 }
 
 .board-overhead-bar-container{
-  display: flex;
-  justify-content: center;
-  align-items: center
+  @include flex-center-justify-align;
 }
 
 #board-name {
@@ -40,18 +38,17 @@
 }
 
 .author-edit-flexbox{
-  height: 65px;
-  background-color: transparent;
   display: flex;
   justify-content: flex-start;
-  flex-direction: column-reverse;
   align-items: flex-start;
+  flex-direction: column-reverse;
+  height: 65px;
+  background-color: transparent;
 }
 
 .owner-edit-buttons {
+  @include flex-row;
   margin-left: 10px;
-  display: flex-box;
-  flex-direction: row;
 }
 
 .owner-edit-buttons button {

@@ -1,9 +1,7 @@
 @import '../application.scss';
 
 .modal-container {
-  display:flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center-justify-align;
   z-index: 200;
   overflow-y: scroll;
   width: 30vw;
@@ -43,9 +41,8 @@
 }
 
 .pin-show-author-name-container {
-  display: flex;
+  @include flex-center-align;
   justify-content: flex-end;
-  align-items: center;
 }
 
 .ReactModal__Content::-webkit-scrollbar {
@@ -106,22 +103,18 @@
 }
 
 .pin-show-user-name-picture-container {
-  display: flex;
+  @include flex-center-justify-align;
   flex-direction: column;
-  justify-content:center;
-  align-items: center;
   white-space: nowrap;
 }
 .pin-show-board-name-edit-button-container {
-  display: flex;
-  flex-direction: row;
+  @include flex-center-align;
   justify-content: flex-start;
-  align-items: center;
+  flex-direction: row;
 }
 
 .pin-show-description-flex-container {
-  display: flex;
-  flex-direction: row;
+  @include flex-row;
   justify-content: flex-start;
   align-items: flex-start;
 }
@@ -154,13 +147,10 @@
 }
 
 .pin-show-modal-content-container {
-  display: flex;
-  // position: fixed;
-  flex-direction: column;
+  @include flex-column;
   min-width: 90%;
   height: 75vh;
   width: 100%;
-  // overflow-y:scroll;
 }
 
 .pin-show-modal-content-container::-webkit-scrollbar {

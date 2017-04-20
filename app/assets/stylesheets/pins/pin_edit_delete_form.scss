@@ -1,6 +1,7 @@
+@import "../application.scss";
+
 .pin-edit-form {
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
   width: 350px;
   height: 350px;
   font-size: 25px;
@@ -38,8 +39,7 @@
 }
 
 .pin-edit-form-container {
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
   height: 350px;
 
 }

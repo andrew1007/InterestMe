@@ -1,3 +1,5 @@
+@import '../application.scss';
+
 .board-edit-modal {
   display:flex;
   padding: 50px 40px 40px 40px !important;
@@ -9,21 +11,6 @@
   // padding: 50px !important;
   border-radius: 10px;
 }
-
-// .board-edit-form {
-//   position: absolute;
-//   display: flex;
-//   justify-content: center;
-//   top:110px;
-//   left:0px;
-//   height:20;
-//   width:100%;
-//   background-color: #d7432d;
-//   font-family: 'GlacialIndifferenceRegular';
-//   color: white;
-//   font-size: 20px;
-//   z-index: 15;
-// }
 
 .edit-board-error-text {
   color: red;
@@ -37,15 +24,12 @@
 }
 
 .board-edit-form {
-  display: flex;
+  @include flex-column;
   height: 100%;
-  flex-direction: column;
-
 }
 
 .board-edit-form-buttons {
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
   align-content: space-around;
 }
 
@@ -61,8 +45,7 @@
 }
 
 .board-edit-delete-confirm-container {
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
 }
 
 .board-edit-delete-confirm-text-hidden {
@@ -79,9 +62,8 @@
 }
 
 .delete-confirm-form {
+  @include flex-center-justify;
   position: absolute;
-  display: flex;
-  justify-content: center;
   top:110px;
   left:0px;
   height:35;
@@ -91,7 +73,7 @@
   color: white;
   font-size: 20px;
   vertical-align: middle;
-    z-index: 15;
+  z-index: 15;
 }
 
 #delete-confirm {

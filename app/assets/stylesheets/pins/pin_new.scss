@@ -42,41 +42,32 @@
 // }
 
 .pin-new-content-in-box {
-  // min-width: 100%;
-  // min-height: 100%;
-  display: flex;
+  @include flex-center-justify-align;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
 }
 
 .pin-board-new-user-input {
-  display: flex;
+  @include flex-center-align;
   flex-direction: column;
-  align-items: center;
   margin-left: 30px;
 }
 
 .pin-new-image-drop {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center-justify-align;
   min-width: 25vw;
   min-height: 25vw;
   border: 2px dashed $color-primary;
 }
 
 .new-pin-modal{
-  display: flex;
+  @include flex-row;
   height: 640px;
   width: 410px;
-  flex-direction: row;
   padding-top: 30px !important;
 }
 
 .new-pin-form-container {
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
   justify-content: space-between;
 }
 
@@ -111,11 +102,9 @@
 }
 
 .original-filename {
-  display: flex;
+  @include flex-center-justify-align;
   width:400px;
   height: 400px;
-  justify-content: center;
-  align-items: center;
 }
 
 .pin-new-add-board-text {
@@ -129,24 +118,20 @@
 }
 
 .pin-new-image-preview {
+  @include flex-center-justify-align;
   height: auto;
   overflow: hidden;
   width: 25vw;
-  display:flex;
-  justify-content: center;
-  align-items: center;
   text-align: center;
   vertical-align: middle;
   border-color: $color-primary;
 }
 
 .pin-new-image-empty {
+  @include flex-center-justify-align;
   height: 25vw;
   overflow: hidden;
   width: 25vw;
-  display:flex;
-  justify-content: center;
-  align-items: center;
   text-align: center;
   vertical-align: middle;
   border-color: $color-primary;
@@ -194,33 +179,28 @@
 }
 
 .new-pin-form-button-container {
-  display: flex;
+  @include flex-row;
   margin-top: 20px;
-  flex-direction: row;
   width: 40%;
   justify-content: space-between;
 }
 
 .pin-new-add-board-container {
+  @include flex-center-justify-align;
   background-color: transparent;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 75px;
   margin-top: 30px;
 }
 
 .pin-new-add-board-button {
+  @include flex-center-justify-align;
+  flex-direction: column;
   height: 100%;
   width: 100%;
   background-color: transparent;
   color: $color-primary;
   border: 3px solid rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   font-size: 20px;
 }
 

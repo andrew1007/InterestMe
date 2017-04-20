@@ -17,6 +17,8 @@
 
 .pin-image {
   border-radius: 10px;
+  min-width: 300px;
+  max-width: 300px;
 }
 
 // .pin-image:hover {
@@ -40,16 +42,11 @@
   z-index: 1;
 }
 
-  .board-tile-pic:hover {
-   border-radius: 10px;
-    transition: 0.25s;
-    filter: brightness(75%);
-    background-color: transparent;
-  }
-
-.pin-image {
-  min-width: 300px;
-  max-width: 300px;
+.board-tile-pic:hover {
+ border-radius: 10px;
+  transition: 0.25s;
+  filter: brightness(75%);
+  background-color: transparent;
 }
 
 .board-tile-pic-hide{
@@ -103,9 +100,3 @@
   margin: 10px;
   z-index: 1;
 }
-// .tile-title-container{
-//   box-sizing: border-box;
-//   color:white;
-//   word-wrap: break-word;
-//   font-size: 20px;
-// }
