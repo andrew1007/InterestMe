@@ -140,23 +140,25 @@ export default class Pin extends React.Component {
             <img className= "pin-modal-image" src={this.props.pin.image_url}></img>
           </div>
           <div className="pin-show-description-user-container">
-            <div className="pin-show-user-name-picture-container">
-              <div className="pin-show-profile-picture-container">
-                <img className="pin-show-profile-picture"
-                  src={this.props.pin.profile_picture}
-                  onClick={this.redirectToProfile}
-                  />
+            <div className="pin-show-description-flex-container">
+              <div className="pin-show-user-name-picture-container">
+                <div className="pin-show-profile-picture-container">
+                  <img className="pin-show-profile-picture"
+                    src={this.props.pin.profile_picture}
+                    onClick={this.redirectToProfile}
+                    />
+                </div>
+                <div className="pin-show-author-name-container">
+                  <button className="pin-author-button" onClick={this.redirectToProfile}>
+                    {this.props.pin.owner ? "you" : this.props.pin.username }
+                  </button>
+                </div>
               </div>
-              <div className="pin-show-author-name-container">
-                <button className="pin-author-button" onClick={this.redirectToProfile}>
-                  {this.props.pin.owner ? "you" : this.props.pin.username }
-                </button>
+              <div className="pin-show-description-container">
+                {this.state.body}
               </div>
-            </div>
-            <div className="pin-show-description-container">
-              {this.state.body}
-            </div>
-            <div>
+              <div>
+              </div>
             </div>
           </div>
       </div>

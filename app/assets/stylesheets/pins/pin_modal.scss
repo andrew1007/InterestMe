@@ -48,26 +48,27 @@
   align-items: center;
 }
 
-.modal-container::-webkit-scrollbar {
+.ReactModal__Content::-webkit-scrollbar {
     top: 10px;
     width: 4px;
     border-radius: 30px;
 }
 
-.modal-container::-webkit-scrollbar-track {
+.ReactModal__Content::-webkit-scrollbar-track {
   // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     border-radius: 15px;
 }
 
-.modal-container::-webkit-scrollbar-thumb {
+.ReactModal__Content::-webkit-scrollbar-thumb {
   background-color: rgba($color-light, 0.7);
   border-radius: 30px;
 }
 
 .pin-show-description-user-container {
-  display: flex;
+  display: block;
+  height: auto;
   flex-direction: row;
-  padding: 30px 0px 50px 0px;
+  padding: 0px 0px 50px 0px;
 }
 
 #pin-edit-icon {
@@ -118,6 +119,13 @@
   align-items: center;
 }
 
+.pin-show-description-flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
 .edit-modal-cog {
   color: rgba(black, 0.4);
 }
@@ -149,7 +157,6 @@
   display: flex;
   // position: fixed;
   flex-direction: column;
-  justify-content: center;
   min-width: 90%;
   height: 75vh;
   // overflow-y:scroll;
