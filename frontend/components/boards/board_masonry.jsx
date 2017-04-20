@@ -105,7 +105,9 @@ export default class BoardMasonry extends Component {
     //     case 0:
     let allImages = document.images
     for (let i=0; i < allImages.length; i++){
-      // allImages[i].setAttribute("style", `height:2`)
+      if (allImages[i].className === 'pin-image'){
+        allImages[i].setAttribute("style", `width:300px`)
+      }
     }
     setTimeout( () => {
       [
