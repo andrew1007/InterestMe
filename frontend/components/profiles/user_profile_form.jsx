@@ -86,7 +86,7 @@ export default class UserProfileForm extends React.Component {
           multiple={false}
           accept="image/*"
           onDrop={this.handleDrop}
-          className="user-profile-edit-image-preview"
+          className={this.state.imageUrl ? "user-profile-edit-image-preview" : "user-profile-edit-image-preview-active"}
           >
           <div className="user-profile-edit-image-dropzone-text">
             { this.state.imageUrl ? this.previewImage()

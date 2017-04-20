@@ -78,9 +78,8 @@ export default class LoginForm extends Component {
         isOpen={this.props.modalIsOpen}
         onRequestClose={this.closeModal.bind(this)}
         contentLabel="Session form"
-        className="ReactModal__Content"
+        className="session-modal-container"
         >
-        <div className="session-modal-container">
           <form className="session-login-form" onSubmit={this.handleSubmit.bind(this)}>
             <div id="session-form-title">{this.props.isLogin ? "Log In" : "Sign Up"}</div>
             { this.props.errors ? this.renderErrors() : null}
@@ -113,7 +112,6 @@ export default class LoginForm extends Component {
               </button>
             </div>
           </form>
-        </div>
       </Modal>
     )
   }

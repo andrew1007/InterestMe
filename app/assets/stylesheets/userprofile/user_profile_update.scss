@@ -32,6 +32,13 @@
   align-items: center;
   background-color: transparent;
   background-size: 100%;
+  &-active {
+    border: 0px;
+  }
+}
+
+.user-profile-edit-image-preview {
+  border: 0px;
 }
 
 .user-profile-description-textarea {

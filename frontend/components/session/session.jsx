@@ -5,6 +5,8 @@ import BoardNewFormContainer from '../boards/board_new_container'
 import PinNewFormContainer from '../pins/pin_new_container'
 import LoginFormContainer from './login_form_container'
 import SignedInButtonsContainer from './signed_in_buttons_container'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 
 export default class Session extends React.Component {
   constructor() {
@@ -69,12 +71,22 @@ export default class Session extends React.Component {
 
   loginForm(){
     return(
-      <LoginFormContainer
-        modalIsOpen={this.state.signupModal || this.state.loginModal}
-        isLogin={this.state.loginModal}
-        closeModal={this.closeModal.bind(this)}
-        errors={this.props.errors}
-      />
+      <div>
+        <LoginFormContainer
+          modalIsOpen={this.state.signupModal || this.state.loginModal}
+          isLogin={this.state.loginModal}
+          closeModal={this.closeModal.bind(this)}
+          errors={this.props.errors}
+          />
+      </div>
+    )
+  }
+
+  logd() {
+    return (
+      <div>
+        { this.loginForm() }
+      </div>
     )
   }
 
@@ -96,7 +108,7 @@ export default class Session extends React.Component {
           <ul className="session-buttons">
             {this.props.currentUser ? this.signedInButtons() : this.loginButtons()}
           </ul>
-          {this.state.loginModal || this.state.signupModal ? this.loginForm() : null}
+          {this.state.loginModal || this.state.signupModal ? this.logd() : null}
       </div>
     );
   }

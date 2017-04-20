@@ -1,26 +1,19 @@
 @import '../application.scss';
 
 .modal-container {
-  position: fixed;
-  top: 50px;
-  left: 50%;
-  transform: translate(-50%, -49%);
+  display:flex;
+  justify-content: center;
+  align-items: center;
   z-index: 200;
   overflow-y: scroll;
-  padding: 1px;
-  width: auto;
-  // min-width: 30vw;
   width: 30vw;
   max-width: 600px;
-  max-height: 80vh;
   min-width: 450px;
-  padding: 35px 60px 50px 60px;
   background-color: $color-light-white;
   border-radius: 8px;
-  margin-top: 10vh;
-  margin-bottom: 10vh;
   border: solid 2px;
   border-color: $color-primary;
+  max-height: 80vh;
 }
 
 .pin-show-edit-button-container {
@@ -74,7 +67,7 @@
 .pin-show-description-user-container {
   display: flex;
   flex-direction: row;
-  padding-top: 30px;
+  padding: 30px 0px 50px 0px;
 }
 
 #pin-edit-icon {
@@ -144,8 +137,38 @@
   font-size: 20px;
 }
 
+.image-container {
+  padding-bottom: 40px;
+}
+
 .pin-show-profile-picture:hover {
   cursor: pointer;
+}
+
+.pin-show-modal-content-container {
+  display: flex;
+  // position: fixed;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 90%;
+  height: 75vh;
+  // overflow-y:scroll;
+}
+
+.pin-show-modal-content-container::-webkit-scrollbar {
+    top: 10px;
+    width: 4px;
+    border-radius: 30px;
+}
+
+.pin-show-modal-content-container::-webkit-scrollbar-track {
+  // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 15px;
+}
+
+.pin-show-modal-content-container::-webkit-scrollbar-thumb {
+  background-color: rgba($color-light, 0.7);
+  border-radius: 30px;
 }
 
 .pin-show-header-container {

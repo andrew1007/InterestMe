@@ -7,25 +7,42 @@
 }
 
 
-.ReactModal__Content{
-  position: absolute !important;
+.ReactModal__Content {
+  display: flex !important;
+  flex-direction: column;
+  position: fixed !important;
+  justify-content: center;
+  align-items: center;
   top: 50% !important;
   left: 50% !important;
   transform: translate(-50%, -50%) !important;
-  background-color: $color-light-white !important;
-  margin: 10px !important;
-  padding: 75px 50px 75px 50px;
-  border: 1px solid $color-light !important;
   outline: none !important;
-  z-index: 100;
-  border-radius: 15px;
+  border: 2px solid $color-primary;
+  border-radius: 8px;
+  background-color: $white;
+  padding: 35px 30px 50px 60px;
+  overflow-y: scroll;
+  width: 30vw;
+  max-width: 600px;
+  min-width: 450px;
+  height: 80vh;
 }
 
 .session-modal-container {
   display: flex;
+  align-self: center;
+  align-items: center;
   justify-content: center;
-  flex-direction: column;
-  flex-grow: 1;
+  z-index: 200;
+  overflow-y: scroll;
+  width: 30vw;
+  padding: 35px 60px 50px 60px;
+  background-color: $color-light-white;
+  border-radius: 8px;
+  border: solid 2px;
+  border-color: $color-primary;
+  max-height: 80vh;
+  overflow: hidden;
 }
 
 .textbox-login {

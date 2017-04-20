@@ -103,7 +103,6 @@ export default class Pin extends React.Component {
     //add favorites!?
     ////console.log(this.props);
     return(
-      <div className="modal-container">
         <div className="pin-show-modal-content-container">
           <div className="pin-show-header-container">
             <div className="pin-show-title-board-name-container">
@@ -160,7 +159,6 @@ export default class Pin extends React.Component {
             <div>
             </div>
           </div>
-        </div>
       </div>
     )
   }
