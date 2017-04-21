@@ -6,6 +6,7 @@ import UserProfileFormContainer from './user_profile_form_container';
 import BoardMasonry from '../boards/board_masonry';
 import Masonry from 'react-masonry-component'
 import UserBoards from './user_boards'
+import * as ajax_request from '../../util/ajax_request'
 
 export default class UserProfile extends React.Component{
   constructor(props) {
@@ -40,11 +41,6 @@ export default class UserProfile extends React.Component{
           doneLoading: true,
           boardTab: true
         })
-      })
-    }
-    if (this.state.followStateChanged){
-      this.props.getProfilePage(nextProps.userId).then( () => {
-        this.setState({followStateChanged: false})
       })
     }
   }

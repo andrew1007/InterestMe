@@ -10,5 +10,7 @@ Rails.application.routes.draw do
     resources :profiles, only: [:show, :update]
     resources :single_pin_shows, only: [:show]
     resources :follows, only: [:create, :destroy]
+    resources :favorites, only: [:create, :show]
+    resource :favorite, only: [:destroy]
   end
 end

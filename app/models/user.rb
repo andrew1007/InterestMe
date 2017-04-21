@@ -30,6 +30,11 @@ class User < ActiveRecord::Base
   through: :following_join,
   source: :user_following
 
+  def is_following?(user)
+    follow_ids = user.followed_by.map {|follow| follow.id}
+    follow_ids.include?(self.id)
+  end
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return nil unless user && user.valid_password?(password)

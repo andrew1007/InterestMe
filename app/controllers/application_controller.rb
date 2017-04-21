@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
     i = 0
     not_complete = true
     while not_complete
-      if ((i*14) + 14) > all_pins_count
+      if ((i*14 + 1) + 14) > all_pins_count
         pin_set = pins[i*14 + 1..-1]
         not_complete = false
       else

@@ -139,3 +139,26 @@ export const deleteBoard = board => (
     url: `/api/boards/${board.id}`
   })
 );
+
+export const createFavorite = favorite => (
+  $.ajax({
+    method: 'POST',
+    url: `/api/favorites`,
+    data: {favorite}
+  })
+)
+
+export const deleteFavorite = favorite => (
+  $.ajax({
+    method: 'DELETE',
+    url: `/api/favorite`,
+    data: {favorite}
+  })
+)
+
+export const getFavorites = user => (
+  $.ajax({
+    method: 'GET',
+    url: `api/favorites/${user.id}`
+  })
+)
