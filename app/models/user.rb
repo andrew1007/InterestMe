@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   has_many :boards
   has_many :pins
+  has_many :favorites
 
   has_many :followers_join,
   class_name: "Follow",
