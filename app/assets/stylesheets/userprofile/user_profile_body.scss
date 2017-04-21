@@ -328,6 +328,7 @@
 // user-profile-board-pins
 .add-new-board-container {
   @include flex-center-justify-align;
+  flex-direction: column;
   width: 200px;
   height: 200px;
   display: flex;
