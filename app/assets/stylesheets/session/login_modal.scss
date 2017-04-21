@@ -9,11 +9,8 @@
 
 .ReactModal__Content {
   @include flex-center-justify-align;
+  @include absolute-center;
   flex-direction: column;
-  position: fixed !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
   outline: none !important;
   border: 2px solid $color-primary;
   border-radius: 8px;

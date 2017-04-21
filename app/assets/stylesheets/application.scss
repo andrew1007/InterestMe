@@ -59,6 +59,13 @@ $color-test: rgba(black, 0.05);
   animation-timing-function: cubic-bezier(0.1, 0.8, 0.1, 1.000);
 }
 
+@mixin absolute-center() {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
 #root{
   width: 100vw;
   height: 99vh;

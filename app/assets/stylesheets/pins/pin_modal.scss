@@ -35,10 +35,8 @@
 }
 
 .pin-modal-image {
-  width:100%;
-  height: auto;
+  min-width: 100%;
   overflow-y: scroll;
-  max-width: 70vh;
 }
 
 .pin-show-author-name-container {
@@ -149,10 +147,10 @@
 
 .pin-show-modal-content-container {
   @include flex-column;
-  min-width: 90%;
+  min-width: 15vw;
   height: 75vh;
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
 }
 
 .pin-show-modal-content-container::-webkit-scrollbar {
