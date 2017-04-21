@@ -169,12 +169,14 @@ export default class UserProfile extends React.Component{
 
   pinShow(){
     return(
-      <BoardMasonry
-        pins={this.props.userContent.pins}
-        pinSetCount={this.props.userContent.pinSetCount}
-        owner={this.state.owner}
-        deletePin={this.props.deletePin}
-        />
+      <div>
+        <BoardMasonry
+          pins={this.props.userContent.pins}
+          pinSetCount={this.props.userContent.pinSetCount}
+          owner={this.state.owner}
+          deletePin={this.props.deletePin}
+          />
+      </div>
     )
   }
 
