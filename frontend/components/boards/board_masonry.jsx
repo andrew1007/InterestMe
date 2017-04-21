@@ -98,17 +98,8 @@ export default class BoardMasonry extends Component {
   }
 
   findImageHeight(){
-    // let counter = 0;
-    // //console.log("finding image");
-    // this.imageHeight = setTimeout( () => {
-    //   switch(counter){
-    //     case 0:
-    let allImages = document.images
-    for (let i=0; i < allImages.length; i++){
-      if (allImages[i].className === 'pin-image'){
-        allImages[i].setAttribute("style", `width:300px`)
-      }
-    }
+    let newClass;
+    $('.pin-image').attr("style", `width:300px`)
     setTimeout( () => {
       [
         "pin-tile-hide",
@@ -116,17 +107,10 @@ export default class BoardMasonry extends Component {
         "pin-image-hide",
         "pin-tile-container-hide"
       ].forEach( (className) => {
-        let classes = document.getElementsByClassName(`${className}`);
-        while (classes.length){
-          classes[0].className = classes[0].className.replace("-hide","")
-        }
-        // clearInterval(this.imageHeight)
-        return
+        newClass = className.replace("-hide", "")
+        $(`.${className}`).attr('class', newClass)
       })
-    }, 100)
-    //     counter += 1
-    //   }
-    // }, 500)
+    }, 200)
   }
 
   _handleTileClick(e) {

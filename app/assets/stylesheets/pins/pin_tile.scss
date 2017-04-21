@@ -13,6 +13,7 @@
   animation-timing-function: cubic-bezier(0.1, 0.8, 0.1, 1.000);
   &-hide {
     opacity: 0;
+    border: 3px solid transparent;
     margin: 15px;
   }
 }
