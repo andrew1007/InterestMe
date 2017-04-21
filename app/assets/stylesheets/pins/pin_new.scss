@@ -42,8 +42,9 @@
 // }
 
 .pin-new-content-in-box {
-  @include flex-center-justify-align;
+  @include flex-center-justify;
   flex-direction: row;
+  margin-top: 20px;
 }
 
 .pin-board-new-user-input {
@@ -55,8 +56,13 @@
 .pin-new-image-drop {
   @include flex-center-justify-align;
   min-width: 25vw;
-  min-height: 25vw;
   border: 2px dashed $color-primary;
+  max-width: 600px;
+  @include transition;
+  &-hide {
+    border: 0px;
+    @include flex-center-justify-align;
+  }
 }
 
 .new-pin-modal{
@@ -103,8 +109,6 @@
 
 .original-filename {
   @include flex-center-justify-align;
-  width:400px;
-  height: 400px;
 }
 
 .pin-new-add-board-text {
@@ -119,24 +123,22 @@
 
 .pin-new-image-preview {
   @include flex-center-justify-align;
-  height: auto;
   overflow: hidden;
-  width: 25vw;
   text-align: center;
   vertical-align: middle;
   border-color: $color-primary;
+  max-height: 50vh;
 }
 
 .pin-new-image-empty {
   @include flex-center-justify-align;
-  height: 25vw;
   overflow: hidden;
   width: 25vw;
   text-align: center;
   vertical-align: middle;
   border-color: $color-primary;
   background-color: transparent;
-
+  height:100%;
 }
 
 .upload-text {

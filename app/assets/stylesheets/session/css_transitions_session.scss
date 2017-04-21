@@ -5,8 +5,7 @@
 }
 
 .ReactModal__Overlay {
-  transition:opacity 200ms ease-in-out;
-  animation-timing-function: cubic-bezier(0.1, 0.8, 0.1, 1.000);
+  @include transition;
   background: rgba(0,0,0, 0.15);
   &--after-open {
     opacity: 1;

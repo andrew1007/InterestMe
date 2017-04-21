@@ -240,19 +240,6 @@ export default class PinNewForm extends React.Component {
     );
   }
 
-  selectBoardForNewPin(){
-    let boards = this.props.x.boards
-    return(
-      boards.map((board, idx) => {
-        return(
-          <div>
-            {board.name}
-          </div>
-        )
-      })
-    )
-  }
-
   render() {
     return (
       <div>
@@ -270,7 +257,7 @@ export default class PinNewForm extends React.Component {
           <div className="pin-new-content-in-box">
             {
               !this.state.newBoardForm ?
-              <div className="pin-new-image-drop">
+              <div className={!this.state.imageUrl ? "pin-new-image-drop" : "pin-new-image-drop-hide"}>
                 {this.dropZoneDropBox()}
               </div>
               : null

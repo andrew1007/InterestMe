@@ -54,10 +54,21 @@ $color-test: rgba(black, 0.05);
   flex-direction: column;
 }
 
+@mixin transition() {
+  transition: opacity 200ms ease-in-out;
+  animation-timing-function: cubic-bezier(0.1, 0.8, 0.1, 1.000);
+}
+
 #root{
   width: 100vw;
   height: 99vh;
   position: absolute;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -81,7 +92,7 @@ body::-webkit-scrollbar-thumb {
 
 img {
   max-width:100%;
-  height:auto;
+  max-height:100%;
 }
 
 textarea {
