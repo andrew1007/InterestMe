@@ -7,10 +7,8 @@ class Api::FollowsController < ApplicationController
   end
 
   def destroy
-    @follow = Follow.where(:user_followed_by_id => (params[:user][:user_following_id]).to_i,
-    :user_following_id => (params[:user][:user_followed_by_id]).to_i)
-    @follow.each {|follow| follow.destroy}
-
+    @follow = Follow.find_entry(follow_params)
+    @follow.destroy
     render 'api/blank'
   end
 

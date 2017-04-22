@@ -2,8 +2,7 @@ class Api::PinsController < ApplicationController
   helper_method :current_user, :pin_sets
 
   def index
-    pins = Pin.where.not(user_id: current_user.id).includes(:user).shuffle
-    pin_batches = pin_sets(pins)
+    pin_batches = Pin.all_pins_except(current_user)
     @pins = pin_batches[0]
     @pin_set_count = pin_batches[1]
     render :index
@@ -21,7 +20,7 @@ class Api::PinsController < ApplicationController
     @pin.user_id = current_user.id
     @board = Board.find(params[:pin][:board_id].to_i)
     if @pin.save
-      @pins = Pin.where(:board_id => @pin.board_id)
+      @pins = Pin.where(board_id: @pin.board_id)
       render "/api/boards/show"
     else
       render json: @pin.errors.full_messages, status: 422

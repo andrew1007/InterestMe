@@ -15,30 +15,18 @@ helper_method :current_user
 
   def show
     @user = User.find(params[:id])
-    user_pins = @user.pins.order(:updated_at).reverse
-    pin_batches = pin_sets(user_pins)
+    pin_batches = @user.pin_batches
     @pins = pin_batches[0]
     @pin_set_count = pin_batches[1]
     @followed_by = @user.followed_by
     @following = @user.following
     @owner = @user.id == current_user.id
-    follow_ids = @user.followed_by.map { |follow| follow.id}
     @isFollowing = current_user.is_following?(@user)
-    boards = @user.boards
-    board_JSON = boards.as_json
-    boards.each_with_index do |board, idx|
-      board_pins = []
-      board.pins[0..2].each do |pin|
-        board_pins << pin.image_url
-      end
-      board_JSON[idx]["samplePins"] = board_pins
-    end
-    @boards = board_JSON
+    @boards = @user.user_board
     render :show
   end
 
   def update
-    @curr_user = current_user
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       render :show

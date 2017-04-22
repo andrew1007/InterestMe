@@ -35,6 +35,50 @@ class User < ActiveRecord::Base
     follow_ids.include?(self.id)
   end
 
+  def user_board
+    board_JSON = self.boards.as_json
+    board_JSON.each_with_index do |board, idx|
+      board_JSON[idx]["samplePins"] = sample_images(board)
+    end
+    board_JSON
+  end
+
+  def sample_images(board)
+    images = []
+    board = Board.find(board["id"])
+    board.pins[0..2].each { |pin| images << pin.image_url}
+    images
+  end
+
+  def pin_batches
+    pins = self.pins.order(:updated_at).reverse
+    all_pins_count = pins.length
+    pin_sets = pins.length / 15
+    hash = {}
+    i = 0
+    not_complete = true
+    while not_complete
+      if ((i*14 + 1) + 14) > all_pins_count
+        pin_set = pins[(i*14 + 1)..-1]
+        not_complete = false
+      else
+        pin_set = pins[(i*14)...(i*14 + 14)]
+      end
+      pin_set_hash = pin_set.as_json
+      j = 0
+      while j < pin_set.length
+        pin_user = pin_set[j].user
+        pin_set_hash[j]["username"] = pin_user.username
+        pin_set_hash[j]["profile_picture"] = pin_user.profile_picture
+        pin_set_hash[j]["board_name"] = pin_set[j].board.name
+        j += 1
+      end
+      hash[i] = pin_set_hash
+      i += 1
+    end
+    [hash, hash.keys.length - 1]
+  end
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return nil unless user && user.valid_password?(password)
