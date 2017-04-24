@@ -48,5 +48,4 @@ end
 group :production do
   gem 'google-analytics-rails'
   gem 'pg'
-  gem 'newrelic_rpm'
 end
