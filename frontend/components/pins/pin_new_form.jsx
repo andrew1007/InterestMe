@@ -49,6 +49,7 @@ export default class PinNewForm extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     if (!this.state.boardId && !this.state.imageUrl){
       this.setState({renderEmptyPinError: true})
       this.setState({renderEmptyBoardError: true})
@@ -60,7 +61,6 @@ export default class PinNewForm extends React.Component {
       this.setState({renderEmptyPinError: true})
       this.setState({renderEmptyBoardError: false})
     } else {
-      e.preventDefault();
       hashHistory.push({
         pathname: `/boards/${this.state.boardId}`,
         state: {newPinMade: true}

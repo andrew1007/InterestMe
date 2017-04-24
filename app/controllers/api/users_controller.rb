@@ -9,6 +9,7 @@ helper_method :current_user
       sign_in(@user)
       render "api/session/new"
     else
+      debugger
       render json: @user.errors.full_messages, status: 422
     end
   end
