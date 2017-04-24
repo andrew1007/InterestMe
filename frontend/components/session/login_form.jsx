@@ -53,6 +53,7 @@ export default class LoginForm extends Component {
   }
 
   renderErrors(){
+    console.log(this.props.errors);
     return(
       <ul>
         {

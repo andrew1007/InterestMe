@@ -191,7 +191,7 @@ export default class BoardMasonry extends Component {
   }
 
   render(){
-    const threshhold = this.state.pinBatchCounter == 0 ? 250 : 1200
+    let threshhold = this.state.pinBatchCounter < 1 ? 500 : 1600
     return(
       <div className='user-profile-board-pins'>
         { this.state.doneLoading ?

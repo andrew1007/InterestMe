@@ -12,14 +12,18 @@ class Pin < ActiveRecord::Base
     not_complete = true
     while not_complete
       if ((i*14 + 1) + 14) > all_pins_count
-        pin_set = pins[i*14 + 1..-1]
+        if pins.length < 14
+          pin_set = pins
+        else
+          pin_set = pins[i*14 + 1..-1]
+        end
         not_complete = false
       else
         pin_set = pins[(i*14)...(i*14 + 14)]
       end
       pin_set_hash = pin_set.as_json
       j = 0
-      while j < pin_set.length
+      while j < pin_sets
         pin_user = pin_set[j].user
         pin_set_hash[j]["username"] = pin_user.username
         pin_set_hash[j]["profile_picture"] = pin_user.profile_picture
@@ -32,6 +36,6 @@ class Pin < ActiveRecord::Base
     [hash, hash.keys.length - 1]
   end
 
-  
+
 
 end
