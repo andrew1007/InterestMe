@@ -45,7 +45,6 @@ export default class LoginForm extends Component {
   }
 
   handleSubmit(e){
-    e.preventDefault();
     this.dispatchSession()
     .then( () => {
       this.props.closeModal()
@@ -84,23 +83,22 @@ export default class LoginForm extends Component {
             <div id="session-form-title">{this.props.isLogin ? "Log In" : "Sign Up"}</div>
             { this.props.errors ? this.renderErrors() : null}
             <br/>
-            <label className="session-input-label">
               <input className="textbox-login" autoFocus type='text'
+                tabindex="1"
+                type="text"
                 value={this.state.username}
                 onChange={this.update('username')}
                 placeholder="username"
                 />
-            </label>
             <br/>
             <br/>
-            <label className="session-input-label">
               <input className="textbox-login"
+                tabindex="2"
                 type='password'
                 value={this.state.password}
                 onChange={this.update('password')}
                 placeholder="password"
                 />
-            </label>
             <br/>
             <br/>
             <div className="submission-session-buttons">
