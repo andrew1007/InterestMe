@@ -44,9 +44,9 @@ export default class BoardMasonry extends Component {
     var boardTilePicClassName = "board-tile-pic-hide";
     var pinImageClassName = "pin-image-hide";
     console.log(this.props);
-    //console.log(this.state.pinsToRender);
+    const pinsToRender = this.state.pinsToRender ? this.state.pinsToRender : []
     return (
-      this.state.pinsToRender.map( (tile, idx) => {
+      pinsToRender.map( (tile, idx) => {
         return(
           <div key={idx} className={pinTileContainerClassName}>
             <button className={boardTilePicClassName} name={tile.id} onClick={this._handleTileClick.bind(this)}>
@@ -122,7 +122,6 @@ export default class BoardMasonry extends Component {
   }
 
   updateBoard(pinState){
-    debugger
     let pinCount = this.state.pinsToRender.length;
     let pins = this.state.pinsToRender
     for (let i = 0; i < pinCount; i++) {
@@ -192,6 +191,7 @@ export default class BoardMasonry extends Component {
   }
 
   render(){
+    const threshhold = this.state.pinBatchCounter == 0 ? 250 : 1200
     return(
       <div className='user-profile-board-pins'>
         { this.state.doneLoading ?
@@ -200,7 +200,7 @@ export default class BoardMasonry extends Component {
             loadMore={this.loadMorePins.bind(this)}
             hasMore={this.state.hasMorePins}
             loader={<div className="loader"></div>}
-            threshold={1200}
+            threshold={threshhold}
             className='board'
             >
             {this.masonryLayout()}

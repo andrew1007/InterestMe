@@ -84,7 +84,6 @@ export default class LoginForm extends Component {
             { this.props.errors ? this.renderErrors() : null}
             <br/>
               <input className="textbox-login" autoFocus type='text'
-                tabindex="1"
                 type="text"
                 value={this.state.username}
                 onChange={this.update('username')}
@@ -93,7 +92,6 @@ export default class LoginForm extends Component {
             <br/>
             <br/>
               <input className="textbox-login"
-                tabindex="2"
                 type='password'
                 value={this.state.password}
                 onChange={this.update('password')}

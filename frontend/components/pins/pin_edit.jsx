@@ -35,7 +35,6 @@ export default class PinEdit extends React.Component {
   }
 
   handleSubmit() {
-    debugger
     switch(true){
       case this.state.deleteConfirmBox:
         return
@@ -91,9 +90,7 @@ export default class PinEdit extends React.Component {
   }
 
   handleDeleteSubmit(){
-    debugger
     this.props.deletePin(this.props.id)
-    debugger
     this.props.closeDeleteModal(this.state);
   }
 

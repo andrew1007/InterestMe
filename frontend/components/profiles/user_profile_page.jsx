@@ -71,6 +71,9 @@ export default class UserProfile extends React.Component{
 
   countPins(object){
     let counter = 0;
+    if (!Object.values(object)[0]) {
+      return counter
+    }
     Object.values(object).forEach( (array) => {
       counter += array.length
     })

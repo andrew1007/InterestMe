@@ -42,7 +42,6 @@ export default class UserProfileForm extends React.Component {
 
   _handleSubmit(e) {
     e.preventDefault();
-    debugger
     if (this.state.submit) {
       let image = this.state.imageUrl
       this.props.editProfilePage({
@@ -55,7 +54,6 @@ export default class UserProfileForm extends React.Component {
   }
 
   _handleCancel(){
-    debugger
     this.setState({submit: false})
   }
 

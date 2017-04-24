@@ -66,7 +66,7 @@ class User < ActiveRecord::Base
       end
       pin_set_hash = pin_set.as_json
       j = 0
-      while j < pin_set.length
+      while j < pin_sets
         pin_user = pin_set[j].user
         pin_set_hash[j]["username"] = pin_user.username
         pin_set_hash[j]["profile_picture"] = pin_user.profile_picture

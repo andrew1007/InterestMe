@@ -3,7 +3,6 @@ import { editPin, deletePin } from '../../actions/pin_actions';
 import PinEdit from './pin_edit';
 
 const mapDispatchToProps = (dispatch) => {
-  debugger
    return {
     editPin: (pin) => dispatch(editPin(pin)),
     deletePin: (id) => dispatch(deletePin(id))
