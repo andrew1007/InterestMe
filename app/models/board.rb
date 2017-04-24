@@ -36,8 +36,12 @@ class Board < ActiveRecord::Base
     not_complete = true
     while not_complete
       if ((i*14 + 1) + 14) > all_pins_count
-        last_pins = pins[(i*14 + 1)..-1]
-        hash[i] = last_pins ? last_pins : []
+        if pins.length < 14
+          last_pins = pins
+        else
+          last_pins = pins[(i*14 + 1)..-1]
+        end
+        hash[i] = last_pins
         not_complete = false
       else
         hash[i] = pins[(i*14)...(i*14 + 14)]

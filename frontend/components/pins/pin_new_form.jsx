@@ -133,7 +133,7 @@ export default class PinNewForm extends React.Component {
         multiple={false}
         accept="image/*"
         onDrop={this.handleDrop}
-        className={ this.state.imageUrl ? "pin-new-image-preview" : "pin-new-image-empty"}
+        className={ this.state.imageUrl ? "pin-new-image-preview" : "pin-new-image"}
       >
         {this.state.imageUrl ? this.previewImage() : "click or drag to add image"}
       </Dropzone>
@@ -257,7 +257,7 @@ export default class PinNewForm extends React.Component {
           <div className="pin-new-content-in-box">
             {
               !this.state.newBoardForm ?
-              <div className={!this.state.imageUrl ? "pin-new-image-drop" : "pin-new-image-drop-hide"}>
+              <div className={"pin-new-image-drop"}>
                 {this.dropZoneDropBox()}
               </div>
               : null
