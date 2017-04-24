@@ -4,8 +4,6 @@
   @include flex-center-justify-align;
   width: 180px;
   height: 180px;
-  border: dashed 2px;
-  border-color: $color-primary;
 }
 
 .user-profile-update-picture-modal {
@@ -22,7 +20,6 @@
   @include flex-center-justify-align;
   width: 180px;
   height: 180px;
-  border: 2px dashed $color-primary;
   background-color: transparent;
   background-size: 100%;
 }
