@@ -52,7 +52,7 @@ export default class LoginForm extends Component {
   }
 
   renderErrors(){
-    const errors = Array.from(new Set(this.props.errors))
+    const errors = [...new Set(this.props.errors)]
     return(
       <ul>
         {
