@@ -39,7 +39,6 @@ export default class LoginForm extends Component {
     if (this.props.isLogin){
       return this.props.processLogin(login)
     } else {
-      ////console.log("signup");
       return this.props.processSignUp(login)
     }
   }
@@ -53,11 +52,11 @@ export default class LoginForm extends Component {
   }
 
   renderErrors(){
-    console.log(this.props.errors);
+    const errors = Array.from(new Set(this.props.errors))
     return(
       <ul>
         {
-          this.props.errors.map((error, i) => (
+          errors.map((error, i) => (
             <li key={`error-${i}`}>
               {error}
             </li>
