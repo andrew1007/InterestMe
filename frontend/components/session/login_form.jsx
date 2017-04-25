@@ -44,10 +44,12 @@ export default class LoginForm extends Component {
   }
 
   handleSubmit(e){
+    e.preventDefault()
     this.dispatchSession()
     .then( () => {
-      this.props.closeModal()
-      hashHistory.push('/home')
+      debugger
+        this.props.closeModal()
+        hashHistory.push('/home')
     })
   }
 
@@ -66,7 +68,8 @@ export default class LoginForm extends Component {
     )
   }
 
-  closeModal(){
+  closeModal(e){
+    e.preventDefault()
     this.setState({modalIsOpen: false})
     this.props.closeModal()
   }
@@ -81,7 +84,7 @@ export default class LoginForm extends Component {
         >
           <form className="session-login-form" onSubmit={this.handleSubmit.bind(this)}>
             <div id="session-form-title">{this.props.isLogin ? "Log In" : "Sign Up"}</div>
-            { this.props.errors ? this.renderErrors() : null}
+            { this.props.errors ? this.renderErrors() : null }
             <br/>
               <input className="textbox-login" autoFocus type='text'
                 type="text"
