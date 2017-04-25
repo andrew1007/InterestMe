@@ -51,34 +51,36 @@ class User < ActiveRecord::Base
     images
   end
 
-  def pin_batches
-    pins = self.pins.order(:updated_at).reverse
+  def pins(current_user)
+    pins = Pin.where(user_id: current_user.id)
+    pinJSON = pins.as_json
+    username = current_user.username
+    profile_picture = current_user.profile_picture
+    pinJSON.each do |pin|
+      pin["username"] = username
+      pin["profile_picture"] = profile_picture
+      pin["board_name"] = Board.find(pin['board_id']).name
+    end
+    as_batches(pinJSON)
+  end
+
+  def as_batches(pins)
     all_pins_count = pins.length
-    pin_sets = pins.length / 15
     hash = {}
     i = 0
     not_complete = true
     while not_complete
       if ((i*14 + 1) + 14) > all_pins_count
         if pins.length < 14
-          pin_set = pins
+          last_pins = pins
         else
-          pin_set = pins[i*14 + 1..-1]
+          last_pins = pins[(i*14 + 1)..-1]
         end
+        hash[i] = last_pins
         not_complete = false
       else
-        pin_set = pins[(i*14)...(i*14 + 14)]
+        hash[i] = pins[(i*14)...(i*14 + 14)]
       end
-      pin_set_hash = pin_set.as_json
-      j = 0
-      while j < pin_sets
-        pin_user = pin_set[j].user
-        pin_set_hash[j]["username"] = pin_user.username
-        pin_set_hash[j]["profile_picture"] = pin_user.profile_picture
-        pin_set_hash[j]["board_name"] = pin_set[j].board.name
-        j += 1
-      end
-      hash[i] = pin_set_hash
       i += 1
     end
     [hash, hash.keys.length - 1]

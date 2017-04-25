@@ -15,7 +15,7 @@ helper_method :current_user
 
   def show
     @user = User.find(params[:id])
-    pin_batches = @user.pin_batches
+    pin_batches = @user.pins(@user)
     @pins = pin_batches[0]
     @pin_set_count = pin_batches[1]
     @followed_by = @user.followed_by

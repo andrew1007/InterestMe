@@ -36,7 +36,7 @@ export default class BoardMasonry extends Component {
       pinSetCount: this.props.pinSetCount
     })
     this.setState({doneLoading: true})
-    setTimeout( () => this.findImageHeight(), 700)
+    setTimeout( () => this.findImageHeight(), 1000)
   }
 
   pinTileRender(){
