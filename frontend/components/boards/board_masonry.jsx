@@ -43,7 +43,6 @@ export default class BoardMasonry extends Component {
     var pinTileContainerClassName = "pin-tile-container-hide";
     var boardTilePicClassName = "board-tile-pic-hide";
     var pinImageClassName = "pin-image-hide";
-    console.log(this.props);
     const pinsToRender = this.state.pinsToRender ? this.state.pinsToRender : []
     return (
       pinsToRender.map( (tile, idx) => {

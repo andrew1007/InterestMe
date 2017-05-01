@@ -116,7 +116,6 @@ image = [
   "https://res.cloudinary.com/andoo/image/upload/v1486828379/082a1983a0d9881c1ab31575e5b73c77_qvbour.jpg",
   "https://res.cloudinary.com/andoo/image/upload/v1486828570/7600eb15ae9538d2ca6933c9e6428ca2_knyfdi.jpg",
   "https://res.cloudinary.com/andoo/image/upload/v1486828652/8a3fff5c8e8076863b1d0e62ed0b0721_tcyprw.jpg",
-  "https://res.cloudinary.com/andoo/image/upload/v1486828787/4f53032f621b15bce5543e4aca266533_gvitrn.jpg",
   "https://res.cloudinary.com/andoo/image/upload/v1486828855/6d308f612b23e22a92e187ddfdb05212_h6mmq7.jpg",
   "https://res.cloudinary.com/andoo/image/upload/v1486828916/e0a6c9b29d8d86ce178777f81a6372f4_ifkmn8.jpg",
   "https://res.cloudinary.com/andoo/image/upload/v1486829078/7f0a40d65430d29e1dbb0075c2855603_gcmyn5.jpg"
@@ -126,7 +125,6 @@ title = [
   "!!",
   "Awesome cosplay",
   "LOL",
-  "NG Sims 3",
   "A+",
   "Story of my life",
   "Watercolor"
@@ -531,7 +529,6 @@ end
 title = [
   "Every Guy Should Own A Camel Overcoat",
   "Great look",
-  "Medium Hairstyles To Make You Look Younger",
   "So sharp",
   "Great scarf"
 ]
@@ -544,7 +541,6 @@ body = [
 image = [
   "https://res.cloudinary.com/andoo/image/upload/v1486920618/ebe0cadbc16ce71c2308f9b6c030d490_aq2ltj.jpg",
   "https://res.cloudinary.com/andoo/image/upload/v1486920675/2b43c506998eb4fa7297c2ea264f3989_vlsyhu.jpg",
-  "https://res.cloudinary.com/andoo/image/upload/v1486920729/9fa029841c6dd5ce5243dcf01005f461_tuztwb.jpg",
   "https://res.cloudinary.com/andoo/image/upload/v1486920781/a6e92268f91e84abb541e19e8f162b59_u4flp1.jpg",
   "https://res.cloudinary.com/andoo/image/upload/v1486920894/45fca59db4b5bd920a8a6ae1e5732feb_epyfqs.jpg"
 ]

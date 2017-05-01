@@ -28,7 +28,7 @@ class Pin < ActiveRecord::Base
         hash[i] = last_pins
         not_complete = false
       else
-        hash[i] = pins[(i*14)...(i*14 + 14)]
+        hash[i] = pins[(i*14 + 1)...(i*14 + 14)]
       end
       i += 1
     end
