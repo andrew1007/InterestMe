@@ -35,6 +35,9 @@ gem 'puma'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a  //console
   gem 'byebug'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+
 end
 group :development do
   # Access an IRB //console on exception pages or by using <%= //console %> in views
@@ -43,6 +46,15 @@ group :development do
   gem 'rails_12factor' # error feedback
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :test do
+  gem "shoulda-matchers"
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
+
 end
 
 group :production do
