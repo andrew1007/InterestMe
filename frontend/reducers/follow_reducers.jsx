@@ -9,7 +9,6 @@ const FollowReducer = (state = defaultState, action) =>{
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_FOLLOW:
-
       return 0
     case DELETE_FOLLOW:
       return 0

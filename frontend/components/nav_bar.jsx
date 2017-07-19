@@ -2,6 +2,7 @@ import React from 'react';
 import SessionContainer from './session/session_container'
 import {hashHistory} from 'react-router';
 import PinNewFormContainer from './pins/pin_new_container'
+
 export default class NavBar extends React.Component {
   constructor(){
     super()
