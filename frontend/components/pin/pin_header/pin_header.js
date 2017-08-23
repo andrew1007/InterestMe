@@ -8,10 +8,10 @@ export default class PinHeader extends Component {
   render() {
     return (
       <div>
-        <div>
-          <span>
+        <div className='pin-header-title-link-container'>
+          <div className='pin-header-title'>
             {this.props.title}
-          </span>
+          </div>
           <span>
             edit link
           </span>

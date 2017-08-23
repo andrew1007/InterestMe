@@ -18,9 +18,15 @@ class PinPresentational extends Component {
         className="ReactModal__Content"
       >
         <div className='pin-container'>
-          <PinHeader {...this.props}/>
-          <PinImage imageUrl={this.props.image_url}/>
-          <PinBody {...this.props}/>
+          <div>
+            <PinHeader {...this.props}/>
+          </div>
+          <div>
+            <PinImage imageUrl={this.props.image_url}/>
+          </div>
+          <div>
+            <PinBody {...this.props}/>
+          </div>
         </div>
       </Modal>
     )

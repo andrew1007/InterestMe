@@ -6,20 +6,6 @@
   height: 30px;
 }
 
-
-.ReactModal__Content {
-  @include flex-center-justify-align;
-  @include absolute-center;
-  flex-direction: column;
-  outline: none !important;
-  border: 2px solid $color-primary;
-  border-radius: 8px;
-  background-color: $white;
-  padding: 35px 50px 50px 50px;
-  overflow-y: scroll;
-  min-width: 450px;
-}
-
 .textbox-login {
   width: 350px;
   font-size: 25px;

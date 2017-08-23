@@ -1,0 +1,49 @@
+@import '../application.scss';
+
+.pin {
+  &-container {
+    @include flex-column;
+    min-width: 500px;
+    height: 100%;
+  }
+}
+
+.pin-body {
+  &-container {
+    @include flex-row;
+    flex-grow: 1;
+    padding-top: 30px;
+    padding-bottom: 40px;
+  }
+  &-user-container {
+    width: 100px;
+    align-items: center;
+    @include flex-column;
+  }
+  &-profile-thumbnail {
+    width: 90px;
+  }
+  &-body-container {
+    flex-grow: 1;
+    @include flex-center;
+  }
+}
+
+.pin-image {
+  &-container {
+    width: 100%;
+  }
+  &-image {
+    min-width: 100%;
+  }
+}
+
+.pin-header {
+  &-title-link-container {
+    @include flex-row;
+    align-items: center;
+  }
+  &-title {
+    font-size: 40px;
+  }
+}
