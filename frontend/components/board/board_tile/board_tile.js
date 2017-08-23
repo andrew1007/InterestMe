@@ -10,8 +10,8 @@ export default class BoardTile extends Component {
     }
   }
 
-  _handlePinShow() {
-    this.setState({showPin: true})
+  togglePinShow() {
+    this.setState({showPin: this.state.showPin ? false : true})
     console.log("show pin");
   }
 
@@ -20,19 +20,24 @@ export default class BoardTile extends Component {
   }
 
   render() {
+    console.log(this.props);
+    const props = {
+      ...this.props,
+      togglePinShow: this.togglePinShow.bind(this)
+    }
     return (
       <div>
         <div className='board-tile-container'>
           <div>
             <img
               src={this.props.image_url}
-              onClick={this._handlePinShow.bind(this)}
+              onClick={this.togglePinShow.bind(this)}
               className='board-tile-image'
             />
           </div>
           <BoardTileBody {...this.props}/>
         </div>
-        {this.state.showPin ? <Pin {...this.props}/> : null}
+        {this.state.showPin ? <Pin {...props}/> : null}
       </div>
     )
   }

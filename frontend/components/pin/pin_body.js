@@ -6,7 +6,9 @@ export default class PinBody extends Component {
       <div>
         <span>
           <div>
-            {this.props.profile_pictures}
+            <img
+              src={this.props.profile_picture}
+            />
           </div>
           <div>
             {this.props.username}

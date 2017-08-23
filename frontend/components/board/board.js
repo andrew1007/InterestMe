@@ -4,52 +4,50 @@ import { getBoard } from '../../actions/board_actions';
 import { getPins, createPin, deletePin } from '../../actions/pin_actions';
 import { editBoard, deleteBoard } from '../../actions/board_actions';
 import BoardMasonry from './board_masonry'
+import BoardHeader from './board_header'
 // this.props.board = {
-//   author,
-//   current_user,
 //   id,
 //   name,
 //   owner,
-//   profile_picture,
-//   pins: {
-//     [{board_id,
-//       board_name,
-//        body,
-//         favorited,
-//          id,
-//           image_url,
-//            profile_picture,
-//             title,
-//              user_id,
-//               username}]
-//   }
+//   user_id
+
+// this.props.pins = {
+//  0: {
+//     board_id,
+//     body,
+//     id,
+//     image_url,
+//     owner,
+//     profile_picture,
+//     title,
+//     user_id,
+//     username
+//  }
 // }
 
 class BoardPresentational extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      pins: []
+    }
   }
 
   async componentWillMount() {
-    await this.props.getBoard(this.props.boardId)
-    console.log(this.props);
+    let board = this.props.getBoard(this.props.boardId)
+    let pins = this.props.getPins(this.props.boardId)
+    await Promise.all([board, pins])
     document.body.style.overflow = "auto";
   }
 
   render() {
-    let boardInfo = {
-      profile_picture: this.props.board.profile_picture,
-      username: this.props.board.author,
-      pins: this.props.board.pins
-    }
-    let anyPins = this.props.board.pins
-    let masonryOptions = {
-      fitWidth: true,
-      transitionDuration: '0.07s'
-    };
+    console.log("board");
+    console.log(this.props);
     return(
       <div>
-        {anyPins ? <BoardMasonry {...boardInfo}/> : null}
+        <br/><br/><br/><br/><br/><br/>
+        <BoardHeader {...this.props.board}/>
+        <BoardMasonry pins={Object.values(this.props.pins)}/>
       </div>
     )
   }

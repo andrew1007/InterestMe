@@ -2,22 +2,16 @@ import { RECEIVE_PINS, RECEIVE_ERRORS, DESTROY_PIN, RECEIVE_PIN} from '../action
 import merge from 'lodash/merge';
 
 const defaultState = Object.freeze({
-  pins: [],
-  errors: []
+  pins: []
 });
 
 const PinReducer = (state = defaultState, action) => {
   Object.freeze(state);
+  console.log(action);
   switch(action.type){
     case RECEIVE_PINS:
       const pins = action.pins.pins;
-      const pinSetCount = action.pins.pinSetCount
-      if (action.pins.pin_user_info){
-        const pinUserInfo = action.pins.pin_user_info
-        return {pins: pins, pinUserInfo: pinUserInfo}
-      } else {
-        return merge({}, state, {pins: pins, pinSetCount: pinSetCount})
-      }
+      return merge({}, pins)
     case DESTROY_PIN:
       const newState = merge({}, state);
       delete newState[action.id];

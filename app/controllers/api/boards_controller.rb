@@ -34,10 +34,10 @@ class Api::BoardsController < ApplicationController
   end
 
   def show
-    @board = Board.find(params[:id])
+    @board = Board.find(params[:id]).as_json
     @current_user = current_user
-    @pins = @board.pins
-    @user = @board.user
+    @board['owner'] = @current_user.id == @board['user_id']
+    @board['username'] = @current_user.username
     render :show
   end
 

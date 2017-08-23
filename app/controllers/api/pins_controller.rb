@@ -40,9 +40,10 @@ class Api::PinsController < ApplicationController
   end
 
   def show
-    @board = Board.find(params[:id])
-    @current_user = current_user
-    @board_pins = @board.pins.order(:created_at)
+    @pins = Board.pins(params[:id])
+    @pins.map do |pin|
+      pin['owner'] = current_user.id == pin['user_id']
+    end
     render :show
   end
 
