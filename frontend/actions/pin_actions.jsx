@@ -4,30 +4,35 @@ export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const DESTROY_PIN = 'DELETE_PIN';
 export const RECEIVE_PIN = "RECEIVE_PIN";
 
-export const createPin = pin => dispatch => (
-  ajax_request.createPin(pin)
-  .then(pin => dispatch(receivePins(pin)))
-)
+export const createPin = pin => async (dispatch) => {
+  const pins = await ajax_request.createPin(pin)
+  return dispatch(receivePins(pins))
+}
 
-export const editPin = pin => dispatch => (
-  ajax_request.editPin(pin).then((pin) => dispatch(receivePins(pin)))
-);
+export const editPin = pin => async (dispatch) => {
+  const pins = await ajax_request.editPin(pin)
+  return dispatch(receivePins(pins))
+}
 
-export const deletePin = id => dispatch => (
-  ajax_request.deletePin(id).then((id) => dispatch(destroyPin(id)))
-);
+export const deletePin = id => async (dispatch) => {
+  const pinId = await ajax_request.deletePin(id)
+  return dispatch(destroyPin(pinId))
+}
 
-export const getPins = id => dispatch => (
-   ajax_request.getPins(id).then((pin) => dispatch(receivePins(pin)))
-)
+export const getPins = id => async (dispatch) => {
+  const pins = await ajax_request.getPins(id)
+  return dispatch(receivePins(pins))
+}
 
-export const getPin = id => dispatch => (
-  ajax_request.getPin(id).then((pin) => dispatch(receivePin(pin)))
-)
+export const getPin = id => async (dispatch) => {
+  const pin = await ajax_request.getPin(id)
+  return dispatch(receivePin(pin))
+}
 
-export const getHome = () => dispatch => (
-  ajax_request.getHome().then((pins) => dispatch(receivePins(pins)) )
-)
+export const getHome = () => async (dispatch) => {
+  const pins = await ajax_request.getHome()
+  return dispatch(receivePins(pins))
+}
 
 export const receivePins = pins => ({
   type: RECEIVE_PINS,

@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-
+@import './mixins.scss';
 $color-primary: #3b93db;
 $color-light: rgba(#3b93db, 0.8);
 $color-lightest: rgba(#3b93db, 0.5);
@@ -27,44 +27,6 @@ $color-green: rgba(#18b50d, 0.7);
 $white: white;
 $background: white;
 $color-test: rgba(black, 0.05);
-
-@mixin flex-center-justify() {
-  display: flex;
-  justify-content: center;
-}
-
-@mixin flex-center-align() {
-  display: flex;
-  align-items: center;
-}
-
-@mixin flex-center-justify-align() {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@mixin flex-row() {
-  display: flex;
-  flex-direction: row;
-}
-
-@mixin flex-column() {
-  display: flex;
-  flex-direction: column;
-}
-
-@mixin transition() {
-  transition: opacity 200ms ease-in-out;
-  animation-timing-function: cubic-bezier(0.1, 0.8, 0.1, 1.000);
-}
-
-@mixin absolute-center() {
-  position: fixed !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-}
 
 #root{
   width: 100vw;

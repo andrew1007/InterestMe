@@ -2,15 +2,15 @@ import * as ajax_request from '../util/ajax_request';
 export const RECEIVE_FOLLOW = 'RECEIVE_FOLLOW';
 export const DELETE_FOLLOW = 'DELETE_FOLLOW';
 
-export const createFollow = user => dispatch => (
-  ajax_request.follow(user)
-  .then((user) => dispatch(receiveFollow(user)))
-)
+export const createFollow = user => async (dispatch) => {
+  const userData = await ajax_request.follow(user)
+  return dispatch(receiveFollow(userData))
+}
 
-export const deleteFollow = user => dispatch => (
-  ajax_request.unfollow(user)
-  .then((user) => dispatch(removeFollow(user)))
-)
+export const deleteFollow = user => async (dispatch) => {
+  const userData = await ajax_request.unfollow(user)
+  return dispatch(removeFollow(user))
+}
 
 const receiveFollow = user => ({
   type: RECEIVE_FOLLOW,

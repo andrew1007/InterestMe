@@ -1,0 +1,34 @@
+@import '../application.scss';
+
+.board-tile {
+  &-container {
+    @include flex-column;
+    @include flex-center;
+    max-width: 300px;
+    min-width: 300px;
+    border: 2px solid black;
+    margin: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  &-image {
+    width: 300px;
+  }
+}
+
+.board-tile-body {
+  &-container {
+    @include flex-row;
+    justify-content: flex-start;
+    width: 260px;
+    padding: 15px 20px 15px 20px;
+    flex-grow: 1;
+  }
+  &-description {
+    padding: 10px;
+    @include flex-center;
+  }
+  &-profile-icon {
+    max-width: 50px;
+  }
+}

@@ -47,7 +47,6 @@ export default class LoginForm extends Component {
     e.preventDefault()
     this.dispatchSession()
     .then( () => {
-      debugger
         this.props.closeModal()
         hashHistory.push('/home')
     })

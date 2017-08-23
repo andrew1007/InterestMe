@@ -36,9 +36,8 @@ class Api::BoardsController < ApplicationController
   def show
     @board = Board.find(params[:id])
     @current_user = current_user
-    pin_batches = @board.pins(current_user)
-    @board_pins = pin_batches[0]
-    @pin_set_count = pin_batches[1]
+    @pins = @board.pins
+    @user = @board.user
     render :show
   end
 

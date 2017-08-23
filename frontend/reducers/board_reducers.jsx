@@ -2,7 +2,9 @@ import { RECEIVE_BOARD, RECEIVE_ERRORS, DESTROY_BOARD, GET_BOARD } from '../acti
 import merge from 'lodash/merge';
 
 const defaultState = Object.freeze({
-  board: [],
+  board: {
+    pins: []
+  },
   errors: []
 });
 

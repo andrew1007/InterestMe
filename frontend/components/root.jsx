@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Route, IndexRoute, hashHistory, withRouter, IndexRedirect } from 'react-router';
 import App from './app';
-import BoardContainer from './boards/board_container';
+import Board from './board/board';
 import {Provider} from 'react-redux';
 import { getBoard } from '../actions/board_actions';
 import PinContainer from './pins/pins_container';
@@ -33,7 +33,7 @@ const Root = ({ store }) => {
           <IndexRedirect to="/session"/>
           <Route path="session" component={Signup}  onEnter={_redirectIfLoggedIn}/>
           <Route IndexRoute path="home" component={HomepageContainer}  onEnter={_redirectIfLoggedOut} />
-          <Route path="boards/:boardId" component={BoardContainer}  onEnter={_redirectIfLoggedOut}/>
+          <Route path="boards/:boardId" component={Board}  onEnter={_redirectIfLoggedOut}/>
           <Route path="user/:userId" component={UserProfileContainer} onEnter={_redirectIfLoggedOut} />
         </Route>
       </Router>
