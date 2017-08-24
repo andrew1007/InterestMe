@@ -33,7 +33,6 @@ export default class PinEdit extends React.Component {
       editFormOpen: true
     })
   }
-
   handleSubmit() {
     switch(true){
       case this.state.deleteConfirmBox:

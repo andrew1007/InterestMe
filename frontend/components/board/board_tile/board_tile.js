@@ -8,6 +8,7 @@ export default class BoardTile extends Component {
     this.state = {
       showPin: false
     }
+    this.togglePinShow = this.togglePinShow.bind(this)
   }
 
   togglePinShow() {
@@ -23,7 +24,7 @@ export default class BoardTile extends Component {
     console.log(this.props);
     const props = {
       ...this.props,
-      togglePinShow: this.togglePinShow.bind(this)
+      togglePinShow: this.togglePinShow
     }
     return (
       <div>
@@ -31,7 +32,7 @@ export default class BoardTile extends Component {
           <div>
             <img
               src={this.props.image_url}
-              onClick={this.togglePinShow.bind(this)}
+              onClick={this.togglePinShow}
               className='board-tile-image'
             />
           </div>

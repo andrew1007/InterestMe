@@ -6,8 +6,20 @@ import PinImage from './pin_image'
 import Modal from 'react-modal';
 
 class PinPresentational extends Component {
-
   render() {
+    let pinHeaderProps = {
+      board_id: this.props.board_id,
+      id: this.props.id,
+      title: this.props.title,
+      body: this.props.body,
+      togglePinShow: this.props.togglePinShow
+    }
+    let pinBodyProps = {
+      title: this.props.title,
+      user_id: this.props.user_id,
+      body: this.props.body,
+      username: this.props.username
+    }
     console.log(this.props);
     return (
       <Modal
@@ -19,13 +31,13 @@ class PinPresentational extends Component {
       >
         <div className='pin-container'>
           <div>
-            <PinHeader {...this.props}/>
+            <PinHeader {...pinHeaderProps}/>
           </div>
           <div>
             <PinImage imageUrl={this.props.image_url}/>
           </div>
           <div>
-            <PinBody {...this.props}/>
+            <PinBody {...pinBodyProps}/>
           </div>
         </div>
       </Modal>

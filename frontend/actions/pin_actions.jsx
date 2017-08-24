@@ -10,8 +10,8 @@ export const createPin = pin => async (dispatch) => {
 }
 
 export const editPin = pin => async (dispatch) => {
-  const pins = await ajax_request.editPin(pin)
-  return dispatch(receivePins(pins))
+  return ajax_request.editPin(pin)
+  .then( (pins) => dispatch(receivePins(pins)))
 }
 
 export const deletePin = id => async (dispatch) => {
