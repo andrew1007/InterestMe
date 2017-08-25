@@ -41,8 +41,6 @@ class BoardPresentational extends Component {
   }
 
   render() {
-    console.log("board");
-    console.log(this.props);
     return(
       <div>
         <br/><br/><br/><br/><br/><br/>

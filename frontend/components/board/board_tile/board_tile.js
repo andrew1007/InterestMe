@@ -14,29 +14,17 @@ export default class BoardTile extends Component {
 
   togglePinShow() {
     this.setState({showPin: this.state.showPin ? false : true})
-    console.log("show pin");
   }
 
   _handleUserRedirect() {
     console.log("go to user profile");
   }
 
-  // _setHeight() {
-  //   setTimeout( () => {
-  //     let tiles = document.getElementsByClassName('board-tile-container')
-  //     Array.from(tiles).forEach(div => {
-  //       let tileHeight = div.clientHeight
-  //       div.setAttribute("style", `height:${tileHeight}px`)
-  //     })
-  //   }, 1000)
-  // }
-
   _reveal() {
     this.props.pinLoaded()
   }
 
   render() {
-    console.log(this.props);
     const props = {
       ...this.props,
       togglePinShow: this.togglePinShow

@@ -10,7 +10,6 @@ const PinReducer = (state = defaultState, action) => {
   console.log(action);
   switch(action.type){
     case RECEIVE_PINS:
-      debugger
       const pins = action.pins.pins;
       return merge({}, pins)
     case DESTROY_PIN:

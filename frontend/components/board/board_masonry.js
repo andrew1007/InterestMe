@@ -24,10 +24,10 @@ export default class BoardMasonry extends Component {
 
   pinLoaded() {
     let counter = this.state.counter
-    let reveal = this.state.revealCounter
+    let revealCounter = this.state.revealCounter
     let pinCount = this.props.pins.length
     this.setState({counter: this.state.counter += 1}, () => {
-      if (counter > reveal || pinCount < reveal) {
+      if (counter > revealCounter || pinCount < revealCounter) {
         $('.hidden').removeClass('hidden').addClass('visible')
         this.setState({revealCounter: this.state.revealCounter + 15})
       }
@@ -44,12 +44,10 @@ export default class BoardMasonry extends Component {
   }
 
   render() {
-    console.log(this.state);
     let masonryOptions = {
       fitWidth: true,
       transitionDuration: '0.05s'
     };
-    console.log(this.state);
     return (
       <div className='hidden'>
         <Masonry

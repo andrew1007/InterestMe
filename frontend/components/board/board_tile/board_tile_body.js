@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 
 export default class BoardTileBody extends Component {
   render() {
-    console.log(this.props);
     return (
       <div className='board-tile-body-container'>
         <span>
