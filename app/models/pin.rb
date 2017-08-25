@@ -3,6 +3,19 @@ class Pin < ActiveRecord::Base
   belongs_to :board
   belongs_to :user
 
+  def self.feed_for(user)
+    all_pins = []
+    pins = Pin.includes(:user).joins(:user).where.not({user_id: user.id}).shuffle
+    pins.each do |pin|
+      user = pin.user
+      pins_hash = pin.as_json
+      pins_hash[:username] = user.username
+      pins_hash[:profile_picture] = user.profile_picture
+      all_pins << pins_hash
+    end
+    all_pins
+  end
+
   def self.all_pins_except(user)
     pins = Pin.where.not(user_id: user.id).includes(:user).shuffle
     pinJSON = pins.as_json

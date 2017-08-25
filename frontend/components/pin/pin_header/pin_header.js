@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import PinHeaderEditModal from './pin_header_edit_modal'
+import {hashHistory} from 'react-router';
 
 export default class PinHeader extends Component {
   constructor(props) {
@@ -18,13 +19,20 @@ export default class PinHeader extends Component {
     }
   }
 
+  handleBoardRedirect() {
+    hashHistory.push(`/boards/${this.props.board_id}`)
+  }
+
   render() {
+    console.log("pinheader");
+    console.log(this.props);
     let editModalProps = {
       id: this.props.id,
       title: this.props.title,
       body: this.props.body,
       toggleModal: this.toggleModal.bind(this),
-      boardId: this.props.board_id
+      boardId: this.props.board_id,
+      owner: this.props.owner
     }
     return (
       <div>
@@ -33,10 +41,10 @@ export default class PinHeader extends Component {
             {this.props.title}
           </div>
           <span onClick={this.toggleModal.bind(this)}>
-            edit link
+            {this.props.owner ? 'edit link' : null}
           </span>
         </div>
-        <div>
+        <div onClick={this.handleBoardRedirect.bind(this)}>
           Board link
         </div>
         { this.state.showModal ?

@@ -170,6 +170,15 @@ option {
   hyphens: auto;
 }
 
+.hidden {
+  opacity: 0;
+  @include long-transition;
+}
+.visible {
+  opacity: 1;
+  @include long-transition;
+}
+
 .hidden-text {
   font-size: 0px;
 }

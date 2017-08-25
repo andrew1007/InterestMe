@@ -9,7 +9,7 @@ export default class BoardHeader extends Component {
             {this.props.name}
           </div>
           <div className='board-header-username'>
-            A board by {this.props.username}
+            {this.props.username ? `A board by ${this.props.username}` : null}
           </div>
         </div>
       </div>

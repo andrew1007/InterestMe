@@ -2,9 +2,10 @@ class Api::PinsController < ApplicationController
   helper_method :current_user, :pin_sets
 
   def index
-    pin_batches = Pin.all_pins_except(current_user)
-    @pins = pin_batches[0]
-    @pin_set_count = pin_batches[1]
+    @pins = Pin.feed_for(current_user)
+    @pins.map do |pin|
+      pin['owner'] = current_user.id == pin['user_id']
+    end
     render :index
   end
 

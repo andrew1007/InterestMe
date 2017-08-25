@@ -7,6 +7,7 @@ import { getBoard } from '../actions/board_actions';
 import PinContainer from './pins/pins_container';
 import PinNewFormContainer from './pins/pin_new_container'
 import HomepageContainer from './homepage/homepage_container'
+import Home from './home/home'
 import UserProfileContainer from './profiles/user_profile_page_container'
 import Signup from './session/signup'
 
@@ -32,7 +33,7 @@ const Root = ({ store }) => {
         <Route path="/" component={App}>
           <IndexRedirect to="/session"/>
           <Route path="session" component={Signup}  onEnter={_redirectIfLoggedIn}/>
-          <Route IndexRoute path="home" component={HomepageContainer}  onEnter={_redirectIfLoggedOut} />
+          <Route IndexRoute path="home" component={Home}  onEnter={_redirectIfLoggedOut} />
           <Route path="boards/:boardId" component={Board}  onEnter={_redirectIfLoggedOut}/>
           <Route path="user/:userId" component={UserProfileContainer} onEnter={_redirectIfLoggedOut} />
         </Route>

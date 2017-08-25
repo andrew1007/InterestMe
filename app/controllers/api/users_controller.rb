@@ -15,14 +15,12 @@ helper_method :current_user
 
   def show
     @user = User.find(params[:id])
-    pin_batches = @user.pins(@user)
-    @pins = pin_batches[0]
-    @pin_set_count = pin_batches[1]
+    @board = @user.boards
     @followed_by = @user.followed_by
     @following = @user.following
     @owner = @user.id == current_user.id
     @isFollowing = current_user.is_following?(@user)
-    @boards = @user.user_board
+    # @boards = @user.user_board
     render :show
   end
 
@@ -34,7 +32,7 @@ helper_method :current_user
       render json: @user.errors.full_messages, status: 422
     end
   end
-
+  
   private
   def user_params
     params.require(:user).permit(:username, :password, :description, :profile_picture)
