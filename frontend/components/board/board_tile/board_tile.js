@@ -6,7 +6,8 @@ export default class BoardTile extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      showPin: false
+      showPin: false,
+      loaded: false
     }
     this.togglePinShow = this.togglePinShow.bind(this)
   }
@@ -20,6 +21,20 @@ export default class BoardTile extends Component {
     console.log("go to user profile");
   }
 
+  // _setHeight() {
+  //   setTimeout( () => {
+  //     let tiles = document.getElementsByClassName('board-tile-container')
+  //     Array.from(tiles).forEach(div => {
+  //       let tileHeight = div.clientHeight
+  //       div.setAttribute("style", `height:${tileHeight}px`)
+  //     })
+  //   }, 1000)
+  // }
+
+  _reveal() {
+    this.props.pinLoaded()
+  }
+
   render() {
     console.log(this.props);
     const props = {
@@ -28,12 +43,13 @@ export default class BoardTile extends Component {
     }
     return (
       <div>
-        <div className='board-tile-container'>
+        <div className='board-tile-container hidden'>
           <div>
             <img
-              src={this.props.image_url}
               onClick={this.togglePinShow}
+              src={this.props.image_url}
               className='board-tile-image'
+              onLoad={this._reveal.bind(this)}
             />
           </div>
           <BoardTileBody {...this.props}/>

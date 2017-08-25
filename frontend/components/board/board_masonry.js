@@ -8,26 +8,38 @@ export default class BoardMasonry extends Component {
     super(props)
     this.state = {
       pins: [],
-      idx: 10,
-      loaded: false
+      idx: 20,
+      loaded: false,
+      counter: 0,
+      revealCounter: 19,
+      done: false
     }
   }
 
   _addTiles() {
     this.setState({
-      idx: this.state.idx + 20
+      idx: this.state.idx + 15
     })
   }
 
-  componentDidUpdate() {
-    setTimeout( () => $('#hidden').removeAttr('id').addClass('visible'), 500)
+  pinLoaded() {
+    let counter = this.state.counter
+    let reveal = this.state.revealCounter
+    let pinCount = this.props.pins.length
+    this.setState({counter: this.state.counter += 1}, () => {
+      if (counter > reveal || pinCount < reveal) {
+        $('.hidden').removeClass('hidden').addClass('visible')
+        this.setState({revealCounter: this.state.revealCounter + 15})
+      }
+    })
   }
 
   renderTiles() {
     let end = this.state.idx
     let pins = this.props.pins.slice(0, end)
     return pins.map((pin, idx) => {
-      return <BoardTile key={idx} {...pin}/>
+      let tileProps = {...pin, pinLoaded: this.pinLoaded.bind(this)}
+      return <BoardTile key={idx} {...tileProps}/>
     })
   }
 
@@ -35,10 +47,11 @@ export default class BoardMasonry extends Component {
     console.log(this.state);
     let masonryOptions = {
       fitWidth: true,
-      transitionDuration: '0.07s'
+      transitionDuration: '0.05s'
     };
+    console.log(this.state);
     return (
-      <div id='hidden'>
+      <div className='hidden'>
         <Masonry
           elementType={'div'}
           disableImagesLoaded={false}
@@ -47,7 +60,10 @@ export default class BoardMasonry extends Component {
           >
           {this.renderTiles()}
         </Masonry>
-          <Waypoint onEnter={this._addTiles.bind(this)} bottomOffset='-1000px'/>
+        <Waypoint
+          onEnter={this._addTiles.bind(this)}
+          bottomOffset='-100px'
+        />
       </div>
     )
   }
