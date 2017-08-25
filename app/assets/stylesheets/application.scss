@@ -170,7 +170,7 @@ option {
   hyphens: auto;
 }
 
-.hidden {
+#hidden {
   opacity: 0;
   @include long-transition;
 }

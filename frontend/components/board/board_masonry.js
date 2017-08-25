@@ -8,37 +8,25 @@ export default class BoardMasonry extends Component {
     super(props)
     this.state = {
       pins: [],
-      startIdx: 0,
-      endIdx: 10,
+      idx: 10,
       loaded: false
-    }
-  }
-
-  componentDidUpdate(nextProps) {
-    if (this.props.pins.length !== nextProps.pins.length) {
-      let pins = nextProps.pins.slice(0,20).map((pin, idx) => {
-        return <BoardTile key={idx} {...pin}/>
-      })
-      this.setState({
-        pins: pins,
-        loaded: false
-      })
     }
   }
 
   _addTiles() {
     this.setState({
-      endIdx: this.state.endIdx + 10
+      idx: this.state.idx + 20
     })
   }
 
   componentDidUpdate() {
-    setTimeout( () => $('.hidden').removeClass('hidden').addClass('visible'), 500)
+    setTimeout( () => $('#hidden').removeAttr('id').addClass('visible'), 500)
   }
 
   renderTiles() {
-    console.log(this.props);
-    return this.props.pins.slice(this.state.startIdx, this.state.endIdx).map((pin, idx) => {
+    let end = this.state.idx
+    let pins = this.props.pins.slice(0, end)
+    return pins.map((pin, idx) => {
       return <BoardTile key={idx} {...pin}/>
     })
   }
@@ -50,7 +38,7 @@ export default class BoardMasonry extends Component {
       transitionDuration: '0.07s'
     };
     return (
-      <div className='hidden'>
+      <div id='hidden'>
         <Masonry
           elementType={'div'}
           disableImagesLoaded={false}
@@ -59,7 +47,7 @@ export default class BoardMasonry extends Component {
           >
           {this.renderTiles()}
         </Masonry>
-          <Waypoint onEnter={this._addTiles.bind(this)} bottomOffset='-400px'/>
+          <Waypoint onEnter={this._addTiles.bind(this)} bottomOffset='-1000px'/>
       </div>
     )
   }
