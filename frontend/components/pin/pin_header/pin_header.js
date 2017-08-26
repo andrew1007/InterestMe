@@ -15,7 +15,7 @@ export default class PinHeader extends Component {
       showModal: this.state.showModal ? false : true
     })
     if (type === 'delete') {
-      this.props.togglePinShow
+      this.props.togglePinShow()
     }
   }
 
