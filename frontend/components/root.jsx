@@ -9,7 +9,8 @@ import PinNewFormContainer from './pins/pin_new_container'
 import HomepageContainer from './homepage/homepage_container'
 import Home from './home/home'
 import UserProfileContainer from './profiles/user_profile_page_container'
-import Signup from './session/signup'
+import Signup from './session/session'
+import Profile from './profile/profile'
 
 const Root = ({ store }) => {
 
@@ -35,7 +36,7 @@ const Root = ({ store }) => {
           <Route path="session" component={Signup}  onEnter={_redirectIfLoggedIn}/>
           <Route IndexRoute path="home" component={Home}  onEnter={_redirectIfLoggedOut} />
           <Route path="boards/:boardId" component={Board}  onEnter={_redirectIfLoggedOut}/>
-          <Route path="user/:userId" component={UserProfileContainer} onEnter={_redirectIfLoggedOut} />
+          <Route path="user/:userId" component={Profile} onEnter={_redirectIfLoggedOut} />
         </Route>
       </Router>
     </Provider>

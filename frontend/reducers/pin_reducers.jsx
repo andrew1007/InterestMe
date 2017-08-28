@@ -7,7 +7,6 @@ const defaultState = Object.freeze({
 
 const PinReducer = (state = defaultState, action) => {
   Object.freeze(state);
-  console.log(action);
   switch(action.type){
     case RECEIVE_PINS:
       const pins = action.pins.pins;

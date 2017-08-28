@@ -2,32 +2,29 @@ import { RECEIVE_USER_DATA, EDIT_USER_DATA, GET_PROFILE } from '../actions/user_
 import merge from 'lodash/merge';
 
 const defaultState = Object.freeze({
-  userContent: {
-    pins: [],
-    boards:[],
-    errors: [],
-    following: [],
-    followers: []
-  },
   user: {
     description: "",
     id: 0,
-    isFollowing: false,
+    is_following: false,
     profile_picture: "",
     username: "",
-    owner: false
+    owner: false,
+    following: [],
+    followers: [],
+    pins: [],
+    boards: []
   }
 });
 
 const UserReducer = (state = defaultState, action) => {
   Object.freeze(state);
+  console.log(action);
   switch(action.type){
     case EDIT_USER_DATA:
       return merge({}, state, {user: action.userData.user})
     case GET_PROFILE:
-      const user = action.userData.user
-      const userContent = action.userData.userContent
-      return merge({},{user: user}, {userContent: userContent})
+      const user = action.user
+      return merge(state, user)
     default:
       return state;
   }

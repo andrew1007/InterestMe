@@ -43,19 +43,20 @@ class User < ActiveRecord::Base
     end
   end
 
-  # def user_board
-  #   board_JSON = self.boards.as_json
-  #   board_JSON.each_with_index do |board, idx|
-  #     board_JSON[idx]["samplePins"] = sample_images(board)
-  #   end
-  #   board_JSON
-  # end
+  def board_icons
+    all_boards = []
+    boards = Board.where({user_id: self.id})
+    boards.each do |board|
+      board_hash = {id: board.id, name: board.name}
+      board_hash[:sample_images] = User.board_sample_images(board)
+      all_boards << board_hash
+    end
+    all_boards
+  end
 
-  def sample_images(board)
-    images = []
-    board = Board.find(board["id"])
-    board.pins[0..2].each { |pin| images << pin.image_url}
-    images
+  def self.board_sample_images(board)
+    pin_images = Pin.where({board_id: board.id})[0..2].as_json
+    pin_images.map {|pic| pic['image_url']}
   end
 
   def pins

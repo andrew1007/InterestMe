@@ -15,12 +15,12 @@ helper_method :current_user
 
   def show
     @user = User.find(params[:id])
-    @board = @user.boards
+    @boards = @user.board_icons
+    @pins = @user.pins
     @followed_by = @user.followed_by
     @following = @user.following
     @owner = @user.id == current_user.id
-    @isFollowing = current_user.is_following?(@user)
-    # @boards = @user.user_board
+    @is_following = current_user.is_following?(@user)
     render :show
   end
 
@@ -32,7 +32,7 @@ helper_method :current_user
       render json: @user.errors.full_messages, status: 422
     end
   end
-  
+
   private
   def user_params
     params.require(:user).permit(:username, :password, :description, :profile_picture)
