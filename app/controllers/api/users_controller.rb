@@ -14,13 +14,14 @@ helper_method :current_user
   end
 
   def show
-    @user = User.find(params[:id])
-    @boards = @user.board_icons
-    @pins = @user.pins
-    @followed_by = @user.followed_by
-    @following = @user.following
-    @owner = @user.id == current_user.id
-    @is_following = current_user.is_following?(@user)
+    user = User.find(params[:id])
+    @user = user.data
+    @boards = user.board_icons
+    @pins = user.pins
+    @followed_by = user.followed_by
+    @following = user.following
+    @owner = user.id == current_user.id
+    @is_following = current_user.is_following?(user)
     render :show
   end
 

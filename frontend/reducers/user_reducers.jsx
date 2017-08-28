@@ -9,8 +9,8 @@ const defaultState = Object.freeze({
     profile_picture: "",
     username: "",
     owner: false,
+    followed_by: [],
     following: [],
-    followers: [],
     pins: [],
     boards: []
   }
@@ -23,7 +23,7 @@ const UserReducer = (state = defaultState, action) => {
     case EDIT_USER_DATA:
       return merge({}, state, {user: action.userData.user})
     case GET_PROFILE:
-      const user = action.user
+      let user = action.user
       return merge(state, user)
     default:
       return state;

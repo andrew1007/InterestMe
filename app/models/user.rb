@@ -13,26 +13,13 @@ class User < ActiveRecord::Base
   has_many :pins
   has_many :favorites
 
-  has_many :followers_join,
-  class_name: "Follow",
-  foreign_key: :user_following_id,
-  primary_key: :id
-
-  has_many :following_join,
-  class_name: "Follow",
-  foreign_key: :user_followed_by_id,
-  primary_key: :id
-
-  has_many :followed_by,
-  through: :followers_join,
-  source: :user_followed_by
-
-  has_many :following,
-  through: :following_join,
-  source: :user_following
+  def data
+    keys = ['id', 'username', 'description', 'profile_picture']
+    User.extract_by_keys(self.as_json, keys)
+  end
 
   def is_following?(user)
-    follow_ids = user.followed_by.map {|follow| follow.id}
+    follow_ids = user.followed_by.map {|follow| follow['id']}
     follow_ids.include?(self.id)
   end
 
@@ -41,6 +28,32 @@ class User < ActiveRecord::Base
     boards.each do |board|
       board[:sample_pins] = Board.pins[0..2]
     end
+  end
+
+  def followed_by
+    followers = Follow.where({user_followed_by_id: self.id})
+    keys = ['id', 'username', 'profile_picture']
+    users = followers.map {|el| User.find(el.user_followed_by_id)}
+    follows_arr = []
+    users.each do |user|
+      follows_arr << User.extract_by_keys(user.as_json, keys)
+    end
+    follows_arr
+  end
+
+  def following
+    followers = Follow.where({user_following_id: self.id})
+    keys = ['id', 'username', 'profile_picture']
+    users = followers.map {|el| User.find(el.user_following_id)}
+    follows_arr = []
+    users.each do |user|
+      follows_arr << User.extract_by_keys(user.as_json, keys)
+    end
+    follows_arr
+  end
+
+  def self.extract_by_keys(hash, keys)
+    hash.select{|k, v| keys.include?(k)}
   end
 
   def board_icons

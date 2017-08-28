@@ -6,7 +6,7 @@ export default class UserFollowTab extends Component {
   }
 
   followIcons() {
-    
+    // this.props.follows.map()
   }
 
   render() {
