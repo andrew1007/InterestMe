@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getProfilePage } from '../../actions/user_actions'
 import ProfileBoardTab from './profile_board_tab/profile_board_tab'
+import ProfileFollowTab from './profile_follow_tab/profile_follow_tab'
 
 class ProfilePresentational extends Component {
   constructor(props) {
@@ -20,13 +21,14 @@ class ProfilePresentational extends Component {
   }
 
   render() {
-    const { boards, id } = this.props.user
+    const { boards, id, followed_by, following } = this.props.user
     const boardTabProps = { boards, id }
     return (
       <div>
         <br/><br/><br/><br/><br/>
         {/* <ProfileBoardTab {...boardTabProps}/> */}
-        
+        <ProfileFollowTab users={followed_by}/>
+        <ProfileFollowTab users={following}/>
       </div>
     )
   }
