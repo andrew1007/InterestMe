@@ -11,32 +11,30 @@ class ProfilePresentational extends Component {
             'board': 'boardTab',
             'followers': 'followersTab',
             'followed': 'followedTab'
-          },
-      loaded: false
+          }
     }
   }
 
-  async componentWillMount() {
-    await this.props.getProfilePage(1)
-    this.setState({loaded: true})
-    console.log(this.props.user);
+  componentWillMount() {
+    this.props.getProfilePage(this.props.userId)
   }
 
   render() {
     const { boards, id } = this.props.user
-    const boardTabProps = {boards, id}
-    return(
+    const boardTabProps = { boards, id }
+    return (
       <div>
         <br/><br/><br/><br/><br/>
-        dddddddddddddd
-        <ProfileBoardTab {...boardTabProps}/>
+        {/* <ProfileBoardTab {...boardTabProps}/> */}
+        
       </div>
     )
   }
 }
 
-const mapStateToProps = ({user}) => ({
-  user: user.user
+const mapStateToProps = ({user}, ownProps) => ({
+  user: user.user,
+  userId: ownProps.params.userId
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -42,10 +42,10 @@ html {
 
 body {
   background-color: $background;
-  // width: 100vw;
   position: absolute;
   height: 100%;
   font-family: 'GlacialIndifferenceRegular';
+  overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {

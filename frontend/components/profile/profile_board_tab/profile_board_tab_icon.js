@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { hashHistory } from 'react-router';
 
 export default class ProfileBoardTabIcon extends Component {
   constructor(props) {
@@ -20,18 +21,20 @@ export default class ProfileBoardTabIcon extends Component {
   }
 
   routeToBoard() {
-
+    console.log(this.props);
+    hashHistory.push(`/boards/${this.props.board.id}`)
   }
 
   images() {
     debugger
     return this.props.board.sample_images.map((url, idx) => {
       return (
-        <div>
+        <div onClick={this.routeToBoard.bind(this)}>
           <img
             src={url}
             className='profile-board-tab-icon-image'
             onLoad={this.updateCounter.bind(this)}
+            onClick={this.routeToBoard.bind(this)}
           />
         </div>
       )

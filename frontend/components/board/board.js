@@ -50,7 +50,6 @@ class BoardPresentational extends Component {
   }
 }
 
-
 const mapStateToProps = ({boards, pins}, ownProps) => ({
   board: boards,
   boardId: ownProps.params.boardId,

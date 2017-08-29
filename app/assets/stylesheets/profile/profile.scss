@@ -1,9 +1,12 @@
 @import '../mixins.scss';
 
 .profile-board-tab {
-  &-container {
+  &-button {
     width: 300px;
     height: 300px;
+  }
+  &-container {
+    @include flex-row;
   }
 }
 
