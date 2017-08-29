@@ -12,8 +12,8 @@ export default class PinHeader extends Component {
 
   toggleModal(type = null) {
     this.setState({
-      showModal: this.state.showModal ? false : true
-    })
+      showModal: this.state.showModal ? false : true,
+    },() => document.body.style.overflow = this.state.showModal ? 'auto' : 'hidden')
     if (type === 'delete') {
       this.props.togglePinShow()
     }
@@ -26,13 +26,9 @@ export default class PinHeader extends Component {
   render() {
     console.log("pinheader");
     console.log(this.props);
-    let editModalProps = {
-      id: this.props.id,
-      title: this.props.title,
-      body: this.props.body,
-      toggleModal: this.toggleModal.bind(this),
-      boardId: this.props.board_id,
-      owner: this.props.owner
+    let { id, title, body, board_id, owner } = this.props
+    let editModalProps = { id, title, body, board_id, owner,
+      toggleModal: this.toggleModal.bind(this)
     }
     return (
       <div>

@@ -24,7 +24,6 @@ export default class SignedInButtons extends Component {
 
   _handleNewPinClick(e){
     e.preventDefault()
-    document.body.style.overflow = "hidden";
     this.setState({
       newPinFormOpen: true
     })
@@ -37,7 +36,6 @@ export default class SignedInButtons extends Component {
   }
 
   closeModal(){
-    document.body.style.overflow = "auto";
     this.setState({
       newPinFormOpen: false
     })

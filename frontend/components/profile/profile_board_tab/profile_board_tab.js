@@ -7,7 +7,8 @@ export default class ProfileBoardTab extends Component {
     debugger
     return this.props.boards.map((board, idx) => {
       return (
-        <div>
+        <div className='profile-board-tab-container'>
+          <br/><br/><br/><br/><br/>
           <ProfileBoardTabIcon board={board}/>
         </div>
       )

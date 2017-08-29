@@ -1,0 +1,14 @@
+@import '../mixins.scss';
+
+.profile-board-tab {
+  &-container {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+.profile-board-tab-icon {
+  &-image {
+    height: 100px;
+  }
+}

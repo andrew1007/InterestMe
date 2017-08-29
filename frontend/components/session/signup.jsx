@@ -3,11 +3,6 @@ import Modal from 'react-modal';
 
 
 export default class Signup extends React.Component {
-  constructor(){
-    super();
-    document.body.style.overflow = "hidden";
-  }
-
   render(){
     return(
       <div className="splash-container">

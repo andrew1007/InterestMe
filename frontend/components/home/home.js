@@ -10,7 +10,6 @@ class HomePresentatinal extends Component {
     this.state = {
       maybe: ''
     }
-    document.body.style.overflow = "auto";
   }
 
   componentWillMount() {

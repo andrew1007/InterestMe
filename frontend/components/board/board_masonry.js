@@ -22,16 +22,22 @@ export default class BoardMasonry extends Component {
     })
   }
 
+  _reveal() {
+    $('.hidden').removeClass('hidden').addClass('visible')
+  }
+
   pinLoaded() {
     let counter = this.state.counter
     let revealCounter = this.state.revealCounter
     let pinCount = this.props.pins.length
-    this.setState({counter: this.state.counter += 1}, () => {
+    this.setState({counter: this.state.counter + 1}, () => {
       if (counter > revealCounter || pinCount < revealCounter) {
-        $('.hidden').removeClass('hidden').addClass('visible')
+        // this.setState({loaded: true})
+        this._reveal()
         this.setState({revealCounter: this.state.revealCounter + 15})
       }
     })
+    setTimeout(() => this._reveal(), 7000)
   }
 
   renderTiles() {

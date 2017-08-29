@@ -31,7 +31,7 @@ class PinHeaderEditModalPresentational extends Component {
   async _handleSubmit(e) {
     e.preventDefault()
     let edit = this.props.editPin(this.state)
-    let refresh = this.props.getPins(this.props.boardId)
+    let refresh = this.props.getPins(this.props.board_id)
     await Promise.all([edit, refresh])
     this.props.toggleModal()
   }
@@ -39,7 +39,7 @@ class PinHeaderEditModalPresentational extends Component {
   async _handleDelete(e) {
     e.preventDefault()
     let deletePin = this.props.deletePin(this.props.id)
-    let refresh = this.props.getPins(this.props.boardId)
+    let refresh = this.props.getPins(this.props.board_id)
     await Promise.all([deletePin, refresh])
     this.props.toggleModal('delete')
   }

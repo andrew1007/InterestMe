@@ -19,6 +19,10 @@ export default class ProfileBoardTabIcon extends Component {
     )
   }
 
+  routeToBoard() {
+
+  }
+
   images() {
     debugger
     return this.props.board.sample_images.map((url, idx) => {
@@ -26,7 +30,8 @@ export default class ProfileBoardTabIcon extends Component {
         <div>
           <img
             src={url}
-            onLoad={updateCounter.bind(this)}
+            className='profile-board-tab-icon-image'
+            onLoad={this.updateCounter.bind(this)}
           />
         </div>
       )

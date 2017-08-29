@@ -24,6 +24,7 @@ const UserReducer = (state = defaultState, action) => {
       return merge({}, state, {user: action.userData.user})
     case GET_PROFILE:
       let user = action.user
+      debugger
       return merge(state, user)
     default:
       return state;

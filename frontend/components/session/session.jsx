@@ -22,7 +22,6 @@ export default class Session extends React.Component {
       newPinFormOpen: false,
       showHomeButton: false
     };
-    document.body.style.overflow = "hidden"
   }
 
   _handleGuestSubmit(e){

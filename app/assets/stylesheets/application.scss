@@ -46,7 +46,6 @@ body {
   position: absolute;
   height: 100%;
   font-family: 'GlacialIndifferenceRegular';
-  overflow-x: hidden !important;
 }
 
 body::-webkit-scrollbar {
@@ -126,7 +125,6 @@ button:hover {
    list-style-type: none;
    margin: 0;
    padding: 0;
-   overflow: hidden;
  }
 
 li {

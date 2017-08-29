@@ -11,20 +11,25 @@ class ProfilePresentational extends Component {
             'board': 'boardTab',
             'followers': 'followersTab',
             'followed': 'followedTab'
-          }
+          },
+      loaded: false
     }
   }
 
   async componentWillMount() {
-    this.props.getProfilePage(1)
+    await this.props.getProfilePage(1)
+    this.setState({loaded: true})
     console.log(this.props.user);
   }
 
   render() {
-    debugger
+    const { boards, id } = this.props.user
+    const boardTabProps = {boards, id}
     return(
       <div>
-        <ProfileBoardTab boards={this.props.user.boards}/>
+        <br/><br/><br/><br/><br/>
+        dddddddddddddd
+        <ProfileBoardTab {...boardTabProps}/>
       </div>
     )
   }

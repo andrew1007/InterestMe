@@ -37,7 +37,6 @@ class BoardPresentational extends Component {
     let board = this.props.getBoard(this.props.boardId)
     let pins = this.props.getPins(this.props.boardId)
     await Promise.all([board, pins])
-    document.body.style.overflow = "auto";
   }
 
   render() {
@@ -52,7 +51,7 @@ class BoardPresentational extends Component {
 }
 
 
-const mapStateToProps = ({boards, session, pins}, ownProps) => ({
+const mapStateToProps = ({boards, pins}, ownProps) => ({
   board: boards,
   boardId: ownProps.params.boardId,
   pins: pins
