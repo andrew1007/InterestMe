@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { getProfilePage } from '../../actions/user_actions'
 import ProfileTabsSection from './profile_tabs_section/profile_tabs_section'
 import ProfileImage from './profile_image'
+import ProfileDescription from './profile_description'
 
 class ProfilePresentational extends Component {
   constructor(props) {
@@ -22,13 +23,15 @@ class ProfilePresentational extends Component {
   }
 
   render() {
-    let { profile_picture, boards, id, pins, followed_by, following } = this.props.user
+    let { description, username, profile_picture, boards, id, pins, followed_by, following } = this.props.user
     const tabSectionProps = { boards, id, pins, followed_by, following }
-    const profileImageProps = { url: profile_picture }
+    const profileImageProps = { url: profile_picture, username }
+    const profileDescriptionProps = { description }
     return (
       <div>
         <br/><br/><br/><br/><br/>
         <ProfileImage {...profileImageProps}/>
+        <ProfileDescription {...profileDescriptionProps}/>
         <ProfileTabsSection {...tabSectionProps}/>
       </div>
     )

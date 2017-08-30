@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import ProfileBoardTab from '../profile_board_tab/profile_board_tab'
-import ProfileFollowTab from '../profile_follow_tab/profile_follow_tab'
-import ProfilePinTab from '../profile_pin_tab/profile_pin_tab'
+import ProfileBoardTab from './profile_board_tab/profile_board_tab'
+import ProfileFollowTab from './profile_follow_tab'
+import ProfilePinTab from './profile_pin_tab'
 
 export default class ProfileTabsSection extends Component {
   constructor(props) {

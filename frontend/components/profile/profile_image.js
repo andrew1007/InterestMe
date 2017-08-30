@@ -7,6 +7,7 @@ export default class ProfileImage extends Component {
         <img
           src={this.props.url}
         />
+        {this.props.username}
       </div>
     )
   }
