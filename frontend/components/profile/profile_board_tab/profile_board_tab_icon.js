@@ -27,7 +27,7 @@ export default class ProfileBoardTabIcon extends Component {
   images() {
     return this.props.board.sample_images.map((url, idx) => {
       return (
-        <div onClick={this.routeToBoard.bind(this)}>
+        <div key={idx} onClick={this.routeToBoard.bind(this)}>
           <img
             src={url}
             className='profile-board-tab-icon-image'

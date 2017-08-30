@@ -15,7 +15,6 @@ export default class ProfileBoardTab extends Component {
   render() {
     return (
       <div className='profile-board-tab-container'>
-        asdfsdf
         {this.boards()}
       </div>
     )
