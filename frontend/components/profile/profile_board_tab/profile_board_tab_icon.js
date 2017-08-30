@@ -21,12 +21,10 @@ export default class ProfileBoardTabIcon extends Component {
   }
 
   routeToBoard() {
-    console.log(this.props);
     hashHistory.push(`/boards/${this.props.board.id}`)
   }
 
   images() {
-    debugger
     return this.props.board.sample_images.map((url, idx) => {
       return (
         <div onClick={this.routeToBoard.bind(this)}>
@@ -42,7 +40,6 @@ export default class ProfileBoardTabIcon extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className='visible'>
         {this.props.name}

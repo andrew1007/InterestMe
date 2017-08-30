@@ -3,11 +3,9 @@ import ProfileBoardTabIcon from './profile_board_tab_icon'
 
 export default class ProfileBoardTab extends Component {
   boards() {
-    console.log(this.props);
-    debugger
     return this.props.boards.map((board, idx) => {
       return (
-        <div className='profile-board-tab-button'>
+        <div key={idx} className='profile-board-tab-button'>
           <ProfileBoardTabIcon board={board}/>
         </div>
       )
@@ -17,6 +15,7 @@ export default class ProfileBoardTab extends Component {
   render() {
     return (
       <div className='profile-board-tab-container'>
+        asdfsdf
         {this.boards()}
       </div>
     )

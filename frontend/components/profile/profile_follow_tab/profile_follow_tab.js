@@ -1,29 +1,23 @@
 import React, { Component } from 'react'
 
 export default class ProfileFollowTab extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   followIcons() {
     console.log(this.props.users);
-    return this.props.users.map(user => {
-      return (
-        <div>
-          dddddddddddd
-          <img
-            src={user.profile_picture}
-          />
-          {user.username}
-        </div>
-      )
-    })
+    return this.props.users.map((user, idx) => (
+      <div key={idx}>
+        <img
+          src={user.profile_picture}
+        />
+        {user.username}
+      </div>
+    ))
   }
 
   render() {
+    console.log(this.props);
     return (
       <div>
-        asdasdfasdf
+        {this.props.users.length}
         {this.followIcons()}
       </div>
     )

@@ -18,14 +18,12 @@ const defaultState = Object.freeze({
 
 const UserReducer = (state = defaultState, action) => {
   Object.freeze(state);
-  console.log(action);
   switch(action.type){
     case EDIT_USER_DATA:
       return merge({}, state, {user: action.userData.user})
     case GET_PROFILE:
       let user = action.user
-      debugger
-      return merge(state, user)
+      return Object.assign({}, state, user)
     default:
       return state;
   }

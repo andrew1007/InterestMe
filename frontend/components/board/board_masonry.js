@@ -8,9 +8,9 @@ export default class BoardMasonry extends Component {
     super(props)
     this.state = {
       pins: [],
-      idx: 20,
+      idx: 10,
       counter: 0,
-      revealCounter: 19,
+      revealCounter: 8,
       done: false
     }
     this.pinLoaded = this.pinLoaded.bind(this)
@@ -22,7 +22,7 @@ export default class BoardMasonry extends Component {
     })
   }
 
-  _reveal() {
+  _revealPins() {
     $('.hidden').removeClass('hidden').addClass('visible')
   }
 
@@ -32,11 +32,11 @@ export default class BoardMasonry extends Component {
     let pinCount = this.props.pins.length
     this.setState({counter: this.state.counter + 1}, () => {
       if (counter > revealCounter || pinCount < revealCounter) {
-        this._reveal()
+        this._revealPins()
         this.setState({revealCounter: this.state.revealCounter + 15})
       }
     })
-    setTimeout(() => this._reveal(), 11000)
+    setTimeout(() => this._revealPins(), 7000)
   }
 
   renderTiles() {

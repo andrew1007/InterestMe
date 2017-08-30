@@ -33,10 +33,9 @@ class BoardPresentational extends Component {
     }
   }
 
-  async componentWillMount() {
-    let board = this.props.getBoard(this.props.boardId)
-    let pins = this.props.getPins(this.props.boardId)
-    await Promise.all([board, pins])
+  componentWillMount() {
+    this.props.getBoard(this.props.boardId)
+    this.props.getPins(this.props.boardId)
   }
 
   render() {
