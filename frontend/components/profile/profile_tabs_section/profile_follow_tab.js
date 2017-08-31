@@ -14,10 +14,8 @@ export default class ProfileFollowTab extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div>
-        {this.props.users.length}
         {this.followIcons()}
       </div>
     )

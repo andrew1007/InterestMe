@@ -24,8 +24,6 @@ export default class ProfileTabsSection extends Component {
       this.followersTab.bind(this),
       this.followingTab.bind(this)
     ]
-    console.log('tab props');
-    console.log(this.props);
   }
 
   toggleTab(name) {
