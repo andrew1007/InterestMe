@@ -5,7 +5,7 @@ import request from 'superagent'
 const CLOUDINARY_PRESET = 'punlriir'
 const CLOUDINARY_UPLOAD ='https://api.cloudinary.com/v1_1/andoo/upload'
 
-export default class PinUploadPreview extends Component {
+export default class CMSPinImage extends Component {
   constructor(props) {
     super(props)
     this.state = {

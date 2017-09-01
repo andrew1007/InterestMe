@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Modal from 'react-modal'
 import { connect } from 'react-redux'
 
-class PinUploadPresentational extends Component {
+class PinCMSPresentational extends Component {
   constructor(props) {
     super(props)
   }
@@ -24,9 +24,9 @@ const mapDispatchToProps = dispatch => ({
 
 })
 
-const PinUpload = connect(
+const CMSPin = connect(
   mapStateToProps,
   mapDispatchToProps
-)(PinUploadPresentational)
+)(CMSPinPresentational)
 
-export default PinUpload
+export default CMSPin
