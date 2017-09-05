@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Masonry from 'react-masonry-component'
 import BoardTile from './board_tile/board_tile'
 import Waypoint from 'react-waypoint'
+import BoardLoadingIcon from './board_loading_icon'
 
 export default class BoardMasonry extends Component {
   constructor(props) {
@@ -23,7 +24,11 @@ export default class BoardMasonry extends Component {
   }
 
   _revealPins() {
-    $('.hidden').removeClass('hidden').addClass('visible')
+    this.setState({done: true}, () => {
+      setTimeout( () => {
+        $('.hidden').removeClass('hidden').addClass('visible')
+      }, 500)
+    })
   }
 
   pinLoaded() {
@@ -54,19 +59,22 @@ export default class BoardMasonry extends Component {
       transitionDuration: '0.05s'
     };
     return (
-      <div className='hidden'>
-        <Masonry
-          elementType={'div'}
-          disableImagesLoaded={false}
-          className='homepage-board'
-          options={masonryOptions}
-          >
-          {this.renderTiles()}
-        </Masonry>
-        <Waypoint
-          onEnter={this._addTiles.bind(this)}
-          bottomOffset='-100px'
-        />
+      <div>
+        { this.state.done ? null : <BoardLoadingIcon/> }
+        <div className='hidden'>
+          <Masonry
+            elementType={'div'}
+            disableImagesLoaded={false}
+            className='homepage-board'
+            options={masonryOptions}
+            >
+              {this.renderTiles()}
+            </Masonry>
+            <Waypoint
+              onEnter={this._addTiles.bind(this)}
+              bottomOffset='-100px'
+            />
+          </div>
       </div>
     )
   }
