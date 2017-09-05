@@ -19,7 +19,7 @@ export default class BoardMasonry extends Component {
 
   _addTiles() {
     this.setState({
-      idx: this.state.idx + 15
+      idx: this.state.idx + 15,
     })
   }
 
@@ -27,7 +27,7 @@ export default class BoardMasonry extends Component {
     this.setState({done: true}, () => {
       setTimeout( () => {
         $('.hidden').removeClass('hidden').addClass('visible')
-      }, 500)
+      }, 100)
     })
   }
 
@@ -60,12 +60,12 @@ export default class BoardMasonry extends Component {
     };
     return (
       <div>
-        { this.state.done ? null : <BoardLoadingIcon/> }
+        {this.state.done ? null : <BoardLoadingIcon/>}
         <div className='hidden'>
           <Masonry
             elementType={'div'}
             disableImagesLoaded={false}
-            className='homepage-board'
+            className='board-masonry'
             options={masonryOptions}
             >
               {this.renderTiles()}

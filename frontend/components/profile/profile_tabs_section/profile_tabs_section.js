@@ -64,8 +64,9 @@ export default class ProfileTabsSection extends Component {
 
   buttonTabs() {
     return this.tabs.map((name, idx) => {
+      const style = {"opacity": this.state[name] ? "1" : "0.7"}
       return (
-        <button key={idx} onClick={() => this.toggleTab(name)}>
+        <button key={idx} onClick={() => this.toggleTab(name)} style={style}>
           {name}
         </button>
       )
@@ -86,8 +87,15 @@ export default class ProfileTabsSection extends Component {
     return (
       <div>
         <br/><br/><br/><br/><br/>
-        {this.buttonTabs()}
-        {this.components()}
+        <div className='profile-tabs-section-button-container'>
+          <div className='profile-tabs-section-button-underbar'>
+            {this.buttonTabs()}
+          </div>
+        </div>
+        {this.profileBoardTab()}
+        {this.profilePinsTab()}
+        {this.followersTab()}
+        {this.followingTab()}
       </div>
     )
   }

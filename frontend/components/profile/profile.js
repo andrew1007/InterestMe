@@ -8,18 +8,19 @@ import ProfileDescription from './profile_description'
 class ProfilePresentational extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      rerendered: false
+    }
   }
 
   async componentDidUpdate(prevProps) {
     if (this.props.userId !== prevProps.userId) {
       await this.props.getProfilePage(this.props.userId)
-      this.forceUpdate()
     }
   }
 
   async componentWillMount() {
     await this.props.getProfilePage(this.props.userId)
-    this.forceUpdate()
   }
 
   render() {

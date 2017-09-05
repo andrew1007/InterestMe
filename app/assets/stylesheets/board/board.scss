@@ -17,11 +17,17 @@
   }
 }
 
+.board-masonry {
+  position: relative;
+  margin: 0 auto;
+  padding-top: 10px;
+  display: block;
+}
+
 .board-loader-container {
-  position: fixed !important;
-  top: 50% !important;
   display: flex;
   justify-content: center;
+  margin-top: 150px;
   width: 99vw;
 }
 
@@ -32,8 +38,7 @@
     width: 80px;
     height: 80px;
     animation: spin 2s linear infinite;
-    position: fixed !important;
-    top: 50% !important;
+    position: relative;
 }
 
 @keyframes spin {

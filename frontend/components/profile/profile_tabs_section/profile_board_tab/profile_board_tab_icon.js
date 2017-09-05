@@ -4,34 +4,20 @@ import { hashHistory } from 'react-router';
 export default class ProfileBoardTabIcon extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      loaded: false,
-      loadedCounter: 0
-    }
-  }
-
-  updateCounter() {
-    this.setState({loadedCounter: this.state.loadedCounter + 1},
-      () => {
-        if (this.state.loadedCounter > 2) {
-          this.setState({loaded: true})
-        }
-      }
-    )
   }
 
   routeToBoard() {
     hashHistory.push(`/boards/${this.props.board.id}`)
   }
 
-  images() {
-    return this.props.board.sample_images.map((url, idx) => {
+  horizontalImages() {
+    return this.props.board.sample_images.slice(0,2).map((url, idx) => {
       return (
-        <div key={idx} onClick={this.routeToBoard.bind(this)}>
+        <div key={idx} onClick={this.routeToBoard.bind(this)}
+          className='profile-board-tab-icon-image-container'>
           <img
             src={url}
             className='profile-board-tab-icon-image'
-            onLoad={this.updateCounter.bind(this)}
             onClick={this.routeToBoard.bind(this)}
           />
         </div>
@@ -39,11 +25,33 @@ export default class ProfileBoardTabIcon extends Component {
     })
   }
 
+  lastImage() {
+    const url = this.props.board.sample_images.slice(2,3)
+    return (
+      <div onClick={this.routeToBoard.bind(this)}>
+        <img
+          src={url}
+          className='profile-board-tab-icon-last-image'
+          onClick={this.routeToBoard.bind(this)}
+        />
+      </div>
+    )
+  }
+
   render() {
     return (
-      <div className='visible'>
-        {this.props.name}
-        {this.images()}
+      <div className='profile-board-tab-icon-container'>
+        <div>
+          <div className='profile-board-tab-icon-horizontal-container'>
+            {this.horizontalImages()}
+          </div>
+          <div className='profile-board-tab-icon-last-container'>
+            {this.lastImage()}
+          </div>
+        </div>
+        <div className='profile-board-tab-icon-name'>
+          {this.props.board.name}
+        </div>
       </div>
     )
   }
