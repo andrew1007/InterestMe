@@ -3,6 +3,8 @@ import Masonry from 'react-masonry-component'
 import BoardTile from './board_tile/board_tile'
 import Waypoint from 'react-waypoint'
 import BoardLoadingIcon from './board_loading_icon'
+import ImageOnLoad from './image_load'
+import OnImagesLoaded from 'react-on-images-loaded'
 
 export default class BoardMasonry extends Component {
   constructor(props) {
@@ -44,6 +46,10 @@ export default class BoardMasonry extends Component {
     setTimeout(() => this._revealPins(), 7000)
   }
 
+  finishedLoading() {
+    this.setState({done: true})
+  }
+
   renderTiles() {
     let end = this.state.idx
     let pins = this.props.pins.slice(0, end)
@@ -56,12 +62,17 @@ export default class BoardMasonry extends Component {
   render() {
     let masonryOptions = {
       fitWidth: true,
-      transitionDuration: '0.05s'
-    };
+      transitionDuration: '0.01s'
+    }
     return (
       <div>
-        {this.state.done ? null : <BoardLoadingIcon/>}
-        <div className='hidden'>
+        <OnImagesLoaded
+          classNameOnMount='hidden'
+          classNameOnLoaded='visible'
+          placeholder={<BoardLoadingIcon/>}
+          timeout={7000}
+          delay={500}
+        >
           <Masonry
             elementType={'div'}
             disableImagesLoaded={false}
@@ -74,7 +85,7 @@ export default class BoardMasonry extends Component {
               onEnter={this._addTiles.bind(this)}
               bottomOffset='-100px'
             />
-          </div>
+          </OnImagesLoaded>
       </div>
     )
   }

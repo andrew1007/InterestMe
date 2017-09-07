@@ -76,10 +76,12 @@ class User < ActiveRecord::Base
     all_pins = []
     pins = Pin.where({user_id: self.id})
     pins.each do |pin|
+      board = Board.find(pin.board_id)
       user = User.find(self.id)
       pins_hash = pin.as_json
       pins_hash[:username] = user.username
       pins_hash[:profile_picture] = user.profile_picture
+      pins_hash[:board_name] = board.name
       all_pins << pins_hash
     end
     all_pins

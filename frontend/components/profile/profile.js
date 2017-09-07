@@ -29,10 +29,15 @@ class ProfilePresentational extends Component {
     const profileImageProps = { url: profile_picture, username }
     const profileDescriptionProps = { description }
     return (
-      <div>
-        <br/><br/><br/><br/><br/>
-        <ProfileImage {...profileImageProps}/>
-        <ProfileDescription {...profileDescriptionProps}/>
+      <div className='profile-container'>
+        <div className='profile-subcontainer'>
+          <div className='profile-image-subcontainer'>
+            <ProfileImage {...profileImageProps}/>
+          </div>
+          <div className='profile-description-subcontainer'>
+            <ProfileDescription {...profileDescriptionProps}/>
+          </div>
+        </div>
         <ProfileTabsSection {...tabSectionProps}/>
       </div>
     )

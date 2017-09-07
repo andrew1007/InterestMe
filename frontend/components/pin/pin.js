@@ -7,9 +7,10 @@ import Modal from 'react-modal';
 
 class PinPresentational extends Component {
   render() {
+    console.log(this.props);
     const { board_id, id, title, body, profile_picture } = this.props
-    const { username, owner, togglePinShow, user_id } = this.props
-    const pinHeaderProps = { board_id, id, title, body, owner,
+    const { username, owner, togglePinShow, user_id, board_name } = this.props
+    const pinHeaderProps = { board_id, id, title, body, owner, board_name,
       togglePinShow: this.props.togglePinShow.bind(this)
     }
     const pinBodyProps = { title, user_id, body, username, profile_picture }

@@ -17,15 +17,19 @@
   }
   &-user-container {
     width: 100px;
-    align-items: center;
+    @include flex-center;
     @include flex-column;
   }
   &-profile-thumbnail {
     width: 90px;
+    &:hover {
+      cursor: pointer;
+    }
   }
   &-body-container {
     flex-grow: 1;
     @include flex-center;
+    padding-left: 50px;
   }
 }
 

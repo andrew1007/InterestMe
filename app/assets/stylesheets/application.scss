@@ -18,6 +18,7 @@ $color-primary: #3b93db;
 $color-light: rgba(#3b93db, 0.8);
 $color-lightest: rgba(#3b93db, 0.5);
 $color-light-black: rgba(black, .08);
+$color-black: rgba(black, .7);
 $color-light-white: rgba(white, .9);
 $color-dark: #133253;
 $color-darkest: #041D37;
@@ -40,12 +41,23 @@ html {
   padding: 0;
 }
 
+a {
+  color: $color-primary;
+  font-size: 20px;
+  &:hover {
+    transition: 200ms;
+    color: $color-light;
+    cursor: pointer;
+  }
+}
+
 body {
   background-color: $background;
   position: absolute;
   height: 100%;
   font-family: 'GlacialIndifferenceRegular';
   overflow-x: hidden;
+  font-size: 20px;
 }
 
 body::-webkit-scrollbar {

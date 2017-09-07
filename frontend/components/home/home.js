@@ -17,13 +17,13 @@ class HomePresentatinal extends Component {
   }
 
   render() {
+    console.log(this.props);
     let headerProps = {
       name: 'Discover',
       username: null
     }
-    return(
-      <div>
-        <br/><br/><br/><br/><br/>
+    return (
+      <div className='home-container'>
         <BoardHeader {...headerProps}/>
         <BoardMasonry pins={Object.values(this.props.pins)}/>
       </div>

@@ -7,10 +7,12 @@ class Pin < ActiveRecord::Base
     all_pins = []
     pins = Pin.includes(:user).joins(:user).where.not({user_id: user.id}).shuffle
     pins.each do |pin|
+      board = Board.find(pin.board_id)
       user = pin.user
       pins_hash = pin.as_json
       pins_hash[:username] = user.username
       pins_hash[:profile_picture] = user.profile_picture
+      pins_hash[:board_name] = board.name
       all_pins << pins_hash
     end
     all_pins

@@ -4,16 +4,19 @@
   &-container {
     @include flex-column;
     @include flex-center;
-    max-width: 300px;
-    min-width: 300px;
-    border: 2px solid black;
+    max-width: 330px;
+    min-width: 330px;
+    border: 2px solid $color-black;
     margin: 20px;
     border-radius: 20px;
     overflow: hidden;
     min-height: 300px;
   }
   &-image {
-    width: 300px;
+    width: 330px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
@@ -51,7 +54,7 @@
     @include flex-row;
     justify-content: flex-start;
     width: 260px;
-    padding: 15px 20px 15px 20px;
+    padding: 15px 0px 15px 0px;
     flex-grow: 1;
   }
   &-description {
@@ -60,11 +63,19 @@
   }
   &-profile-icon {
     max-width: 50px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &-user-info-container {
+    @include flex-center;
+    @include flex-column;
   }
 }
 
 .board-header {
   &-container {
+    margin-top: 100px;
     width: 99vw;
     @include flex-column;
     @include flex-center;
@@ -76,7 +87,7 @@
   }
   &-name {
     @include flex-center;
-    font-size: 40px;
+    font-size: 50px;
     padding-bottom: 10px;
   }
   &-username {

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import PinHeaderEditModal from './pin_header_edit_modal'
-import {hashHistory} from 'react-router';
+import {hashHistory, Link} from 'react-router';
 
 export default class PinHeader extends Component {
   constructor(props) {
@@ -40,9 +40,9 @@ export default class PinHeader extends Component {
             {this.props.owner ? 'edit link' : null}
           </span>
         </div>
-        <div onClick={this.handleBoardRedirect.bind(this)}>
-          Board link
-        </div>
+        <a onClick={this.handleBoardRedirect.bind(this)}>
+          {this.props.board_name}
+        </a>
         { this.state.showModal ?
           <PinHeaderEditModal {...editModalProps}/> : null }
       </div>

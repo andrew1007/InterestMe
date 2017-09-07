@@ -39,9 +39,9 @@ class BoardPresentational extends Component {
   }
 
   render() {
+    console.log(this.props);
     return(
       <div>
-        <br/><br/><br/><br/><br/><br/>
         <BoardHeader {...this.props.board}/>
         <BoardMasonry pins={Object.values(this.props.pins)}/>
       </div>

@@ -1,11 +1,41 @@
 @import '../mixins.scss';
+@import '../application.scss';
+
+.profile {
+  &-container {
+    margin-top: 150px;
+    @include flex-column;
+    @include flex-center;
+  }
+  &-subcontainer {
+    @include flex-row;
+    max-width: 1000px;
+    padding: 50px 100px 100px 100px;
+  }
+  &-description-subcontainer {
+    padding: 20px;
+    margin-left: 50px;
+    @include flex-center;
+  }
+  &-image-subcontainer {
+    min-width: 175px;
+    max-width: 175px;
+  }
+}
+
+.profile-image {
+  &-container {
+    @include flex-column;
+    @include flex-center;
+  }
+}
 
 .profile-board-tab {
   &-button {
     width: 340px;
     height: 380px;
     @include flex-center;
-    border: 2px solid black;
+    border: 2px solid $color-black;
     border-radius: 30px;
     margin: 30px;
     &:hover {
@@ -25,7 +55,7 @@
   }
   &-button-underbar {
     width: 90vw;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid $color-black;
     @include flex-center;
     padding-bottom: 20px;
   }

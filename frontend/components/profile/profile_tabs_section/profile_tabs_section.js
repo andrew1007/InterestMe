@@ -15,14 +15,14 @@ export default class ProfileTabsSection extends Component {
     this.tabs = [
       'boards',
       'pins',
-      'followers',
-      'following'
+      // 'followers',
+      // 'following'
     ]
     this.tabComponents = [
       this.profileBoardTab.bind(this),
       this.profilePinsTab.bind(this),
-      this.followersTab.bind(this),
-      this.followingTab.bind(this)
+      // this.followersTab.bind(this),
+      // this.followingTab.bind(this)
     ]
   }
 
@@ -86,16 +86,12 @@ export default class ProfileTabsSection extends Component {
   render() {
     return (
       <div>
-        <br/><br/><br/><br/><br/>
         <div className='profile-tabs-section-button-container'>
           <div className='profile-tabs-section-button-underbar'>
             {this.buttonTabs()}
           </div>
         </div>
-        {this.profileBoardTab()}
-        {this.profilePinsTab()}
-        {this.followersTab()}
-        {this.followingTab()}
+        {this.components()}
       </div>
     )
   }
