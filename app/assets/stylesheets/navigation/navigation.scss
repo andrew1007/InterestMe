@@ -1,0 +1,16 @@
+@import "../application.scss";
+@import "../mixins.scss";
+
+.navigation {
+  &-container {
+    @include flex-row;
+    position: fixed;
+    width: 100vw;
+    height: 65px;
+    margin: -8px;
+    top: 5px;
+    background-color: $color-primary;
+    z-index: 100000;
+    flex-grow: 1;
+  }
+}

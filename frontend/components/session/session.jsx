@@ -7,7 +7,6 @@ import LoginFormContainer from './login_form_container'
 import SignedInButtonsContainer from './signed_in_buttons_container'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-
 export default class Session extends React.Component {
   constructor() {
     super();

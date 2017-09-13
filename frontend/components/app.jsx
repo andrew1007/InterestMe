@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from './nav_bar';
+import Navigation from './navigation/navigation'
 import {hashHistory} from 'react-router'
 import Modal from 'react-modal';
 
@@ -13,9 +14,10 @@ export default class App extends React.Component {
   }
 
   render() {
+    // <NavBar/>
     return(
       <div>
-        <NavBar/>
+        <Navigation/>
         {this.props.children}
       </div>
     )

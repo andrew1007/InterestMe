@@ -5,12 +5,15 @@ import Board from './board/board';
 import {Provider} from 'react-redux';
 import { getBoard } from '../actions/board_actions';
 import PinContainer from './pins/pins_container';
+import BoardContainer from './boards/board_container'
 import PinNewFormContainer from './pins/pin_new_container'
 import HomepageContainer from './homepage/homepage_container'
 import Home from './home/home'
 import UserProfileContainer from './profiles/user_profile_page_container'
-import Signup from './session/session'
+import Signup from './session/signup'
+import SessionContainer from './session/session_container'
 import Profile from './profile/profile'
+
 
 const Root = ({ store }) => {
 

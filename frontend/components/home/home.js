@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { getHome } from '../../actions/pin_actions'
 import BoardMasonry from '../board/board_masonry'
 import BoardHeader from '../board/board_header'
+import CMSPin from '../cms/cms_pin/cms_pin'
 
 class HomePresentatinal extends Component {
   constructor(props) {
@@ -22,10 +23,11 @@ class HomePresentatinal extends Component {
       name: 'Discover',
       username: null
     }
+    // <BoardMasonry pins={Object.values(this.props.pins)}/>
     return (
       <div className='home-container'>
         <BoardHeader {...headerProps}/>
-        <BoardMasonry pins={Object.values(this.props.pins)}/>
+        <CMSPin/>
       </div>
     )
   }

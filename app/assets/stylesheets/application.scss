@@ -30,7 +30,7 @@ $background: white;
 $color-test: rgba(black, 0.05);
 
 #root{
-  width: 100vw;
+  width: 98vw;
   height: 99vh;
   position: absolute;
 }
@@ -55,7 +55,7 @@ body {
   background-color: $background;
   position: absolute;
   height: 100%;
-  font-family: 'GlacialIndifferenceRegular';
+  font-family: 'arial';
   overflow-x: hidden;
   font-size: 20px;
 }
@@ -81,7 +81,6 @@ img {
 
 textarea {
   margin-top: 8px;
-  font-family: 'GlacialIndifferenceRegular';
   font-size: 20px;
   border: solid 2px;
   border-color: $color-light;
@@ -90,7 +89,6 @@ textarea {
 }
 
 button {
-  font-family: 'GlacialIndifferenceRegular';
   outline: none;
   padding: 10px 15px 10px 15px;
   background-color: $color-light;
@@ -130,7 +128,6 @@ button:hover {
 }
 
  label{
-   font-family: 'GlacialIndifferenceRegular' !important;
  }
 
  ul {
@@ -140,12 +137,10 @@ button:hover {
  }
 
 li {
-  font-family: 'GlacialIndifferenceRegular';
   list-style-type: none;
 }
 
 input {
-  font-family: 'GlacialIndifferenceRegular';
   border-top-style: hidden;
   border-left-style: hidden;
   border-right-style: hidden;
@@ -170,7 +165,6 @@ option {
 }
 
 .dont-break-container {
-  font-family: 'GlacialIndifferenceRegular';
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;

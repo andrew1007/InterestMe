@@ -11,8 +11,7 @@ export default class PinHeader extends Component {
   }
 
   toggleModal(type = null) {
-    this.setState({
-      showModal: this.state.showModal ? false : true,
+    this.setState({ showModal: this.state.showModal ? false : true
     },() => document.body.style.overflow = this.state.showModal ? 'auto' : 'hidden')
     if (type === 'delete') {
       this.props.togglePinShow()
@@ -20,6 +19,7 @@ export default class PinHeader extends Component {
   }
 
   handleBoardRedirect() {
+    document.body.style.overflow = 'auto'
     hashHistory.push(`/boards/${this.props.board_id}`)
   }
 

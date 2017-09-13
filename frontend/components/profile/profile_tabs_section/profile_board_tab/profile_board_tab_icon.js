@@ -40,7 +40,7 @@ export default class ProfileBoardTabIcon extends Component {
 
   render() {
     return (
-      <div className='profile-board-tab-icon-container'>
+      <div className='profile-board-tab-icon-container' onClick={() => this.routeToBoard()}>
         <div>
           <div className='profile-board-tab-icon-horizontal-container'>
             {this.horizontalImages()}

@@ -19,6 +19,7 @@ export default class BoardTile extends Component {
   }
 
   _handleUserRedirect() {
+    document.body.style.overflow = 'auto'
     console.log("go to user profile");
   }
 

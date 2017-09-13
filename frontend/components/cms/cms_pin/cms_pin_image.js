@@ -9,7 +9,7 @@ export default class CMSPinImage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      imageUrl: null
+      image_url: null
     }
   }
 
@@ -23,7 +23,9 @@ export default class CMSPinImage extends Component {
   _upload(request) {
     request.end((errors, results) => {
       if (errors === null) {
-        this.setState({imageUrl: results.body.secure_url})
+        this.setState({image_url: results.body.secure_url}, () => {
+          this.props.update(this.state.image_url, 'image_url')
+        })
       } else {
         console.log('uploaded error');
       }
@@ -34,7 +36,7 @@ export default class CMSPinImage extends Component {
     return (
       <div>
         <img
-          src={this.state.imageUrl}
+          src={this.state.image_url}
         />
       </div>
     )
@@ -44,12 +46,12 @@ export default class CMSPinImage extends Component {
     return (
       <div>
         <Dropzone
-          mutliple={false}
+          multiple={false}
           accept="image/*"
           onDrop={this._handleDrop.bind(this)}
-          className={''}
+          className=''
           >
-            { this.state.imageUrl ? this.image() : null }
+            { this.state.image_url ? this.image() : null }
         </Dropzone>
       </div>
     )

@@ -72,7 +72,7 @@ export default class BoardMasonry extends Component {
           placeholder={<BoardLoadingIcon/>}
           timeout={7000}
           delay={500}
-        >
+          >
           <Masonry
             elementType={'div'}
             disableImagesLoaded={false}
@@ -85,7 +85,7 @@ export default class BoardMasonry extends Component {
               onEnter={this._addTiles.bind(this)}
               bottomOffset='-100px'
             />
-          </OnImagesLoaded>
+        </OnImagesLoaded>
       </div>
     )
   }
