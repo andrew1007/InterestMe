@@ -23,6 +23,7 @@ export default class PinHeader extends Component {
   handleBoardRedirect() {
     this.props.togglePinShow()
     hashHistory.push(`/boards/${this.props.board_id}`)
+    document.body.style.overflow = 'auto'
   }
 
   render() {

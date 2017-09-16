@@ -13,7 +13,9 @@ class PinPresentational extends Component {
     const pinHeaderProps = { board_id, id, title, body, owner, board_name,
       togglePinShow: this.props.boardTile.togglePinShow.bind(this)
     }
-    const pinBodyProps = { title, user_id, body, username, profile_picture }
+    const pinBodyProps = { title, user_id, body, username, profile_picture,
+      togglePinShow: this.props.boardTile.togglePinShow.bind(this) 
+    }
 
     return (
       <Modal

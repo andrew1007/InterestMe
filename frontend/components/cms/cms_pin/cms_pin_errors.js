@@ -2,13 +2,19 @@ import React, { Component } from 'react'
 
 export default class CMSPinErrors extends Component {
   emptyParams() {
-    const {title, body, image_url} = this.props
-    const paramsArray = Object.entries({title, body, image_url})
+    const {title, image_url, board_id} = this.props
+    const paramsArray = Object.entries({title, image_url, board_id})
     let emptyParams = paramsArray.filter(([desc, val]) => {
-      return val === ''
+      return val === '' || !val
     })
     emptyParams = emptyParams.map(([desc, val]) => {
-      return desc === 'image_url' ? 'an image' : desc
+      if (desc === 'image_url') {
+        return 'image'
+      } else if (desc === 'board_id') {
+        return 'board'
+      } else {
+        return desc
+      }
     })
     return emptyParams.join(", ")
   }

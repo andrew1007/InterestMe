@@ -3,7 +3,9 @@ import {hashHistory} from 'react-router';
 
 export default class PinBody extends Component {
   handleUserRedirect() {
+    this.props.togglePinShow()
     hashHistory.push(`/user/${this.props.user_id}`)
+    document.body.style.overflow = 'auto'
   }
 
   render() {

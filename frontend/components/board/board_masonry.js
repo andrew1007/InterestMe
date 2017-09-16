@@ -48,7 +48,7 @@ export default class BoardMasonry extends Component {
     let pinCount = this.props.pins.length
     if (this._mounted) {
       this.setState({counter: this.state.counter + 1}, () => {
-        if ((counter > revealCounter || pinCount < revealCounter) && this._mounted) {
+        if ((counter >= revealCounter || pinCount < revealCounter) && this._mounted) {
           this._revealPins()
           this.setState({revealCounter: this.state.revealCounter + 15})
         }
@@ -78,28 +78,28 @@ export default class BoardMasonry extends Component {
       transitionDuration: '0.01s'
     }
     return (
-      <div>
-        <OnImagesLoaded
-          classNameOnMount='hidden'
-          classNameOnLoaded='visible'
-          placeholder={<BoardLoadingIcon/>}
-          timeout={7000}
-          delay={500}
-          >
-          <Masonry
-            elementType={'div'}
-            disableImagesLoaded={false}
-            className='board-masonry'
-            options={masonryOptions}
-            >
-              {this.renderTiles()}
-            </Masonry>
-            <Waypoint
-              onEnter={this._addTiles.bind(this)}
-              bottomOffset='-100px'
-            />
-        </OnImagesLoaded>
-      </div>
+      <OnImagesLoaded
+        classNameOnMount='hidden'
+        classNameOnLoaded='visible'
+        placeholder={<BoardLoadingIcon/>}
+        timeout={7000}
+        delay={500}
+        >
+        <div>
+            <Masonry
+              elementType={'div'}
+              disableImagesLoaded={false}
+              className='board-masonry'
+              options={masonryOptions}
+              >
+                {this.renderTiles()}
+              </Masonry>
+              <Waypoint
+                onEnter={this._addTiles.bind(this)}
+                bottomOffset='-100px'
+              />
+        </div>
+      </OnImagesLoaded>
     )
   }
 }

@@ -14,12 +14,11 @@ export default class CMSPinForm extends Component {
       errors: false,
     }
     this.errorText = 'The following are required and missing: '
-    this.required = ['title', 'body', 'image_url']
   }
 
   hasEmptyParams() {
-    const {title, body, image_url} = this.state
-    const paramsArray = Object.entries({title, body, image_url})
+    const {title, image_url, board_id} = this.state
+    const paramsArray = Object.entries({title, image_url, board_id})
     const emptyParams = paramsArray.filter(([desc, val]) => {
       return val === ''
     })
@@ -28,6 +27,7 @@ export default class CMSPinForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
+    console.log(this.state);
     const {title, body, board_id, image_url} = this.state
     const createPinParams = {title, body, board_id, image_url}
     if (this.hasEmptyParams()) {
@@ -40,24 +40,26 @@ export default class CMSPinForm extends Component {
 
   update(content, text) {
     const newText = (typeof content === 'string') ? content : content.currentTarget.value
-    this.setState({[text]: newText})
+    this.setState({[text]: newText}, () => {
+      this.setState({errors: this.hasEmptyParams() && this.state.errors ? true : false})
+    })
   }
 
   render() {
     const { boards } = this.props
-    const {title, body, image_url} = this.state
+    const {title, body, image_url, board_id} = this.state
     const cmsPinFormDropdownProps = {boards, update: (e, text) => this.update(e, text)}
     const cmsPinImageProps = {update: (e, text) => this.update(e, text)}
-    const cmsPinErrorsProps = {title, body, image_url, errorText: this.errorText}
+    const cmsPinErrorsProps = {title, image_url, board_id, errorText: this.errorText}
     return (
       <div className='cms-pin-form-container'>
-        <h3 style={{"marginTop": "0px"}}>New Pin</h3>
+        <h3 style={{marginTop: "0px"}}>New Pin</h3>
         <div className='cms-pin-form-subcontainer'>
           <div className='cms-pin-form-image-container'>
             <CMSPinFormImage {...cmsPinImageProps}/>
           </div>
           <div>
-            <div className="cms-pin-form-error-form-container">
+            <div className="cms-pin-form-error-form-container" style={{'paddingLeft': '40px'}}>
               {this.state.errors ? <CMSPinErrors {...cmsPinErrorsProps}/> : null}
             </div>
             <form onSubmit={(e) => this.handleSubmit(e)} className='cms-pin-form-form-container'>

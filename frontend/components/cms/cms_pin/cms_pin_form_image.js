@@ -37,7 +37,7 @@ export default class CMSPinFormImage extends Component {
 
   nonImage() {
     if (!this.state.imageurl && !this.state.isLoading) {
-      return <div>upload an image</div>
+      return <div style={{zIndex:'-1'}}>upload an image</div>
     } else {
       return <div className="board-loader"/>
     }
