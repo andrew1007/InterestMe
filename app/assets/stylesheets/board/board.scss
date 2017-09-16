@@ -29,10 +29,12 @@
 }
 
 .board-loader-container {
+  position: absolute;
   display: flex;
   justify-content: center;
   margin-top: 150px;
-  width: 99vw;
+  width: 100vw;
+  left: 0;
 }
 
 .board-loader {

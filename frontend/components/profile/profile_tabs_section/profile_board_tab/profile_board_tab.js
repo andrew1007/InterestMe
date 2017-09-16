@@ -6,13 +6,12 @@ import LoadingIcon from '../../../shared/loading_icon'
 export default class ProfileBoardTab extends Component {
   boards() {
     return this.props.boards.map((board, idx) => (
-      <div key={idx} className='profile-board-tab-button'>
-        <ProfileBoardTabIcon board={board}/>
-      </div>
+      <ProfileBoardTabIcon board={board} key={idx}/>
     ))
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className='profile-board-tab-container'>
         {

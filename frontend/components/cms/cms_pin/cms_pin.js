@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Modal from 'react-modal'
 import { connect } from 'react-redux'
-import CMSPinImage from './cms_pin_image'
 import CMSPinForm from './cms_pin_form'
 import { getProfilePage } from '../../../actions/user_actions'
 import {createPin} from '../../../actions/pin_actions';
@@ -11,26 +10,25 @@ class CMSPinPresentational extends Component {
     super(props)
   }
 
-  componentWillMount() {
-    this.props.getProfilePage(this.props.session.id)
-    console.log(this.props);
+  async componentWillMount() {
+    await this.props.getProfilePage(this.props.session.id)
   }
 
   render() {
-    // <Modal
-    //   onRequestClose={() => this.props.closeButton('newPinModal')}
-    //   >
-    //   stuff
-    // </Modal>
-    console.log(this.props);
     const {boards, id} = this.props.user
     const {createPin} = this.props
-    const cmsPinFormProps = {boards, id, createPin}
-    // <CMSPinImage/>
+    const cmsPinFormProps = {boards, id, createPin,
+      toggleCMSPin: () => this.props.toggleCMSPin()
+    }
     return (
-      <div>
+      <Modal
+        isOpen={true}
+        onRequestClose={() => this.props.toggleCMSPin()}
+        contentLabel='modal'
+        className='cms-pin-modal'
+        >
         <CMSPinForm {...cmsPinFormProps}/>
-      </div>
+      </Modal>
     )
   }
 }

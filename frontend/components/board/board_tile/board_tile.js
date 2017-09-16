@@ -28,10 +28,14 @@ export default class BoardTile extends Component {
   }
 
   render() {
-    const props = {
-      ...this.props,
+    const { board_id, board_name, body, id } = this.props
+    const { image_url, owner, profile_picture } = this.props
+    const { title, user_id, username } = this.props
+    const pinProps = {boardTile: {
+      board_id, board_name, body, id, image_url,
+      owner, profile_picture, title, user_id, username,
       togglePinShow: this.togglePinShow
-    }
+    }}
     return (
       <div>
         <div className='board-tile-container hidden'>
@@ -45,7 +49,7 @@ export default class BoardTile extends Component {
           </div>
           <BoardTileBody {...this.props}/>
         </div>
-        {this.state.showPin ? <Pin {...props}/> : null}
+        {this.state.showPin ? <Pin {...pinProps}/> : null}
       </div>
     )
   }

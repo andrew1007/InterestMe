@@ -3,7 +3,6 @@ import Masonry from 'react-masonry-component'
 import BoardTile from './board_tile/board_tile'
 import Waypoint from 'react-waypoint'
 import BoardLoadingIcon from './board_loading_icon'
-import ImageOnLoad from './image_load'
 import OnImagesLoaded from 'react-on-images-loaded'
 
 export default class BoardMasonry extends Component {
@@ -19,35 +18,49 @@ export default class BoardMasonry extends Component {
     this.pinLoaded = this.pinLoaded.bind(this)
   }
 
+  componentDidMount() {
+    this._mounted = true
+  }
+
+  componentWillUnmount() {
+    this._mounted = false
+  }
+
   _addTiles() {
-    this.setState({
-      idx: this.state.idx + 15,
-    })
+    if (this._mounted) {
+      this.setState({idx: this.state.idx + 15})
+    }
   }
 
   _revealPins() {
-    this.setState({done: true}, () => {
-      setTimeout( () => {
-        $('.hidden').removeClass('hidden').addClass('visible')
-      }, 100)
-    })
+    if (this._mounted) {
+      this.setState({done: true}, () => {
+        setTimeout( () => {
+          $('.hidden').removeClass('hidden').addClass('visible')
+        }, 100)
+      })
+    }
   }
 
   pinLoaded() {
     let counter = this.state.counter
     let revealCounter = this.state.revealCounter
     let pinCount = this.props.pins.length
-    this.setState({counter: this.state.counter + 1}, () => {
-      if (counter > revealCounter || pinCount < revealCounter) {
-        this._revealPins()
-        this.setState({revealCounter: this.state.revealCounter + 15})
-      }
-    })
-    setTimeout(() => this._revealPins(), 7000)
+    if (this._mounted) {
+      this.setState({counter: this.state.counter + 1}, () => {
+        if ((counter > revealCounter || pinCount < revealCounter) && this._mounted) {
+          this._revealPins()
+          this.setState({revealCounter: this.state.revealCounter + 15})
+        }
+      })
+      setTimeout(() => this._revealPins(), 7000)
+    }
   }
 
   finishedLoading() {
-    this.setState({done: true})
+    if (this._mounted) {
+      this.setState({done: true})
+    }
   }
 
   renderTiles() {

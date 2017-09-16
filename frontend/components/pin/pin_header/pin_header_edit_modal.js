@@ -44,18 +44,26 @@ class PinHeaderEditModalPresentational extends Component {
   }
 
   editForm() {
+    const h2Style={"marginTop": "0px"}
     return (
-      <form onSubmit={this._handleSubmit.bind(this)}>
-        <input
-          autoFocus
-          type='text'
-          onChange={this.update('title')}
-          defaultValue={this.state.title}
-        />
-        <textarea
-          onChange={this.update('body')}
-          placeholder="What's this pin about?"
+      <div>
+        <h2>Edit Pin</h2>
+        <form
+          onSubmit={this._handleSubmit.bind(this)}
+          className='pin-header-edit-modal-form'
           >
+          <div>Title</div>
+          <input
+            autoFocus
+            type='text'
+            onChange={this.update('title')}
+            defaultValue={this.state.title}
+            />
+          <div>Description</div>
+          <textarea
+            onChange={this.update('body')}
+            placeholder="What's this pin about?"
+            >
             {this.state.body}
           </textarea>
           <div>
@@ -70,6 +78,7 @@ class PinHeaderEditModalPresentational extends Component {
             </button>
           </div>
         </form>
+      </div>
     )
   }
 

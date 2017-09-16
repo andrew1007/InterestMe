@@ -3,11 +3,10 @@ import { hashHistory } from 'react-router'
 
 export default class NavigationGuestLogin extends Component {
 
-  _handleClick() {
+  async _handleClick() {
     const user = {username: "Pusheen", password: "password"};
-    this.props.processLogin(user).then( () => {
-      hashHistory.push('/home')
-    })
+    await this.props.processLogin(user)
+    hashHistory.push('/home')
   }
 
   render() {

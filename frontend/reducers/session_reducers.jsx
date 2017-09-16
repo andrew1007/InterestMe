@@ -2,7 +2,9 @@ import { RECEIVE_CURRENT_USER, RECEIVE_ERRORS, LOG_OUT_USER, CLEAR_ERRORS } from
 import merge from 'lodash/merge';
 
 const defaultState = Object.freeze({
-  currentUser: null,
+  currentUser: {
+    id: null
+  },
   errors: []
 });
 

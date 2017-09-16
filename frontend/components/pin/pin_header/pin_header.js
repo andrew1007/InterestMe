@@ -12,14 +12,16 @@ export default class PinHeader extends Component {
 
   toggleModal(type = null) {
     this.setState({ showModal: this.state.showModal ? false : true
-    },() => document.body.style.overflow = this.state.showModal ? 'auto' : 'hidden')
+    },() => {
+      document.body.style.overflow = this.state.showModal && type !== 'edit' ? 'auto' : 'hidden'
+    })
     if (type === 'delete') {
       this.props.togglePinShow()
     }
   }
 
   handleBoardRedirect() {
-    document.body.style.overflow = 'auto'
+    this.props.togglePinShow()
     hashHistory.push(`/boards/${this.props.board_id}`)
   }
 
@@ -28,19 +30,20 @@ export default class PinHeader extends Component {
     console.log(this.props);
     let { id, title, body, board_id, owner } = this.props
     let editModalProps = { id, title, body, board_id, owner,
-      toggleModal: this.toggleModal.bind(this)
+      toggleModal: () => this.toggleModal()
     }
+    const editStyle = {"paddingLeft": "10px"}
     return (
       <div>
         <div className='pin-header-title-link-container'>
           <div className='pin-header-title'>
             {this.props.title}
           </div>
-          <span onClick={this.toggleModal.bind(this)}>
-            {this.props.owner ? 'edit link' : null}
+          <span onClick={() => this.toggleModal('edit')} style={editStyle}>
+            {this.props.owner ? <i className="fa fa-pencil-square-o fa-2x edit-modal-cog"/> : null}
           </span>
         </div>
-        <a onClick={this.handleBoardRedirect.bind(this)}>
+        <a className='pin-header-board-name'onClick={() => this.handleBoardRedirect()}>
           {this.props.board_name}
         </a>
         { this.state.showModal ?

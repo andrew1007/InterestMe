@@ -27,6 +27,7 @@
   &-container {
     @include flex-column;
     @include flex-center;
+    flex-wrap: wrap;
   }
 }
 
@@ -45,6 +46,7 @@
   &-container {
     @include flex-row;
     @include flex-center;
+    flex-wrap: wrap;
   }
 }
 

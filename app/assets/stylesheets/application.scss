@@ -81,10 +81,11 @@ img {
 
 textarea {
   margin-top: 8px;
-  font-size: 20px;
+  font-size: 15px;
   border: solid 2px;
   border-color: $color-light;
   color: black;
+  height: 100px;
   background-color: rgba(white, 0.6);
 }
 
@@ -148,7 +149,7 @@ input {
   outline: none;
   margin-left: 5px;
   margin-bottom: 10px;
-  font-size: 20px;
+  font-size: 17px;
   width: 80%;
   color: black;
   padding-left: 10px;

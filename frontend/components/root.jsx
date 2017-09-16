@@ -36,7 +36,7 @@ const Root = ({ store }) => {
       <Router history={hashHistory}>
         <Route path="/" component={App}>
           <IndexRedirect to="/session"/>
-          <Route path="session" component={Signup}  onEnter={_redirectIfLoggedIn}/>
+          <Route path="session" component={SessionContainer}  onEnter={_redirectIfLoggedIn}/>
           <Route IndexRoute path="home" component={Home}  onEnter={_redirectIfLoggedOut} />
           <Route path="boards/:boardId" component={Board}  onEnter={_redirectIfLoggedOut}/>
           <Route path="user/:userId" component={Profile} onEnter={_redirectIfLoggedOut} />

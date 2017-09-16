@@ -4,21 +4,22 @@ import PinBody from './pin_body'
 import PinHeader from './pin_header/pin_header'
 import PinImage from './pin_image'
 import Modal from 'react-modal';
+import {editPin, deletePin} from '../../actions/pin_actions'
 
 class PinPresentational extends Component {
   render() {
-    console.log(this.props);
-    const { board_id, id, title, body, profile_picture } = this.props
-    const { username, owner, togglePinShow, user_id, board_name } = this.props
+    const { board_id, id, title, body, profile_picture, image_url } = this.props.boardTile
+    const { username, owner, togglePinShow, user_id, board_name } = this.props.boardTile
     const pinHeaderProps = { board_id, id, title, body, owner, board_name,
-      togglePinShow: this.props.togglePinShow.bind(this)
+      togglePinShow: this.props.boardTile.togglePinShow.bind(this)
     }
     const pinBodyProps = { title, user_id, body, username, profile_picture }
+
     return (
       <Modal
         isOpen={true}
         onAfterOpen={this.afterOpenModal}
-        onRequestClose={() => this.props.togglePinShow()}
+        onRequestClose={() => this.props.boardTile.togglePinShow()}
         contentLabel="Modal"
         className="ReactModal__Content"
       >
@@ -27,7 +28,7 @@ class PinPresentational extends Component {
             <PinHeader {...pinHeaderProps}/>
           </div>
           <div>
-            <PinImage imageUrl={this.props.image_url}/>
+            <PinImage imageUrl={image_url}/>
           </div>
           <div>
             <PinBody {...pinBodyProps}/>
@@ -39,16 +40,15 @@ class PinPresentational extends Component {
 }
 
 
-// const mapStateToProps = ({boards, session, pins}, ownProps) => ({
-// });
-//
-// const mapDispatchToProps = (dispatch) => ({
-// });
+const mapDispatchToProps = (dispatch) => ({
+  editPin: (pin) => dispatch(editPin(pin)),
+  deletePin: (id) => dispatch(deletePin(id))
+});
 
 
 const Pin = connect(
   null,
-  null
+  mapDispatchToProps
 )(PinPresentational)
 
 export default Pin

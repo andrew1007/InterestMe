@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
 import Dropzone from 'react-dropzone'
 import request from 'superagent'
+import LoadingIcon from '../../shared/loading_icon'
 
 const CLOUDINARY_PRESET = 'punlriir'
 const CLOUDINARY_UPLOAD ='https://api.cloudinary.com/v1_1/andoo/upload'
 
-export default class CMSPinImage extends Component {
+export default class CMSPinFormImage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      image_url: null
+      image_url: null,
+      isLoading: false
     }
   }
 
@@ -17,6 +19,7 @@ export default class CMSPinImage extends Component {
     let postRequest = request.post(CLOUDINARY_UPLOAD)
     .field('upload_preset', CLOUDINARY_PRESET)
     .field('file', img)
+    this.setState({isLoading: true})
     this._upload(postRequest)
   }
 
@@ -30,6 +33,14 @@ export default class CMSPinImage extends Component {
         console.log('uploaded error');
       }
     })
+  }
+
+  nonImage() {
+    if (!this.state.imageurl && !this.state.isLoading) {
+      return <div>upload an image</div>
+    } else {
+      return <div className="board-loader"/>
+    }
   }
 
   image() {
@@ -49,9 +60,9 @@ export default class CMSPinImage extends Component {
           multiple={false}
           accept="image/*"
           onDrop={this._handleDrop.bind(this)}
-          className=''
+          className="cms-pin-form-image-container"
           >
-            { this.state.image_url ? this.image() : null }
+            { this.state.image_url ? this.image() : this.nonImage() }
         </Dropzone>
       </div>
     )

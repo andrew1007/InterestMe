@@ -4,7 +4,9 @@ import BoardMasonry from '../../board/board_masonry'
 export default class ProfilePinTab extends Component {
   render() {
     return (
-      <BoardMasonry {...this.props}/>
+      <div style={{'width':'100vw'}}>
+        <BoardMasonry {...this.props}/>
+      </div>
     )
   }
 }

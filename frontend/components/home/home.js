@@ -4,7 +4,7 @@ import { getHome } from '../../actions/pin_actions'
 import BoardMasonry from '../board/board_masonry'
 import BoardHeader from '../board/board_header'
 import CMSPin from '../cms/cms_pin/cms_pin'
-
+import SessionLogin from '../session/session_login/session_login'
 class HomePresentatinal extends Component {
   constructor(props) {
     super(props)
@@ -19,15 +19,17 @@ class HomePresentatinal extends Component {
 
   render() {
     console.log(this.props);
-    let headerProps = {
+    const headerProps = {
       name: 'Discover',
       username: null
     }
-    // <BoardMasonry pins={Object.values(this.props.pins)}/>
+    const pins = Object.values(this.props.pins)
+    const boardMasonryProps = { pins }
+    // <CMSPin/>
     return (
       <div className='home-container'>
         <BoardHeader {...headerProps}/>
-        <CMSPin/>
+        <BoardMasonry {...boardMasonryProps}/>
       </div>
     )
   }
