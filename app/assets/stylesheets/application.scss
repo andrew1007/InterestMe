@@ -176,6 +176,7 @@ option {
 }
 
 .hidden {
+  height: 0px;
   opacity: 0;
   @include long-transition;
   z-index: -10

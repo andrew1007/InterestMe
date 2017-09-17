@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {hashHistory} from 'react-router'
 
 export default class CMSBoardForm extends Component {
   constructor(props) {
@@ -13,12 +14,14 @@ export default class CMSBoardForm extends Component {
     this.setState({[text]: newText})
   }
 
-  handleSubmit(e) {
+  async handleSubmit(e) {
     e.preventDefault()
     const { name } = this.state
     const createBoardParams = { name }
-    this.props.createBoard(createBoardParams)
     this.props.toggleCMSBoard()
+    const {board} = await this.props.createBoard(createBoardParams)
+    console.log(board);
+    hashHistory.push(`boards/${board.id}`)
   }
 
   render() {

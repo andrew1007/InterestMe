@@ -4,9 +4,9 @@ export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const DESTROY_PIN = 'DELETE_PIN';
 export const RECEIVE_PIN = "RECEIVE_PIN";
 
-export const createPin = pin => async (dispatch) => {
-  const pins = await ajax_request.createPin(pin)
-  return dispatch(receivePins(pins))
+export const createPin = newPin => async (dispatch) => {
+  const {pin} = await ajax_request.createPin(newPin)
+  return dispatch(receivePins(pin))
 }
 
 export const editPin = pin => async (dispatch) => {

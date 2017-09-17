@@ -3,7 +3,7 @@ import Modal from 'react-modal'
 import { connect } from 'react-redux'
 import CMSPinForm from './cms_pin_form'
 import { getProfilePage } from '../../../actions/user_actions'
-import {createPin} from '../../../actions/pin_actions';
+import {createPin, getPins} from '../../../actions/pin_actions';
 
 class CMSPinPresentational extends Component {
   constructor(props) {
@@ -17,8 +17,10 @@ class CMSPinPresentational extends Component {
   render() {
     const {boards, id} = this.props.user
     const {createPin} = this.props
-    const cmsPinFormProps = {boards, id, createPin,
-      toggleCMSPin: () => this.props.toggleCMSPin()
+    const cmsPinFormProps = {boards, id,
+      createPin: (pin) => this.props.createPin(pin),
+      toggleCMSPin: () => this.props.toggleCMSPin(),
+      getPins: (boardId) => this.props.getPins(boardId)
     }
     return (
       <Modal
@@ -40,7 +42,8 @@ const mapStateToProps = ({user, session}) => ({
 
 const mapDispatchToProps = dispatch => ({
   getProfilePage: (id) => dispatch(getProfilePage(id)),
-  createPin: (pin) => dispatch(createPin(pin))
+  createPin: (pin) => dispatch(createPin(pin)),
+  getPins: (boardId) => dispatch(getPins(boardId))
 })
 
 const CMSPin = connect(

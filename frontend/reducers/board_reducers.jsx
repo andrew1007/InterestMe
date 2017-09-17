@@ -11,7 +11,7 @@ const BoardReducer = (state = defaultState, action) => {
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_BOARD:
-      board = action.board
+      board = action
       return merge({}, state, board)
     case GET_BOARD:
       board = action.board.board

@@ -33,9 +33,19 @@ class BoardPresentational extends Component {
     }
   }
 
-  componentWillMount() {
+  async componentWillMount() {
     this.props.getBoard(this.props.boardId)
-    this.props.getPins(this.props.boardId)
+    await this.props.getPins(this.props.boardId)
+    debugger
+  }
+
+  async componentDidUpdate(prevProps) {
+    if (prevProps.boardId !== this.props.boardId) {
+      const board = this.props.getBoard(this.props.boardId)
+      const pins = this.props.getPins(this.props.boardId)
+      debugger
+      await Promise.all([board, pins])
+    }
   }
 
   render() {

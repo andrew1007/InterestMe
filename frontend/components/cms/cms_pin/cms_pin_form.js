@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import CMSPinFormDropdown from './cms_pin_form_dropdown'
 import CMSPinFormImage from './cms_pin_form_image'
 import CMSPinErrors from './cms_pin_errors'
+import {hashHistory} from 'react-router';
 
 export default class CMSPinForm extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ export default class CMSPinForm extends Component {
     return emptyParams.length > 0
   }
 
-  handleSubmit(e) {
+  async handleSubmit(e) {
     e.preventDefault()
     const {title, body, board_id, image_url} = this.state
     const createPinParams = {title, body, board_id, image_url}
@@ -33,7 +34,9 @@ export default class CMSPinForm extends Component {
       this.setState({errors: true})
     } else {
       this.setState({errors: false})
-      this.props.createPin(createPinParams)
+      const {pins} = await this.props.createPin(createPinParams)
+      await this.props.getPins(pins.board_id)
+      hashHistory.push(`boards/${pins.board_id}`)
       this.props.toggleCMSPin()
     }
   }

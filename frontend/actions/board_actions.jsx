@@ -5,9 +5,10 @@ export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const DESTROY_BOARD = 'DELETE_BOARD';
 export const GET_BOARD = 'GET_BOARD';
 
-export const createBoard = board => dispatch => (
-  ajax_request.createBoard(board).then((board) => dispatch(receiveBoard(board)))
-);
+export const createBoard = newBoard => async (dispatch) => {
+  const {board} = await ajax_request.createBoard(newBoard)
+  return dispatch(receiveBoard(board))
+}
 
 export const editBoard = board => dispatch => (
   ajax_request.editBoard(board).then((board) => dispatch(receiveBoard(board)))

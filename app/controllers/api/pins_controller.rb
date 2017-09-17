@@ -17,12 +17,11 @@ class Api::PinsController < ApplicationController
   end
 
   def create
-    @pin = Pin.new(pin_params)
-    @pin.user_id = current_user.id
-    @board = Board.find(params[:pin][:board_id].to_i)
-    if @pin.save
-      @pins = Pin.where(board_id: @pin.board_id)
-      render "/api/boards/show"
+    new_pin = Pin.new(pin_params)
+    new_pin.user_id = current_user.id
+    if new_pin.save
+      @pin = new_pin
+      render :new
     else
       render json: @pin.errors.full_messages, status: 422
     end
