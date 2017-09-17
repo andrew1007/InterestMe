@@ -5,6 +5,7 @@ import NavigationLogout from './navigation_logout'
 import NavigationNewPin from './navigation_new_pin'
 import NavigationLogin from './navigation_login'
 import NavigationSignup from './navigation_signup'
+import NavigationNewBoard from './navigation_new_board'
 import { connect } from 'react-redux';
 
 import { login, signup, logout, clearErrors, getCurrentUser } from '../../actions/session_actions';
@@ -24,6 +25,7 @@ class NavigationPresentational extends Component {
         <NavigationNewPin/>
         <NavigationLogin/>
         <NavigationSignup/>
+        <NavigationNewBoard/>
       </div>
     )
   }

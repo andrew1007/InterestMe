@@ -24,7 +24,7 @@ class ProfilePresentational extends Component {
   }
 
   render() {
-    let { description, username, profile_picture, boards, id, pins, followed_by, following } = this.props.user
+    const { description, username, profile_picture, boards, id, pins, followed_by, following } = this.props.user
     const tabSectionProps = { boards, id, pins, followed_by, following }
     const profileImageProps = { url: profile_picture, username }
     const profileDescriptionProps = { description }

@@ -45,7 +45,8 @@
   }
   &-container {
     @include flex-row;
-    @include flex-center;
+    justify-content: flex-start;
+    align-items: center;
     flex-wrap: wrap;
   }
 }
@@ -60,6 +61,7 @@
     border-bottom: 2px solid $color-black;
     @include flex-center;
     padding-bottom: 20px;
+    z-index: 1;
   }
 }
 

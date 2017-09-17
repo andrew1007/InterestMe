@@ -18,14 +18,9 @@ class HomePresentatinal extends Component {
   }
 
   render() {
-    console.log(this.props);
-    const headerProps = {
-      name: 'Discover',
-      username: null
-    }
+    const headerProps = { name: 'Discover', username: null }
     const pins = Object.values(this.props.pins)
     const boardMasonryProps = { pins }
-    // <CMSPin/>
     return (
       <div className='home-container'>
         <BoardHeader {...headerProps}/>

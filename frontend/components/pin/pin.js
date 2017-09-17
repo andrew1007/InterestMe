@@ -11,10 +11,10 @@ class PinPresentational extends Component {
     const { board_id, id, title, body, profile_picture, image_url } = this.props.boardTile
     const { username, owner, togglePinShow, user_id, board_name } = this.props.boardTile
     const pinHeaderProps = { board_id, id, title, body, owner, board_name,
-      togglePinShow: this.props.boardTile.togglePinShow.bind(this)
+      togglePinShow: togglePinShow.bind(this)
     }
     const pinBodyProps = { title, user_id, body, username, profile_picture,
-      togglePinShow: this.props.boardTile.togglePinShow.bind(this) 
+      togglePinShow: togglePinShow.bind(this)
     }
 
     return (

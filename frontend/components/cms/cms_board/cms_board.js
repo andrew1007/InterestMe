@@ -7,21 +7,20 @@ import CMSBoardForm from './cms_board_form'
 class CMSBoardPresentational extends Component {
   constructor(props) {
     super(props)
-    this.state {
+    this.state = {
       show: true
     }
   }
 
-  toggleCMSBoard() {
-    this.setState({show: this.state.show ? false : true})
-  }
-
   render() {
-    const cmsBoardFormProps = {toggleCMSBoard: () => this.toggleCMSBoard()}
+    const cmsBoardFormProps = {
+      toggleCMSBoard: () => this.props.toggleCMSBoard(),
+      createBoard: (board) => this.props.createBoard(board)
+    }
     return (
       <Modal
         isOpen={true}
-        onRequestClose={() => this.toggleCMSBoard()}
+        onRequestClose={() => this.props.toggleCMSBoard()}
         contentLabel='modal'
         className='cms-board-modal'
         >
@@ -30,3 +29,13 @@ class CMSBoardPresentational extends Component {
     )
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  createBoard: (board) => dispatch(createBoard(board))
+})
+
+const CMSBoard = connect(
+  null, mapDispatchToProps
+)(CMSBoardPresentational)
+
+export default CMSBoard

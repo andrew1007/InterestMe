@@ -13,7 +13,7 @@ export default class CMSPinForm extends Component {
       image_url:'',
       errors: false,
     }
-    this.errorText = 'The following are required and missing: '
+    this.errorText = 'The following are still required: '
   }
 
   hasEmptyParams() {
@@ -27,12 +27,12 @@ export default class CMSPinForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log(this.state);
     const {title, body, board_id, image_url} = this.state
     const createPinParams = {title, body, board_id, image_url}
     if (this.hasEmptyParams()) {
       this.setState({errors: true})
     } else {
+      this.setState({errors: false})
       this.props.createPin(createPinParams)
       this.props.toggleCMSPin()
     }

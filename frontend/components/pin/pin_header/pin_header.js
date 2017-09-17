@@ -27,8 +27,6 @@ export default class PinHeader extends Component {
   }
 
   render() {
-    console.log("pinheader");
-    console.log(this.props);
     let { id, title, body, board_id, owner } = this.props
     let editModalProps = { id, title, body, board_id, owner,
       toggleModal: () => this.toggleModal()
