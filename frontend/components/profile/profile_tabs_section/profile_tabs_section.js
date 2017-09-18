@@ -27,14 +27,14 @@ export default class ProfileTabsSection extends Component {
   }
 
   toggleTab(name) {
-    eval(`this.setState({${name}: this.state.${name} ? false : true})`)
+    this.setState({[name]: this.state[name] ? false : true})
     this._hideOtherTabs(name)
   }
 
   _hideOtherTabs(name) {
     for (let tab of this.tabs) {
       if (name === tab) continue
-      eval(`this.setState({${tab}: false})`)
+      this.setState({[tab]: false})
     }
   }
 

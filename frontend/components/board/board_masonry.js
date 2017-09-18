@@ -83,7 +83,7 @@ export default class BoardMasonry extends Component {
         classNameOnLoaded='visible'
         placeholder={<BoardLoadingIcon/>}
         timeout={0}
-        delay={0}
+        delay={500}
         >
         <div>
             <Masonry

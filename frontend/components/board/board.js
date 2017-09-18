@@ -36,7 +36,6 @@ class BoardPresentational extends Component {
   async componentWillMount() {
     this.props.getBoard(this.props.boardId)
     await this.props.getPins(this.props.boardId)
-    debugger
   }
 
   async componentDidUpdate(prevProps) {
