@@ -9,18 +9,23 @@ class ProfilePresentational extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      rerendered: false
+      rerendered: false,
+      loaded: false
     }
   }
 
   async componentDidUpdate(prevProps) {
     if (this.props.userId !== prevProps.userId) {
-      await this.props.getProfilePage(this.props.userId)
+      this.setState({loaded: false}, async () => {
+        await this.props.getProfilePage(this.props.userId)
+        this.setState({loaded: true})
+      })
     }
   }
 
   async componentWillMount() {
     await this.props.getProfilePage(this.props.userId)
+    this.setState({loaded: true})
   }
 
   render() {
@@ -38,7 +43,7 @@ class ProfilePresentational extends Component {
             <ProfileDescription {...profileDescriptionProps}/>
           </div>
         </div>
-        <ProfileTabsSection {...tabSectionProps}/>
+        {this.state.loaded ? <ProfileTabsSection {...tabSectionProps}/> : null}
       </div>
     )
   }

@@ -2,7 +2,7 @@ import { RECEIVE_PINS, RECEIVE_ERRORS, DESTROY_PIN, RECEIVE_PIN} from '../action
 import merge from 'lodash/merge';
 
 const defaultState = Object.freeze({
-  pins: []
+
 });
 
 const PinReducer = (state = defaultState, action) => {

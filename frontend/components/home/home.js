@@ -5,26 +5,29 @@ import BoardMasonry from '../board/board_masonry'
 import BoardHeader from '../board/board_header'
 import CMSPin from '../cms/cms_pin/cms_pin'
 import SessionLogin from '../session/session_login/session_login'
+import BoardEditForm from '../board/board_edit/board_edit_form'
 class HomePresentatinal extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      maybe: ''
+      loaded: false
     }
   }
 
-  componentWillMount() {
-    this.props.getHome()
+  async componentWillMount() {
+    await this.props.getHome()
+    this.setState({loaded: true})
   }
 
   render() {
     const headerProps = { name: 'Discover', username: null }
     const pins = Object.values(this.props.pins)
     const boardMasonryProps = { pins }
+    // { this.state.loaded ? <BoardMasonry {...boardMasonryProps}/> : null }
     return (
       <div className='home-container'>
         <BoardHeader {...headerProps}/>
-        <BoardMasonry {...boardMasonryProps}/>
+        <BoardEditForm/>
       </div>
     )
   }

@@ -29,33 +29,36 @@ class BoardPresentational extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      pins: []
+      loaded: false
     }
   }
 
   async componentWillMount() {
-    this.props.getBoard(this.props.boardId)
-    await this.props.getPins(this.props.boardId)
+    const board = this.props.getBoard(this.props.boardId)
+    const pins = this.props.getPins(this.props.boardId)
+    await Promise.all([board, pins])
+    this.setState({loaded: true})
   }
 
   async componentDidUpdate(prevProps) {
     if (prevProps.boardId !== this.props.boardId) {
-      const board = this.props.getBoard(this.props.boardId)
-      const pins = this.props.getPins(this.props.boardId)
-      debugger
-      await Promise.all([board, pins])
+      this.props.getBoard(this.props.boardId)
+      this.props.getPins(this.props.boardId)
     }
   }
 
   render() {
-    const { pins } = this.props
-    const { name, username, user_id } = this.props.board
-    const boardHeaderProps = {name, username, user_id}
+    const { pins, editBoard } = this.props
+    const { name, username, user_id, id } = this.props.board
+    const boardHeaderProps = {
+      name, username, user_id, id,
+      editBoard: board => editBoard(board)
+    }
     const boardMasonryProps = {pins: Object.values(pins)}
     return(
       <div>
         <BoardHeader {...boardHeaderProps}/>
-        <BoardMasonry {...boardMasonryProps}/>
+        {this.state.loaded ? <BoardMasonry {...boardMasonryProps}/> : null}
       </div>
     )
   }

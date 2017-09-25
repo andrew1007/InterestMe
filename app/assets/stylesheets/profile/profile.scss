@@ -45,7 +45,7 @@
   }
   &-container {
     @include flex-row;
-    justify-content: flex-start;
+    @include flex-center;
     align-items: center;
     flex-wrap: wrap;
   }

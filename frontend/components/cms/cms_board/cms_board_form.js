@@ -16,9 +16,7 @@ export default class CMSBoardForm extends Component {
   hasEmptyParams() {
     const {name} = this.state
     const paramsArray = Object.entries({name})
-    const emptyParams = paramsArray.filter(([desc, val]) => {
-      return val === ''
-    })
+    const emptyParams = paramsArray.filter(([desc, val]) => val === '' || !val)
     return emptyParams.length > 0
   }
 
