@@ -23,7 +23,7 @@ export default class BoardEditForm extends Component {
     const { id } = this.props
     const formParams = { name, id }
     this.props.editBoard(formParams)
-    console.log('board edit submit');
+    this.props.toggleModal()
   }
 
   render() {
