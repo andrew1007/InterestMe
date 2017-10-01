@@ -12,12 +12,12 @@ export default class PinHeader extends Component {
 
   toggleModal(type = null) {
     this.setState({ showModal: this.state.showModal ? false : true
-    },() => {
-      document.body.style.overflow = this.state.showModal && type !== 'edit' ? 'auto' : 'hidden'
-    })
-    if (type === 'delete') {
-      this.props.togglePinShow()
-    }
+    },() => this.toggleOverflow())
+    type === 'delete' ? this.props.togglePinShow() : null
+  }
+
+  toggleOverflow() {
+    document.body.style.overflow = this.state.showModal && type !== 'edit' ? 'auto' : 'hidden'
   }
 
   handleBoardRedirect() {
@@ -27,8 +27,8 @@ export default class PinHeader extends Component {
   }
 
   render() {
-    let { id, title, body, board_id, owner } = this.props
-    let editModalProps = { id, title, body, board_id, owner,
+    const { id, title, body, board_id, owner } = this.props
+    const editModalProps = { id, title, body, board_id, owner,
       toggleModal: () => this.toggleModal()
     }
     const editStyle = {"paddingLeft": "10px"}

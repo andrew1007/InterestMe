@@ -23,11 +23,11 @@ class HomePresentatinal extends Component {
     const headerProps = { name: 'Discover', username: null }
     const pins = Object.values(this.props.pins)
     const boardMasonryProps = { pins }
-    // { this.state.loaded ? <BoardMasonry {...boardMasonryProps}/> : null }
+    // <BoardEditForm/>
     return (
       <div className='home-container'>
         <BoardHeader {...headerProps}/>
-        <BoardEditForm/>
+        { this.state.loaded ? <BoardMasonry {...boardMasonryProps}/> : null }
       </div>
     )
   }

@@ -13,7 +13,6 @@ export default class BoardTile extends Component {
   }
 
   togglePinShow() {
-    debugger
     this.setState({showPin: this.state.showPin ? false : true}, () => {
       document.body.style.overflow = this.state.showPin ? 'hidden' : 'auto'
     })

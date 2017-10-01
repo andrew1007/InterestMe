@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { editBoard, getBoard } from '../../../actions/board_actions';
+import { connect } from 'react-redux';
 
-export default class BoardEditForm extends Component {
+class BoardEditFormPresentational extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -23,11 +25,11 @@ export default class BoardEditForm extends Component {
     const { id } = this.props
     const formParams = { name, id }
     this.props.editBoard(formParams)
-    this.props.toggleModal()
+    this.props.getBoard(id)
+    this.props.toggleModal(name)
   }
 
   render() {
-    console.log(this.props);
     return (
       <form onSubmit={e => this._handleSubmit(e)}>
         <h2>Edit Board</h2>
@@ -46,3 +48,14 @@ export default class BoardEditForm extends Component {
     )
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  editBoard: board => dispatch(editBoard(board)),
+  getBoard: id => dispatch(getBoard(id))
+})
+
+const BoardEditForm = connect(
+  null, mapDispatchToProps
+)(BoardEditFormPresentational)
+
+export default BoardEditForm

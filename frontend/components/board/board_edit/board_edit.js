@@ -5,13 +5,12 @@ import BoardEditForm from './board_edit_form'
 
 export default class BoardEdit extends Component {
   render() {
-    const { editBoard, id, name } = this.props
+    const { editBoard, id, name, toggleModal } = this.props
     const boardEditFormProps = {
       id, name,
-      editBoard: (board) => this.props.editBoard(board),
-      toggleModal: () => this.props.toggleModal()
+      editBoard: (board) => editBoard(board),
+      toggleModal: (name) => toggleModal(name)
     }
-    console.log("Asdfadf");
     return (
       <div>
         <Modal

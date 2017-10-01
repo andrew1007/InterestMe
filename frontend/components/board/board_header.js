@@ -9,16 +9,15 @@ export default class BoardHeader extends Component {
     }
   }
 
-  toggleModal() {
+  toggleModal(name) {
     this.setState({
       show: this.state.show ? false : true
     })
   }
 
   render() {
-    const { id, username, name, editBoard } = this.props
+    const { id, username, name } = this.props
     const boardEditProps = { id, name,
-      editBoard: board => editBoard(board),
       toggleModal: () => this.toggleModal()
     }
     return (

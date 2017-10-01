@@ -55,7 +55,7 @@ class BoardPresentational extends Component {
       editBoard: board => editBoard(board)
     }
     const boardMasonryProps = {pins: Object.values(pins)}
-    return(
+    return (
       <div>
         <BoardHeader {...boardHeaderProps}/>
         {this.state.loaded ? <BoardMasonry {...boardMasonryProps}/> : null}

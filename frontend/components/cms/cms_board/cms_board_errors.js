@@ -14,7 +14,7 @@ export default class CMSBoardErrors extends Component {
 
   render() {
     const text = `${this.props.errorText}`
-    const style = {"color": "red", "fontSize": "18px"}
+    const style = {color: "red", fontSize: "18px"}
     return (
       <span style={style}>
         {text + this.emptyParams()}
