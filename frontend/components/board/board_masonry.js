@@ -20,6 +20,11 @@ export default class BoardMasonry extends Component {
 
   componentDidMount() {
     this._mounted = true
+    const images = this.board.getElementsByTagName('img')
+    // debugger
+    if (images.length === 0) {
+      this.setState({done: true})
+    }
   }
 
   componentWillUnmount() {
@@ -49,11 +54,11 @@ export default class BoardMasonry extends Component {
     if (this._mounted) {
       this.setState({counter: this.state.counter + 1}, () => {
         if ((counter >= revealCounter || pinCount < revealCounter) && this._mounted) {
-          this._revealPins()
+          setTimeout(() => this._revealPins(), 10000)
           this.setState({revealCounter: this.state.revealCounter + 15})
         }
       })
-      setTimeout(() => this._revealPins(), 7000)
+      setTimeout(() => this._revealPins(), 100)
     }
   }
 
@@ -77,29 +82,30 @@ export default class BoardMasonry extends Component {
       fitWidth: true,
       transitionDuration: '0.01s'
     }
+    // classNameOnMount='hidden'
+    // classNameOnLoaded='visible'
+    // placeholder={<BoardLoadingIcon/>}
+    // onLoaded={() => this._revealPins()}
+    // <OnImagesLoaded
+    //   timeout={0}
+    //   delay={50000}
+    //   >
+  // </OnImagesLoaded>
     return (
-      <OnImagesLoaded
-        classNameOnMount='hidden'
-        classNameOnLoaded='visible'
-        placeholder={<BoardLoadingIcon/>}
-        timeout={0}
-        delay={500}
-        >
-        <div>
+        <div ref={board => this.board = board}>
             <Masonry
               elementType={'div'}
               disableImagesLoaded={false}
               className='board-masonry'
               options={masonryOptions}
               >
-                {this.renderTiles()}
+              {this.state.done ? this.renderTiles() : <BoardLoadingIcon/>}
               </Masonry>
               <Waypoint
                 onEnter={this._addTiles.bind(this)}
                 bottomOffset='-100px'
               />
         </div>
-      </OnImagesLoaded>
     )
   }
 }

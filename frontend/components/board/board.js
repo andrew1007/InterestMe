@@ -40,7 +40,7 @@ class BoardPresentational extends Component {
     this.setState({loaded: true})
   }
 
-  async componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps) {
     if (prevProps.boardId !== this.props.boardId) {
       this.props.getBoard(this.props.boardId)
       this.props.getPins(this.props.boardId)

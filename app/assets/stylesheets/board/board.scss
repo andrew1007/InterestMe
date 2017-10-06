@@ -98,3 +98,11 @@
     font-size: 20px
   }
 }
+
+.board-edit {
+  &-modal {
+    border-radius: 8px;
+    border: solid 2px;
+    border-color: $color-primary;
+  }
+}

@@ -42,7 +42,6 @@ export default class SignedInButtons extends Component {
   }
 
   newPinForm(){
-    debugger
     return (
       <PinNewFormContainer
         closeModal={this.closeModal.bind(this)}

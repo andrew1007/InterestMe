@@ -17,7 +17,7 @@ export default class BoardEdit extends Component {
           isOpen={true}
           onRequestClose={this.props.toggleModal}
           contentLabel="Session form"
-          className="new-pin-modal ReactModal__Content"
+          className="session-modal-container"
           >
           <BoardEditForm {...boardEditFormProps}/>
         </Modal>

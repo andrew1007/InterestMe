@@ -15,7 +15,7 @@ class BoardEditFormPresentational extends Component {
   }
 
   update(content, type) {
-    const newText = typeof content === 'string' ? content: content.currentTarget.value
+    const newText = typeof content === 'string' ? content : content.currentTarget.value
     this.setState({[type]: newText})
   }
 
