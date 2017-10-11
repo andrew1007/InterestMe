@@ -5,11 +5,11 @@ export default class CMSPinErrors extends Component {
     const aliases = {image_url: 'image', board_id: 'board'}
     const {title, image_url, board_id} = this.props
     const paramsArray = Object.entries({title, image_url, board_id})
-    let emptyParams = paramsArray.filter(([desc, val]) => val === '' || !val)
-    emptyParams = emptyParams.map(([desc, val]) => {
+    const emptyParams = paramsArray.filter(([desc, val]) => val === '' || !val)
+    const errorMessage = emptyParams.map(([desc, val]) => {
       return (desc in aliases) ? aliases[desc] : desc
     })
-    return emptyParams.join(", ")
+    return errorMessage.join(", ")
   }
 
   render() {

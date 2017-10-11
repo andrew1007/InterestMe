@@ -11,6 +11,18 @@ import { connect } from 'react-redux';
 import { login, signup, logout, clearErrors, getCurrentUser } from '../../actions/session_actions';
 
 class NavigationPresentational extends Component {
+  loggedInButtons() {
+    return (
+      <div>
+        <NavigationProfile {...navigationProfileProps}/>
+        <NavigationHome/>
+        <NavigationLogout {...navigationLogoutProps}/>
+        <NavigationNewPin/>
+        <NavigationNewBoard/>
+      </div>
+    )
+  }
+
   render() {
     console.log(this.props)
     const { id } = this.props.currentUser
@@ -19,13 +31,8 @@ class NavigationPresentational extends Component {
     const navigationLogoutProps = { logout: () => logout() }
     return (
       <div className='navigation-container'>
-        <NavigationProfile {...navigationProfileProps}/>
-        <NavigationHome/>
-        <NavigationLogout {...navigationLogoutProps}/>
-        <NavigationNewPin/>
         <NavigationLogin/>
         <NavigationSignup/>
-        <NavigationNewBoard/>
       </div>
     )
   }

@@ -20,10 +20,8 @@ export default class CMSPinForm extends Component {
   hasEmptyParams() {
     const {title, image_url, board_id} = this.state
     const paramsArray = Object.entries({title, image_url, board_id})
-    const emptyParams = paramsArray.filter(([desc, val]) => {
-      return val === ''
-    })
-    return emptyParams.length > 0
+    const anyEmptyParams = paramsArray.find(([desc, val]) => !val)
+    return anyEmptyParams ? true : false
   }
 
   async handleSubmit(e) {

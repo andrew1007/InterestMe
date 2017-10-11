@@ -5,11 +5,11 @@ export default class CMSBoardErrors extends Component {
     const aliases = {}
     const {name} = this.props
     const paramsArray = Object.entries({name})
-    let emptyParams = paramsArray.filter(([desc, val]) => val === '' || !val)
-    emptyParams = emptyParams.map(([desc, val]) => {
+    const emptyParams = paramsArray.filter(([desc, val]) => !val)
+    const errorMessage = emptyParams.map(([desc, val]) => {
       return (desc in aliases) ? aliases[desc] : desc
     })
-    return emptyParams.join(", ")
+    return errorMessage.join(", ")
   }
 
   render() {
