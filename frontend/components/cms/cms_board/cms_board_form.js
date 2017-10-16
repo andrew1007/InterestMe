@@ -39,7 +39,6 @@ export default class CMSBoardForm extends Component {
       const createBoardParams = { name }
       this.props.toggleCMSBoard()
       const { board } = await this.props.createBoard(createBoardParams)
-      console.log(board);
       hashHistory.push(`boards/${board.id}`)
     }
   }
